@@ -66,19 +66,70 @@ So: commit as you go, and publish before the session ends.
 ## Publishing
 
 `git push` has no credentials here on purpose. Commit following `odoo-git` (a change
-inside a submodule is committed in the submodule first, then in the project), then:
+inside a submodule is committed in the submodule first, then in the project), then
+publish. `dooservice publish` refuses a pull request that breaks the rules below and
+says what to fix, before anything is pushed: fix it and publish again.
+
+### Title
+
+Odoo's commit header: `[TAG] module: summary`.
+
+- `TAG` is one of `FIX IMP ADD REF REM MOV REV PERF I18N MIG`.
+- `module` is the technical name, lowercase; several separated by commas
+  (`acme_sale, acme_stock`), `*` for many.
+- The summary is imperative, without a final period. The whole title is 80 characters
+  at most. It stays in English when the commits are in English.
+
+### Description
+
+These sections, in this order, headed in the language of `$DOOSERVICE_LANGUAGE`
+(`es` Spanish, anything else English). Every section has content; only the last may be
+empty, and a risk-free change says so (`Ninguno.` / `None.`).
+
+| English | Español | What goes in it |
+| --- | --- | --- |
+| `## Summary` | `## Resumen` | what changes, 1 to 3 lines |
+| `## Why` | `## Motivo` | the problem or the request, for whom |
+| `## Changes` | `## Cambios` | a bullet per module: what changed in it |
+| `## How to test` | `## Cómo probar` | numbered steps on this environment, with the expected result |
+| `## Deployment` | `## Despliegue` | modules to update (`-u`), migrations, new `requirements.txt` lines, restart |
+| `## Risks` | `## Riesgos` | what could break and for whom, or none |
+| `## References` | `## Referencias` | ticket or task, only when the user gave one; never invented |
+
+Write it from what you did and verified, plainly and technically: no marketing, no
+emoji, no closing line. The platform signs every pull request
+(`🤖 Generado con Dooservice` / `🤖 Generated with Dooservice`) and every commit made by
+an AI session gets `Co-authored-by: Dooservice` by itself: do not add either.
 
 ```bash
-dooservice publish --title "<one line, imperative>" --body-file - <<'BODY'
-<why, the modules touched, how to test it, module updates needed, risks>
+dooservice publish --title "[FIX] acme_sale: keep the delivery date on duplicate" --body-file - <<'BODY'
+## Resumen
+Al duplicar un pedido confirmado se conserva la fecha de entrega prometida.
+
+## Motivo
+La copia salía con la fecha de hoy y el cliente recibía una fecha equivocada.
+
+## Cambios
+- acme_sale: `commitment_date` se copia al duplicar; las plantillas la limpian en su `copy()`.
+
+## Cómo probar
+1. Ventas → un pedido confirmado con fecha de entrega → Acción → Duplicar.
+2. La copia tiene la misma fecha de entrega.
+
+## Despliegue
+`dooservice update acme_sale`. Sin migraciones ni dependencias nuevas.
+
+## Riesgos
+Ninguno: solo afecta a pedidos duplicados.
+
+## Referencias
 BODY
 ```
 
 It pushes everything committed to a new branch `dooservice/<environment>-<timestamp>`,
 opens one pull request per changed submodule (into that submodule's default branch)
 and one for the project (into `$DOOSERVICE_BRANCH`), and prints their links: give them
-to the user. Write the title and description in the user's language. Nothing reaches
-any environment until somebody merges.
+to the user. Nothing reaches any environment until somebody merges.
 
 If it answers that this session cannot publish, give the user the commits as patches:
 `git format-patch origin/$DOOSERVICE_BRANCH --stdout`.
