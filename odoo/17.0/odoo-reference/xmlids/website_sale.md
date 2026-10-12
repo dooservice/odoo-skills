@@ -77,24 +77,7 @@
 ## ir.ui.menu
 
 - `website_sale.menu_ecommerce` — eCommerce
-- `website_sale.menu_orders` — Orders
-- `website_sale.menu_orders_orders` — Orders
-- `website_sale.menu_orders_unpaid_orders` — Unpaid Orders
-- `website_sale.menu_orders_abandoned_orders` — Abandoned Carts
-- `website_sale.menu_orders_customers` — Customers
-- `website_sale.menu_catalog` — Products
-- `website_sale.menu_catalog_products` — Products
-- `website_sale.menu_catalog_pricelists` — Pricelists
-- `website_sale.menu_catalog_categories`
-- `website_sale.menu_product_attribute_action`
-- `website_sale.product_catalog_product_tags` — Product Tags
 - `website_sale.menu_ecommerce_settings` — eCommerce
-- `website_sale.menu_ecommerce_payment_providers` — Payment Providers
-- `website_sale.menu_ecommerce_payment_methods` — Payment Methods
-- `website_sale.menu_ecommerce_payment_tokens`
-- `website_sale.menu_ecommerce_payment_transactions`
-- `website_sale.menu_ecommerce_delivery`
-- `website_sale.menu_delivery_zip_prefix`
 - `website_sale.menu_report_sales` — Online Sales
 - `website_sale.menu_product_pages` — Products
 

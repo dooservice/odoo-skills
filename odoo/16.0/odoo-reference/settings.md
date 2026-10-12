@@ -1,6 +1,7 @@
 # Settings
 
-Each field of `res.config.settings`, and where it keeps its value.
+Each field of `res.config.settings`, and where it keeps its value. A field more than one
+addon defines is kept as the last of them installed says: each is listed with its addon.
 
 | Field | Label | Kept as | Addon |
 |---|---|---|---|
@@ -11,7 +12,7 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `account_check_printing_margin_right` | Check Right Margin | `company_id.account_check_printing_margin_right` | account_check_printing |
 | `account_check_printing_margin_top` | Check Top Margin | `company_id.account_check_printing_margin_top` | account_check_printing |
 | `account_check_printing_multi_stub` | Multi-Pages Check Stub | `company_id.account_check_printing_multi_stub` | account_check_printing |
-| `account_default_credit_limit` | Default Credit Limit | computed by the screen | account |
+| `account_default_credit_limit` | Default Credit Limit | computed by `_compute_account_default_credit_limit` | account |
 | `account_default_pos_receivable_account_id` | Default Account Receivable (PoS) | `company_id.account_default_pos_receivable_account_id` | point_of_sale |
 | `account_fiscal_country_id` | Fiscal Country Code | `company_id.account_fiscal_country_id` | account |
 | `account_journal_early_pay_discount_gain_account_id` | Cash Discount Gain account | `company_id.account_journal_early_pay_discount_gain_account_id` | account |
@@ -19,20 +20,20 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `account_journal_payment_credit_account_id` | Outstanding Payments Account | `company_id.account_journal_payment_credit_account_id` | account |
 | `account_journal_payment_debit_account_id` | Outstanding Receipts Account | `company_id.account_journal_payment_debit_account_id` | account |
 | `account_journal_suspense_account_id` | Bank Suspense Account | `company_id.account_journal_suspense_account_id` | account |
-| `account_on_checkout` | Customer Accounts | computed by the screen | website_sale |
+| `account_on_checkout` | Customer Accounts | computed by `_compute_account_on_checkout` | website_sale |
 | `account_peppol_contact_email` |  | `company_id.account_peppol_contact_email` | account_peppol |
 | `account_peppol_eas` |  | `company_id.peppol_eas` | account_peppol |
 | `account_peppol_edi_identification` |  | `account_peppol_edi_user.edi_identification` | account_peppol |
-| `account_peppol_edi_mode` |  | computed by the screen | account_peppol |
-| `account_peppol_edi_user` | EDI user | computed by the screen | account_peppol |
+| `account_peppol_edi_mode` |  | computed by `_compute_account_peppol_edi_mode` | account_peppol |
+| `account_peppol_edi_user` | EDI user | computed by `_compute_account_peppol_edi_user` | account_peppol |
 | `account_peppol_endpoint` |  | `company_id.peppol_endpoint` | account_peppol |
-| `account_peppol_endpoint_warning` | Warning | computed by the screen | account_peppol |
+| `account_peppol_endpoint_warning` | Warning | computed by `_compute_account_peppol_endpoint_warning` | account_peppol |
 | `account_peppol_phone_number` |  | `company_id.account_peppol_phone_number` | account_peppol |
 | `account_peppol_proxy_state` |  | `company_id.account_peppol_proxy_state` | account_peppol |
 | `account_peppol_purchase_journal_id` |  | `company_id.peppol_purchase_journal_id` | account_peppol |
 | `account_storno` | Storno accounting | `company_id.account_storno` | account |
 | `account_use_credit_limit` | Sales Credit Limit | `company_id.account_use_credit_limit` | account |
-| `active_user_count` | Number of Active Users | computed by the screen | base_setup |
+| `active_user_count` | Number of Active Users | computed by `_compute_active_user_count` | base_setup |
 | `add_to_cart_action` |  | `website_id.add_to_cart_action` | website_sale |
 | `alias_domain` | Alias Domain | parameter `mail.catchall.domain` | mail |
 | `allow_out_of_stock_order` | Continue selling when out-of-stock | computed by the screen | website_sale_stock |
@@ -46,8 +47,7 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `auth_oauth_google_enabled` | Allow users to sign in with Google | computed by the screen | auth_oauth |
 | `auth_signup_reset_password` | Enable password reset from Login page | parameter `auth_signup.reset_password` | auth_signup |
 | `auth_signup_template_user_id` | Template user for new users created through signup | parameter `base.template_portal_user_id` | auth_signup |
-| `auth_signup_uninvited` | Customer Account | parameter `auth_signup.invitation_scope` | auth_signup |
-| `auth_signup_uninvited` |  | computed by the screen | website |
+| `auth_signup_uninvited` | Customer Account | parameter `auth_signup.invitation_scope` (with auth_signup); computed by `_compute_auth_signup_uninvited` (with website) | auth_signup, website |
 | `auth_totp_enforce` | Enforce two-factor authentication | computed by the screen | auth_totp_mail_enforce |
 | `auth_totp_policy` | Two-factor authentication enforcing policy | parameter `auth_totp.policy` | auth_totp_mail_enforce |
 | `authorize_capture_method` | Authorize.net: Payment Capture Method | computed by the screen | website_payment_authorize |
@@ -65,24 +65,23 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `cdn_url` |  | `website_id.cdn_url` | website |
 | `channel_id` | Website Live Channel | `website_id.channel_id` | website_livechat |
 | `chart_template_id` | Template | computed by the screen | account |
-| `company_count` | Number of Companies | computed by the screen | base_setup |
+| `company_count` | Number of Companies | computed by `_compute_company_count` | base_setup |
 | `company_currency_id` | Company Currency | `company_id.currency_id` | purchase |
 | `company_expense_journal_id` |  | `company_id.company_expense_journal_id` | hr_expense |
 | `company_id` | Company | computed by the screen | base_setup |
-| `company_informations` |  | computed by the screen | base_setup |
+| `company_informations` |  | computed by `_compute_company_informations` | base_setup |
 | `company_lunch_minimum_threshold` | Maximum Allowed Overdraft | `company_id.lunch_minimum_threshold` | lunch |
 | `company_lunch_notify_message` | Lunch notification message | `company_id.lunch_notify_message` | lunch |
 | `company_name` | Company Name | `company_id.display_name` | base_setup |
 | `company_so_template_id` | Default Template | `company_id.sale_order_template_id` | sale_management |
 | `country_code` |  | `company_id.account_fiscal_country_id.code` | account |
-| `crm_auto_assignment_action` | Auto Assignment Action | computed by the screen | crm |
-| `crm_auto_assignment_interval_number` | Repeat every | computed by the screen | crm |
-| `crm_auto_assignment_interval_type` | Auto Assignment Interval Unit | computed by the screen | crm |
-| `crm_auto_assignment_run_datetime` | Auto Assignment Next Execution Date | computed by the screen | crm |
+| `crm_auto_assignment_action` | Auto Assignment Action | computed by `_compute_crm_auto_assignment_data` | crm |
+| `crm_auto_assignment_interval_number` | Repeat every | computed by `_compute_crm_auto_assignment_data` | crm |
+| `crm_auto_assignment_interval_type` | Auto Assignment Interval Unit | computed by `_compute_crm_auto_assignment_data` | crm |
+| `crm_auto_assignment_run_datetime` | Auto Assignment Next Execution Date | computed by `_compute_crm_auto_assignment_data` | crm |
 | `crm_use_auto_assignment` | Rule-Based Assignment | parameter `crm.lead.auto.assignment` | crm |
 | `currency_exchange_journal_id` | Currency Exchange Journal | `company_id.currency_exchange_journal_id` | account |
-| `currency_id` | Currency | `company_id.currency_id` | account |
-| `currency_id` |  | `company_id.currency_id` | lunch |
+| `currency_id` | Currency | `company_id.currency_id` (with account); `company_id.currency_id` (with lunch) | account, lunch |
 | `days_to_purchase` |  | `company_id.days_to_purchase` | purchase_stock |
 | `default_invoice_policy` |  | computed by the screen | sale |
 | `default_picking_policy` |  | computed by the screen | sale_stock |
@@ -92,17 +91,17 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `digest_emails` | Digest Emails | parameter `digest.default_digest_emails` | digest |
 | `digest_id` | Digest Email | parameter `digest.default_digest_id` | digest |
 | `early_pay_discount_computation` | Tax setting | `company_id.early_pay_discount_computation` | account |
-| `enabled_buy_now_button` | Buy Now | computed by the screen | website_sale |
-| `enabled_extra_checkout_step` | Extra Step During Checkout | computed by the screen | website_sale |
+| `enabled_buy_now_button` | Buy Now | computed by `_compute_checkout_process_steps` | website_sale |
+| `enabled_extra_checkout_step` | Extra Step During Checkout | computed by `_compute_checkout_process_steps` | website_sale |
 | `events_app_name` | Events App Name | `website_id.events_app_name` | website_event_track |
-| `expense_alias_prefix` | Default Alias Name for Expenses | computed by the screen | hr_expense |
+| `expense_alias_prefix` | Default Alias Name for Expenses | computed by `_compute_expense_alias_prefix` | hr_expense |
 | `expense_currency_exchange_account_id` | Loss Account | `company_id.expense_currency_exchange_account_id` | account |
 | `expense_journal_id` |  | `company_id.expense_journal_id` | hr_expense |
 | `external_email_server_default` | Custom Email Servers | parameter `base_setup.default_external_email_server` | base_setup |
 | `external_report_layout_id` |  | `company_id.external_report_layout_id` | base_setup |
-| `fail_counter` | Fail Mail | computed by the screen | mail |
+| `fail_counter` | Fail Mail | computed by `_compute_fail_counter` | mail |
 | `favicon` | Favicon | `website_id.favicon` | website |
-| `first_provider_label` |  | computed by the screen | website_payment |
+| `first_provider_label` |  | computed by `_compute_providers_state` | website_payment |
 | `geoloc_provider_googlemap_key` | Google Map API Key | parameter `base_geolocalize.google_map_api_key` | base_geolocalize |
 | `geoloc_provider_id` | API | parameter `base_geolocalize.geo_provider` | base_geolocalize |
 | `geoloc_provider_techname` |  | `geoloc_provider_id.tech_name` | base_geolocalize |
@@ -133,8 +132,7 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `group_multi_currency` | Multi-Currencies | group `base.group_multi_currency` | base_setup |
 | `group_multi_website` | Multi-website | group `website.group_multi_website` | website |
 | `group_product_price_comparison` | Comparison Price | group `website_sale.group_product_price_comparison` | website_sale |
-| `group_product_pricelist` | Pricelists | group `product.group_product_pricelist` | product |
-| `group_product_pricelist` |  | computed by the screen | website_sale |
+| `group_product_pricelist` | Pricelists | group `product.group_product_pricelist` (with product); computed by `_compute_group_product_pricelist` (with website_sale) | product, website_sale |
 | `group_product_variant` | Variants | group `product.group_product_variant` | product |
 | `group_proforma_sales` | Pro-Forma Invoice | group `sale.group_proforma_sales` | sale |
 | `group_project_milestone` | Milestones | group `project.group_project_milestone` | project |
@@ -146,8 +144,8 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `group_sale_order_template` | Quotation Templates | group `sale_management.group_sale_order_template` | sale_management |
 | `group_sale_pricelist` | Advanced Pricelists | group `product.group_sale_pricelist` | product |
 | `group_send_reminder` | Receipt Reminder | group `purchase.group_send_reminder` | purchase |
-| `group_show_line_subtotals_tax_excluded` | Show line subtotals without taxes (B2B) | group `account.group_show_line_subtotals_tax_excluded` | account |
-| `group_show_line_subtotals_tax_included` | Show line subtotals with taxes (B2C) | group `account.group_show_line_subtotals_tax_included` | account |
+| `group_show_line_subtotals_tax_excluded` | Show line subtotals without taxes (B2B) | computed by `_compute_group_show_line_subtotals` | account |
+| `group_show_line_subtotals_tax_included` | Show line subtotals with taxes (B2C) | computed by `_compute_group_show_line_subtotals` | account |
 | `group_show_purchase_receipts` | Purchase Receipt | group `account.group_purchase_receipts` | account |
 | `group_show_sale_receipts` | Sale Receipt | group `account.group_sale_receipts` | account |
 | `group_show_uom_price` | Base Unit Price | group `website_sale.group_show_uom_price` | website_sale |
@@ -171,12 +169,12 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `group_warning_purchase` | Purchase Warnings | group `purchase.group_warning_purchase` | purchase |
 | `group_warning_sale` | Sale Order Warnings | group `sale.group_warning_sale` | sale |
 | `group_warning_stock` | Warnings for Stock | group `stock.group_warning_stock` | stock |
-| `has_accounting_entries` |  | computed by the screen | account |
-| `has_chart_of_accounts` | Company has a chart of accounts | computed by the screen | account |
-| `has_default_share_image` | Use a image by default for sharing | computed by the screen | website |
-| `has_google_analytics` | Google Analytics | computed by the screen | website |
-| `has_google_search_console` | Console Google Search | computed by the screen | website |
-| `has_plausible_shared_key` | Plausible Analytics | computed by the screen | website |
+| `has_accounting_entries` |  | computed by `_compute_has_chart_of_accounts` | account |
+| `has_chart_of_accounts` | Company has a chart of accounts | computed by `_compute_has_chart_of_accounts` | account |
+| `has_default_share_image` | Use a image by default for sharing | computed by `_compute_has_default_share_image` | website |
+| `has_google_analytics` | Google Analytics | computed by `_compute_has_google_analytics` | website |
+| `has_google_search_console` | Console Google Search | computed by `_compute_has_google_search_console` | website |
+| `has_plausible_shared_key` | Plausible Analytics | computed by `_compute_has_plausible_shared_key` | website |
 | `hr_attendance_overtime` | Count Extra Hours | computed by the screen | hr_attendance |
 | `hr_employee_self_edit` | Employee Editing | parameter `hr.hr_employee_self_edit` | hr |
 | `hr_presence_control_email` | Based on number of emails sent | parameter `hr_presence.hr_presence_control_email` | hr |
@@ -194,11 +192,11 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `invoice_policy` | Invoice Policy | computed by the screen | sale_timesheet |
 | `invoice_terms` | Terms & Conditions | `company_id.invoice_terms` | account |
 | `invoice_terms_html` | Terms & Conditions as a Web page | `company_id.invoice_terms_html` | account |
-| `is_account_peppol_eligible` | PEPPOL eligible | computed by the screen | account |
+| `is_account_peppol_eligible` | PEPPOL eligible | computed by `_compute_is_account_peppol_eligible` | account |
 | `is_account_peppol_participant` | Use PEPPOL | `company_id.is_account_peppol_participant` | account_peppol |
-| `is_default_pricelist_displayed` |  | computed by the screen | point_of_sale |
-| `is_edi_proxy_active` |  | computed by the screen | l10n_it_edi |
-| `is_encode_uom_days` |  | computed by the screen | hr_timesheet |
+| `is_default_pricelist_displayed` |  | computed by `_compute_pos_pricelist_id` | point_of_sale |
+| `is_edi_proxy_active` |  | computed by `_compute_is_edi_proxy_active` | l10n_it_edi |
+| `is_encode_uom_days` |  | computed by `_compute_is_encode_uom_days` | hr_timesheet |
 | `is_installed_sale` | Is the Sale Module Installed | computed by the screen | purchase_stock |
 | `is_membership_multi` | Multi Teams | parameter `sales_team.membership_multi` | crm |
 | `is_stripe_supported_country` |  | `company_id.country_id.is_stripe_supported_country` | website_payment |
@@ -216,7 +214,7 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `l10n_es_edi_tax_agency` |  | `company_id.l10n_es_edi_tax_agency` | l10n_es_edi_sii |
 | `l10n_es_edi_test_env` |  | `company_id.l10n_es_edi_test_env` | l10n_es_edi_sii |
 | `l10n_es_tbai_tax_agency` |  | `company_id.l10n_es_tbai_tax_agency` | l10n_es_edi_tbai |
-| `l10n_eu_oss_eu_country` | Is European country? | computed by the screen | l10n_eu_oss |
+| `l10n_eu_oss_eu_country` | Is European country? | computed by `_compute_l10n_eu_oss_european_country` | l10n_eu_oss |
 | `l10n_id_tax_address` | Tax Address | `company_id.partner_id.l10n_id_tax_address` | l10n_id_efaktur |
 | `l10n_id_tax_name` | Tax Name | `company_id.partner_id.l10n_id_tax_address` | l10n_id_efaktur |
 | `l10n_in_edi_ewaybill_password` | Indian EDI Stock password | `company_id.l10n_in_edi_ewaybill_password` | l10n_in_edi_ewaybill |
@@ -225,13 +223,13 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `l10n_in_edi_production_env` | Indian EDI Testing Environment | `company_id.l10n_in_edi_production_env` | l10n_in_edi |
 | `l10n_in_edi_username` | Indian EDI username | `company_id.l10n_in_edi_username` | l10n_in_edi |
 | `l10n_in_gsp` | GSP | computed by the screen | l10n_in |
-| `l10n_it_edi_proxy_current_state` |  | computed by the screen | l10n_it_edi |
-| `l10n_it_edi_sdicoop_demo_mode` |  | computed by the screen | l10n_it_edi |
-| `l10n_it_edi_sdicoop_register` |  | computed by the screen | l10n_it_edi |
+| `l10n_it_edi_proxy_current_state` |  | computed by `_compute_l10n_it_edi_proxy_current_state` | l10n_it_edi |
+| `l10n_it_edi_sdicoop_demo_mode` |  | computed by `_compute_l10n_it_edi_sdicoop_demo_mode` | l10n_it_edi |
+| `l10n_it_edi_sdicoop_register` |  | computed by `_compute_l10n_it_edi_sdicoop_register` | l10n_it_edi |
 | `l10n_ke_cu_proxy_address` |  | `company_id.l10n_ke_cu_proxy_address` | l10n_ke_edi_tremol |
 | `l10n_pl_reports_tax_office_id` |  | `company_id.l10n_pl_reports_tax_office_id` | l10n_pl_jpk |
 | `l10n_sa_api_mode` |  | `company_id.l10n_sa_api_mode` | l10n_sa_edi |
-| `language_count` | Number of Languages | computed by the screen | base_setup |
+| `language_count` | Number of Languages | computed by `_compute_language_count` | base_setup |
 | `language_ids` |  | `website_id.language_ids` | website |
 | `lc_journal_id` | Default Journal | `company_id.lc_journal_id` | stock_landed_costs |
 | `ldaps` | LDAP Parameters | `company_id.ldaps` | auth_ldap |
@@ -272,24 +270,15 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `module_crm_iap_enrich` | Enrich your leads automatically with company data based on their email address. | installs `crm_iap_enrich` | crm |
 | `module_crm_iap_mine` | Generate new leads based on their country, industries, size, etc. | installs `crm_iap_mine` | crm |
 | `module_currency_rate_live` | Automatic Currency Rates | installs `currency_rate_live` | account |
-| `module_delivery` | Delivery Methods | installs `delivery` | sale |
-| `module_delivery` | Delivery Methods | installs `delivery` | stock |
-| `module_delivery` |  | installs `delivery` | website_sale |
-| `module_delivery_bpost` | bpost Connector | installs `delivery_bpost` | sale |
-| `module_delivery_bpost` | bpost Connector | installs `delivery_bpost` | stock |
-| `module_delivery_dhl` | DHL Express Connector | installs `delivery_dhl` | sale |
-| `module_delivery_dhl` | DHL Express Connector | installs `delivery_dhl` | stock |
-| `module_delivery_easypost` | Easypost Connector | installs `delivery_easypost` | sale |
-| `module_delivery_easypost` | Easypost Connector | installs `delivery_easypost` | stock |
-| `module_delivery_fedex` | FedEx Connector | installs `delivery_fedex` | sale |
-| `module_delivery_fedex` | FedEx Connector | installs `delivery_fedex` | stock |
+| `module_delivery` | Delivery Methods | installs `delivery` (with sale); installs `delivery` (with stock); computed by `_compute_module_delivery` (with website_sale) | sale, stock, website_sale |
+| `module_delivery_bpost` | bpost Connector | installs `delivery_bpost` (with sale); installs `delivery_bpost` (with stock) | sale, stock |
+| `module_delivery_dhl` | DHL Express Connector | installs `delivery_dhl` (with sale); installs `delivery_dhl` (with stock) | sale, stock |
+| `module_delivery_easypost` | Easypost Connector | installs `delivery_easypost` (with sale); installs `delivery_easypost` (with stock) | sale, stock |
+| `module_delivery_fedex` | FedEx Connector | installs `delivery_fedex` (with sale); installs `delivery_fedex` (with stock) | sale, stock |
 | `module_delivery_mondialrelay` | Mondial Relay Connector | installs `delivery_mondialrelay` | website_sale |
-| `module_delivery_sendcloud` | Sendcloud Connector | installs `delivery_sendcloud` | sale |
-| `module_delivery_sendcloud` | Sendcloud Connector | installs `delivery_sendcloud` | stock |
-| `module_delivery_ups` | UPS Connector | installs `delivery_ups` | sale |
-| `module_delivery_ups` | UPS Connector | installs `delivery_ups` | stock |
-| `module_delivery_usps` | USPS Connector | installs `delivery_usps` | sale |
-| `module_delivery_usps` | USPS Connector | installs `delivery_usps` | stock |
+| `module_delivery_sendcloud` | Sendcloud Connector | installs `delivery_sendcloud` (with sale); installs `delivery_sendcloud` (with stock) | sale, stock |
+| `module_delivery_ups` | UPS Connector | installs `delivery_ups` (with sale); installs `delivery_ups` (with stock) | sale, stock |
+| `module_delivery_usps` | USPS Connector | installs `delivery_usps` (with sale); installs `delivery_usps` (with stock) | sale, stock |
 | `module_event_barcode` | Barcode | installs `event_barcode` | event |
 | `module_event_booth` | Booth Management | installs `event_booth` | event |
 | `module_event_sale` | Tickets | installs `event_sale` | event |
@@ -328,14 +317,12 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `module_product_images` | Get product pictures using barcode | installs `product_images` | base_setup |
 | `module_product_margin` | Allow Product Margin | installs `product_margin` | account |
 | `module_project_forecast` | Planning | installs `project_forecast` | project |
-| `module_project_timesheet_holidays` | Time Off | installs `project_timesheet_holidays` | hr_timesheet |
-| `module_project_timesheet_synchro` | Awesome Timesheet | installs `project_timesheet_synchro` | hr_timesheet |
+| `module_project_timesheet_holidays` | Time Off | computed by `_compute_timesheet_modules` | hr_timesheet |
+| `module_project_timesheet_synchro` | Awesome Timesheet | computed by `_compute_timesheet_modules` | hr_timesheet |
 | `module_purchase_product_matrix` | Purchase Grid Entry | installs `purchase_product_matrix` | purchase |
 | `module_purchase_requisition` | Purchase Agreements | installs `purchase_requisition` | purchase |
-| `module_quality_control` | Quality | installs `quality_control` | mrp |
-| `module_quality_control` | Quality | installs `quality_control` | stock |
-| `module_quality_control_worksheet` | Quality Worksheet | installs `quality_control_worksheet` | mrp |
-| `module_quality_control_worksheet` | Quality Worksheet | installs `quality_control_worksheet` | stock |
+| `module_quality_control` | Quality | installs `quality_control` (with mrp); installs `quality_control` (with stock) | mrp, stock |
+| `module_quality_control_worksheet` | Quality Worksheet | installs `quality_control_worksheet` (with mrp); installs `quality_control_worksheet` (with stock) | mrp, stock |
 | `module_sale_amazon` | Amazon Sync | installs `sale_amazon` | sale |
 | `module_sale_loyalty` | Coupons & Loyalty | installs `sale_loyalty` | sale |
 | `module_sale_margin` | Margins | installs `sale_margin` | sale |
@@ -361,8 +348,7 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `module_website_livechat` |  | installs `website_livechat` | website |
 | `module_website_sale_autocomplete` | Address Autocomplete | installs `website_sale_autocomplete` | website_sale |
 | `module_website_sale_comparison` | Product Comparison Tool | installs `website_sale_comparison` | website_sale |
-| `module_website_sale_delivery` | eCommerce Shipping Costs | installs `website_sale_delivery` | website_sale |
-| `module_website_sale_delivery` |  | installs `website_sale_delivery` | website_sale |
+| `module_website_sale_delivery` | eCommerce Shipping Costs | installs `website_sale_delivery` (with website_sale); computed by `_compute_module_delivery` (with website_sale) | website_sale |
 | `module_website_sale_digital` | Digital Content | installs `website_sale_digital` | website_sale |
 | `module_website_sale_picking` | On Site Payments & Picking | installs `website_sale_picking` | website_sale |
 | `module_website_sale_slides` | Sell on eCommerce | installs `website_sale_slides` | website_slides |
@@ -372,7 +358,7 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `overtime_company_threshold` | Tolerance Time In Favor Of Company | computed by the screen | hr_attendance |
 | `overtime_employee_threshold` | Tolerance Time In Favor Of Employee | computed by the screen | hr_attendance |
 | `overtime_start_date` | Extra Hours Starting Date | computed by the screen | hr_attendance |
-| `partner_autocomplete_insufficient_credit` | Insufficient credit | computed by the screen | partner_autocomplete |
+| `partner_autocomplete_insufficient_credit` | Insufficient credit | computed by `_compute_partner_autocomplete_insufficient_credit` | partner_autocomplete |
 | `pay_invoices_online` |  | parameter `account_payment.enable_portal_payment` | account_payment_invoice_online_payment_patch |
 | `paypal_email_account` |  | computed by the screen | website_payment_paypal |
 | `picking_site_ids` |  | `website_id.picking_site_ids` | website_sale_picking |
@@ -384,51 +370,51 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `po_lock` | Purchase Order Modification * | `company_id.po_lock` | purchase |
 | `po_order_approval` | Purchase Order Approval | computed by the screen | purchase |
 | `point_of_sale_use_ticket_qr_code` |  | `company_id.point_of_sale_use_ticket_qr_code` | point_of_sale |
-| `portal_allow_api_keys` | Customer API Keys | computed by the screen | portal |
+| `portal_allow_api_keys` | Customer API Keys | computed by `_compute_portal_allow_api_keys` | portal |
 | `portal_confirmation_pay` | Online Payment | `company_id.portal_confirmation_pay` | sale |
 | `portal_confirmation_sign` | Online Signature | `company_id.portal_confirmation_sign` | sale |
-| `pos_adyen_ask_customer_for_tip` |  | computed by the screen | pos_adyen |
-| `pos_allowed_pricelist_ids` |  | computed by the screen | point_of_sale |
+| `pos_adyen_ask_customer_for_tip` |  | computed by `_compute_pos_adyen_ask_customer_for_tip` | pos_adyen |
+| `pos_allowed_pricelist_ids` |  | computed by `_compute_pos_allowed_pricelist_ids` | point_of_sale |
 | `pos_amount_authorized_diff` |  | `pos_config_id.amount_authorized_diff` | point_of_sale |
-| `pos_available_pricelist_ids` | Available Pricelists | computed by the screen | point_of_sale |
+| `pos_available_pricelist_ids` | Available Pricelists | computed by `_compute_pos_pricelist_id` | point_of_sale |
 | `pos_cash_control` |  | `pos_config_id.cash_control` | point_of_sale |
 | `pos_cash_rounding` | Cash Rounding (PoS) | `pos_config_id.cash_rounding` | point_of_sale |
 | `pos_company_has_template` |  | `pos_config_id.company_has_template` | point_of_sale |
 | `pos_config_id` | Point of Sale | computed by the screen | point_of_sale |
 | `pos_crm_team_id` | Sales Team (PoS) | `pos_config_id.crm_team_id` | pos_sale |
 | `pos_default_bill_ids` |  | `pos_config_id.default_bill_ids` | point_of_sale |
-| `pos_default_fiscal_position_id` | Default Fiscal Position | computed by the screen | point_of_sale |
+| `pos_default_fiscal_position_id` | Default Fiscal Position | computed by `_compute_pos_fiscal_positions` | point_of_sale |
 | `pos_discount_pc` |  | `pos_config_id.discount_pc` | pos_discount |
-| `pos_discount_product_id` |  | computed by the screen | pos_discount |
+| `pos_discount_product_id` |  | computed by `_compute_pos_discount_product_id` | pos_discount |
 | `pos_down_payment_product_id` |  | `pos_config_id.down_payment_product_id` | pos_sale |
 | `pos_employee_ids` |  | `pos_config_id.employee_ids` | pos_hr |
-| `pos_epson_printer_ip` |  | computed by the screen | pos_epson_printer |
-| `pos_fiscal_position_ids` | Fiscal Positions | computed by the screen | point_of_sale |
+| `pos_epson_printer_ip` |  | computed by `_compute_pos_epson_printer_ip` | pos_epson_printer |
+| `pos_fiscal_position_ids` | Fiscal Positions | computed by `_compute_pos_fiscal_positions` | point_of_sale |
 | `pos_floor_ids` |  | `pos_config_id.floor_ids` | pos_restaurant |
 | `pos_gift_card_settings` |  | `pos_config_id.gift_card_settings` | pos_loyalty |
 | `pos_has_active_session` |  | `pos_config_id.has_active_session` | point_of_sale |
-| `pos_iface_available_categ_ids` | Available PoS Product Categories | computed by the screen | point_of_sale |
+| `pos_iface_available_categ_ids` | Available PoS Product Categories | computed by `_compute_pos_iface_available_categ_ids` | point_of_sale |
 | `pos_iface_big_scrollbars` |  | `pos_config_id.iface_big_scrollbars` | point_of_sale |
-| `pos_iface_cashdrawer` | Cashdrawer | computed by the screen | point_of_sale |
+| `pos_iface_cashdrawer` | Cashdrawer | computed by `_compute_pos_iface_cashdrawer` | point_of_sale |
 | `pos_iface_customer_facing_display_local` |  | `pos_config_id.iface_customer_facing_display_local` | point_of_sale |
-| `pos_iface_customer_facing_display_via_proxy` | Customer Facing Display | computed by the screen | point_of_sale |
-| `pos_iface_electronic_scale` | Electronic Scale | computed by the screen | point_of_sale |
-| `pos_iface_orderline_notes` |  | computed by the screen | pos_restaurant |
+| `pos_iface_customer_facing_display_via_proxy` | Customer Facing Display | computed by `_compute_pos_iface_customer_facing_display_via_proxy` | point_of_sale |
+| `pos_iface_electronic_scale` | Electronic Scale | computed by `_compute_pos_iface_electronic_scale` | point_of_sale |
+| `pos_iface_orderline_notes` |  | computed by `_compute_pos_module_pos_restaurant` | pos_restaurant |
 | `pos_iface_print_auto` |  | `pos_config_id.iface_print_auto` | point_of_sale |
 | `pos_iface_print_skip_screen` |  | `pos_config_id.iface_print_skip_screen` | point_of_sale |
-| `pos_iface_print_via_proxy` | Print via Proxy | computed by the screen | point_of_sale |
-| `pos_iface_printbill` |  | computed by the screen | pos_restaurant |
-| `pos_iface_scan_via_proxy` | Scan via Proxy | computed by the screen | point_of_sale |
-| `pos_iface_splitbill` |  | computed by the screen | pos_restaurant |
-| `pos_iface_start_categ_id` | Initial Category | computed by the screen | point_of_sale |
+| `pos_iface_print_via_proxy` | Print via Proxy | computed by `_compute_pos_iface_print_via_proxy` | point_of_sale |
+| `pos_iface_printbill` |  | computed by `_compute_pos_module_pos_restaurant` | pos_restaurant |
+| `pos_iface_scan_via_proxy` | Scan via Proxy | computed by `_compute_pos_iface_scan_via_proxy` | point_of_sale |
+| `pos_iface_splitbill` |  | computed by `_compute_pos_module_pos_restaurant` | pos_restaurant |
+| `pos_iface_start_categ_id` | Initial Category | computed by `_compute_pos_iface_start_categ_id` | point_of_sale |
 | `pos_iface_tax_included` |  | `pos_config_id.iface_tax_included` | point_of_sale |
 | `pos_iface_tipproduct` |  | `pos_config_id.iface_tipproduct` | point_of_sale |
 | `pos_invoice_journal_id` |  | `pos_config_id.invoice_journal_id` | point_of_sale |
 | `pos_is_header_or_footer` |  | `pos_config_id.is_header_or_footer` | point_of_sale |
 | `pos_is_margins_costs_accessible_to_every_user` |  | `pos_config_id.is_margins_costs_accessible_to_every_user` | point_of_sale |
-| `pos_is_order_printer` |  | computed by the screen | pos_restaurant |
+| `pos_is_order_printer` |  | computed by `_compute_pos_module_pos_restaurant` | pos_restaurant |
 | `pos_is_posbox` |  | `pos_config_id.is_posbox` | point_of_sale |
-| `pos_is_table_management` |  | computed by the screen | pos_restaurant |
+| `pos_is_table_management` |  | computed by `_compute_pos_module_pos_restaurant` | pos_restaurant |
 | `pos_journal_id` |  | `pos_config_id.journal_id` | point_of_sale |
 | `pos_limit_categories` |  | `pos_config_id.limit_categories` | point_of_sale |
 | `pos_limited_partners_amount` |  | `pos_config_id.limited_partners_amount` | point_of_sale |
@@ -445,38 +431,38 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `pos_payment_method_ids` |  | `pos_config_id.payment_method_ids` | point_of_sale |
 | `pos_picking_policy` |  | `pos_config_id.picking_policy` | point_of_sale |
 | `pos_picking_type_id` |  | `pos_config_id.picking_type_id` | point_of_sale |
-| `pos_pricelist_id` | Default Pricelist | computed by the screen | point_of_sale |
+| `pos_pricelist_id` | Default Pricelist | computed by `_compute_pos_pricelist_id` | point_of_sale |
 | `pos_printer_ids` |  | `pos_config_id.printer_ids` | pos_restaurant |
 | `pos_product_load_background` |  | `pos_config_id.product_load_background` | point_of_sale |
-| `pos_proxy_ip` | IP Address | computed by the screen | point_of_sale |
-| `pos_receipt_footer` | Receipt Footer | computed by the screen | point_of_sale |
-| `pos_receipt_header` | Receipt Header | computed by the screen | point_of_sale |
+| `pos_proxy_ip` | IP Address | computed by `_compute_pos_proxy_ip` | point_of_sale |
+| `pos_receipt_footer` | Receipt Footer | computed by `_compute_pos_receipt_header_footer` | point_of_sale |
+| `pos_receipt_header` | Receipt Header | computed by `_compute_pos_receipt_header_footer` | point_of_sale |
 | `pos_restrict_price_control` |  | `pos_config_id.restrict_price_control` | point_of_sale |
 | `pos_rounding_method` |  | `pos_config_id.rounding_method` | point_of_sale |
 | `pos_route_id` |  | `pos_config_id.route_id` | point_of_sale |
-| `pos_selectable_categ_ids` |  | computed by the screen | point_of_sale |
+| `pos_selectable_categ_ids` |  | computed by `_compute_pos_selectable_categ_ids` | point_of_sale |
 | `pos_sequence_id` |  | `pos_config_id.sequence_id` | point_of_sale |
 | `pos_set_maximum_difference` |  | `pos_config_id.set_maximum_difference` | point_of_sale |
-| `pos_set_tip_after_payment` |  | computed by the screen | pos_restaurant |
+| `pos_set_tip_after_payment` |  | computed by `_compute_pos_set_tip_after_payment` | pos_restaurant |
 | `pos_ship_later` |  | `pos_config_id.ship_later` | point_of_sale |
 | `pos_start_category` |  | `pos_config_id.start_category` | point_of_sale |
 | `pos_tax_regime_selection` |  | `pos_config_id.tax_regime_selection` | point_of_sale |
-| `pos_tip_product_id` | Tip Product | computed by the screen | point_of_sale |
+| `pos_tip_product_id` | Tip Product | computed by `_compute_pos_tip_product_id` | point_of_sale |
 | `pos_use_pricelist` |  | `pos_config_id.use_pricelist` | point_of_sale |
 | `pos_warehouse_id` | Warehouse (PoS) | `pos_config_id.warehouse_id` | point_of_sale |
-| `predictive_lead_scoring_field_labels` |  | computed by the screen | crm |
-| `predictive_lead_scoring_fields` | Lead Scoring Frequency Fields | computed by the screen | crm |
+| `predictive_lead_scoring_field_labels` |  | computed by `_compute_predictive_lead_scoring_field_labels` | crm |
+| `predictive_lead_scoring_fields` | Lead Scoring Frequency Fields | computed by `_compute_pls_fields` | crm |
 | `predictive_lead_scoring_fields_str` | Lead Scoring Frequency Fields in String | parameter `crm.pls_fields` | crm |
-| `predictive_lead_scoring_start_date` | Lead Scoring Starting Date | computed by the screen | crm |
+| `predictive_lead_scoring_start_date` | Lead Scoring Starting Date | computed by `_compute_pls_start_date` | crm |
 | `predictive_lead_scoring_start_date_str` | Lead Scoring Starting Date in String | parameter `crm.pls_start_date` | crm |
-| `preview_ready` | Display preview button | computed by the screen | account |
+| `preview_ready` | Display preview button | computed by `_compute_terms_preview` | account |
 | `primary_color` | Header Color | `company_id.primary_color` | mail |
 | `product_pricelist_setting` | Pricelists Method | parameter `product.product_pricelist_setting` | product |
 | `product_volume_volume_in_cubic_feet` |  | parameter `product.volume_in_cubic_feet` | product |
 | `product_weight_in_lbs` |  | parameter `product.weight_in_lbs` | product |
 | `profiling_enabled_until` | Profiling enabled until | parameter `base.profiling_enabled_until` | base_setup |
 | `project_time_mode_id` | Project Time Unit | `company_id.project_time_mode_id` | hr_timesheet |
-| `providers_state` |  | computed by the screen | website_payment |
+| `providers_state` |  | computed by `_compute_providers_state` | website_payment |
 | `purchase_tax_id` | Default Purchase Tax | `company_id.account_purchase_tax_id` | account |
 | `qr_code` | Display SEPA QR-code | `company_id.qr_code` | account |
 | `quick_edit_mode` | Quick encoding | `company_id.quick_edit_mode` | account |
@@ -490,15 +476,14 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `resource_calendar_id` |  | `company_id.resource_calendar_id` | hr |
 | `restrict_template_rendering` | Restrict Template Rendering | parameter `mail.restrict.template.rendering` | mail |
 | `sale_delivery_settings` | Shipping Management | computed by the screen | website_sale |
-| `sale_tax_id` | Default Sale Tax | `company_id.account_sale_tax_id` | account |
-| `sale_tax_id` | Default Sale Tax | `company_id.account_sale_tax_id` | point_of_sale |
+| `sale_tax_id` | Default Sale Tax | `company_id.account_sale_tax_id` (with account); `company_id.account_sale_tax_id` (with point_of_sale) | account, point_of_sale |
 | `salesperson_id` | Salesperson | `website_id.salesperson_id` | website_sale |
 | `salesteam_id` | Sales Team | `website_id.salesteam_id` | website_sale |
 | `secondary_color` | Button Color | `company_id.secondary_color` | mail |
 | `security_lead` | Security Lead Time | `company_id.security_lead` | sale_stock |
 | `send_abandoned_cart_email` | Abandoned Email | `website_id.send_abandoned_cart_email` | website_sale |
 | `server_uri_google` | Server uri | computed by the screen | auth_oauth |
-| `shared_user_account` | Shared Customer Accounts | computed by the screen | website |
+| `shared_user_account` | Shared Customer Accounts | computed by `_compute_shared_user_account` | website |
 | `show_availability` | Show availability Qty | computed by the screen | website_sale_stock |
 | `show_blacklist_buttons` | Blacklist Option when Unsubscribing | parameter `mass_mailing.show_blacklist_buttons` | mass_mailing |
 | `show_effect` | Show Effect | parameter `base_setup.show_effect` | base_setup |
@@ -514,7 +499,7 @@ Each field of `res.config.settings`, and where it keeps its value.
 | `tax_cash_basis_journal_id` | Tax Cash Basis Journal | `company_id.tax_cash_basis_journal_id` | account |
 | `tax_exigibility` | Cash Basis | `company_id.tax_exigibility` | account |
 | `terms_type` |  | `company_id.terms_type` | account |
-| `terms_url` | URL | computed by the screen | website_sale |
+| `terms_url` | URL | computed by `_compute_terms_url` | website_sale |
 | `timesheet_encode_uom_id` | Encoding Unit | `company_id.timesheet_encode_uom_id` | hr_timesheet |
 | `transfer_account_id` | Internal Transfer Account | `company_id.transfer_account_id` | account |
 | `twilio_account_sid` | Twilio Account SID | parameter `mail.twilio_account_sid` | mail |

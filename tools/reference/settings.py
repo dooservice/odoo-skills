@@ -51,7 +51,9 @@ class SettingsScanner:
         if described is None or not isinstance(value, ast.Call):
             return None
         keywords = {k.arg: self.models.literal(k.value) for k in value.keywords if k.arg}
-        if isinstance(keywords.get("config_parameter"), str):
+        if isinstance(keywords.get("compute"), str):
+            kept = f"computed by `{keywords['compute']}`"
+        elif isinstance(keywords.get("config_parameter"), str):
             kept = f"parameter `{keywords['config_parameter']}`"
         elif isinstance(keywords.get("implied_group"), str):
             kept = f"group `{keywords['implied_group']}`"

@@ -16,9 +16,6 @@
 ## ir.ui.menu
 
 - `note.menu_note_notes` — Notes
-- `note.menu_note_configuration` — Configuration
-- `note.menu_notes_stage` — Stages
-- `note.notes_tag_menu`
 
 ## ir.ui.view
 

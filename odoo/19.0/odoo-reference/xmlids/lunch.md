@@ -39,22 +39,6 @@
 ## ir.ui.menu
 
 - `lunch.menu_lunch` — Lunch
-- `lunch.menu_lunch_title` — My Lunch
-- `lunch.lunch_order_menu_form` — New Order
-- `lunch.lunch_order_menu_tree` — My Order History
-- `lunch.lunch_cashmove_report_menu_form` — My Account History
-- `lunch.menu_lunch_admin` — Manager
-- `lunch.lunch_order_menu_by_supplier` — Today's Orders
-- `lunch.lunch_order_menu_control_suppliers` — Control Vendors
-- `lunch.lunch_cashmove_report_menu_control_accounts` — Control Accounts
-- `lunch.lunch_cashmove_report_menu_payment` — Cash Moves
-- `lunch.menu_lunch_config` — Configuration
-- `lunch.lunch_settings_menu` — Settings
-- `lunch.lunch_vendors_menu` — Vendors
-- `lunch.lunch_location_menu` — Locations
-- `lunch.lunch_product_menu` — Products
-- `lunch.lunch_product_category_menu` — Product Categories
-- `lunch.lunch_alert_menu` — Alerts
 
 ## ir.ui.view
 

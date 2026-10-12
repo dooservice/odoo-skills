@@ -88,8 +88,6 @@
 - `hr_attendance.res_config_settings_view_form` — on res.config.settings inherits base.res_config_settings_view_form
 - `hr_attendance.public_kiosk_mode`
 - `hr_attendance.hr_attendance_overtime_rule_view_form` — on hr.attendance.overtime.rule
-- `hr_attendance.expected_hours_from_contract_yes`
-- `hr_attendance.expected_hours_from_contract_no`
 - `hr_attendance.hr_attendance_overtime_rule_view_list` — on hr.attendance.overtime.rule
 - `hr_attendance.hr_attendance_overtime_ruleset_view_form` — on hr.attendance.overtime.ruleset
 - `hr_attendance.hr_attendance_overtime_ruleset_view_list` — on hr.attendance.overtime.ruleset

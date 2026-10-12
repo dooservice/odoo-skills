@@ -244,45 +244,6 @@
 
 - `l10n_do.tax_report`
 
-## account.report.column
-
-- `l10n_do.tax_report_balance`
-
-## account.report.expression
-
-- `l10n_do.account_tax_report_2A2_ingrs_exprt_formula`
-- `l10n_do.account_tax_report_2A3_ingrs_local_vnts_tag`
-- `l10n_do.account_tax_report_2b6_grvd_tag`
-- `l10n_do.account_tax_report_2b7_grvd_formula`
-- `l10n_do.account_tax_report_itbs_18_casilla_tag`
-- `l10n_do.account_tax_report_tbs_11_casilla_formula`
-- `l10n_do.account_tax_report_itbs_pgdo_locales_tag`
-- `l10n_do.account_tax_report_itbs_pgdo_dedubl_tag`
-- `l10n_do.account_tax_report_itbs_pgdo_imptcn_tag`
-- `l10n_do.account_tax_report_retcn_prsn_tag`
-- `l10n_do.account_tax_report_itbs_retcn_prsn_tag`
-
-## account.report.line
-
-- `l10n_do.account_tax_report_total_operaciones`
-- `l10n_do.account_tax_report_2A_ingrs_exprt`
-- `l10n_do.account_tax_report_2A2_ingrs_exprt`
-- `l10n_do.account_tax_report_2A3_ingrs_local_vnts`
-- `l10n_do.account_tax_report_2b_grvd`
-- `l10n_do.account_tax_report_2b6_grvd`
-- `l10n_do.account_tax_report_2b7_grvd`
-- `l10n_do.account_tax_report_3_liquidacion`
-- `l10n_do.account_financial_report_line_02_01_do_account_tax_report_total_itbs`
-- `l10n_do.account_tax_report_itbs_18_casilla`
-- `l10n_do.account_tax_report_tbs_11_casilla`
-- `l10n_do.account_tax_report_total_itbs_pgdo`
-- `l10n_do.account_tax_report_itbs_pgdo_locales`
-- `l10n_do.account_tax_report_itbs_pgdo_dedubl`
-- `l10n_do.account_tax_report_itbs_pgdo_imptcn`
-- `l10n_do.account_tax_report_itbs_rntnd`
-- `l10n_do.account_tax_report_retcn_prsn`
-- `l10n_do.account_tax_report_itbs_retcn_prsn`
-
 ## account.tax.group
 
 - `l10n_do.group_itbis`

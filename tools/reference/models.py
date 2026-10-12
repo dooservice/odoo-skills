@@ -64,7 +64,7 @@ class ModelScanner:
             if described := self.field(key, value):
                 model.fields.append(described)
         for statement in node.body:
-            if isinstance(statement, ast.FunctionDef | ast.AsyncFunctionDef):
+            if isinstance(statement, (ast.FunctionDef, ast.AsyncFunctionDef)):
                 if statement.name.startswith("action_") or not statement.name.startswith("_"):
                     model.actions.append(statement.name)
                 elif statement.name.startswith(HOOK_PREFIXES):

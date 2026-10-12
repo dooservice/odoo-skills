@@ -82,23 +82,7 @@
 ## ir.ui.menu
 
 - `website_sale.menu_ecommerce` — eCommerce
-- `website_sale.menu_open_shop` — Shop
-- `website_sale.menu_orders` — Orders
-- `website_sale.menu_orders_orders` — Orders
-- `website_sale.menu_orders_abandoned_orders` — Abandoned Carts
-- `website_sale.menu_orders_customers` — Customers
-- `website_sale.menu_catalog` — Products
-- `website_sale.menu_catalog_products` — Products
-- `website_sale.menu_catalog_pricelists` — Pricelists
-- `website_sale.menu_catalog_categories` — Categories
-- `website_sale.menu_product_attribute_action`
-- `website_sale.product_catalog_product_ribbons` — Ribbons
-- `website_sale.menu_attribute_category_action`
 - `website_sale.menu_ecommerce_settings` — eCommerce
-- `website_sale.menu_ecommerce_payment_providers` — Payments
-- `website_sale.menu_ecommerce_delivery` — Deliveries
-- `website_sale.menu_delivery_zip_prefix`
-- `website_sale.menu_product_feeds`
 - `website_sale.menu_report_sales` — Online Sales
 - `website.menu_website_dashboard`
 

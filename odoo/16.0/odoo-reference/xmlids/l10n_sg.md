@@ -157,39 +157,6 @@
 
 - `l10n_sg.tax_report`
 
-## account.report.column
-
-- `l10n_sg.tax_report_balance`
-
-## account.report.expression
-
-- `l10n_sg.account_tax_report_line_std_rated_supplies_tag`
-- `l10n_sg.account_tax_report_line_zero_rated_supplies_tag`
-- `l10n_sg.account_tax_report_line_exempt_supplies_tag`
-- `l10n_sg.account_tax_report_line_total_taxable_purchases_tag`
-- `l10n_sg.account_tax_report_line_output_tax_due_tag`
-- `l10n_sg.account_tax_report_line_inp_tax_refund_claim_tag`
-- `l10n_sg.account_tax_report_line_applicable_goods_imported_value_tag`
-- `l10n_sg.account_tax_report_line_revenues_accounting_period_formula`
-
-## account.report.line
-
-- `l10n_sg.account_tax_report_line_supplies`
-- `l10n_sg.account_tax_report_line_std_rated_supplies`
-- `l10n_sg.account_tax_report_line_zero_rated_supplies`
-- `l10n_sg.account_tax_report_line_exempt_supplies`
-- `l10n_sg.account_tax_report_line_total_supplies`
-- `l10n_sg.account_tax_report_line_purchases`
-- `l10n_sg.account_tax_report_line_total_taxable_purchases`
-- `l10n_sg.account_tax_report_line_taxes`
-- `l10n_sg.account_tax_report_line_output_tax_due`
-- `l10n_sg.account_tax_report_line_inp_tax_refund_claim`
-- `l10n_sg.account_tax_report_line_total_gst_paid_iras`
-- `l10n_sg.account_tax_report_line_applicable`
-- `l10n_sg.account_tax_report_line_applicable_goods_imported_value`
-- `l10n_sg.account_tax_report_line_revenues`
-- `l10n_sg.account_tax_report_line_revenues_accounting_period`
-
 ## account.tax.group
 
 - `l10n_sg.tax_group_0`

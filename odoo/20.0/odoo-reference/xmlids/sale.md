@@ -81,26 +81,6 @@
 ## ir.ui.menu
 
 - `sale.sale_menu_root` — Sales
-- `sale.sale_order_menu` — Orders
-- `sale.menu_sale_quotations`
-- `sale.menu_sale_order` — Orders
-- `sale.menu_service_material`
-- `sale.res_partner_menu`
-- `sale.product_menu_catalog` — Products
-- `sale.menu_product_template_action`
-- `sale.menu_product_attribute_action`
-- `sale.menu_product_pricelist_main` — Pricelists
-- `sale.menu_sale_marketplaces` — Marketplaces
-- `sale.menu_sale_report` — Reporting
-- `sale.menu_reporting_sales` — Sales
-- `sale.menu_reporting_salespeople` — Salespersons
-- `sale.menu_reporting_product` — Products
-- `sale.menu_reporting_customer` — Customers
-- `sale.menu_sale_config` — Configuration
-- `sale.menu_sale_general_settings` — Settings
-- `sale.sales_team_config` — Teams
-- `sale.payment_provider_menu` — Payments
-- `sale.menu_sales_config` — Sales Orders
 
 ## ir.ui.view
 

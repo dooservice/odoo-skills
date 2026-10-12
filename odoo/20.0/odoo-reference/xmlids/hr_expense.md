@@ -67,8 +67,6 @@
 - `hr_expense.view_expenses_tree` — on hr.expense inherits hr_expense_view_expenses_analysis_tree
 - `hr_expense.view_my_expenses_tree` — on hr.expense inherits hr_expense.view_expenses_tree
 - `hr_expense.hr_expense_view_form` — on hr.expense
-- `hr_expense.direct_expense`
-- `hr_expense.match_bill`
 - `hr_expense.hr_expense_view_form_without_header` — on hr.expense inherits hr_expense.hr_expense_view_form
 - `hr_expense.hr_expense_view_expenses_analysis_kanban` — on hr.expense
 - `hr_expense.hr_expense_kanban_view_minimal` — on hr.expense inherits hr_expense_view_expenses_analysis_kanban

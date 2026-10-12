@@ -182,23 +182,6 @@
 ## ir.ui.menu
 
 - `project.menu_main_pm` — Project
-- `project.menu_projects` — Projects
-- `project.menu_projects_group_stage` — Projects
-- `project.menu_project_management` — Tasks
-- `project.menu_project_management_my_tasks` — My Tasks
-- `project.menu_project_management_all_tasks` — All Tasks
-- `project.menu_project_report` — Reporting
-- `project.menu_project_report_task_analysis` — Tasks Analysis
-- `project.rating_rating_menu_project` — Customer Ratings
-- `project.menu_project_config` — Configuration
-- `project.project_config_settings_menu_action` — Settings
-- `project.menu_projects_config_group_stage` — Projects
-- `project.menu_projects_config` — Projects
-- `project.menu_project_config_project_stage` — Project Stages
-- `project.menu_project_config_project` — Task Stages
-- `project.menu_project_tags_act` — Tags
-- `project.project_menu_config_activity_type` — Activity Types
-- `project.mail_activity_plan_menu_config_project` — Activity Plans
 
 ## ir.ui.view
 

@@ -15,7 +15,6 @@
 ## ir.ui.menu
 
 - `l10n_es_edi_tbai.menu_l10n_es_edi_tbai_root` — Spain TicketBAI
-- `l10n_es_edi_tbai.menu_l10n_es_edi_tbai_certificates` — Certificates
 - `l10n_es_edi_tbai.menu_l10n_es_edi_tbai_license` — Licenses
 
 ## ir.ui.view

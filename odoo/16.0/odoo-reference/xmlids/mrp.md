@@ -88,11 +88,6 @@
 ## ir.ui.menu
 
 - `mrp.menu_mrp_root` — Manufacturing
-- `mrp.menu_mrp_manufacturing` — Operations
-- `mrp.mrp_planning_menu_root` — Planning
-- `mrp.menu_mrp_bom` — Products
-- `mrp.menu_mrp_reporting` — Reporting
-- `mrp.menu_mrp_configuration` — Configuration
 - `mrp.menu_mrp_traceability` — Lots/Serial Numbers
 - `mrp.menu_mrp_scrap` — Scrap
 - `mrp.menu_procurement_compute_mrp`

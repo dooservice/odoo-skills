@@ -12,7 +12,6 @@
 ## ir.ui.menu
 
 - `l10n_eg_edi_eta.account_eta_menu` — ETA
-- `l10n_eg_edi_eta.menu_action_eta_thumb_drive_tree`
 
 ## ir.ui.view
 

@@ -3,8 +3,6 @@
 ## ir.ui.menu
 
 - `website_sale_loyalty.menu_loyalty` — Loyalty
-- `website_sale_loyalty.menu_discount_loyalty_type_config`
-- `website_sale_loyalty.menu_gift_ewallet_type_config`
 
 ## ir.ui.view
 

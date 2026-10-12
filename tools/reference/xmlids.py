@@ -29,9 +29,18 @@ class XmlIdScanner:
                 root = ElementTree.parse(path).getroot()
             except (ElementTree.ParseError, OSError):
                 continue
-            for element in root.iter():
+            for element in self.top_level(root):
                 if (declared := self.declared(addon.name, element)) is not None:
                     found.append(declared)
+        return found
+
+    @staticmethod
+    def top_level(root: ElementTree.Element) -> list[ElementTree.Element]:
+        """What the file itself declares: children of `<odoo>` and of its `<data>` blocks,
+        never what sits inside a view's architecture."""
+        found = []
+        for child in root:
+            found += list(child) if child.tag == "data" else [child]
         return found
 
     @staticmethod

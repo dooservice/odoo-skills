@@ -101,16 +101,6 @@
 ## ir.ui.menu
 
 - `hr_timesheet.timesheet_menu_root` — Timesheets
-- `hr_timesheet.timesheet_menu_activity_user` — My Timesheets
-- `hr_timesheet.menu_hr_time_tracking` — Timesheets
-- `hr_timesheet.timesheet_menu_activity_mine` — My Timesheets
-- `hr_timesheet.timesheet_menu_activity_all` — All Timesheets
-- `hr_timesheet.menu_timesheets_reports` — Reporting
-- `hr_timesheet.menu_timesheets_reports_timesheet` — Timesheets
-- `hr_timesheet.menu_hr_activity_analysis` — By Employee
-- `hr_timesheet.timesheet_menu_report_timesheet_by_project` — By Project
-- `hr_timesheet.timesheet_menu_report_timesheet_by_task` — By Task
-- `hr_timesheet.hr_timesheet_menu_configuration` — Configuration
 
 ## ir.ui.view
 

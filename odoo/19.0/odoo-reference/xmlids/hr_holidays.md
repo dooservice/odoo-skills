@@ -247,8 +247,6 @@
 - `hr_holidays.hr_accrual_level_view_form` — on hr.leave.accrual.level
 - `hr_holidays.hr_accrual_plan_view_tree` — on hr.leave.accrual.plan
 - `hr_holidays.hr_accrual_plan_view_form` — on hr.leave.accrual.plan
-- `hr_holidays.is_based_on_worked_time_yes`
-- `hr_holidays.is_based_on_worked_time_no`
 - `hr_holidays.hr_accrual_plan_view_search` — on hr.leave.accrual.plan
 - `hr_holidays.hr_leave_mandatory_day_view_form` — on hr.leave.mandatory.day
 - `hr_holidays.hr_leave_mandatory_day_view_list` — on hr.leave.mandatory.day

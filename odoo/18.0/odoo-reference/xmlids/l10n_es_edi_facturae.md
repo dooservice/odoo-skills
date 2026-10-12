@@ -7,7 +7,6 @@
 ## ir.ui.menu
 
 - `l10n_es_edi_facturae.menu_l10n_es_edi_facturae_root` — Spain Facturae EDI
-- `l10n_es_edi_facturae.menu_l10n_es_edi_facturae_root_certificates` — Certificates
 
 ## ir.ui.view
 

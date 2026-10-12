@@ -4,24 +4,6 @@
 
 - `l10n_it_edi_withholding.withh_tax_report_it`
 
-## account.report.column
-
-- `l10n_it_edi_withholding.withh_tax_report_balance`
-
-## account.report.expression
-
-- `l10n_it_edi_withholding.withh_sale_tax_report_it_line_tag`
-- `l10n_it_edi_withholding.enasarco_sale_tax_report_it_line_tag`
-- `l10n_it_edi_withholding.withh_purchase_tax_report_it_line_tag`
-- `l10n_it_edi_withholding.enasarco_purchase_tax_report_it_line_tag`
-
-## account.report.line
-
-- `l10n_it_edi_withholding.withh_sale_tax_report_it_line`
-- `l10n_it_edi_withholding.enasarco_sale_tax_report_it_line`
-- `l10n_it_edi_withholding.withh_purchase_tax_report_it_line`
-- `l10n_it_edi_withholding.enasarco_purchase_tax_report_it_line`
-
 ## account.tax.group
 
 - `l10n_it_edi_withholding.tax_group_pension_fund`

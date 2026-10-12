@@ -212,19 +212,6 @@
 ## ir.ui.menu
 
 - `base.menu_administration` — Settings
-- `base.menu_administration_shortcut` — Custom Shortcuts
-- `base.menu_users` — Users & Companies
-- `base.menu_translation` — Translations
-- `base.menu_translation_app` — Application Terms
-- `base.menu_translation_export` — Import / Export
-- `base.menu_config` — General Settings
-- `base.menu_custom` — Technical
-- `base.next_id_2` — User Interface
-- `base.menu_email` — Email
-- `base.next_id_9` — Database Structure
-- `base.menu_automation` — Automation
-- `base.menu_security` — Security
-- `base.menu_ir_property` — Parameters
 - `base.menu_management` — Apps
 - `base.menu_tests` — Tests
 - `base.menu_administration`

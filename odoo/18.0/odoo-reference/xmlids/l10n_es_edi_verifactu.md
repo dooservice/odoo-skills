@@ -11,7 +11,6 @@
 ## ir.ui.menu
 
 - `l10n_es_edi_verifactu.menu_l10n_es_edi_verifactu_root` — Veri*Factu (Spain)
-- `l10n_es_edi_verifactu.menu_l10n_es_edi_verifactu_certificates` — Certificates
 
 ## ir.ui.view
 

@@ -12,8 +12,6 @@
 ## ir.ui.menu
 
 - `l10n_vn_edi_viettel.l10n_vn_edi_sinvoice_menu` — SInvoice
-- `l10n_vn_edi_viettel.l10n_vn_edi_sinvoice_templates`
-- `l10n_vn_edi_viettel.l10n_vn_edi_sinvoice_symbols`
 
 ## ir.ui.view
 

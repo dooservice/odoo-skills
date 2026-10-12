@@ -19,10 +19,6 @@
 - `contacts.res_partner_industry_menu` — Industries
 - `contacts.menu_action_res_partner_bank_form`
 - `contacts.menu_localisation` — Localization
-- `contacts.menu_country_partner`
-- `contacts.menu_country_state_partner`
-- `contacts.menu_res_city`
-- `contacts.menu_country_group` — Country Group
 
 ## ir.ui.view
 

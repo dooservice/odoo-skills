@@ -4,11 +4,6 @@
 
 - `l10n_us_account.tax_report`
 
-## account.report.column
-
-- `l10n_us_account.column_net`
-- `l10n_us_account.column_tax`
-
 ## ir.ui.view
 
 - `l10n_us_account.res_bank_view_form` — on res.bank inherits base.view_res_bank_form

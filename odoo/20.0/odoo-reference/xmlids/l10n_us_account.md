@@ -4,11 +4,6 @@
 
 - `l10n_us_account.tax_report`
 
-## account.report.column
-
-- `l10n_us_account.column_net`
-- `l10n_us_account.column_tax`
-
 ## ir.ui.menu
 
 - `l10n_us_account.menu_finance_us` — United States

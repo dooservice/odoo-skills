@@ -44,15 +44,6 @@
 - `account.generic_tax_report_account_tax`
 - `account.generic_tax_report_tax_account`
 
-## account.report.column
-
-- `account.generic_tax_report_column_net`
-- `account.generic_tax_report_column_tax`
-- `account.generic_tax_report_account_tax_column_net`
-- `account.generic_tax_report_account_tax_column_tax`
-- `account.generic_tax_report_tax_account_column_net`
-- `account.generic_tax_report_tax_account_column_tax`
-
 ## account.tax.group
 
 - `account.tax_group_taxes`
@@ -211,58 +202,6 @@
 ## ir.ui.menu
 
 - `account.menu_finance` — Invoicing
-- `account.menu_board_journal_1` — Dashboard
-- `account.menu_finance_receivables` — Customers
-- `account.menu_action_move_out_invoice_type`
-- `account.menu_action_move_out_refund_type`
-- `account.menu_action_move_out_receipt_type`
-- `account.menu_action_account_payments_receivable`
-- `account.product_product_menu_sellable` — Products
-- `account.menu_account_customer` — Customers
-- `account.menu_finance_payables` — Vendors
-- `account.menu_action_move_in_invoice_type`
-- `account.menu_action_move_in_refund_type`
-- `account.menu_action_move_in_receipt_type`
-- `account.menu_action_account_payments_payable`
-- `account.product_product_menu_purchasable` — Products
-- `account.menu_account_supplier` — Vendors
-- `account.menu_finance_entries` — Accounting
-- `account.menu_finance_entries_accounting_miscellaneous` — Journals
-- `account.menu_action_move_journal_line_form`
-- `account.menu_action_account_moves_all`
-- `account.menu_finance_entries_management` — Management
-- `account.menu_action_analytic_lines_tree` — Analytic Items
-- `account.menu_finance_entries_generate_entries` — Generate Entries
-- `account.menu_finance_entries_actions` — Actions
-- `account.menu_finance_reports` — Reporting
-- `account.account_reports_management_menu` — Management
-- `account.menu_action_account_invoice_report_all` — Invoice Analysis
-- `account.account_reports_legal_statements_menu` — Statement Reports
-- `account.menu_finance_configuration` — Configuration
-- `account.menu_account_config` — Settings
-- `account.account_invoicing_menu` — Invoicing
-- `account.menu_action_payment_term_form`
-- `account.menu_action_incoterm_open`
-- `account.account_banks_menu` — Banks
-- `account.menu_action_account_bank_journal_form`
-- `account.action_account_reconcile_model_menu`
-- `account.account_account_menu` — Accounting
-- `account.menu_action_account_form`
-- `account.menu_action_tax_form`
-- `account.menu_action_account_journal_form`
-- `account.account_report_folder` — Reporting
-- `account.menu_action_currency_form` — Currencies
-- `account.menu_action_account_fiscal_position_form`
-- `account.menu_action_account_journal_group_list`
-- `account.menu_action_tax_group`
-- `account.root_payment_menu` — Payments
-- `account.account_management_menu` — Management
-- `account.menu_product_product_categories`
-- `account.menu_action_rounding_form_view`
-- `account.menu_analytic_accounting` — Analytic Accounting
-- `account.menu_analytic__distribution_model` — Analytic Distribution Models
-- `account.account_analytic_def_account`
-- `account.account_analytic_plan_menu` — Analytic Plans
 
 ## ir.ui.view
 

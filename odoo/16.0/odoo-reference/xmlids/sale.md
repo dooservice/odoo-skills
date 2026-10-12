@@ -97,30 +97,6 @@
 ## ir.ui.menu
 
 - `sale.sale_menu_root` — Sales
-- `sale.sale_order_menu` — Orders
-- `sale.menu_sale_quotations`
-- `sale.menu_sale_order` — Orders
-- `sale.report_sales_team` — Sales Teams
-- `sale.res_partner_menu`
-- `sale.menu_sale_invoicing` — To Invoice
-- `sale.menu_sale_order_invoice`
-- `sale.menu_sale_order_upselling`
-- `sale.product_menu_catalog` — Products
-- `sale.menu_product_template_action`
-- `sale.menu_products`
-- `sale.menu_product_pricelist_main` — Pricelists
-- `sale.menu_sale_report` — Reporting
-- `sale.menu_sale_config` — Configuration
-- `sale.menu_sale_general_settings` — Settings
-- `sale.sales_team_config` — Sales Teams
-- `sale.menu_sales_config` — Sales Orders
-- `sale.menu_tag_config` — Tags
-- `sale.prod_config_main` — Products
-- `sale.menu_product_attribute_action`
-- `sale.next_id_16` — Units of Measure
-- `sale.menu_product_uom_form_action`
-- `sale.menu_product_uom_categ_form_action`
-- `sale.sale_menu_config_activity_type`
 
 ## ir.ui.view
 

@@ -52,9 +52,21 @@ class ReferenceWriter:
         self.write(f"xmlids/{addon.name}.md", "\n".join(lines))
 
     def settings(self, settings: list[Setting]) -> None:
-        lines = ["# Settings", "", "Each field of `res.config.settings`, and where it keeps its value.", ""]
-        lines += ["| Field | Label | Kept as | Addon |", "|---|---|---|---|"]
-        lines += [f"| `{s.name}` | {s.label} | {s.kept_as} | {s.addon} |" for s in sorted(settings, key=lambda s: s.name)]
+        lines = [
+            "# Settings", "",
+            "Each field of `res.config.settings`, and where it keeps its value. A field more than one",
+            "addon defines is kept as the last of them installed says: each is listed with its addon.", "",
+            "| Field | Label | Kept as | Addon |", "|---|---|---|---|",
+        ]
+        by_name: dict[str, list[Setting]] = {}
+        for setting in settings:
+            by_name.setdefault(setting.name, []).append(setting)
+        for name in sorted(by_name):
+            defined = by_name[name]
+            label = next((s.label for s in defined if s.label), "")
+            kept = "; ".join(f"{s.kept_as} (with {s.addon})" for s in defined) if len(defined) > 1 else defined[0].kept_as
+            addons = ", ".join(dict.fromkeys(s.addon for s in defined))
+            lines.append(f"| `{name}` | {label} | {kept} | {addons} |")
         self.write("settings.md", "\n".join(lines))
 
     def index(self, rows: list[tuple[Addon, list[Model]]]) -> None:

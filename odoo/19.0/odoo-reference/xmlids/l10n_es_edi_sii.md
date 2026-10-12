@@ -11,7 +11,6 @@
 ## ir.ui.menu
 
 - `l10n_es_edi_sii.menu_l10n_es_edi_sii_root` — Spain SII
-- `l10n_es_edi_sii.menu_l10n_es_edi_sii_certificates` — Certificates
 
 ## ir.ui.view
 

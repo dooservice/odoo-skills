@@ -4,7 +4,7 @@ from pathlib import Path
 
 from reference.build import ReferenceBuild
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 VERSIONS = ("16.0", "17.0", "18.0", "19.0", "20.0")
 
 build = ReferenceBuild(ROOT / ".odoo" / "src", ROOT)

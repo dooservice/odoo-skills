@@ -59,17 +59,18 @@ odoo/<version>/      generated: odoo-guidelines, odoo-web-guidelines, odoo-secur
                      odoo-git (from Odoo's 20.0 skills) and odoo-reference (from that version's source)
 odoo/common/         version-independent: odoo-upgrade
 dooservice/          the dooservice platform's own: its console commands, and configuring Odoo without code
-generate.py          builds the guideline skills of odoo/<version>/ from Odoo's 20.0 skills
-build_reference.py   builds odoo/<version>/odoo-reference from .odoo/src/<version>
+tools/               the generators, not part of any skill: generate_guidelines.py builds the
+                     guideline skills from Odoo's 20.0 skills, build_reference.py builds
+                     odoo-reference from .odoo/src/<version>, and reference/ is its code
 ```
 
-The `odoo/<version>/` skills are generated; change `generate.py`, not the files. To
+The `odoo/<version>/` skills are generated; change `tools/`, not the files. To
 regenerate after Odoo updates its skills:
 
 ```bash
 git clone --depth 1 -b 20.0 --filter=blob:none --sparse https://github.com/odoo/odoo.git .odoo/src/20.0
 git -C .odoo/src/20.0 sparse-checkout set skills
-python3 generate.py .odoo/src/20.0/skills .
+python3 tools/generate_guidelines.py .odoo/src/20.0/skills .
 ```
 
 To regenerate the references, check out each version without its static files and
@@ -82,7 +83,18 @@ for v in 16.0 17.0 18.0 19.0 20.0; do
     '!/odoo/addons/*/static/' '!/odoo/addons/*/i18n/' '/addons/web/static/src/' '/skills/'
   git -C .odoo/src/$v checkout $v
 done
-python3 build_reference.py
+python3 tools/build_reference.py
+```
+
+`tools/reference/check.py` checks the reference against a running Odoo of each version:
+it installs a broad set of apps in a throwaway database, scans the same source, and
+compares every model, field (type and target), XML id and Settings field with Odoo's own
+registry and data. Run it inside `odoo-bin shell` with `tools` on the path:
+
+```python
+from pathlib import Path
+from reference.check import ReferenceCheck
+print(ReferenceCheck(env, Path("/usr/lib/python3/dist-packages")).run())
 ```
 
 Check every version-specific change in that branch's source before making it:
