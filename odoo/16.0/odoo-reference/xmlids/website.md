@@ -1,0 +1,611 @@
+# website — XML ids
+
+## digest.tip
+
+- `website.digest_tip_website_0`
+- `website.digest_tip_website_1`
+- `website.digest_tip_website_2`
+- `website.digest_tip_website_3`
+- `website.digest_tip_website_4`
+
+## ir.actions.act_url
+
+- `website.action_website`
+
+## ir.actions.act_window
+
+- `website.action_website_add_features`
+- `website.action_show_viewhierarchy`
+- `website.action_website_list`
+- `website.action_website_menu`
+- `base.open_module_tree`
+- `website.theme_install_kanban_action`
+- `website.action_website_pages_list`
+- `website.website_visitor_page_action`
+- `website.visitor_partner_action`
+- `website.website_visitors_action`
+- `website.website_visitor_view_action`
+- `website.action_website_configuration`
+- `website.action_website_rewrite_list`
+
+## ir.actions.client
+
+- `website.backend_dashboard`
+- `website.website_preview`
+- `website.website_configurator`
+- `website.action_open_website_configurator`
+
+## ir.actions.server
+
+- `website.ir_actions_server_website_dashboard`
+- `website.ir_actions_server_website_analytics`
+
+## ir.actions.todo
+
+- `website.website_configurator_todo`
+
+## ir.asset
+
+- `website.user_custom_bootstrap_overridden_scss`
+- `website.user_custom_rules_scss`
+- `website.configurator_tour`
+- `website.ripple_effect_scss`
+- `website.ripple_effect_js`
+- `website.s_title_000_scss`
+- `website.s_three_columns_000_scss`
+- `website.s_alert_000_scss`
+- `website.s_card_000_scss`
+- `website.s_share_000_scss`
+- `website.s_share_000_js`
+- `website.s_social_media_000_scss`
+- `website.s_rating_000_scss`
+- `website.s_rating_001_scss`
+- `website.s_hr_000_scss`
+- `website.s_facebook_page_000_js`
+- `website.s_image_gallery_000_js`
+- `website.s_image_gallery_000_scss`
+- `website.s_image_gallery_001_scss`
+- `website.s_image_gallery_000_xml`
+- `website.s_countdown_000_js`
+- `website.s_countdown_000_xml`
+- `website.s_product_catalog_001_scss`
+- `website.s_comparisons_000_scss`
+- `website.s_company_team_000_scss`
+- `website.s_references_000_scss`
+- `website.s_popup_000_scss`
+- `website.s_popup_000_js`
+- `website.s_popup_001_scss`
+- `website.s_faq_collapse_000_scss`
+- `website.s_features_grid_000_scss`
+- `website.s_tabs_001_scss`
+- `website.s_table_of_content_000_scss`
+- `website.s_table_of_content_000_js`
+- `website.s_chart_000_js`
+- `website.s_quotes_carousel_000_scss`
+- `website.s_quotes_carousel_001_scss`
+- `website.s_masonry_block_000_scss`
+- `website.s_masonry_block_001_scss`
+- `website.s_masonry_block_000_variables_scss`
+- `website.s_media_list_000_scss`
+- `website.s_media_list_001_scss`
+- `website.s_showcase_000_scss`
+- `website.s_showcase_001_scss`
+- `website.s_showcase_002_scss`
+- `website.s_timeline_000_scss`
+- `website.s_process_steps_000_scss`
+- `website.s_process_steps_001_scss`
+- `website.s_text_highlight_000_scss`
+- `website.s_blockquote_000_scss`
+- `website.s_badge_000_variables_scss`
+- `website.s_badge_000_scss`
+- `website.s_color_blocks_2_000_scss`
+- `website.s_product_list_000_variables_scss`
+- `website.s_product_list_000_scss`
+- `website.s_mega_menu_thumbnails_000_scss`
+- `website.s_mega_menu_little_icons_000_scss`
+- `website.s_mega_menu_images_subtitles_000_scss`
+- `website.s_mega_menu_menus_logos_000_scss`
+- `website.s_mega_menu_odoo_menu_000_scss`
+- `website.s_mega_menu_cards_000_scss`
+- `website.s_google_map_000_scss`
+- `website.s_google_map_000_js`
+- `website.s_map_000_scss`
+- `website.s_map_000_js`
+- `website.s_dynamic_snippet_000_scss`
+- `website.s_dynamic_snippet_000_js`
+- `website.s_dynamic_snippet_000_xml`
+- `website.s_dynamic_snippet_carousel_000_scss`
+- `website.s_dynamic_snippet_carousel_000_js`
+- `website.s_dynamic_snippet_carousel_000_xml`
+- `website.s_embed_code_000_scss`
+- `website.s_website_form_000_scss`
+- `website.s_website_form_001_scss`
+- `website.s_website_form_000_js`
+- `website.s_website_form_xml`
+- `website.s_searchbar_000_js`
+- `website.s_searchbar_000_xml`
+
+## ir.attachment
+
+- `website.business_conference`
+- `website.library_image_01`
+- `website.library_image_02`
+- `website.library_image_03`
+- `website.library_image_04`
+- `website.library_image_05`
+- `website.library_image_06`
+- `website.library_image_07`
+- `website.library_image_08`
+- `website.library_image_09`
+- `website.library_image_10`
+- `website.library_image_11`
+- `website.library_image_12`
+- `website.library_image_13`
+- `website.library_image_14`
+- `website.library_image_15`
+- `website.library_image_16`
+- `website.library_image_17`
+- `website.library_image_18`
+- `website.s_background_image_01`
+- `website.s_background_image_02`
+- `website.s_background_image_03`
+- `website.s_background_image_04`
+- `website.s_background_image_05`
+- `website.s_background_image_06`
+- `website.s_background_image_07`
+- `website.s_background_image_08`
+- `website.s_background_image_09`
+- `website.header_image_1_default_image`
+- `website.s_cover_default_image`
+- `website.s_masonry_block_default_image_1`
+- `website.s_masonry_block_default_image_2`
+- `website.s_media_list_default_image_1`
+- `website.s_media_list_default_image_2`
+- `website.s_media_list_default_image_3`
+- `website.s_product_list_default_image_1`
+- `website.s_product_list_default_image_2`
+- `website.s_product_list_default_image_3`
+- `website.s_product_list_default_image_4`
+- `website.s_product_list_default_image_5`
+- `website.s_product_list_default_image_6`
+- `website.s_quotes_carousel_demo_image_0`
+- `website.s_quotes_carousel_demo_image_1`
+- `website.s_quotes_carousel_demo_image_2`
+- `website.s_quotes_carousel_demo_image_3`
+- `website.s_quotes_carousel_demo_image_4`
+- `website.s_quotes_carousel_demo_image_5`
+- `website.s_image_text_default_image`
+- `website.s_text_image_default_image`
+- `website.s_three_columns_default_image_1`
+- `website.s_three_columns_default_image_2`
+- `website.s_three_columns_default_image_3`
+- `website.s_carousel_default_image_1`
+- `website.s_carousel_default_image_2`
+- `website.s_carousel_default_image_3`
+- `website.s_picture_default_image`
+- `website.s_banner_default_image`
+- `website.s_parallax_default_image`
+- `website.s_reference_demo_image_1`
+- `website.s_reference_demo_image_2`
+- `website.s_reference_demo_image_3`
+- `website.s_reference_demo_image_4`
+- `website.s_reference_demo_image_5`
+- `website.s_reference_default_image_6`
+- `website.s_company_team_image_1`
+- `website.s_company_team_image_2`
+- `website.s_company_team_image_3`
+- `website.s_company_team_image_4`
+- `website.s_mega_menu_menu_image_menu_default_image`
+- `website.s_mega_menu_thumbnails_default_image_1`
+- `website.s_mega_menu_thumbnails_default_image_2`
+- `website.s_mega_menu_thumbnails_default_image_3`
+- `website.s_mega_menu_thumbnails_default_image_4`
+- `website.s_mega_menu_thumbnails_default_image_5`
+- `website.s_mega_menu_thumbnails_default_image_6`
+- `website.s_mega_menu_thumbnails_default_image_7`
+- `website.s_mega_menu_thumbnails_default_image_8`
+- `website.s_mega_menu_thumbnails_default_image_9`
+- `website.s_mega_menu_thumbnails_default_image_10`
+- `website.s_mega_menu_thumbnails_default_image_11`
+- `website.s_mega_menu_images_subtitles_default_image_1`
+- `website.s_mega_menu_images_subtitles_default_image_2`
+- `website.s_mega_menu_images_subtitles_default_image_3`
+- `website.s_mega_menu_images_subtitles_default_image_4`
+- `website.s_mega_menu_images_subtitles_default_image_5`
+- `website.s_mega_menu_images_subtitles_default_image_6`
+- `website.s_mega_menu_images_subtitles_default_image_7`
+- `website.s_mega_menu_menus_logos_default_image`
+- `website.s_mega_menu_menus_logos_default_logo_1`
+- `website.s_mega_menu_menus_logos_default_logo_2`
+- `website.s_mega_menu_menus_logos_default_logo_3`
+- `website.s_mega_menu_menus_logos_default_logo_4`
+- `website.s_mega_menu_menus_logos_default_logo_5`
+- `website.s_mega_menu_menus_logos_default_logo_6`
+- `website.s_mega_menu_cards_default_image_1`
+- `website.s_mega_menu_cards_default_image_2`
+- `website.s_mega_menu_cards_default_image_3`
+- `website.s_mega_menu_cards_default_image_4`
+- `website.s_mega_menu_cards_default_image_5`
+- `website.s_mega_menu_cards_default_image_6`
+- `website.s_mega_menu_cards_default_image_7`
+- `website.s_mega_menu_cards_default_image_8`
+- `website.s_product_catalog_default_image`
+- `website.s_blockquote_default_image`
+- `website.s_blockquote_cover_default_image`
+- `website.s_popup_default_image`
+
+## ir.cron
+
+- `website.website_disable_unused_snippets_assets`
+- `website.website_visitor_cron`
+
+## ir.model
+
+- `mail.model_mail_mail`
+
+## ir.module.category
+
+- `base.module_category_website_website`
+
+## ir.rule
+
+- `website.website_designer_edit_qweb`
+- `website.website_designer_view`
+- `website.website_group_system_edit_all_views`
+- `website.website_page_rule_public`
+- `website.view_rule_visibility_public`
+- `website.view_rule_visibility_connected`
+
+## ir.ui.menu
+
+- `website.menu_website_configuration` — Website
+- `website.menu_site` — Site
+- `website.menu_website_preview` — Homepage
+- `website.menu_edit_menu` — Menu Editor
+- `website.menu_content` — Content
+- `website.menu_current_page` — This page
+- `website.menu_page_properties` — Properties
+- `website.menu_optimize_seo` — Optimize SEO
+- `website.menu_ace_editor` — HTML / CSS Editor
+- `website.custom_menu_edit_menu` — Edit Menu
+- `website.menu_reporting` — Reporting
+- `website.menu_website_dashboard` — eCommerce
+- `website.menu_website_analytics` — Analytics
+- `website.menu_website_pages_list` — Pages
+- `website.website_visitor_menu` — Visitors
+- `website.menu_visitor_view_menu` — Page Views
+- `website.menu_website_global_configuration` — Configuration
+- `website.menu_website_website_settings` — Settings
+- `website.menu_website_add_features`
+- `website.menu_website_websites_list` — Websites
+- `website.menu_website_menu_list` — Menus
+- `website.menu_website_rewrite` — Redirects
+
+## ir.ui.view
+
+- `website.homepage`
+- `website.contactus`
+- `website.cookie_policy`
+- `website.aboutus`
+- `website.our_services`
+- `website.pricing`
+- `website.privacy_policy`
+- `website.submenu`
+- `website.layout` — inherits portal.frontend_layout
+- `website.custom_code_layout` — inherits website.layout
+- `website.user_dropdown` — inherits portal.user_dropdown
+- `website.brand_promotion` — inherits web.brand_promotion
+- `website.navbar_toggler`
+- `website.navbar`
+- `website.navbar_nav`
+- `website.template_header_default` — inherits website.layout
+- `website.template_header_default_align_center` — inherits website.template_header_default
+- `website.template_header_default_align_right` — inherits website.template_header_default
+- `website.template_header_hamburger` — inherits website.layout
+- `website.template_header_hamburger_oe_structure_header_hamburger_2` — inherits website.template_header_hamburger
+- `website.template_header_hamburger_oe_structure_header_hamburger_3` — inherits website.template_header_hamburger
+- `website.template_header_hamburger_align_center` — inherits website.template_header_hamburger
+- `website.template_header_hamburger_align_right` — inherits website.template_header_hamburger
+- `website.template_header_vertical` — inherits website.layout
+- `website.template_header_vertical_oe_structure_header_vertical_1` — inherits website.template_header_vertical
+- `website.template_header_vertical_oe_structure_header_vertical_2` — inherits website.template_header_vertical
+- `website.template_header_vertical_oe_structure_header_vertical_3` — inherits website.template_header_vertical
+- `website.template_header_sidebar` — inherits website.layout
+- `website.template_header_sidebar_oe_structure_header_sidebar_1` — inherits website.template_header_sidebar
+- `website.template_header_slogan` — inherits website.layout
+- `website.template_header_slogan_align_center` — inherits website.template_header_slogan
+- `website.template_header_slogan_align_right` — inherits website.template_header_slogan
+- `website.template_header_slogan_oe_structure_header_slogan_1` — inherits website.template_header_slogan
+- `website.template_header_slogan_oe_structure_header_slogan_3` — inherits website.template_header_slogan
+- `website.template_header_contact` — inherits website.layout
+- `website.template_header_contact_oe_structure_header_contact_1` — inherits website.template_header_contact
+- `website.template_header_boxed` — inherits website.layout
+- `website.template_header_boxed_oe_structure_header_boxed_1` — inherits website.template_header_boxed
+- `website.template_header_centered_logo` — inherits website.layout
+- `website.template_header_image` — inherits website.layout
+- `website.template_header_image_oe_structure_header_image_1` — inherits website.template_header_image
+- `website.template_header_hamburger_full` — inherits website.layout
+- `website.template_header_hamburger_full_oe_structure_header_hamburger_full_1` — inherits website.template_header_hamburger_full
+- `website.template_header_magazine` — inherits website.layout
+- `website.template_header_magazine_oe_structure_header_magazine_1` — inherits website.template_header_magazine
+- `website.option_header_off_canvas` — inherits website.navbar_nav
+- `website.option_header_off_canvas_logo_show` — inherits website.option_header_off_canvas
+- `website.option_header_off_canvas_template_header_hamburger` — inherits website.template_header_hamburger
+- `website.option_header_off_canvas_template_header_sidebar` — inherits website.template_header_sidebar
+- `website.option_header_off_canvas_template_header_hamburger_full` — inherits website.template_header_hamburger_full
+- `website.option_header_no_mobile_hamburger` — inherits website.navbar
+- `website.option_layout_hide_header` — inherits website.layout
+- `website.placeholder_header_brand`
+- `website.option_header_brand_logo` — inherits website.placeholder_header_brand
+- `website.option_header_brand_name` — inherits website.placeholder_header_brand
+- `website.header_visibility_standard` — inherits website.layout
+- `website.header_visibility_fixed` — inherits website.layout
+- `website.header_visibility_disappears` — inherits website.layout
+- `website.header_visibility_fade_out` — inherits website.layout
+- `website.no_autohide_menu` — inherits website.layout
+- `website.header_navbar_pills_style` — inherits website.navbar_nav
+- `website.header_hoverable_dropdown` — inherits website.layout
+- `website.login_layout` — inherits web.login_layout
+- `website.footer_custom` — inherits website.layout
+- `website.template_footer_descriptive` — inherits website.layout
+- `website.template_footer_centered` — inherits website.layout
+- `website.template_footer_links` — inherits website.layout
+- `website.template_footer_minimalist` — inherits website.layout
+- `website.template_footer_contact` — inherits website.layout
+- `website.template_footer_call_to_action` — inherits website.layout
+- `website.template_footer_headline` — inherits website.layout
+- `website.template_footer_slideout` — inherits website.layout
+- `website.footer_no_copyright` — inherits website.layout
+- `website.footer_copyright_company_name` — inherits website.layout
+- `website.option_footer_scrolltop` — inherits website.layout
+- `website.cookies_bar` — inherits website.layout
+- `website.lang_flag`
+- `website.language_selector_add_language`
+- `website.language_selector` — inherits portal.language_selector
+- `website.language_selector_inline` — inherits website.language_selector
+- `website.placeholder_header_language_selector`
+- `website.header_language_selector` — inherits website.placeholder_header_language_selector
+- `website.header_language_selector_inline` — inherits website.header_language_selector
+- `website.header_language_selector_flag` — inherits website.header_language_selector
+- `website.header_language_selector_no_text` — inherits website.header_language_selector
+- `website.footer_language_selector_inline` — inherits portal.footer_language_selector
+- `website.footer_language_selector_flag` — inherits portal.footer_language_selector
+- `website.footer_language_selector_no_text` — inherits portal.footer_language_selector
+- `website.placeholder_header_call_to_action`
+- `website.header_call_to_action` — inherits website.placeholder_header_call_to_action
+- `website.record_cover`
+- `website.publish_management`
+- `website.pager` — inherits portal.pager
+- `website.website_info`
+- `website.show_website_info` — inherits website.website_info
+- `website.default_page`
+- `website.default_js`
+- `website.default_xml`
+- `website.default_css`
+- `website.default_less`
+- `website.default_scss`
+- `website.default_csv`
+- `website.page_404`
+- `website.404_plausible` — inherits http_routing.404
+- `website.protected_403`
+- `website.qweb_500` — inherits http_routing.500
+- `website.robots`
+- `website.sitemap_locs`
+- `website.sitemap_xml`
+- `website.sitemap_index_xml`
+- `website.website_search_box`
+- `website.search_text_with_highlight`
+- `website.list_website_public_pages`
+- `website.list_hybrid`
+- `website.one_hybrid`
+- `website.website_search_box_input` — inherits website.website_search_box
+- `website.iframefallback` — inherits web.layout
+- `website.snippets` — inherits web_editor.snippets
+- `website.external_snippets` — inherits website.snippets
+- `website.snippet_options_background_options` — inherits web_editor.snippet_options_background_options
+- `website.snippet_options_border_line_widgets`
+- `website.snippet_options_border_widgets`
+- `website.snippet_options_shadow_widgets`
+- `website.snippet_options_conditional_visibility`
+- `website.snippet_options` — inherits web_editor.snippet_options
+- `website.s_title`
+- `website.s_cover`
+- `website.s_text_image`
+- `website.s_image_text`
+- `website.s_banner`
+- `website.s_text_block`
+- `website.s_features`
+- `website.s_three_columns`
+- `website.s_picture`
+- `website.s_carousel`
+- `website.s_alert`
+- `website.s_alert_options` — inherits website.snippet_options
+- `website.s_card`
+- `website.s_share`
+- `website.s_social_media`
+- `website.s_social_media_options` — inherits website.snippet_options
+- `website.s_rating`
+- `website.s_rating_options` — inherits website.snippet_options
+- `website.s_hr`
+- `website.s_hr_options` — inherits website.snippet_options
+- `website.s_facebook_page`
+- `website.s_facebook_page_options` — inherits website.snippet_options
+- `website.s_image_gallery`
+- `website.s_images_wall`
+- `website.s_image_gallery_options` — inherits website.snippet_options
+- `website.s_countdown`
+- `website.s_countdown_options` — inherits website.snippet_options
+- `website.s_product_catalog`
+- `website.s_product_catalog_dish`
+- `website.s_product_catalog_add_product_widget`
+- `website.s_product_catalog_options` — inherits website.snippet_options
+- `website.s_comparisons`
+- `website.s_company_team`
+- `website.s_call_to_action`
+- `website.s_references`
+- `website.s_popup`
+- `website.s_popup_options` — inherits website.snippet_options
+- `website.s_faq_collapse`
+- `website.s_faq_collapse_options` — inherits website.snippet_options
+- `website.s_features_grid`
+- `website.s_tabs`
+- `website.s_tabs_options` — inherits website.snippet_options
+- `website.s_table_of_content`
+- `website.s_table_of_content_options` — inherits website.snippet_options
+- `website.s_chart`
+- `website.s_chart_options` — inherits website.snippet_options
+- `website.s_parallax`
+- `website.s_quotes_carousel`
+- `website.s_numbers`
+- `website.s_masonry_block`
+- `website.s_masonry_block_default_template`
+- `website.s_masonry_block_reversed_template`
+- `website.s_masonry_block_images_template`
+- `website.s_masonry_block_image_texts_image_template`
+- `website.s_masonry_block_mosaic_template`
+- `website.s_masonry_block_texts_image_texts_template`
+- `website.s_masonry_block_alternation_text_template`
+- `website.s_masonry_block_alternation_text_image_template`
+- `website.s_masonry_block_alternation_image_text_template`
+- `website.s_masonry_block_alternation_text_image_text_template`
+- `website.s_masonry_block_options` — inherits website.snippet_options
+- `website.s_media_list`
+- `website.s_media_list_options` — inherits website.snippet_options
+- `website.s_showcase`
+- `website.s_showcase_options` — inherits website.snippet_options
+- `website.s_timeline`
+- `website.s_timeline_options` — inherits website.snippet_options
+- `website.s_process_steps`
+- `website.s_process_steps_options` — inherits website.snippet_options
+- `website.s_text_highlight`
+- `website.s_progress_bar`
+- `website.s_progress_bar_options` — inherits website.snippet_options
+- `website.s_blockquote`
+- `website.s_blockquote_options` — inherits website.snippet_options
+- `website.s_badge`
+- `website.s_badge_options` — inherits website.snippet_options
+- `website.s_color_blocks_2`
+- `website.s_product_list`
+- `website.s_mega_menu_multi_menus`
+- `website.s_mega_menu_menu_image_menu`
+- `website.s_mega_menu_thumbnails`
+- `website.s_mega_menu_thumbnails_item`
+- `website.s_mega_menu_little_icons`
+- `website.s_mega_menu_images_subtitles`
+- `website.s_mega_menu_images_subtitles_item`
+- `website.s_mega_menu_menus_logos`
+- `website.s_mega_menu_odoo_menu`
+- `website.s_mega_menu_big_icons_subtitles`
+- `website.s_mega_menu_big_icons_subtitles_item`
+- `website.s_mega_menu_cards`
+- `website.s_mega_menu_cards_item`
+- `website.s_google_map`
+- `website.s_google_map_options` — inherits website.snippet_options
+- `website.s_map`
+- `website.s_map_options` — inherits website.snippet_options
+- `website.s_dynamic_snippet_template`
+- `website.s_dynamic_snippet`
+- `website.s_dynamic_snippet_options_template`
+- `website.s_dynamic_snippet_options` — inherits website.snippet_options
+- `website.s_dynamic_snippet_carousel`
+- `website.dynamic_snippet_carousel_options_template`
+- `website.s_dynamic_snippet_carousel_options` — inherits website.snippet_options
+- `website.s_embed_code`
+- `website.s_embed_code_options` — inherits website.snippet_options
+- `website.s_website_form`
+- `website.s_website_form_options` — inherits website.snippet_options
+- `website.s_searchbar_input`
+- `website.s_searchbar`
+- `website.searchbar_input_snippet_options` — inherits website.snippet_options
+- `website.view_website_form` — on website
+- `website.view_website_form_view_themes_modal` — on website inherits website.view_website_form
+- `website.view_website_tree` — on website
+- `website.website_menus_form_view` — on website.menu
+- `website.menu_tree` — on website.menu
+- `website.menu_search` — on website.menu
+- `website.view_view_qweb` — on ir.ui.view
+- `website.report_viewhierarchy_children`
+- `website.reset_view_arch_wizard_view` — on reset.view.arch.wizard inherits base.reset_view_arch_wizard_view
+- `website.view_arch_only` — on ir.ui.view
+- `website.theme_view_kanban` — on ir.module.module
+- `website.theme_view_search` — on ir.module.module
+- `website.theme_view_form_preview` — on ir.module.module
+- `website.website_pages_form_view` — on website.page
+- `website.website_page_properties_view_form` — on website.page
+- `website.website_pages_tree_view` — on website.page
+- `website.website_pages_kanban_view` — on website.page
+- `website.website_pages_view_search` — on website.page
+- `website.view_view_form_extend` — on ir.ui.view inherits base.view_view_form
+- `website.view_view_tree_inherit_website` — on ir.ui.view inherits base.view_view_tree
+- `website.website_visitor_page_view_tree` — on website.track
+- `website.website_visitor_page_view_graph` — on website.track
+- `website.website_visitor_page_view_search` — on website.track
+- `website.website_visitor_view_kanban` — on website.visitor
+- `website.website_visitor_view_form` — on website.visitor
+- `website.website_visitor_view_tree` — on website.visitor
+- `website.website_visitor_view_search` — on website.visitor
+- `website.website_visitor_view_graph` — on website.visitor
+- `website.website_visitor_track_view_tree` — on website.track
+- `website.website_visitor_track_view_graph` — on website.track
+- `website.res_config_settings_view_form_inherit_auth_signup` — on res.config.settings inherits auth_signup.res_config_settings_view_form
+- `website.res_config_settings_view_form` — on res.config.settings inherits base.res_config_settings_view_form
+- `website.view_website_rewrite_form` — on website.rewrite
+- `website.action_website_rewrite_tree` — on website.rewrite
+- `website.view_rewrite_search` — on website.rewrite
+- `website.view_server_action_form_website` — on ir.actions.server inherits base.view_server_action_form
+- `website.view_server_action_tree_website` — on ir.actions.server inherits base.view_server_action_tree
+- `website.view_server_action_search_website` — on ir.actions.server inherits base.view_server_action_search
+- `website.asset_view_form_inherit_website` — on ir.asset inherits base.asset_view_form
+- `website.asset_view_tree_inherit_website` — on ir.asset inherits base.asset_view_tree
+- `website.view_attachment_form_inherit_website` — on ir.attachment inherits base.view_attachment_form
+- `website.view_attachment_tree_inherit_website` — on ir.attachment inherits base.view_attachment_tree
+- `website.ir_model_view` — on ir.model inherits base.view_model_form
+- `website.ir_model_fields_view` — on ir.model.fields inherits base.view_model_fields_form
+- `website.view_partner_form_inherit_website` — on res.partner inherits base.view_partner_form
+- `website.neutralize_ribbon` — inherits website.layout
+- `website.view_base_language_install` — on base.language.install inherits base.view_base_language_install
+- `website.view_edit_robots` — on website.robots
+
+## res.groups
+
+- `website.group_website_restricted_editor`
+- `website.group_website_designer`
+- `base.group_system`
+- `website.group_multi_website`
+
+## res.users
+
+- `base.default_user`
+- `base.user_admin`
+
+## website
+
+- `website.default_website`
+
+## website.configurator.feature
+
+- `website.feature_page_about_us`
+- `website.feature_page_our_services`
+- `website.feature_page_pricing`
+- `website.feature_page_privacy_policy`
+- `website.feature_module_news`
+- `website.feature_module_success_stories`
+- `website.feature_module_career`
+- `website.feature_module_shop`
+- `website.feature_module_event`
+- `website.feature_module_forum`
+- `website.feature_module_live_chat`
+- `website.feature_module_elearning`
+- `website.feature_module_stores_locator`
+
+## website.menu
+
+- `website.main_menu`
+- `website.menu_home`
+- `website.menu_contactus`
+
+## website.page
+
+- `website.contactus_thanks`
+- `website.homepage_page`
+- `website.contactus_page`

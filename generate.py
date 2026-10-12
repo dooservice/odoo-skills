@@ -1168,8 +1168,9 @@ created from templates; templates now clear it in their own copy() instead.
 
 def build(v):
     root = OUT / "odoo" / f"{v}.0"
-    if root.exists():
-        shutil.rmtree(root)
+    for skill in ("odoo-guidelines", "odoo-web-guidelines", "odoo-review", "odoo-security", "odoo-git"):
+        if (root / skill).exists():
+            shutil.rmtree(root / skill)
     g = root / "odoo-guidelines"
     write(g / "SKILL.md", guidelines_skill(v))
     write(g / "guidelines/version.md", version_md(v))

@@ -1,0 +1,8 @@
+# l10n_dz — Algeria - Accounting
+
+Depends on: account.
+
+## `account.chart.template` (extends)
+
+
+Extension points: `_get_dz_account_account`, `_get_dz_res_company`, `_get_dz_template_data`

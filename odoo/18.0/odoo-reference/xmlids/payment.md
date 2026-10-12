@@ -1,0 +1,314 @@
+# payment — XML ids
+
+## ir.actions.act_window
+
+- `payment.action_payment_provider`
+- `payment.action_payment_method`
+- `payment.action_payment_transaction`
+- `payment.action_payment_transaction_linked_to_token`
+- `payment.action_payment_token`
+
+## ir.actions.server
+
+- `payment.action_activate_stripe`
+
+## ir.cron
+
+- `payment.cron_post_process_payment_tx`
+
+## ir.rule
+
+- `payment.payment_provider_company_rule`
+- `payment.transaction_company_rule`
+- `payment.payment_token_user_rule`
+- `payment.payment_token_company_rule`
+- `payment.payment_capture_wizard_rule`
+
+## ir.ui.view
+
+- `payment.express_checkout`
+- `payment.form`
+- `payment.token_form`
+- `payment.method_form`
+- `payment.form_icon`
+- `payment.form_logo`
+- `payment.submit_button`
+- `payment.no_pms_available_warning`
+- `payment.availability_report_button`
+- `payment.availability_report`
+- `payment.availability_report_records`
+- `payment.pay`
+- `payment.company_mismatch_warning`
+- `payment.payment_methods`
+- `payment.payment_status`
+- `payment.confirm`
+- `payment.portal_breadcrumb`
+- `payment.summary_item`
+- `payment.state_header`
+- `payment.portal_my_home_payment` — inherits portal.portal_my_home
+- `payment.payment_provider_form` — on payment.provider
+- `payment.payment_provider_list` — on payment.provider
+- `payment.payment_provider_kanban` — on payment.provider
+- `payment.payment_provider_search` — on payment.provider
+- `payment.payment_method_form` — on payment.method
+- `payment.payment_method_tree` — on payment.method
+- `payment.payment_method_kanban` — on payment.method
+- `payment.payment_method_search` — on payment.method
+- `payment.payment_transaction_form` — on payment.transaction
+- `payment.payment_transaction_list` — on payment.transaction
+- `payment.payment_transaction_kanban` — on payment.transaction
+- `payment.payment_transaction_search` — on payment.transaction
+- `payment.payment_token_form` — on payment.token
+- `payment.payment_token_list` — on payment.token
+- `payment.payment_token_search` — on payment.token
+- `payment.view_partners_form_payment_defaultcreditcard` — on res.partner inherits base.view_partner_form
+- `payment.payment_capture_wizard_view_form` — on payment.capture.wizard
+- `payment.payment_link_wizard_view_form` — on payment.link.wizard
+- `payment.payment_provider_onboarding_wizard_form` — on payment.provider.onboarding.wizard
+
+## onboarding.onboarding.step
+
+- `payment.onboarding_onboarding_step_payment_provider`
+
+## payment.method
+
+- `payment.payment_method_7eleven`
+- `payment.payment_method_ach_direct_debit`
+- `payment.payment_method_affirm`
+- `payment.payment_method_afterpay`
+- `payment.payment_method_afterpay_riverty`
+- `payment.payment_method_akulaku`
+- `payment.payment_method_alipay`
+- `payment.payment_method_alipay_hk`
+- `payment.payment_method_alipay_plus`
+- `payment.payment_method_alma`
+- `payment.payment_method_amazon_pay`
+- `payment.payment_method_astropay`
+- `payment.payment_method_appota`
+- `payment.payment_method_atome`
+- `payment.payment_method_axis`
+- `payment.payment_method_bacs_direct_debit`
+- `payment.payment_method_bancnet`
+- `payment.payment_method_bancomat_pay`
+- `payment.payment_method_bancontact`
+- `payment.payment_method_bangkok_bank`
+- `payment.payment_method_bank_account`
+- `payment.payment_method_bank_bca`
+- `payment.payment_method_bank_of_ayudhya`
+- `payment.payment_method_bank_permata`
+- `payment.payment_method_bank_reference`
+- `payment.payment_method_bank_transfer`
+- `payment.payment_method_becs_direct_debit`
+- `payment.payment_method_belfius`
+- `payment.payment_method_benefit`
+- `payment.payment_method_bharatqr`
+- `payment.payment_method_billease`
+- `payment.payment_method_billink`
+- `payment.payment_method_bizum`
+- `payment.payment_method_blik`
+- `payment.payment_method_bni`
+- `payment.payment_method_boleto`
+- `payment.payment_method_boost`
+- `payment.payment_method_bpi`
+- `payment.payment_method_brankas`
+- `payment.payment_method_bri`
+- `payment.payment_method_bsi`
+- `payment.payment_method_card`
+- `payment.payment_method_cash_app_pay`
+- `payment.payment_method_cashalo`
+- `payment.payment_method_cebuana`
+- `payment.payment_method_cimb_niaga`
+- `payment.payment_method_clearpay`
+- `payment.payment_method_cofidis`
+- `payment.payment_method_dana`
+- `payment.payment_method_dolfin`
+- `payment.payment_method_duitnow`
+- `payment.payment_method_emi_india`
+- `payment.payment_method_enets`
+- `payment.payment_method_eps`
+- `payment.payment_method_floa_bank`
+- `payment.payment_method_fps`
+- `payment.payment_method_fpx`
+- `payment.payment_method_frafinance`
+- `payment.payment_method_gcash`
+- `payment.payment_method_giropay`
+- `payment.payment_method_gopay`
+- `payment.payment_method_grabpay`
+- `payment.payment_method_gsb`
+- `payment.payment_method_hd`
+- `payment.payment_method_hoolah`
+- `payment.payment_method_humm`
+- `payment.payment_method_ideal`
+- `payment.payment_method_in3`
+- `payment.payment_method_jeniuspay`
+- `payment.payment_method_jkopay`
+- `payment.payment_method_kakaopay`
+- `payment.payment_method_kasikorn_bank`
+- `payment.payment_method_kbc_cbc`
+- `payment.payment_method_klarna`
+- `payment.payment_method_klarna_paynow`
+- `payment.payment_method_klarna_pay_over_time`
+- `payment.payment_method_knet`
+- `payment.payment_method_kredivo`
+- `payment.payment_method_krungthai_bank`
+- `payment.payment_method_kfh`
+- `payment.payment_method_linepay`
+- `payment.payment_method_linkaja`
+- `payment.payment_method_lydia`
+- `payment.payment_method_lyfpay`
+- `payment.payment_method_mada`
+- `payment.payment_method_mandiri`
+- `payment.payment_method_maya`
+- `payment.payment_method_maybank`
+- `payment.payment_method_mbway`
+- `payment.payment_method_mobile_money`
+- `payment.payment_method_mobile_pay`
+- `payment.payment_method_momo`
+- `payment.payment_method_mpesa`
+- `payment.payment_method_multibanco`
+- `payment.payment_method_mybank`
+- `payment.payment_method_nuvei_local`
+- `payment.payment_method_napas_card`
+- `payment.payment_method_naver_pay`
+- `payment.payment_method_netbanking`
+- `payment.payment_method_octopus`
+- `payment.payment_method_online_banking_czech_republic`
+- `payment.payment_method_online_banking_india`
+- `payment.payment_method_online_banking_slovakia`
+- `payment.payment_method_online_banking_thailand`
+- `payment.payment_method_open_banking`
+- `payment.payment_method_ovo`
+- `payment.payment_method_oxxopay`
+- `payment.payment_method_paybright`
+- `payment.payment_method_pace`
+- `payment.payment_method_paylater_india`
+- `payment.payment_method_pay_easy`
+- `payment.payment_method_pay_id`
+- `payment.payment_method_paylib`
+- `payment.payment_method_payme`
+- `payment.payment_method_paynow`
+- `payment.payment_method_paypal`
+- `payment.payment_method_paypay`
+- `payment.payment_method_paysafecard`
+- `payment.payment_method_paytm`
+- `payment.payment_method_paytrail`
+- `payment.payment_method_payu`
+- `payment.payment_method_pix`
+- `payment.payment_method_poli`
+- `payment.payment_method_post_finance`
+- `payment.payment_method_poste_pay`
+- `payment.payment_method_pps`
+- `payment.payment_method_promptpay`
+- `payment.payment_method_pse`
+- `payment.payment_method_p24`
+- `payment.payment_method_qris`
+- `payment.payment_method_rabbit_line_pay`
+- `payment.payment_method_ratepay`
+- `payment.payment_method_revolut_pay`
+- `payment.payment_method_samsung_pay`
+- `payment.payment_method_scb`
+- `payment.payment_method_sepa_direct_debit`
+- `payment.payment_method_shopback`
+- `payment.payment_method_shopeepay`
+- `payment.payment_method_sofort`
+- `payment.payment_method_spei`
+- `payment.payment_method_swish`
+- `payment.payment_method_techcom`
+- `payment.payment_method_tendopay`
+- `payment.payment_method_tenpay`
+- `payment.payment_method_tienphong`
+- `payment.payment_method_tinka`
+- `payment.payment_method_tmb`
+- `payment.payment_method_toss_pay`
+- `payment.payment_method_touch_n_go`
+- `payment.payment_method_truemoney`
+- `payment.payment_method_trustly`
+- `payment.payment_method_ttb`
+- `payment.payment_method_twint`
+- `payment.payment_method_uatp`
+- `payment.payment_method_unknown`
+- `payment.payment_method_uob`
+- `payment.payment_method_upi`
+- `payment.payment_method_ussd`
+- `payment.payment_method_venmo`
+- `payment.payment_method_vietcom`
+- `payment.payment_method_vietcapital`
+- `payment.payment_method_vipps`
+- `payment.payment_method_vpay`
+- `payment.payment_method_vpbank`
+- `payment.payment_method_wallets_india`
+- `payment.payment_method_walley`
+- `payment.payment_method_webpay`
+- `payment.payment_method_wechat_pay`
+- `payment.payment_method_welend`
+- `payment.payment_method_zalopay`
+- `payment.payment_method_zip`
+- `payment.payment_method_abitab`
+- `payment.payment_method_amex`
+- `payment.payment_method_argencard`
+- `payment.payment_method_banco_de_bogota`
+- `payment.payment_method_banco_guayaquil`
+- `payment.payment_method_bancolombia`
+- `payment.payment_method_banco_pichincha`
+- `payment.payment_method_cabal`
+- `payment.payment_method_caixa`
+- `payment.payment_method_carnet`
+- `payment.payment_method_cartes_bancaires`
+- `payment.payment_method_cencosud`
+- `payment.payment_method_cirrus`
+- `payment.payment_method_cmr`
+- `payment.payment_method_codensa`
+- `payment.payment_method_cordial`
+- `payment.payment_method_cordobesa`
+- `payment.payment_method_credit`
+- `payment.payment_method_dankort`
+- `payment.payment_method_davivienda`
+- `payment.payment_method_diners`
+- `payment.payment_method_discover`
+- `payment.payment_method_elo`
+- `payment.payment_method_facilito`
+- `payment.payment_method_hipercard`
+- `payment.payment_method_ideal_brand`
+- `payment.payment_method_jcb`
+- `payment.payment_method_lider`
+- `payment.payment_method_mercado_livre`
+- `payment.payment_method_meeza`
+- `payment.payment_method_maestro`
+- `payment.payment_method_magna`
+- `payment.payment_method_mastercard`
+- `payment.payment_method_naps`
+- `payment.payment_method_naranja`
+- `payment.payment_method_nativa`
+- `payment.payment_method_oca`
+- `payment.payment_method_omannet`
+- `payment.payment_method_presto`
+- `payment.payment_method_redpagos`
+- `payment.payment_method_rupay`
+- `payment.payment_method_shopping`
+- `payment.payment_method_tarjeta_mercadopago`
+- `payment.payment_method_unionpay`
+- `payment.payment_method_viettelpay`
+- `payment.payment_method_visa`
+- `payment.payment_method_vnptwallet`
+- `payment.payment_method_woori`
+- `payment.payment_method_wero`
+
+## payment.provider
+
+- `payment.payment_provider_adyen`
+- `payment.payment_provider_aps`
+- `payment.payment_provider_asiapay`
+- `payment.payment_provider_authorize`
+- `payment.payment_provider_buckaroo`
+- `payment.payment_provider_demo`
+- `payment.payment_provider_flutterwave`
+- `payment.payment_provider_mercado_pago`
+- `payment.payment_provider_mollie`
+- `payment.payment_provider_nuvei`
+- `payment.payment_provider_paypal`
+- `payment.payment_provider_razorpay`
+- `payment.payment_provider_sepa_direct_debit`
+- `payment.payment_provider_stripe`
+- `payment.payment_provider_transfer`
+- `payment.payment_provider_worldline`
+- `payment.payment_provider_xendit`

@@ -1,0 +1,121 @@
+# mrp_subcontracting — MRP Subcontracting
+
+Depends on: mrp.
+
+## `mrp.bom` (extends)
+
+- `type` Selection
+- `subcontractor_ids` Many2many → `res.partner` “Subcontractors”
+
+Extension points: `_check_subcontracting_no_operation`
+
+## `mrp.production` (extends)
+
+- `move_line_raw_ids` One2many → `stock.move.line` “Detail Component” (compute=_compute_move_line_raw_ids)
+- `subcontracting_has_been_recorded` Boolean “Has been recorded?”
+- `subcontractor_id` Many2one → `res.partner` “Subcontractor”
+- `bom_product_ids` Many2many → `product.product` (compute=_compute_bom_product_ids)
+- `incoming_picking` Many2one (related=move_finished_ids.move_dest_ids.picking_id)
+
+Public methods: `action_merge`, `pre_button_mark_done`, `subcontracting_record_component`, `write`
+
+Extension points: `_get_subcontract_move`, `_get_writeable_fields_portal_user`
+
+## `product.supplierinfo` (extends)
+
+- `is_subcontractor` Boolean “Subcontracted” (compute=_compute_is_subcontractor)
+
+## `product.product` (extends)
+
+
+Extension points: `_prepare_sellers`
+
+## `res.company` (extends)
+
+- `subcontracting_location_id` Many2one → `stock.location`
+
+Extension points: `_create_missing_subcontracting_location`, `_create_per_company_locations`, `_create_subcontracting_location`
+
+## `res.partner` (extends)
+
+- `property_stock_subcontractor` Many2one → `stock.location` “Subcontractor Location” (company_dependent)
+- `is_subcontractor` Boolean “Subcontractor” (compute=_compute_is_subcontractor)
+- `bom_ids` Many2many → `mrp.bom` “BoMs for which the Partner is one of the subcontractors” (compute=_compute_bom_ids)
+- `production_ids` Many2many → `mrp.production` “MRP Productions for which the Partner is the subcontractor” (compute=_compute_production_ids)
+- `picking_ids` Many2many → `stock.picking` “Stock Pickings for which the Partner is the subcontractor” (compute=_compute_picking_ids)
+
+## `stock.location` (extends)
+
+- `is_subcontracting_location` Boolean “Is a Subcontracting Location?”
+- `subcontractor_ids` One2many → `res.partner`
+
+Public methods: `create`, `write`
+
+Extension points: `_check_access_putaway`, `_check_subcontracting_location`
+
+## `stock.move` (extends)
+
+- `is_subcontract` Boolean “The move is a subcontract receipt”
+- `show_subcontracting_details_visible` Boolean (compute=_compute_show_subcontracting_details_visible)
+
+Public methods: `action_show_details`, `action_show_subcontract_details`, `copy`, `create`, `write`
+
+Extension points: `_action_cancel`, `_action_confirm`, `_action_record_components`, `_check_access_if_subcontractor`, `_get_subcontract_bom`, `_get_subcontract_production`, `_prepare_extra_move_vals`, `_prepare_move_split_vals`
+
+## `stock.move.line` (extends)
+
+
+Public methods: `write`
+
+## `stock.picking` (extends)
+
+- `move_line_ids_without_package` One2many
+- `display_action_record_components` Selection (compute=_compute_display_action_record_components)
+
+Public methods: `action_record_components`
+
+Extension points: `_action_done`, `_get_subcontract_production`, `_get_warehouse`, `_prepare_subcontract_mo_vals`
+
+## `stock.quant` (extends)
+
+- `is_subcontract` Boolean
+
+## `stock.rule` (extends)
+
+
+## `stock.warehouse` (extends)
+
+- `subcontracting_to_resupply` Boolean “Resupply Subcontractors”
+- `subcontracting_mto_pull_id` Many2one → `stock.rule`
+- `subcontracting_pull_id` Many2one → `stock.rule`
+- `subcontracting_route_id` Many2one → `stock.route`
+- `subcontracting_type_id` Many2one → `stock.picking.type`
+- `subcontracting_resupply_type_id` Many2one → `stock.picking.type`
+
+Public methods: `create`, `get_rules_dict`, `write`
+
+Extension points: `_get_picking_type_create_values`, `_get_picking_type_update_values`, `_get_routes_values`, `_get_sequence_values`, `_get_subcontracting_location`, `_get_subcontracting_locations`
+
+## `report.mrp.report_bom_structure` (extends)
+
+
+Extension points: `_get_bom_array_lines`, `_get_bom_data`, `_get_quantities_info`, `_get_resupply_availability`, `_get_subcontracting_line`
+
+## `change.production.qty` (extends)
+
+
+## `mrp.consumption.warning` (extends)
+
+
+Public methods: `action_cancel`, `action_confirm`
+
+## `product.replenish` (extends)
+
+
+Extension points: `_get_allowed_route_domain`
+
+## `stock.return.picking` (extends)
+
+- `subcontract_location_id` Many2one → `stock.location` (compute=_compute_subcontract_location_id)
+
+Extension points: `_prepare_move_default_values`

@@ -1,0 +1,33 @@
+# pos_discount — Point of Sale Discounts
+
+Depends on: point_of_sale.
+
+## `account.move.line` (extends)
+
+
+Extension points: `_get_discount_lines`
+
+## `pos.config` (extends)
+
+- `iface_discount` Boolean “Order Discounts”
+- `discount_pc` Float “Discount Value”
+- `discount_product_id` Many2one → `product.product` “Discount Product”
+
+Public methods: `open_ui`
+
+Extension points: `_get_special_products`
+
+## `product.template` (extends)
+
+
+Extension points: `_get_special_products_to_archive`
+
+## `report.point_of_sale.report_saledetails` (extends)
+
+
+Public methods: `get_sale_details`
+
+## `res.config.settings` (extends)
+
+- `pos_discount_pc` Float (related=pos_config_id.discount_pc)
+- `pos_discount_product_id` Many2one → `product.product` (store, compute=_compute_pos_discount_product_id)

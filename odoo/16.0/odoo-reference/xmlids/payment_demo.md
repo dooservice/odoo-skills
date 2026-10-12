@@ -1,0 +1,13 @@
+# payment_demo — XML ids
+
+## ir.ui.view
+
+- `payment_demo.inline_form`
+- `payment_demo.token_inline_form`
+- `payment_demo.verified_token_checkmark` — inherits payment.verified_token_checkmark
+- `payment_demo.payment_token_form` — on payment.token inherits payment.payment_token_form
+- `payment_demo.payment_transaction_form` — on payment.transaction inherits payment.payment_transaction_form
+
+## payment.provider
+
+- `payment.payment_provider_demo`

@@ -1,0 +1,171 @@
+# l10n_cz — XML ids
+
+## account.report
+
+- `l10n_cz.l10n_cz_vat_declaration`
+
+## account.report.column
+
+- `l10n_cz.l10n_cz_vat_declaration_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_value`
+- `l10n_cz.l10n_cz_vat_declaration_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_coefficient`
+
+## account.report.expression
+
+- `l10n_cz.l10n_cz_vat_declaration_line_3_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_3_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_4_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_4_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_6_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_6_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_7_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_7_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_9_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_9_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_10_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_10_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_12_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_12_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_13_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_13_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_14_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_14_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_16_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_16_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_17_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_17_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_19_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_19_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_20_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_20_output_tax`
+- `l10n_cz.l10n_cz_vat_declaration_line_22_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_23_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_24_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_25_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_26_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_27_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_28_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_31_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_32_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_33_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_35_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_36_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_39_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_39_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_39_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_40_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_40_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_40_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_41_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_41_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_41_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_43_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_43_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_43_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_44_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_44_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_44_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_45_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_45_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_46_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_46_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_47_tax_base`
+- `l10n_cz.l10n_cz_vat_declaration_line_47_in_full_amount`
+- `l10n_cz.l10n_cz_vat_declaration_line_47_reduced_claim`
+- `l10n_cz.l10n_cz_vat_declaration_line_49_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_51_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_52_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_54_coefficient`
+- `l10n_cz.l10n_cz_vat_declaration_line_55_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_57_coefficient`
+- `l10n_cz.l10n_cz_vat_declaration_line_58_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_60_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_61_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_62_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_63_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_64_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_65_value`
+- `l10n_cz.l10n_cz_vat_declaration_line_66_value`
+
+## account.report.line
+
+- `l10n_cz.l10n_cz_vat_declaration_line_1`
+- `l10n_cz.l10n_cz_vat_declaration_line_2`
+- `l10n_cz.l10n_cz_vat_declaration_line_3`
+- `l10n_cz.l10n_cz_vat_declaration_line_4`
+- `l10n_cz.l10n_cz_vat_declaration_line_5`
+- `l10n_cz.l10n_cz_vat_declaration_line_6`
+- `l10n_cz.l10n_cz_vat_declaration_line_7`
+- `l10n_cz.l10n_cz_vat_declaration_line_8`
+- `l10n_cz.l10n_cz_vat_declaration_line_9`
+- `l10n_cz.l10n_cz_vat_declaration_line_10`
+- `l10n_cz.l10n_cz_vat_declaration_line_11`
+- `l10n_cz.l10n_cz_vat_declaration_line_12`
+- `l10n_cz.l10n_cz_vat_declaration_line_13`
+- `l10n_cz.l10n_cz_vat_declaration_line_14`
+- `l10n_cz.l10n_cz_vat_declaration_line_15`
+- `l10n_cz.l10n_cz_vat_declaration_line_16`
+- `l10n_cz.l10n_cz_vat_declaration_line_17`
+- `l10n_cz.l10n_cz_vat_declaration_line_18`
+- `l10n_cz.l10n_cz_vat_declaration_line_19`
+- `l10n_cz.l10n_cz_vat_declaration_line_20`
+- `l10n_cz.l10n_cz_vat_declaration_line_21`
+- `l10n_cz.l10n_cz_vat_declaration_line_22`
+- `l10n_cz.l10n_cz_vat_declaration_line_23`
+- `l10n_cz.l10n_cz_vat_declaration_line_24`
+- `l10n_cz.l10n_cz_vat_declaration_line_25`
+- `l10n_cz.l10n_cz_vat_declaration_line_26`
+- `l10n_cz.l10n_cz_vat_declaration_line_27`
+- `l10n_cz.l10n_cz_vat_declaration_line_28`
+- `l10n_cz.l10n_cz_vat_declaration_line_29`
+- `l10n_cz.l10n_cz_vat_declaration_line_30`
+- `l10n_cz.l10n_cz_vat_declaration_line_31`
+- `l10n_cz.l10n_cz_vat_declaration_line_32`
+- `l10n_cz.l10n_cz_vat_declaration_line_33`
+- `l10n_cz.l10n_cz_vat_declaration_line_34`
+- `l10n_cz.l10n_cz_vat_declaration_line_35`
+- `l10n_cz.l10n_cz_vat_declaration_line_36`
+- `l10n_cz.l10n_cz_vat_declaration_line_37`
+- `l10n_cz.l10n_cz_vat_declaration_line_38`
+- `l10n_cz.l10n_cz_vat_declaration_line_39`
+- `l10n_cz.l10n_cz_vat_declaration_line_40`
+- `l10n_cz.l10n_cz_vat_declaration_line_41`
+- `l10n_cz.l10n_cz_vat_declaration_line_42`
+- `l10n_cz.l10n_cz_vat_declaration_line_43`
+- `l10n_cz.l10n_cz_vat_declaration_line_44`
+- `l10n_cz.l10n_cz_vat_declaration_line_45`
+- `l10n_cz.l10n_cz_vat_declaration_line_46`
+- `l10n_cz.l10n_cz_vat_declaration_line_47`
+- `l10n_cz.l10n_cz_vat_declaration_line_48`
+- `l10n_cz.l10n_cz_vat_declaration_line_49`
+- `l10n_cz.l10n_cz_vat_declaration_line_50`
+- `l10n_cz.l10n_cz_vat_declaration_line_51`
+- `l10n_cz.l10n_cz_vat_declaration_line_52`
+- `l10n_cz.l10n_cz_vat_declaration_line_53`
+- `l10n_cz.l10n_cz_vat_declaration_line_54`
+- `l10n_cz.l10n_cz_vat_declaration_line_55`
+- `l10n_cz.l10n_cz_vat_declaration_line_56`
+- `l10n_cz.l10n_cz_vat_declaration_line_57`
+- `l10n_cz.l10n_cz_vat_declaration_line_58`
+- `l10n_cz.l10n_cz_vat_declaration_line_59`
+- `l10n_cz.l10n_cz_vat_declaration_line_60`
+- `l10n_cz.l10n_cz_vat_declaration_line_61`
+- `l10n_cz.l10n_cz_vat_declaration_line_62`
+- `l10n_cz.l10n_cz_vat_declaration_line_63`
+- `l10n_cz.l10n_cz_vat_declaration_line_64`
+- `l10n_cz.l10n_cz_vat_declaration_line_65`
+- `l10n_cz.l10n_cz_vat_declaration_line_66`
+
+## ir.ui.view
+
+- `l10n_cz.report_invoice_document` — inherits account.report_invoice_document
+- `l10n_cz.res_partner_view_form_inherit_l10n_cz` — on res.partner inherits account.view_partner_property_form
+- `l10n_cz.view_company_form_inherit_l10n_ck` — on res.company inherits base.view_company_form
+- `l10n_cz.view_move_form_l10n_cz` — on account.move inherits account.view_move_form
+- `l10n_cz.l10n_cz_external_layout_standard` — inherits web.external_layout_standard
+- `l10n_cz.l10n_cz_external_layout_bold` — inherits web.external_layout_bold
+- `l10n_cz.l10n_cz_external_layout_boxed` — inherits web.external_layout_boxed
+- `l10n_cz.l10n_cz_external_layout_striped` — inherits web.external_layout_striped

@@ -1,0 +1,11 @@
+# l10n_jo_edi — XML ids
+
+## ir.ui.view
+
+- `l10n_jo_edi.view_move_form` — on account.move inherits account.view_move_form
+- `l10n_jo_edi.view_out_invoice_tree` — on account.move inherits account.view_out_invoice_tree
+- `l10n_jo_edi.view_out_credit_note_tree` — on account.move inherits account.view_out_credit_note_tree
+- `l10n_jo_edi.view_account_invoice_filter` — on account.move inherits account.view_account_invoice_filter
+- `l10n_jo_edi.report_invoice_document` — inherits account.report_invoice_document
+- `l10n_jo_edi.report_invoice` — inherits account.report_invoice
+- `l10n_jo_edi.res_config_settings_view_form` — on res.config.settings inherits account.res_config_settings_view_form

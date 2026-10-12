@@ -1,0 +1,34 @@
+# account_payment — XML ids
+
+## ir.actions.act_window
+
+- `account_payment.action_invoice_order_generate_link`
+
+## ir.rule
+
+- `account_payment.payment_transaction_billing_rule`
+- `account_payment.payment_token_billing_rule`
+
+## ir.ui.menu
+
+- `account_payment.payment_provider_menu`
+- `account_payment.payment_icon_menu`
+- `account_payment.payment_token_menu`
+- `account_payment.payment_transaction_menu`
+
+## ir.ui.view
+
+- `account_payment.portal_my_invoices_payment` — inherits account.portal_my_invoices
+- `account_payment.portal_invoice_payment`
+- `account_payment.portal_invoice_page_inherit_payment` — inherits account.portal_invoice_page
+- `account_payment.portal_invoice_error` — inherits account.portal_invoice_error
+- `account_payment.portal_invoice_success` — inherits account.portal_invoice_success
+- `account_payment.payment_checkout_inherit` — inherits payment.checkout
+- `account_payment.payment_manage_inherit` — inherits payment.manage
+- `account_payment.account_invoice_view_form_inherit_payment` — on account.move inherits account.view_move_form
+- `account_payment.view_account_journal_form` — on account.journal inherits account.view_account_journal_form
+- `account_payment.view_account_payment_form_inherit_payment` — on account.payment inherits account.view_account_payment_form
+- `account_payment.payment_provider_form` — on payment.provider inherits payment.payment_provider_form
+- `account_payment.payment_transaction_form` — on payment.transaction inherits payment.payment_transaction_form
+- `account_payment.view_account_payment_register_form_inherit_payment` — on account.payment.register inherits account.view_account_payment_register_form
+- `account_payment.payment_refund_wizard_view_form` — on payment.refund.wizard

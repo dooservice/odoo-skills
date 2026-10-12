@@ -1,0 +1,9 @@
+# website_sale_delivery_mondialrelay — XML ids
+
+## ir.ui.view
+
+- `website_sale_delivery_mondialrelay.delivery_carrier_view_search_inherit_website_sale_delivery_mondialrelay` — on delivery.carrier inherits delivery.view_delivery_carrier_search
+- `website_sale_delivery_mondialrelay.res_config_settings_view_form_inherit_website_sale_delivery_mondial_relay` — on res.config.settings inherits website_sale.res_config_settings_view_form
+- `website_sale_delivery_mondialrelay.website_sale_delivery_mondialrelay_address_on_payment` — inherits website_sale.address_on_payment
+- `website_sale_delivery_mondialrelay.website_sale_delivery_mondialrelay_checkout` — inherits website_sale.checkout
+- `website_sale_delivery_mondialrelay.website_sale_delivery_mondialrelay_address_kanban` — inherits website_sale.address_kanban

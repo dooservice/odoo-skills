@@ -1,0 +1,254 @@
+# l10n_ca — XML ids
+
+## account.chart.template
+
+- `l10n_ca.ca_en_chart_template_en`
+- `l10n_ca.ca_en_chart_template_en`
+
+## account.fiscal.position.account.template
+
+- `l10n_ca.fiscal_position_account_template_2ab_sale_en`
+- `l10n_ca.fiscal_position_account_template_ab2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2bc_sale_en`
+- `l10n_ca.fiscal_position_account_template_bc2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2mb_sale_en`
+- `l10n_ca.fiscal_position_account_template_mb2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2nb_sale_en`
+- `l10n_ca.fiscal_position_account_template_nb2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2nl_sale_en`
+- `l10n_ca.fiscal_position_account_template_nl2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2ns_sale_en`
+- `l10n_ca.fiscal_position_account_template_ns2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2nu_sale_en`
+- `l10n_ca.fiscal_position_account_template_nu2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2nt_sale_en`
+- `l10n_ca.fiscal_position_account_template_nt2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2on_sale_en`
+- `l10n_ca.fiscal_position_account_template_on2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2pe_sale_en`
+- `l10n_ca.fiscal_position_account_template_pe2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2qc_sale_en`
+- `l10n_ca.fiscal_position_account_template_qc2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2sk_sale_en`
+- `l10n_ca.fiscal_position_account_template_sk2_purc_en`
+- `l10n_ca.fiscal_position_account_template_2yt_sale_en`
+- `l10n_ca.fiscal_position_account_template_yt2_purc_en`
+- `l10n_ca.fiscal_position_account_template_ab2intl_sale_en`
+- `l10n_ca.fiscal_position_account_template_intl2_purc_en`
+
+## account.fiscal.position.tax.template
+
+- `l10n_ca.fiscal_position_tax_template_ab2nb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2nl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2ns_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2on_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2pe_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2intl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_intl2ab_purc_en`
+- `l10n_ca.fiscal_position_tax_template_bc2ab_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2mb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2nb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2nl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2ns_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2nt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2nu_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2on_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2pe_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2qc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2sk_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2yt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_bc2intl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_mb2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nb2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nl2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_ns2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nt2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nu2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_on2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_pe2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_qc2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_sk2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_yt2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_intl2bc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_mb2ab_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2bc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2nb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2nl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2ns_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2nt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2nu_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2on_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2pe_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2qc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2sk_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2yt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_mb2intl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_bc2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nb2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nl2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_ns2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nt2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nu2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_on2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_pe2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_qc2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_sk2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_yt2mb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_yt2intl_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nb2ab_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2bc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2mb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2nl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2ns_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2nt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2nu_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2pe_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2qc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2sk_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2yt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_nb2intl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_intl2nb_purc_en`
+- `l10n_ca.fiscal_position_tax_template_ns2ab_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2bc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2mb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2nb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2nl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2nt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2nu_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2on_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2qc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2sk_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2yt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ns2intl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_intl2ns_purc_en`
+- `l10n_ca.fiscal_position_tax_template_qc2ab_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2bc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2mb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2nb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2nl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2ns_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2nt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2nu_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2on_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2pe_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2sk_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2yt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_qc2intl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_bc2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_mb2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nb2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nl2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_ns2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nt2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nu2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_on2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_pe2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_sk2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_yt2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_intl2qc_purc_en`
+- `l10n_ca.fiscal_position_tax_template_sk2ab_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2bc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2mb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2nb_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2nl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2ns_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2nt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2nu_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2on_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2pe_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2qc_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2yt_sale_en`
+- `l10n_ca.fiscal_position_tax_template_sk2intl_sale_en`
+- `l10n_ca.fiscal_position_tax_template_ab2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_bc2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_mb2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nb2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nl2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_ns2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nt2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_nu2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_on2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_pe2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_qc2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_yt2sk_purc_en`
+- `l10n_ca.fiscal_position_tax_template_intl2yt_purc_en`
+
+## account.fiscal.position.template
+
+- `l10n_ca.fiscal_position_template_ab_en`
+- `l10n_ca.fiscal_position_template_bc_en`
+- `l10n_ca.fiscal_position_template_mb_en`
+- `l10n_ca.fiscal_position_template_nb_en`
+- `l10n_ca.fiscal_position_template_nl_en`
+- `l10n_ca.fiscal_position_template_ns_en`
+- `l10n_ca.fiscal_position_template_nt_en`
+- `l10n_ca.fiscal_position_template_nu_en`
+- `l10n_ca.fiscal_position_template_on_en`
+- `l10n_ca.fiscal_position_template_pe_en`
+- `l10n_ca.fiscal_position_template_qc_en`
+- `l10n_ca.fiscal_position_template_sk_en`
+- `l10n_ca.fiscal_position_template_yt_en`
+- `l10n_ca.fiscal_position_template_intl_en`
+
+## account.tax.group
+
+- `l10n_ca.tax_group_fix`
+- `l10n_ca.tax_group_gst_5`
+- `l10n_ca.tax_group_pst_5`
+- `l10n_ca.tax_group_gst_7`
+- `l10n_ca.tax_group_gst_8`
+- `l10n_ca.tax_group_pst_8`
+- `l10n_ca.tax_group_qst_9975`
+- `l10n_ca.tax_group_hst_13`
+- `l10n_ca.tax_group_hst_14`
+- `l10n_ca.tax_group_hst_15`
+
+## account.tax.template
+
+- `l10n_ca.gstpst_sale_bc_gst_en`
+- `l10n_ca.pst_bc_sale_en`
+- `l10n_ca.gstpst_bc_sale_en`
+- `l10n_ca.gstpst_sale_mb_gst_en`
+- `l10n_ca.pst_mb_sale_en`
+- `l10n_ca.gstpst_mb_sale_en`
+- `l10n_ca.gstqst_sale_gst_en`
+- `l10n_ca.qst_sale_en`
+- `l10n_ca.gstqst_sale_en`
+- `l10n_ca.gstpst_sale_sk_gst_en`
+- `l10n_ca.pst_sk_sale_en`
+- `l10n_ca.gstpst_sk_sale_en`
+- `l10n_ca.hst13_sale_en`
+- `l10n_ca.hst15_sale_en`
+- `l10n_ca.gst_sale_en`
+- `l10n_ca.gstpst_purc_bc_gst_en`
+- `l10n_ca.pst_bc_purc_en`
+- `l10n_ca.gstpst_bc_purc_en`
+- `l10n_ca.gstpst_purc_mb_gst_en`
+- `l10n_ca.pst_mb_purc_en`
+- `l10n_ca.gstpst_mb_purc_en`
+- `l10n_ca.gstqst_purc_gst_en`
+- `l10n_ca.qst_purc_en`
+- `l10n_ca.gstqst_purc_en`
+- `l10n_ca.gstpst_purc_sk_gst_en`
+- `l10n_ca.pst_sk_purc_en`
+- `l10n_ca.gstpst_sk_purc_en`
+- `l10n_ca.hst13_purc_en`
+- `l10n_ca.hst15_purc_en`
+- `l10n_ca.gst_purc_en`
+
+## ir.ui.view
+
+- `l10n_ca.res_partner_form_inherit_ca` — on res.partner inherits base.view_partner_form
+- `l10n_ca.res_company_form_inherit_ca` — on res.company inherits base.view_company_form
+- `l10n_ca.l10n_ca_report_invoice_document_inherit` — inherits account.report_invoice_document
+- `l10n_ca.l10n_ca_external_layout_standard` — inherits web.external_layout_standard
+- `l10n_ca.l10n_ca_external_layout_bold` — inherits web.external_layout_bold
+- `l10n_ca.l10n_ca_external_layout_boxed` — inherits web.external_layout_boxed
+- `l10n_ca.l10n_ca_external_layout_striped` — inherits web.external_layout_striped
+
+## res.company
+
+- `base.main_company`

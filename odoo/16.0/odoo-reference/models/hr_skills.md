@@ -1,0 +1,113 @@
+# hr_skills — Skills Management
+
+Depends on: hr.
+
+## `hr.employee` (extends)
+
+- `resume_line_ids` One2many → `hr.resume.line` “Resume lines”
+- `employee_skill_ids` One2many → `hr.employee.skill` “Skills”
+- `skill_ids` Many2many → `hr.skill` (store, compute=_compute_skill_ids)
+
+Public methods: `create`, `write`
+
+## `hr.employee.public` (extends)
+
+- `resume_line_ids` One2many → `hr.resume.line` “Resume lines”
+- `employee_skill_ids` One2many → `hr.employee.skill` “Skills”
+
+## `hr.employee.skill` (defines)
+
+Skill level for an employee
+
+- `employee_id` Many2one → `hr.employee` (required)
+- `skill_id` Many2one → `hr.skill` (required, store, compute=_compute_skill_id)
+- `skill_level_id` Many2one → `hr.skill.level` (required, store, compute=_compute_skill_level_id)
+- `skill_type_id` Many2one → `hr.skill.type` (required)
+- `level_progress` Integer (related=skill_level_id.level_progress)
+
+Public methods: `create`, `write`
+
+Extension points: `_check_skill_level`, `_check_skill_type`, `_create_logs`
+
+## `hr.employee.skill.log` (defines)
+
+Skills History
+
+- `employee_id` Many2one → `hr.employee` (required)
+- `department_id` Many2one → `hr.department`
+- `skill_id` Many2one → `hr.skill` (required, store, compute=_compute_skill_id)
+- `skill_level_id` Many2one → `hr.skill.level` (required, store, compute=_compute_skill_level_id)
+- `skill_type_id` Many2one → `hr.skill.type` (required)
+- `level_progress` Integer (store, related=skill_level_id.level_progress)
+- `date` Date
+
+## `hr.resume.line` (defines)
+
+Resume line of an employee
+
+- `employee_id` Many2one → `hr.employee` (required)
+- `name` Char (required)
+- `date_start` Date (required)
+- `date_end` Date
+- `description` Text “Description”
+- `line_type_id` Many2one → `hr.resume.line.type` “Type”
+- `display_type` Selection “Display Type”
+
+## `hr.resume.line.type` (defines)
+
+Type of a resume line
+
+- `name` Char (required)
+- `sequence` Integer “Sequence”
+
+## `hr.skill` (defines)
+
+Skill
+
+- `name` Char (required)
+- `sequence` Integer
+- `skill_type_id` Many2one → `hr.skill.type` (required)
+
+Public methods: `name_get`
+
+## `hr.skill.level` (defines)
+
+Skill Level
+
+- `skill_type_id` Many2one → `hr.skill.type`
+- `name` Char (required)
+- `level_progress` Integer “Progress”
+- `default_level` Boolean
+
+Public methods: `action_set_default`, `create`, `name_get`, `unlink`, `write`
+
+## `hr.skill.type` (defines)
+
+Skill Type
+
+- `name` Char (required)
+- `skill_ids` One2many → `hr.skill` “Skills”
+- `skill_level_ids` One2many → `hr.skill.level` “Levels”
+
+## `res.users` (extends)
+
+- `resume_line_ids` One2many (related=employee_id.resume_line_ids)
+- `employee_skill_ids` One2many (related=employee_id.employee_skill_ids)
+
+Public methods: `SELF_READABLE_FIELDS`, `SELF_WRITEABLE_FIELDS`
+
+## `hr.employee.skill.report` (defines)
+
+Employee Skills Report
+
+- `id` Id
+- `display_name` Char (related=employee_id.name)
+- `employee_id` Many2one → `hr.employee` (readonly)
+- `company_id` Many2one → `res.company` (readonly)
+- `department_id` Many2one → `hr.department` (readonly)
+- `skill_id` Many2one → `hr.skill` (readonly)
+- `skill_type_id` Many2one → `hr.skill.type` (readonly)
+- `skill_level` Char (readonly)
+- `level_progress` Float (readonly)
+
+Public methods: `init`

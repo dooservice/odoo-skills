@@ -1,0 +1,24 @@
+# pos_sale — XML ids
+
+## crm.team
+
+- `sales_team.pos_sales_team`
+
+## ir.actions.act_window
+
+- `pos_sale.pos_session_action_from_crm_team`
+
+## ir.ui.view
+
+- `pos_sale.report_invoice_document` — inherits account.report_invoice_document
+- `pos_sale.view_order_form_inherit_pos_sale` — on sale.order inherits sale.view_order_form
+- `pos_sale.view_pos_order_form_inherit_pos_sale` — on pos.order inherits point_of_sale.view_pos_pos_form
+- `pos_sale.view_pos_session_search_inherit_pos_sale` — on pos.session inherits point_of_sale.view_pos_session_search
+- `pos_sale.view_pos_config_search_inherit_pos_sale` — on pos.config inherits point_of_sale.view_pos_config_search
+- `pos_sale.res_config_settings_view_form` — on res.config.settings inherits point_of_sale.res_config_settings_view_form
+- `pos_sale.pos_orderline_receipt_information` — inherits point_of_sale.pos_orderline_receipt_information
+
+## product.product
+
+- `pos_sale.default_downpayment_product`
+- `pos_sale.default_sol_product`

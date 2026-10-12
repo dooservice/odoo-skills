@@ -1,0 +1,136 @@
+# l10n_bh — XML ids
+
+## account.report
+
+- `l10n_bh.l10n_bh_tax_report_full`
+- `l10n_bh.l10n_bh_tax_report_simplified`
+
+## account.report.column
+
+- `l10n_bh.l10n_bh_tax_report_full_base`
+- `l10n_bh.l10n_bh_tax_report_full_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_tax`
+
+## account.report.expression
+
+- `l10n_bh.l10n_bh_tax_report_full_1a_base`
+- `l10n_bh.l10n_bh_tax_report_full_1a_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_1a_tax`
+- `l10n_bh.l10n_bh_tax_report_full_2_base`
+- `l10n_bh.l10n_bh_tax_report_full_2_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_3_base`
+- `l10n_bh.l10n_bh_tax_report_full_3_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_4_base`
+- `l10n_bh.l10n_bh_tax_report_full_4_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_5_base`
+- `l10n_bh.l10n_bh_tax_report_full_5_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_6_base`
+- `l10n_bh.l10n_bh_tax_report_full_6_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_7_base`
+- `l10n_bh.l10n_bh_tax_report_full_7_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_7_tax`
+- `l10n_bh.l10n_bh_tax_report_full_8_base`
+- `l10n_bh.l10n_bh_tax_report_full_8_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_8_tax`
+- `l10n_bh.l10n_bh_tax_report_full_9_base`
+- `l10n_bh.l10n_bh_tax_report_full_9_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_9_tax`
+- `l10n_bh.l10n_bh_tax_report_full_10_base`
+- `l10n_bh.l10n_bh_tax_report_full_10_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_10_tax`
+- `l10n_bh.l10n_bh_tax_report_full_11_base`
+- `l10n_bh.l10n_bh_tax_report_full_11_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_11_tax`
+- `l10n_bh.l10n_bh_tax_report_full_12_base`
+- `l10n_bh.l10n_bh_tax_report_full_12_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_12_tax`
+- `l10n_bh.l10n_bh_tax_report_full_13_base`
+- `l10n_bh.l10n_bh_tax_report_full_13_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_14_base`
+- `l10n_bh.l10n_bh_tax_report_full_14_adjustment`
+- `l10n_bh.l10n_bh_tax_report_full_14_tax`
+- `l10n_bh.l10n_bh_tax_report_full_15_tax`
+- `l10n_bh.l10n_bh_tax_report_full_16_tax`
+- `l10n_bh.l10n_bh_tax_report_full_17_tax`
+- `l10n_bh.l10n_bh_tax_report_full_18_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_1a_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_1a_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_2_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_2_1_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_2_2_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_2_3_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_3_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_3_1_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_3_2_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_7_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_7_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_14_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_14_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_8_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_8_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_9_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_9_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_10_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_10_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_11_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_11_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_12_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_12_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_13_base`
+- `l10n_bh.l10n_bh_tax_report_simplified_15_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_16_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_17_tax`
+- `l10n_bh.l10n_bh_tax_report_simplified_18_tax`
+
+## account.report.line
+
+- `l10n_bh.l10n_bh_tax_report_full_vat_sale`
+- `l10n_bh.l10n_bh_tax_report_full_1a`
+- `l10n_bh.l10n_bh_tax_report_full_2`
+- `l10n_bh.l10n_bh_tax_report_full_3`
+- `l10n_bh.l10n_bh_tax_report_full_4`
+- `l10n_bh.l10n_bh_tax_report_full_5`
+- `l10n_bh.l10n_bh_tax_report_full_6`
+- `l10n_bh.l10n_bh_tax_report_full_7`
+- `l10n_bh.l10n_bh_tax_report_full_vat_purchase`
+- `l10n_bh.l10n_bh_tax_report_full_8`
+- `l10n_bh.l10n_bh_tax_report_full_9`
+- `l10n_bh.l10n_bh_tax_report_full_10`
+- `l10n_bh.l10n_bh_tax_report_full_11`
+- `l10n_bh.l10n_bh_tax_report_full_12`
+- `l10n_bh.l10n_bh_tax_report_full_13`
+- `l10n_bh.l10n_bh_tax_report_full_14`
+- `l10n_bh.l10n_bh_tax_report_full_total_due`
+- `l10n_bh.l10n_bh_tax_report_full_16`
+- `l10n_bh.l10n_bh_tax_report_full_17`
+- `l10n_bh.l10n_bh_tax_report_full_18`
+- `l10n_bh.l10n_bh_tax_report_simplified_1a`
+- `l10n_bh.l10n_bh_tax_report_simplified_2`
+- `l10n_bh.l10n_bh_tax_report_simplified_2_1`
+- `l10n_bh.l10n_bh_tax_report_simplified_2_2`
+- `l10n_bh.l10n_bh_tax_report_simplified_2_3`
+- `l10n_bh.l10n_bh_tax_report_simplified_3`
+- `l10n_bh.l10n_bh_tax_report_simplified_3_1`
+- `l10n_bh.l10n_bh_tax_report_simplified_3_2`
+- `l10n_bh.l10n_bh_tax_report_simplified_7`
+- `l10n_bh.l10n_bh_tax_report_simplified_14`
+- `l10n_bh.l10n_bh_tax_report_simplified_8`
+- `l10n_bh.l10n_bh_tax_report_simplified_9`
+- `l10n_bh.l10n_bh_tax_report_simplified_10`
+- `l10n_bh.l10n_bh_tax_report_simplified_11`
+- `l10n_bh.l10n_bh_tax_report_simplified_12`
+- `l10n_bh.l10n_bh_tax_report_simplified_13`
+- `l10n_bh.l10n_bh_tax_report_simplified_15`
+- `l10n_bh.l10n_bh_tax_report_simplified_16`
+- `l10n_bh.l10n_bh_tax_report_simplified_17`
+- `l10n_bh.l10n_bh_tax_report_simplified_18`
+
+## ir.ui.view
+
+- `l10n_bh.document_tax_totals_company_currency_template` — inherits account.document_tax_totals_company_currency_template
+
+## res.country.group
+
+- `l10n_bh.gulf_cooperation_council_without_bh`

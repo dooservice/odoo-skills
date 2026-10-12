@@ -18,6 +18,7 @@ version-specific statement checked against that branch's source.
 | `odoo-review` | a two-pass review of a diff: house rules, then the merits, then proving it installs |
 | `odoo-git` | commit messages (`[TAG] module: summary`, why first), branches, submodules, pull requests |
 | `odoo-upgrade` | porting a module to a newer version, and migration scripts with odoo-upgrade-util |
+| `odoo-reference` | generated from each version's source: every addon's models (fields, public methods, extension points), every Settings switch and where it keeps its value, and every XML id an addon declares |
 
 ## What changes between versions
 
@@ -54,10 +55,12 @@ matches the task by itself.
 ## Layout
 
 ```
-odoo/<version>/   generated: odoo-guidelines, odoo-web-guidelines, odoo-security, odoo-review, odoo-git
-odoo/common/      version-independent: odoo-upgrade
-dooservice/       the dooservice platform's own: its console commands, and configuring Odoo without code
-generate.py       builds odoo/<version>/ from Odoo's 20.0 skills
+odoo/<version>/      generated: odoo-guidelines, odoo-web-guidelines, odoo-security, odoo-review,
+                     odoo-git (from Odoo's 20.0 skills) and odoo-reference (from that version's source)
+odoo/common/         version-independent: odoo-upgrade
+dooservice/          the dooservice platform's own: its console commands, and configuring Odoo without code
+generate.py          builds the guideline skills of odoo/<version>/ from Odoo's 20.0 skills
+build_reference.py   builds odoo/<version>/odoo-reference from .odoo/src/<version>
 ```
 
 The `odoo/<version>/` skills are generated; change `generate.py`, not the files. To
@@ -67,6 +70,19 @@ regenerate after Odoo updates its skills:
 git clone --depth 1 -b 20.0 --filter=blob:none --sparse https://github.com/odoo/odoo.git .odoo/src/20.0
 git -C .odoo/src/20.0 sparse-checkout set skills
 python3 generate.py .odoo/src/20.0/skills .
+```
+
+To regenerate the references, check out each version without its static files and
+translations, then build:
+
+```bash
+for v in 16.0 17.0 18.0 19.0 20.0; do
+  git clone --depth 1 -b $v --filter=blob:none --no-checkout https://github.com/odoo/odoo.git .odoo/src/$v
+  git -C .odoo/src/$v sparse-checkout set --no-cone '/*' '!/addons/*/static/' '!/addons/*/i18n/' \
+    '!/odoo/addons/*/static/' '!/odoo/addons/*/i18n/' '/addons/web/static/src/' '/skills/'
+  git -C .odoo/src/$v checkout $v
+done
+python3 build_reference.py
 ```
 
 Check every version-specific change in that branch's source before making it:

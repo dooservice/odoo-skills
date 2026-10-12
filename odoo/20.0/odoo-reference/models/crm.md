@@ -1,0 +1,333 @@
+# crm — CRM
+
+Depends on: base_setup, base_install_request, sales_team, mail, calendar, resource, utm, web_tour, contacts, digest, phone_validation.
+
+## `calendar.event` (extends)
+
+- `opportunity_id` Many2one → `crm.lead` (index)
+
+Public methods: `create`, `default_get`
+
+## `crm.lead` (defines)
+
+Lead
+
+Inherits: `mail.thread.subject.suggested`, `mail.thread.blacklist`, `mail.thread.phone`, `mail.activity.mixin`, `utm.mixin`, `format.address.mixin`, `mail.tracking.duration.mixin`
+
+- `name` Char “Opportunity” (required, store, compute=_compute_name)
+- `user_id` Many2one → `res.users` “Salesperson” (index)
+- `user_company_ids` Many2many → `res.company` (compute=_compute_user_company_ids)
+- `team_id` Many2one → `crm.team` “Sales Team” (store, index, compute=_compute_team_id)
+- `lead_properties` Properties “Properties”
+- `company_id` Many2one → `res.company` “Company” (store, index, compute=_compute_company_id)
+- `referred` Char “Referred By”
+- `description` Html “Notes”
+- `active` Boolean “Active”
+- `type` Selection (required, index)
+- `priority` Selection “Priority” (index)
+- `stage_id` Many2one → `crm.stage` “Stage” (store, index, compute=_compute_stage_id)
+- `tag_ids` Many2many → `crm.tag` “Tags”
+- `color` Integer “Color Index”
+- `expected_revenue` Monetary “Expected Revenue”
+- `prorated_revenue` Monetary “Prorated Revenue” (store, compute=_compute_prorated_revenue)
+- `recurring_revenue` Monetary “Recurring Revenues”
+- `recurring_plan` Many2one → `crm.recurring.plan` “Recurring Plan”
+- `recurring_revenue_monthly` Monetary “Expected MRR” (store, compute=_compute_recurring_revenue_monthly)
+- `recurring_revenue_monthly_prorated` Monetary “Prorated MRR” (store, compute=_compute_recurring_revenue_monthly_prorated)
+- `recurring_revenue_prorated` Monetary “Prorated Recurring Revenues” (store, compute=_compute_recurring_revenue_prorated)
+- `company_currency` Many2one → `res.currency` “Currency” (compute=_compute_company_currency)
+- `date_closed` Datetime “Closed Date” (readonly)
+- `date_automation_last` Datetime “Last Action” (readonly)
+- `date_open` Datetime “Assignment Date” (readonly, store, compute=_compute_date_open)
+- `day_open` Float “Days to Assign” (store, compute=_compute_day_open)
+- `day_close` Float “Days to Close” (store, compute=_compute_day_close)
+- `date_last_stage_update` Datetime “Last Stage Update” (readonly, store, index, compute=_compute_date_last_stage_update)
+- `date_conversion` Datetime “Conversion Date” (readonly)
+- `date_deadline` Date “Expected Closing”
+- `partner_id` Many2one → `res.partner` “Contact” (index)
+- `partner_is_blacklisted` Boolean “Partner is blacklisted” (readonly, related=partner_id.is_blacklisted)
+- `contact_name` Char “Contact Name” (store, compute=_compute_contact_name)
+- `partner_name` Char “Company Name” (store, compute=_compute_partner_name)
+- `function` Char “Job Position” (store, compute=_compute_function)
+- `email_from` Char “Email” (store, compute=_compute_email_from)
+- `email_normalized` Char
+- `email_domain_criterion` Char “Email Domain Criterion” (store, compute=_compute_email_domain_criterion)
+- `phone` Char “Phone” (store, compute=_compute_phone)
+- `phone_sanitized` Char
+- `phone_state` Selection “Phone Quality” (store, compute=_compute_phone_state)
+- `email_state` Selection “Email Quality” (store, compute=_compute_email_state)
+- `website` Char “Website” (store, compute=_compute_website)
+- `lang_id` Many2one → `res.lang` “Language” (store, index, compute=_compute_lang_id)
+- `lang_code` Char (related=lang_id.code)
+- `lang_active_count` Integer (compute=_compute_lang_active_count)
+- `street` Char “Street” (store, compute=_compute_partner_address_values)
+- `street2` Char “Street2” (store, compute=_compute_partner_address_values)
+- `zip` Char “Zip” (store, compute=_compute_partner_address_values)
+- `city` Char “City” (store, compute=_compute_partner_address_values)
+- `state_id` Many2one → `res.country.state` “State” (store, compute=_compute_partner_address_values)
+- `country_id` Many2one → `res.country` “Country” (store, index, compute=_compute_partner_address_values)
+- `probability` Float “Probability” (store, compute=_compute_probabilities)
+- `automated_probability` Float “Automated Probability” (readonly, store, compute=_compute_probabilities)
+- `is_automated_probability` Boolean “Is automated probability?” (compute=_compute_is_automated_probability)
+- `won_status` Selection “Won/Lost” (store, compute=_compute_won_status)
+- `lost_reason_id` Many2one → `crm.lost.reason` “Lost Reason” (index)
+- `calendar_event_ids` One2many → `calendar.event` “Meetings”
+- `duplicate_lead_ids` Many2many → `crm.lead` “Potential Duplicate Lead” (compute=_compute_potential_lead_duplicates)
+- `duplicate_lead_count` Integer “Potential Duplicate Lead Count” (compute=_compute_potential_lead_duplicates)
+- `meeting_display_date` Date (compute=_compute_meeting_display)
+- `meeting_display_label` Char (compute=_compute_meeting_display)
+- `partner_email_update` Boolean “Partner Email will Update” (compute=_compute_partner_email_update)
+- `partner_phone_update` Boolean “Partner Phone will Update” (compute=_compute_partner_phone_update)
+- `campaign_id` Many2one
+- `medium_id` Many2one
+- `source_id` Many2one
+
+Public methods: `action_convert_to_opportunity`, `action_reschedule_meeting`, `action_restore`, `action_schedule_meeting`, `action_set_automated_probability`, `action_set_lost`, `action_set_won`, `action_set_won_rainbowman`, `action_show_potential_duplicates`, `action_unarchive`, `convert_opportunity`, `copy_data`, `create`, `get_empty_list_help`, `get_import_templates`, `get_rainbowman_message`, `log_meeting`, `merge_opportunity`, `message_new`, `prepare_pls_tooltip_data`, `redirect_lead_opportunity_view`, `search_fetch`, `unlink`, `write`
+
+Extension points: `_check_won_validity`, `_create_customer`, `_get_access_action`, `_get_customer_information`, `_get_lead_duplicates`, `_get_opportunity_meeting_view_parameters`, `_get_partner_email_update`, `_get_partner_phone_update`, `_get_rainbowman_message`, `_get_rotting_depends_fields`, `_get_rotting_domain`, `_prepare_address_values_from_partner`, `_prepare_contact_name_from_partner`, `_prepare_customer_values`, `_prepare_partner_name_from_partner`, `_prepare_values_from_partner`
+
+## `crm.lead.scoring.frequency` (defines)
+
+Lead Scoring Frequency
+
+- `variable` Char “Variable” (index)
+- `value` Char “Value”
+- `won_count` Float “Won Count”
+- `lost_count` Float “Lost Count”
+- `team_id` Many2one → `crm.team`
+
+## `crm.lead.scoring.frequency.field` (defines)
+
+Fields that can be used for predictive lead scoring computation
+
+- `name` Char (related=field_id.field_description)
+- `field_id` Many2one → `ir.model.fields` (required)
+- `color` Integer “Color”
+
+Extension points: `_get_default_color`
+
+## `crm.lost.reason` (defines)
+
+Opp. Lost Reason
+
+- `name` Char “Description” (required)
+- `active` Boolean “Active”
+- `leads_count` Integer “Leads Count” (compute=_compute_leads_count)
+
+Public methods: `action_lost_leads`
+
+## `crm.recurring.plan` (defines)
+
+CRM Recurring Revenue Plan
+
+- `name` Char “Plan Name” (required)
+- `number_of_months` Integer “# Months” (required)
+- `active` Boolean “Active”
+- `sequence` Integer “Sequence”
+
+## `crm.stage` (defines)
+
+CRM Stage
+
+- `name` Char “Stage Name” (required)
+- `sequence` Integer “Sequence”
+- `is_won` Boolean “Is Won Stage?”
+- `rotting_threshold_days` Integer “Days to rot”
+- `requirements` Text “Requirements”
+- `team_ids` Many2many → `crm.team` “Sales Teams”
+- `fold` Boolean “Folded in Pipeline”
+- `team_count` Integer “team_count” (compute=_compute_team_count)
+
+Public methods: `write`
+
+Extension points: `_get_visible_stages_domain`
+
+## `crm.team` (extends)
+
+Sales Team
+
+Inherits: `mail.alias.mixin`
+
+- `use_leads` Boolean “Leads”
+- `use_opportunities` Boolean “Pipeline”
+- `alias_id` Many2one
+- `alias_full_name` Char (related=alias_id.alias_full_name)
+- `assignment_enabled` Boolean “Lead Assign” (compute=_compute_assignment_enabled)
+- `assignment_auto_enabled` Boolean “Auto Assignment” (compute=_compute_assignment_enabled)
+- `assignment_optout` Boolean “Pause auto assignment”
+- `assignment_max` Integer “Lead Average Capacity” (compute=_compute_assignment_max)
+- `assignment_domain` Char “Assignment Domain”
+- `show_assignment_max` Boolean (compute=_compute_show_assignment_max)
+- `lead_unassigned_count` Integer “# Unassigned Leads” (compute=_compute_lead_unassigned_count)
+- `lead_all_assigned_month_count` Integer “# Leads/Opps assigned this month” (compute=_compute_lead_all_assigned_month_count)
+- `lead_all_assigned_month_exceeded` Boolean “Maximum Leads To Assign” (compute=_compute_lead_all_assigned_month_count)
+- `opportunity_count` Integer “Number of assigned opportunities” (compute=_compute_opportunity_count)
+- `lead_properties_definition` PropertiesDefinition “Lead Properties”
+
+Public methods: `action_assign_leads`, `action_open_opportunities`, `action_open_unassigned_opportunities`, `action_primary_channel_button`, `get_team_switcher_data`, `unlink`, `write`
+
+Extension points: `_action_assign_leads`, `_action_assign_leads_logs`, `_get_lead_to_assign_domain`
+
+## `crm.team.member` (extends)
+
+- `assignment_enabled` Boolean (related=crm_team_id.assignment_enabled)
+- `assignment_domain` Char “Assignment Domain”
+- `assignment_domain_preferred` Char “Preference assignment Domain”
+- `assignment_max` Integer “Average Leads Capacity (on 30 days)”
+- `assignment_rules` Selection “Auto-Assignment Rules” (compute=_compute_assignment_rules)
+- `lead_day_count` Integer “Leads (last 24h)” (compute=_compute_lead_day_count)
+- `lead_month_count` Integer “Leads (30 days)” (compute=_compute_lead_month_count)
+
+Extension points: `_get_assignment_quota`, `_get_lead_from_date`
+
+## `digest.digest` (extends)
+
+- `kpi_crm_lead_created` Boolean “New Leads”
+- `kpi_crm_lead_created_value` Integer (compute=_compute_kpi_crm_lead_created_value)
+- `kpi_crm_opportunities_won` Boolean “Opportunities Won”
+- `kpi_crm_opportunities_won_value` Integer (compute=_compute_kpi_crm_opportunities_won_value)
+
+Extension points: `_get_kpi_custom_settings`
+
+## `discuss.channel` (extends)
+
+
+Extension points: `_prepare_lead_create_values`
+
+## `ir.config_parameter` (extends)
+
+
+Public methods: `create`, `unlink`, `write`
+
+## `mail.activity` (extends)
+
+
+Public methods: `action_create_calendar_event`
+
+## `res.config.settings` (extends)
+
+- `group_use_lead` Boolean “Leads”
+- `group_use_recurring_revenues` Boolean “Recurring Revenues”
+- `is_membership_multi` Boolean “Multi Teams”
+- `module_partnership` Boolean “Membership / Partnership”
+- `module_website_partnership` Boolean “Partners Website Page”
+- `crm_use_auto_assignment` Boolean “Rule-Based Assignment”
+- `crm_auto_assignment_action` Selection “Auto Assignment Action” (store, compute=_compute_crm_auto_assignment_data)
+- `crm_auto_assignment_interval_type` Selection “Auto Assignment Interval Unit” (store, compute=_compute_crm_auto_assignment_data)
+- `crm_auto_assignment_interval_number` Integer “Repeat every” (store, compute=_compute_crm_auto_assignment_data)
+- `crm_auto_assignment_run_datetime` Datetime “Auto Assignment Next Execution Date” (store, compute=_compute_crm_auto_assignment_data)
+- `module_crm_iap_mine` Boolean “Generate new leads based on their country, industries, size, etc.”
+- `module_crm_iap_enrich` Boolean “Enrich your leads automatically with company data based on their email address.”
+- `module_website_crm_iap_reveal` Boolean “Create Leads/Opportunities from your website's traffic”
+- `lead_enrich_auto` Selection “Enrich lead automatically”
+- `lead_mining_in_pipeline` Boolean “Create a lead mining request directly from the opportunity pipeline.”
+- `predictive_lead_scoring_start_date` Date “Lead Scoring Starting Date” (compute=_compute_pls_start_date)
+- `predictive_lead_scoring_start_date_str` Char “Lead Scoring Starting Date in String”
+- `predictive_lead_scoring_fields` Many2many → `crm.lead.scoring.frequency.field` “Lead Scoring Frequency Fields” (compute=_compute_pls_fields)
+- `predictive_lead_scoring_fields_str` Char “Lead Scoring Frequency Fields in String”
+- `predictive_lead_scoring_field_labels` Char (compute=_compute_predictive_lead_scoring_field_labels)
+
+Public methods: `action_crm_assign_leads`, `set_values`
+
+Extension points: `_get_crm_auto_assignmment_run_datetime`
+
+## `res.groups` (extends)
+
+
+Extension points: `_get_light_group_xmlids`
+
+## `res.partner` (extends)
+
+- `opportunity_ids` One2many → `crm.lead` “Opportunities”
+- `opportunity_count` Integer “Opportunity Count” (compute=_compute_opportunity_count)
+
+Public methods: `action_view_opportunity`
+
+Extension points: `_get_contact_opportunities_domain`
+
+## `res.users` (extends)
+
+
+## `utm.campaign` (extends)
+
+- `use_leads` Boolean “Use Leads” (compute=_compute_use_leads)
+- `crm_lead_count` Integer “Leads/Opportunities count” (compute=_compute_crm_lead_count)
+
+Public methods: `action_redirect_to_leads_opportunities`
+
+## `crm.activity.report` (defines)
+
+CRM Activity Analysis
+
+- `date` Datetime “Completion Date” (readonly)
+- `lead_create_date` Datetime “Creation Date” (readonly)
+- `date_conversion` Datetime “Conversion Date” (readonly)
+- `date_deadline` Date “Expected Closing” (readonly)
+- `date_closed` Datetime “Closed Date” (readonly)
+- `author_id` Many2one → `res.partner` (readonly)
+- `user_id` Many2one → `res.users` (readonly)
+- `team_id` Many2one → `crm.team` (readonly)
+- `lead_id` Many2one → `crm.lead` (readonly)
+- `body` Html “Activity Description” (readonly)
+- `subtype_id` Many2one → `mail.message.subtype` (readonly)
+- `mail_activity_type_id` Many2one → `mail.activity.type` (readonly)
+- `country_id` Many2one → `res.country` (readonly)
+- `company_id` Many2one → `res.company` (readonly)
+- `stage_id` Many2one → `crm.stage` (readonly)
+- `partner_id` Many2one → `res.partner` (readonly)
+- `lead_type` Selection “Type”
+- `active` Boolean “Active” (readonly)
+- `tag_ids` Many2many (readonly, related=lead_id.tag_ids)
+- `won_status` Selection “Is Won” (readonly)
+
+Public methods: `action_open_lead`, `init`
+
+## `crm.lead.lost` (defines)
+
+Get Lost Reason
+
+- `lead_ids` Many2many → `crm.lead` “Leads”
+- `lost_reason_id` Many2one → `crm.lost.reason`
+- `lost_feedback` Html “Closing Note”
+
+Public methods: `action_lost_reason_apply`
+
+## `crm.lead.pls.update` (defines)
+
+Update the probabilities
+
+- `pls_start_date` Date (required)
+- `pls_fields` Many2many → `crm.lead.scoring.frequency.field`
+
+Public methods: `action_update_crm_lead_probabilities`
+
+Extension points: `_get_default_pls_fields`, `_get_default_pls_start_date`
+
+## `crm.lead2opportunity.partner.mass` (defines)
+
+Convert Lead to Opportunity (in mass)
+
+- `duplicated_lead_ids` Many2many → `crm.lead` (store, compute=_compute_duplicated_lead_ids)
+- `duplicated_lead_ids_domain` Many2many → `crm.lead` (store, compute=_compute_duplicated_lead_ids)
+- `force_assignment` Boolean “Even if assigned”
+- `lead_tomerge_ids` Many2many → `crm.lead` “Active Leads”
+- `link_to_matching_customer` Boolean “Link to matching customers”
+- `name` Selection (required)
+- `team_id` Many2one → `crm.team` (store, compute=_compute_team_id)
+- `user_ids` Many2many → `res.users` “Salespersons”
+
+Public methods: `action_apply`
+
+Extension points: `_action_convert_and_merge`, `_get_success_toast_message`
+
+## `crm.merge.opportunity` (defines)
+
+Merge Opportunities
+
+- `opportunity_ids` Many2many → `crm.lead` “Leads/Opportunities”
+- `user_id` Many2one → `res.users` (store, compute=_compute_user_id)
+- `team_id` Many2one → `crm.team` (store, compute=_compute_team_id)
+
+Public methods: `action_merge`, `default_get`
+
+Extension points: `_action_merge_to_opportunity`

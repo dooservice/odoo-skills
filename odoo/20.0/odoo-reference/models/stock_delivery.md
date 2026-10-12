@@ -1,0 +1,141 @@
+# stock_delivery — Delivery - Stock
+
+Depends on: printer, sale_stock, delivery.
+
+## `delivery.carrier` (extends)
+
+- `invoice_policy` Selection
+- `route_ids` Many2many → `stock.route`
+
+Public methods: `base_on_rule_cancel_shipment`, `base_on_rule_get_tracking_link`, `base_on_rule_send_shipping`, `cancel_shipment`, `fixed_cancel_shipment`, `fixed_get_tracking_link`, `fixed_send_shipping`, `get_return_label`, `get_return_label_prefix`, `get_tracking_link`, `send_shipping`
+
+Extension points: `_get_commodities_from_order`, `_get_commodities_from_stock_move_lines`, `_get_default_custom_package_code`, `_get_delivery_doc_prefix`, `_get_delivery_label_prefix`, `_get_packages_from_order`, `_get_packages_from_picking`
+
+## `ir.actions.report` (extends)
+
+
+Public methods: `get_print_jobs`, `get_reports_from_chatter`
+
+## `product.product` (extends)
+
+- `hs_code` Char “HS Code”
+- `country_of_origin` Many2one → `res.country`
+
+## `product.template` (extends)
+
+- `hs_code` Char “HS Code” (compute=_compute_variant_hs_code)
+- `country_of_origin` Many2one → `res.country` “Origin of Goods” (compute=_compute_country_of_origin)
+
+## `res.partner` (extends)
+
+- `pickup_location_data` Json “Pickup Location Data”
+
+## `sale.order` (extends)
+
+
+Public methods: `set_delivery_line`
+
+Extension points: `_create_delivery_line`
+
+## `sale.order.line` (extends)
+
+
+Extension points: `_get_protected_fields`, `_prepare_procurement_values`
+
+## `stock.route` (extends)
+
+- `shipping_selectable` Boolean “Applicable on Delivery Methods”
+
+## `stock.move` (extends)
+
+- `weight` Float (store, compute=_cal_move_weight)
+
+Extension points: `_get_new_picking_values`, `_prepare_return_data`
+
+## `stock.move.line` (extends)
+
+- `sale_price` Float (compute=_compute_sale_price)
+- `destination_country_code` Char (related=picking_id.destination_country_code)
+- `carrier_id` Many2one (related=picking_id.carrier_id)
+
+Extension points: `_get_aggregated_product_quantities`, `_get_package_carrier_type_for_pack`, `_get_potential_existing_waves_extra_domain`, `_post_put_in_pack_hook`
+
+## `stock.package` (extends)
+
+- `weight` Float (compute=_compute_weight)
+- `weight_uom_name` Char “Weight unit of measure label” (readonly, compute=_compute_weight_uom_name)
+- `weight_is_kg` Boolean “Technical field indicating whether weight uom is kg or not (i.e. lb)” (compute=_compute_weight_is_kg)
+- `weight_uom_rounding` Float “Technical field indicating weight's number of decimal places” (compute=_compute_weight_is_kg)
+- `package_carrier_type` Selection (related=package_type_id.package_carrier_type)
+
+Extension points: `_get_default_weight_uom`, `_post_put_in_pack_hook`
+
+## `stock.package.type` (extends)
+
+- `shipper_package_code` Char “Carrier Code”
+- `package_carrier_type` Selection “Carrier”
+
+## `stock.picking` (extends)
+
+- `carrier_price` Float “Shipping Cost”
+- `delivery_type` Selection (readonly, related=carrier_id.delivery_type)
+- `allowed_carrier_ids` Many2many → `delivery.carrier` (compute=_compute_allowed_carrier_ids)
+- `carrier_id` Many2one → `delivery.carrier` “Carrier”
+- `weight` Float (store, compute=_cal_weight)
+- `carrier_tracking_ref` Char “Tracking Reference”
+- `carrier_tracking_url` Char “Tracking URL” (compute=_compute_carrier_tracking_url)
+- `weight_uom_name` Char “Weight unit of measure label” (readonly, compute=_compute_weight_uom_name)
+- `is_return_picking` Boolean (compute=_compute_return_picking)
+- `return_label_ids` One2many → `ir.attachment` (compute=_compute_return_label)
+- `destination_country_code` Char “Destination Country” (related=partner_id.country_id.code)
+- `integration_level` Selection (related=carrier_id.integration_level)
+
+Public methods: `button_validate`, `cancel_shipment`, `get_multiple_carrier_tracking`, `open_website_url`, `print_return_label`, `send_to_shipper`
+
+Extension points: `_create_return`, `_get_auto_batch_description`, `_get_autoprint_report_actions`, `_get_carrier_name`, `_get_default_weight_uom`, `_get_estimated_weight`, `_get_matching_delivery_lines`, `_get_possible_batches_domain`, `_get_possible_pickings_domain`, `_prepare_sale_delivery_line_vals`
+
+## `stock.picking.batch` (extends)
+
+
+## `stock.picking.type` (extends)
+
+- `auto_print_carrier_labels` Boolean “Auto Print Carrier Labels”
+- `auto_print_export_documents` Boolean “Auto Print Export Documents”
+- `batch_group_by_carrier` Boolean “Carrier”
+- `batch_max_weight` Integer “Maximum weight”
+- `weight_uom_name` Char “Weight unit of measure label” (readonly, compute=_compute_weight_uom_name)
+
+Extension points: `_get_batch_group_by_keys`, `_get_default_weight_uom`
+
+## `choose.delivery.carrier` (extends)
+
+
+## `pay.on.delivery` (defines)
+
+Pay on Delivery
+
+- `order_ids` Many2many → `sale.order` (compute=_compute_order_ids)
+- `amount_to_collect` Monetary (compute=_compute_amount_to_collect)
+- `currency_id` Many2one (related=order_ids.currency_id)
+
+Public methods: `action_proceed`
+
+Extension points: `_get_pickings_to_validate`
+
+## `product.label.layout` (extends)
+
+
+Extension points: `_prepare_label_values`
+
+## `stock.package.label.layout` (extends)
+
+
+Extension points: `_prepare_package_label_values`
+
+## `stock.put.in.pack` (extends)
+
+- `shipping_weight` Float “Shipping Weight” (store, compute=_compute_shipping_weight)
+- `weight_uom_name` Char “Weight unit of measure label” (compute=_compute_weight_uom_name)
+- `package_carrier_type` Char “Carrier Type”
+
+Extension points: `_get_put_in_pack_context`

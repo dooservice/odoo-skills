@@ -1,0 +1,18 @@
+# l10n_ie — Ireland - Accounting
+
+Depends on: account, account_edi_ubl_cii.
+
+## `account.chart.template` (extends)
+
+
+Extension points: `_post_load_data`
+
+## `account.journal` (extends)
+
+
+Extension points: `_prepare_liquidity_account_vals`
+
+## `account.chart.template` (extends)
+
+
+Extension points: `_get_ie_account_account`, `_get_ie_res_company`, `_get_ie_template_data`

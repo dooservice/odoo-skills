@@ -1,0 +1,977 @@
+# base — XML ids
+
+## clearing.label
+
+- `base.clearing_label_all`
+- `base.clearing_label_au`
+- `base.clearing_label_ca`
+- `base.clearing_label_cl`
+- `base.clearing_label_hk`
+- `base.clearing_label_jp`
+- `base.clearing_label_mx`
+- `base.clearing_label_pe`
+- `base.clearing_label_sa`
+- `base.clearing_label_ae`
+- `base.clearing_label_om`
+- `base.clearing_label_uk`
+- `base.clearing_label_us`
+
+## ir.actions.act_url
+
+- `base.action_third_party`
+- `base.action_theme_store`
+- `base.action_open_website`
+
+## ir.actions.act_window
+
+- `base.demo_force_install_action`
+- `base.act_menu_create`
+- `base.action_decimal_precision_form`
+- `base.ir_sequence_actions`
+- `base.ir_action_report`
+- `base.ir_action_window`
+- `base.ir_client_actions_report`
+- `base.action_server_action`
+- `base.ir_embedded_action`
+- `base.act_ir_actions_todo_form`
+- `base.action_asset`
+- `base.ir_config_list_action`
+- `base.ir_cron_act`
+- `base.ir_cron_trigger_action`
+- `base.actions_ir_filters_view`
+- `base.action_ir_mail_server_list`
+- `base.action_model_model`
+- `base.action_model_fields`
+- `base.action_model_fields_selection`
+- `base.action_model_data`
+- `base.action_model_constraint`
+- `base.action_model_relation`
+- `base.action_attachment`
+- `base.ir_access_action`
+- `base.ir_sequence_form`
+- `base.grant_menu_access`
+- `base.action_ui_view`
+- `base.reset_view_arch_wizard_action`
+- `base.action_ui_view_custom`
+- `base.ir_default_menu_action`
+- `base.ir_logging_all_act`
+- `base.open_module_tree`
+- `base.action_view_base_module_update`
+- `base.action_view_base_language_install`
+- `base.action_view_base_import_language`
+- `base.action_view_base_module_upgrade`
+- `base.action_view_base_module_upgrade_install`
+- `base.action_wizard_lang_export`
+- `base.action_partner_deduplicate`
+- `base.action_partner_merge`
+- `base.action_menu_ir_profile`
+- `base.action_res_company_form`
+- `base.res_lang_act_window`
+- `base.action_partner_form`
+- `base.action_partner_customer_form`
+- `base.action_partner_supplier_form`
+- `base.action_partner_category_form`
+- `base.res_partner_industry_action`
+- `base.action_res_partner_bank_account_form`
+- `base.action_country`
+- `base.action_country_group`
+- `base.action_country_state`
+- `base.act_view_currency_rates`
+- `base.action_currency_form`
+- `base.action_res_groups_privilege`
+- `base.action_res_groups`
+- `base.change_password_wizard_action`
+- `base.action_res_users`
+- `base.action_res_users_keys_description`
+- `base.action_res_users_my`
+- `base.action_apikeys_admin`
+- `base.action_user_session`
+- `base.action_user_device`
+- `base.res_config_setting_act_window`
+- `base.paper_format_action`
+- `base.reports_action`
+
+## ir.actions.act_window.view
+
+- `base.ir_action_window_view1`
+- `base.ir_action_window_view2`
+- `base.action_partner_form_view1`
+- `base.action_partner_form_view2`
+- `base.action_partner_tree_view1`
+- `base.action_partner_customer_form_view1`
+- `base.action_partner_customer_form_view2`
+- `base.action_partner_customer_form_view3`
+- `base.action_partner_vendor_form_view1`
+- `base.action_partner_vendor_form_view2`
+- `base.action_partner_vendor_form_view3`
+- `base.action_res_users_view1`
+- `base.action_res_users_view2`
+- `base.action_res_users_my_view2`
+
+## ir.actions.client
+
+- `base.action_client_base_menu`
+
+## ir.actions.report
+
+- `base.report_ir_model_overview`
+- `base.ir_module_reference_print`
+
+## ir.actions.server
+
+- `base.action_run_ir_action_todo`
+- `base.demo_failure_action`
+- `base.ir_profile_query_action_explain`
+- `base.ir_actions_server_change_password_wizard`
+
+## ir.actions.todo
+
+- `base.demo_failure_todo`
+- `base.open_menu`
+
+## ir.config_parameter
+
+- `base.default_template_user_config`
+- `base.default_max_email_size`
+
+## ir.cron
+
+- `base.autovacuum_job`
+- `base.ir_cron_res_users_deletion`
+
+## ir.module.category
+
+- `base.module_category_master_data`
+- `base.module_category_hidden`
+- `base.module_category_accounting`
+- `base.module_category_accounting_localizations`
+- `base.module_category_payroll_localization`
+- `base.module_category_accounting_localizations_account_charts`
+- `base.module_category_accounting_accounting`
+- `base.module_category_sales`
+- `base.module_category_human_resources`
+- `base.module_category_marketing`
+- `base.module_category_supply_chain`
+- `base.module_category_shipping_connectors`
+- `base.module_category_website`
+- `base.module_category_theme`
+- `base.module_category_administration`
+- `base.module_category_human_resources_referrals`
+- `base.module_category_human_resources_appraisals`
+- `base.module_category_sales_sign`
+- `base.module_category_services`
+- `base.module_category_services_helpdesk`
+- `base.module_category_services_appointment`
+- `base.module_category_services_field_service`
+- `base.module_category_productivity`
+- `base.module_category_esg`
+- `base.module_category_customizations`
+- `base.module_category_internet_of_things_(iot)`
+- `base.module_category_administration_administration`
+- `base.module_category_extra`
+
+## ir.module.module
+
+- `base.module_web_studio`
+- `base.module_timesheet_grid`
+- `base.module_accountant`
+- `base.module_knowledge`
+- `base.module_helpdesk`
+- `base.module_hr_appraisal`
+- `base.module_marketing_automation`
+- `base.module_mrp_plm`
+- `base.module_quality_control`
+- `base.module_sale_amazon`
+- `base.module_planning`
+- `base.module_sale_subscription`
+- `base.module_sign`
+- `base.module_stock_barcode`
+- `base.module_voip`
+- `base.module_appointment`
+- `base.module_social`
+- `base.module_mrp_workorder`
+- `base.module_web_mobile`
+- `base.module_payment_sepa_direct_debit`
+
+## ir.ui.menu
+
+- `base.menu_management` — Apps
+- `base.menu_apps` — Apps
+- `base.menu_module_tree` — Main Apps
+- `base.menu_theme_store`
+- `base.theme_store` — Theme Store
+- `base.menu_third_party`
+- `base.menu_view_base_module_update` — Update Apps List
+- `base.menu_view_base_module_upgrade`
+- `base.menu_administration` — Settings
+- `base.menu_users` — Users & Companies
+- `base.menu_action_res_users`
+- `base.menu_action_res_groups`
+- `base.menu_action_res_company_form`
+- `base.menu_translation` — Translations
+- `base.menu_res_lang_act_window`
+- `base.menu_translation_export` — Import / Export
+- `base.menu_view_base_import_language`
+- `base.menu_wizard_lang_export`
+- `base.menu_translation_app` — Application Terms
+- `base.menu_config` — General Settings
+- `base.menu_administration_shortcut` — Custom Shortcuts
+- `base.menu_custom` — Technical
+- `base.menu_email` — Email
+- `base.menu_mail_servers`
+- `base.next_id_6` — Actions
+- `base.menu_ir_sequence_actions`
+- `base.menu_ir_action_report`
+- `base.menu_ir_action_window`
+- `base.menu_ir_client_actions_report`
+- `base.menu_server_action`
+- `base.menu_ir_embedded_action`
+- `base.menu_ir_actions_todo_form`
+- `base.ir_default_menu`
+- `base.next_id_2` — User Interface
+- `base.menu_grant_menu_access`
+- `base.menu_action_ui_view`
+- `base.menu_action_ui_view_custom`
+- `base.menu_ir_filters`
+- `base.next_id_5` — Sequences & Identifiers
+- `base.ir_model_data_menu`
+- `base.menu_ir_sequence_form`
+- `base.next_id_9` — Database Structure
+- `base.menu_decimal_precision_form`
+- `base.menu_action_asset`
+- `base.ir_model_model_menu`
+- `base.ir_model_model_fields`
+- `base.ir_model_model_fields_selection`
+- `base.ir_model_constraint_menu`
+- `base.ir_model_relation_menu`
+- `base.menu_action_attachment`
+- `base.ir_logging_all_menu`
+- `base.menu_ir_profile` — Profiling
+- `base.menu_automation` — Automation
+- `base.menu_ir_cron_act`
+- `base.ir_cron_trigger_menu`
+- `base.reporting_menuitem` — Reporting
+- `base.paper_format_menuitem` — Paper Format
+- `base.reports_menuitem`
+- `base.menu_ir_property` — Parameters
+- `base.ir_config_menu`
+- `base.menu_security` — Security
+- `base.menu_action_res_groups_privilege`
+- `base.menu_ir_access`
+- `base.menu_action_user_session`
+- `base.menu_action_user_device`
+- `base.menu_tests` — Tests
+
+## ir.ui.view
+
+- `base.demo_force_install_form` — on ir.demo
+- `base.view_model_menu_create` — on wizard.ir.model.menu.create
+- `base.view_decimal_precision_form` — on decimal.precision
+- `base.view_decimal_precision_tree` — on decimal.precision
+- `base.res_config_view_base` — on res.config
+- `base.action_view` — on ir.actions.actions
+- `base.action_view_tree` — on ir.actions.actions
+- `base.action_view_search` — on ir.actions.actions
+- `base.act_report_xml_view` — on ir.actions.report
+- `base.act_report_xml_view_tree` — on ir.actions.report
+- `base.act_report_xml_search_view` — on ir.actions.report
+- `base.view_client_action_form` — on ir.actions.client
+- `base.view_window_action_tree` — on ir.actions.act_window
+- `base.view_window_action_form` — on ir.actions.act_window
+- `base.view_window_action_search` — on ir.actions.act_window
+- `base.view_client_action_tree` — on ir.actions.client
+- `base.server_action_history_wizard_view` — on server.action.history.wizard
+- `base.view_server_action_form` — on ir.actions.server
+- `base.view_server_action_kanban` — on ir.actions.server
+- `base.view_server_action_tree` — on ir.actions.server
+- `base.view_server_action_search` — on ir.actions.server
+- `base.embedded_action_form` — on ir.embedded.actions
+- `base.embedded_action_tree` — on ir.embedded.actions
+- `base.ir_actions_todo_tree` — on ir.actions.todo
+- `base.config_wizard_step_view_form` — on ir.actions.todo
+- `base.config_wizard_step_view_search` — on ir.actions.todo
+- `base.asset_view_form` — on ir.asset
+- `base.asset_view_tree` — on ir.asset
+- `base.asset_view_search` — on ir.asset
+- `base.view_ir_config_search` — on ir.config_parameter
+- `base.view_ir_config_list` — on ir.config_parameter
+- `base.view_ir_config_form` — on ir.config_parameter
+- `base.ir_cron_view_form` — on ir.cron inherits base.view_server_action_form
+- `base.ir_cron_view_tree` — on ir.cron
+- `base.ir_cron_view_calendar` — on ir.cron
+- `base.ir_cron_view_search` — on ir.cron
+- `base.ir_cron_trigger_view_form` — on ir.cron.trigger
+- `base.ir_cron_trigger_view_tree` — on ir.cron.trigger
+- `base.ir_cron_trigger_view_search` — on ir.cron.trigger
+- `base.ir_filters_view_form` — on ir.filters
+- `base.ir_filters_view_edit_form` — on ir.filters inherits base.ir_filters_view_form
+- `base.ir_filters_view_tree` — on ir.filters
+- `base.ir_filters_view_search` — on ir.filters
+- `base.ir_mail_server_form` — on ir.mail_server
+- `base.ir_mail_server_list` — on ir.mail_server
+- `base.view_ir_mail_server_search` — on ir.mail_server
+- `base.view_model_form` — on ir.model
+- `base.view_model_tree` — on ir.model
+- `base.view_model_search` — on ir.model
+- `base.view_model_fields_form` — on ir.model.fields
+- `base.view_model_fields_tree` — on ir.model.fields
+- `base.view_model_fields_search` — on ir.model.fields
+- `base.view_model_fields_selection_form` — on ir.model.fields.selection
+- `base.view_model_fields_selection_tree` — on ir.model.fields.selection
+- `base.view_model_fields_selection_search` — on ir.model.fields.selection
+- `base.view_model_data_form` — on ir.model.data
+- `base.view_model_data_list` — on ir.model.data
+- `base.view_model_data_search` — on ir.model.data
+- `base.view_model_constraint_form` — on ir.model.constraint
+- `base.view_model_constraint_list` — on ir.model.constraint
+- `base.view_model_constraint_search` — on ir.model.constraint
+- `base.view_model_relation_form` — on ir.model.relation
+- `base.view_model_relation_list` — on ir.model.relation
+- `base.view_attachment_form` — on ir.attachment
+- `base.view_attachment_tree` — on ir.attachment
+- `base.view_attachment_search` — on ir.attachment
+- `base.ir_access_list_view` — on ir.access
+- `base.ir_access_form_view` — on ir.access
+- `base.ir_access_kanban_view` — on ir.access
+- `base.ir_access_search_view` — on ir.access
+- `base.sequence_view` — on ir.sequence
+- `base.sequence_view_tree` — on ir.sequence
+- `base.view_sequence_search` — on ir.sequence
+- `base.edit_menu_access` — on ir.ui.menu
+- `base.edit_menu` — on ir.ui.menu
+- `base.edit_menu_access_search` — on ir.ui.menu
+- `base.view_view_form` — on ir.ui.view
+- `base.view_view_tree` — on ir.ui.view
+- `base.view_view_search` — on ir.ui.view
+- `base.reset_view_arch_wizard_view` — on reset.view.arch.wizard
+- `base.view_view_custom_form` — on ir.ui.view.custom
+- `base.view_view_custom_tree` — on ir.ui.view.custom
+- `base.view_view_custom_search` — on ir.ui.view.custom
+- `base.ir_default_form_view` — on ir.default
+- `base.ir_default_tree_view` — on ir.default
+- `base.ir_default_search_view` — on ir.default
+- `base.report_irmodeloverview`
+- `base.ir_logging_form_view` — on ir.logging
+- `base.ir_logging_tree_view` — on ir.logging
+- `base.ir_logging_search_view` — on ir.logging
+- `base.contact_name`
+- `base.contact`
+- `base.no_contact`
+- `base.view_module_category_form` — on ir.module.category
+- `base.view_module_filter` — on ir.module.module
+- `base.module_form` — on ir.module.module
+- `base.module_tree` — on ir.module.module
+- `base.module_view_kanban` — on ir.module.module
+- `base.report_irmodulereference`
+- `base.view_base_module_update` — on base.module.update
+- `base.language_install_view_form_lang_switch` — on base.language.install
+- `base.view_base_language_install` — on base.language.install
+- `base.view_base_import_language` — on base.language.import
+- `base.view_base_module_upgrade` — on base.module.upgrade
+- `base.view_base_module_upgrade_install` — on base.module.upgrade
+- `base.view_base_module_uninstall` — on base.module.uninstall
+- `base.wizard_lang_export` — on base.language.export
+- `base.base_partner_merge_automatic_wizard_form` — on base.partner.merge.automatic.wizard
+- `base.demo_failures_dialog` — on ir.demo_failure.wizard
+- `base.demo_wizard_form_view` — on ir.demo_failure
+- `base.ir_profile_view_search` — on ir.profile
+- `base.ir_profile_view_list` — on ir.profile
+- `base.ir_profile_view_form` — on ir.profile
+- `base.ir_profile_query_view_search` — on ir.profile.query
+- `base.ir_profile_query_view_list` — on ir.profile.query
+- `base.ir_profile_query_view_form` — on ir.profile.query
+- `base.enable_profiling_wizard` — on base.enable.profiling.wizard
+- `base.view_company_form` — on res.company
+- `base.view_company_tree` — on res.company
+- `base.view_res_company_kanban` — on res.company
+- `base.res_lang_tree` — on res.lang
+- `base.res_lang_form` — on res.lang
+- `base.res_lang_search` — on res.lang
+- `base.view_partner_tree` — on res.partner
+- `base.view_partner_simple_form` — on res.partner
+- `base.view_partner_address_form` — on res.partner
+- `base.view_partner_form` — on res.partner
+- `base.view_res_partner_filter` — on res.partner
+- `base.res_partner_kanban_view` — on res.partner
+- `base.view_partner_category_form` — on res.partner.category
+- `base.view_partner_category_list` — on res.partner.category
+- `base.res_partner_category_view_search` — on res.partner.category
+- `base.res_partner_industry_view_form` — on res.partner.industry
+- `base.res_partner_industry_view_tree` — on res.partner.industry
+- `base.res_partner_industry_view_search` — on res.partner.industry
+- `base.clearing_label_list` — on clearing.label
+- `base.view_partner_bank_form` — on res.partner.bank
+- `base.view_partner_bank_tree` — on res.partner.bank
+- `base.view_partner_bank_search` — on res.partner.bank
+- `base.view_country_tree` — on res.country
+- `base.view_country_form` — on res.country
+- `base.view_country_search` — on res.country
+- `base.view_country_group_tree` — on res.country.group
+- `base.view_country_group_form` — on res.country.group
+- `base.view_country_state_tree` — on res.country.state
+- `base.view_country_state_form` — on res.country.state
+- `base.view_country_state_search` — on res.country.state
+- `base.view_currency_rate_search` — on res.currency.rate
+- `base.view_currency_rate_tree` — on res.currency.rate
+- `base.view_currency_rate_form` — on res.currency.rate
+- `base.view_currency_search` — on res.currency
+- `base.view_currency_tree` — on res.currency
+- `base.view_currency_kanban` — on res.currency
+- `base.view_currency_form` — on res.currency
+- `base.view_res_groups_privilege_search` — on res.groups.privilege
+- `base.view_res_groups_privilege_list` — on res.groups.privilege
+- `base.view_res_groups_privilege_form` — on res.groups.privilege
+- `base.view_res_groups_privilege_kanban` — on res.groups.privilege
+- `base.view_groups_search` — on res.groups
+- `base.view_groups_list` — on res.groups
+- `base.view_groups_form` — on res.groups
+- `base.view_groups_kanban` — on res.groups
+- `base.view_default_groups_form` — on res.groups
+- `base.change_password_own_form` — on change.password.own
+- `base.change_password_wizard_view` — on change.password.wizard
+- `base.change_password_wizard_user_tree_view` — on change.password.user
+- `base.view_users_simple_form` — on res.users
+- `base.view_users_form` — on res.users
+- `base.view_users_tree` — on res.users
+- `base.view_res_users_kanban` — on res.users
+- `base.view_users_search` — on res.users
+- `base.form_res_users_key_description` — on res.users.apikeys.description
+- `base.form_res_users_key_show` — on res.users.apikeys.show
+- `base.view_users_form_simple_modif` — on res.users
+- `base.view_apikeys` — on res.users.apikeys
+- `base.res_users_apikeys_view_kanban` — on res.users.apikeys
+- `base.res_device_view_form` — on res.device
+- `base.res_device_view_tree` — on res.device
+- `base.res_session_view_form` — on res.session
+- `base.res_session_view_tree` — on res.session
+- `base.res_session_view_kanban` — on res.session
+- `base.res_users_identitycheck_view_form` — on res.users.identitycheck
+- `base.res_config_settings_view_form` — on res.config.settings
+- `base.paperformat_view_tree` — on report.paperformat
+- `base.paperformat_view_form` — on report.paperformat
+
+## report.paperformat
+
+- `base.paperformat_euro`
+- `base.paperformat_us`
+- `base.paperformat_batch_deposit`
+
+## res.company
+
+- `base.main_company`
+
+## res.country
+
+- `base.ad`
+- `base.ae`
+- `base.af`
+- `base.ag`
+- `base.ai`
+- `base.al`
+- `base.am`
+- `base.ao`
+- `base.aq`
+- `base.ar`
+- `base.as`
+- `base.at`
+- `base.au`
+- `base.aw`
+- `base.ax`
+- `base.az`
+- `base.ba`
+- `base.bb`
+- `base.bd`
+- `base.be`
+- `base.bf`
+- `base.bg`
+- `base.bh`
+- `base.bi`
+- `base.bj`
+- `base.bl`
+- `base.bm`
+- `base.bn`
+- `base.bo`
+- `base.bq`
+- `base.br`
+- `base.bs`
+- `base.bt`
+- `base.bv`
+- `base.bw`
+- `base.by`
+- `base.bz`
+- `base.ca`
+- `base.cc`
+- `base.cf`
+- `base.cd`
+- `base.cg`
+- `base.ch`
+- `base.ci`
+- `base.ck`
+- `base.cl`
+- `base.cm`
+- `base.cn`
+- `base.co`
+- `base.cr`
+- `base.cu`
+- `base.cv`
+- `base.cw`
+- `base.cx`
+- `base.cy`
+- `base.cz`
+- `base.de`
+- `base.dj`
+- `base.dk`
+- `base.dm`
+- `base.do`
+- `base.dz`
+- `base.ec`
+- `base.ee`
+- `base.eg`
+- `base.eh`
+- `base.er`
+- `base.es`
+- `base.et`
+- `base.fi`
+- `base.fj`
+- `base.fk`
+- `base.fm`
+- `base.fo`
+- `base.fr`
+- `base.ga`
+- `base.gd`
+- `base.ge`
+- `base.gf`
+- `base.gh`
+- `base.gi`
+- `base.gg`
+- `base.gl`
+- `base.gm`
+- `base.gn`
+- `base.gp`
+- `base.gq`
+- `base.gr`
+- `base.gs`
+- `base.gt`
+- `base.gu`
+- `base.gw`
+- `base.gy`
+- `base.hk`
+- `base.hm`
+- `base.hn`
+- `base.hr`
+- `base.ht`
+- `base.hu`
+- `base.id`
+- `base.ie`
+- `base.il`
+- `base.im`
+- `base.in`
+- `base.io`
+- `base.iq`
+- `base.ir`
+- `base.is`
+- `base.it`
+- `base.je`
+- `base.jm`
+- `base.jo`
+- `base.jp`
+- `base.ke`
+- `base.kg`
+- `base.kh`
+- `base.ki`
+- `base.km`
+- `base.kn`
+- `base.kp`
+- `base.kr`
+- `base.kw`
+- `base.ky`
+- `base.kz`
+- `base.la`
+- `base.lb`
+- `base.lc`
+- `base.li`
+- `base.lk`
+- `base.lr`
+- `base.ls`
+- `base.lt`
+- `base.lu`
+- `base.lv`
+- `base.ly`
+- `base.ma`
+- `base.mc`
+- `base.md`
+- `base.me`
+- `base.mf`
+- `base.mg`
+- `base.mh`
+- `base.mk`
+- `base.ml`
+- `base.mm`
+- `base.mn`
+- `base.mo`
+- `base.mp`
+- `base.mq`
+- `base.mr`
+- `base.ms`
+- `base.mt`
+- `base.mu`
+- `base.mv`
+- `base.mw`
+- `base.mx`
+- `base.my`
+- `base.mz`
+- `base.na`
+- `base.nc`
+- `base.ne`
+- `base.nf`
+- `base.ng`
+- `base.ni`
+- `base.nl`
+- `base.no`
+- `base.np`
+- `base.nr`
+- `base.nu`
+- `base.nz`
+- `base.om`
+- `base.pa`
+- `base.pe`
+- `base.pf`
+- `base.pg`
+- `base.ph`
+- `base.pk`
+- `base.pl`
+- `base.pm`
+- `base.pn`
+- `base.pr`
+- `base.ps`
+- `base.pt`
+- `base.pw`
+- `base.py`
+- `base.qa`
+- `base.re`
+- `base.ro`
+- `base.rs`
+- `base.ru`
+- `base.rw`
+- `base.sa`
+- `base.sb`
+- `base.sc`
+- `base.sd`
+- `base.se`
+- `base.sg`
+- `base.sh`
+- `base.si`
+- `base.sj`
+- `base.sk`
+- `base.sl`
+- `base.sm`
+- `base.sn`
+- `base.so`
+- `base.sr`
+- `base.ss`
+- `base.st`
+- `base.sv`
+- `base.sx`
+- `base.sy`
+- `base.sz`
+- `base.tc`
+- `base.td`
+- `base.tf`
+- `base.tg`
+- `base.th`
+- `base.tj`
+- `base.tk`
+- `base.tm`
+- `base.tn`
+- `base.to`
+- `base.tl`
+- `base.tr`
+- `base.tt`
+- `base.tv`
+- `base.tw`
+- `base.tz`
+- `base.ua`
+- `base.ug`
+- `base.uk`
+- `base.um`
+- `base.us`
+- `base.uy`
+- `base.uz`
+- `base.va`
+- `base.vc`
+- `base.ve`
+- `base.vg`
+- `base.vi`
+- `base.vn`
+- `base.vu`
+- `base.wf`
+- `base.ws`
+- `base.ye`
+- `base.yt`
+- `base.za`
+- `base.zm`
+- `base.zw`
+- `base.xi`
+- `base.xk`
+
+## res.country.group
+
+- `base.europe`
+- `base.europe_prefix`
+- `base.south_america`
+- `base.sepa_zone`
+- `base.gulf_cooperation_council`
+- `base.eurasian_economic_union`
+- `base.ch_and_li`
+- `base.dom-tom`
+
+## res.currency
+
+- `base.USD`
+- `base.VEF`
+- `base.CAD`
+- `base.CHF`
+- `base.BRL`
+- `base.CNY`
+- `base.CNH`
+- `base.COP`
+- `base.CZK`
+- `base.DKK`
+- `base.HUF`
+- `base.IDR`
+- `base.LVL`
+- `base.NOK`
+- `base.XPF`
+- `base.PAB`
+- `base.PLN`
+- `base.SEK`
+- `base.ARS`
+- `base.INR`
+- `base.AUD`
+- `base.UAH`
+- `base.VND`
+- `base.HKD`
+- `base.JPY`
+- `base.BGN`
+- `base.LTL`
+- `base.RON`
+- `base.HRK`
+- `base.RUB`
+- `base.TRY`
+- `base.KRW`
+- `base.MXN`
+- `base.MYR`
+- `base.NZD`
+- `base.PHP`
+- `base.SGD`
+- `base.ZAR`
+- `base.CRC`
+- `base.MUR`
+- `base.XOF`
+- `base.XAF`
+- `base.UGX`
+- `base.HNL`
+- `base.CLP`
+- `base.UYU`
+- `base.AFN`
+- `base.AOA`
+- `base.XCD`
+- `base.AMD`
+- `base.AWG`
+- `base.AZN`
+- `base.BSD`
+- `base.BHD`
+- `base.BDT`
+- `base.BBD`
+- `base.BYR`
+- `base.BYN`
+- `base.BZD`
+- `base.BMD`
+- `base.BTN`
+- `base.BOB`
+- `base.BAM`
+- `base.BWP`
+- `base.BIF`
+- `base.KHR`
+- `base.KYD`
+- `base.KMF`
+- `base.CDF`
+- `base.CUP`
+- `base.ANG`
+- `base.XCG`
+- `base.DJF`
+- `base.DOP`
+- `base.EGP`
+- `base.SVC`
+- `base.ERN`
+- `base.ETB`
+- `base.FKP`
+- `base.FJD`
+- `base.GEL`
+- `base.GIP`
+- `base.GNF`
+- `base.GYD`
+- `base.HTG`
+- `base.ISK`
+- `base.IRR`
+- `base.IQD`
+- `base.ILS`
+- `base.JMD`
+- `base.JOD`
+- `base.KZT`
+- `base.KES`
+- `base.KWD`
+- `base.KGS`
+- `base.LAK`
+- `base.LBP`
+- `base.LSL`
+- `base.LRD`
+- `base.LYD`
+- `base.MOP`
+- `base.MKD`
+- `base.MGA`
+- `base.MWK`
+- `base.MVR`
+- `base.MRO`
+- `base.MRU`
+- `base.MDL`
+- `base.MNT`
+- `base.MAD`
+- `base.BND`
+- `base.DZD`
+- `base.GHS`
+- `base.GMD`
+- `base.MZN`
+- `base.MMK`
+- `base.NAD`
+- `base.NPR`
+- `base.ALL`
+- `base.NIO`
+- `base.NGN`
+- `base.KPW`
+- `base.ZIG`
+- `base.ZMW`
+- `base.YER`
+- `base.EUR`
+- `base.VUV`
+- `base.UZS`
+- `base.AED`
+- `base.TMT`
+- `base.TND`
+- `base.TTD`
+- `base.TOP`
+- `base.THB`
+- `base.TZS`
+- `base.TJS`
+- `base.TWD`
+- `base.SYP`
+- `base.SZL`
+- `base.SRD`
+- `base.SDG`
+- `base.LKR`
+- `base.SSP`
+- `base.GBP`
+- `base.SOS`
+- `base.SBD`
+- `base.SLL`
+- `base.SLE`
+- `base.SCR`
+- `base.RSD`
+- `base.SAR`
+- `base.STD`
+- `base.WST`
+- `base.SHP`
+- `base.RWF`
+- `base.QAR`
+- `base.PEN`
+- `base.PYG`
+- `base.PGK`
+- `base.PKR`
+- `base.OMR`
+- `base.CVE`
+- `base.COU`
+- `base.CLF`
+- `base.CUC`
+- `base.GTQ`
+- `base.VES`
+- `base.UYW`
+- `base.UYI`
+- `base.STN`
+
+## res.groups
+
+- `base.group_user`
+- `base.group_user_regular`
+- `base.group_erp_manager`
+- `base.group_sanitize_override`
+- `base.group_system`
+- `base.group_multi_company`
+- `base.group_multi_currency`
+- `base.group_no_one`
+- `base.group_allow_export`
+- `base.group_partner_manager`
+- `base.group_portal`
+- `base.group_public`
+- `base.group_everyone`
+- `base.default_user_group`
+
+## res.groups.privilege
+
+- `base.res_groups_privilege_export`
+- `base.res_groups_privilege_contact`
+
+## res.lang
+
+- `base.lang_es`
+- `base.lang_es_419`
+- `base.lang_my`
+- `base.lang_ar`
+- `base.lang_sr@latin`
+- `base.lang_ca_ES`
+
+## res.partner
+
+- `base.main_partner`
+- `base.partner_root`
+- `base.partner_admin`
+- `base.public_partner`
+
+## res.partner.industry
+
+- `base.res_partner_industry_A`
+- `base.res_partner_industry_B`
+- `base.res_partner_industry_C`
+- `base.res_partner_industry_D`
+- `base.res_partner_industry_E`
+- `base.res_partner_industry_F`
+- `base.res_partner_industry_G`
+- `base.res_partner_industry_H`
+- `base.res_partner_industry_I`
+- `base.res_partner_industry_J`
+- `base.res_partner_industry_K`
+- `base.res_partner_industry_L`
+- `base.res_partner_industry_M`
+- `base.res_partner_industry_N`
+- `base.res_partner_industry_O`
+- `base.res_partner_industry_P`
+- `base.res_partner_industry_Q`
+- `base.res_partner_industry_R`
+- `base.res_partner_industry_S`
+- `base.res_partner_industry_T`
+- `base.res_partner_industry_U`
+
+## res.users
+
+- `base.user_root`
+- `base.user_admin`
+- `base.public_user`
+- `base.public_user`
+- `base.template_portal_user_id`
+
+## res.users.settings
+
+- `base.user_admin_settings`
+
+## website
+
+- `base.default_website`

@@ -1,0 +1,174 @@
+# l10n_ca — XML ids
+
+## account.report
+
+- `l10n_ca.l10n_ca_tr_gsthst`
+- `l10n_ca.l10n_ca_tr_pst_bc`
+- `l10n_ca.l10n_ca_tr_pst_mb`
+- `l10n_ca.l10n_ca_tr_qst`
+- `l10n_ca.l10n_ca_tr_pst_sk`
+
+## account.report.column
+
+- `l10n_ca.l10n_ca_tr_gsthst_balance`
+- `l10n_ca.l10n_ca_tr_pst_bc_balance`
+- `l10n_ca.l10n_ca_tr_pst_mb_balance`
+- `l10n_ca.l10n_ca_tr_pst_qst_gsthst`
+- `l10n_ca.l10n_ca_tr_pst_qst_qst`
+- `l10n_ca.l10n_ca_tr_pst_sk_balance`
+
+## account.report.expression
+
+- `l10n_ca.l10n_ca_tr_gsthst_90_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_91_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_103_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_104_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_106_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_107_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_110_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_111_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_205_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_405_tag`
+- `l10n_ca.l10n_ca_tr_gsthst_114_aggr`
+- `l10n_ca.l10n_ca_tr_gsthst_115_aggr`
+- `l10n_ca.l10n_ca_tr_pst_bc_a_tag`
+- `l10n_ca.l10n_ca_tr_pst_bc_b_tag`
+- `l10n_ca.l10n_ca_tr_pst_bc_c_under_22`
+- `l10n_ca.l10n_ca_tr_pst_bc_c_under_333`
+- `l10n_ca.l10n_ca_tr_pst_bc_c_over_3000`
+- `l10n_ca.l10n_ca_tr_pst_bc_c_balance`
+- `l10n_ca.l10n_ca_tr_pst_bc_g_tag`
+- `l10n_ca.l10n_ca_tr_pst_bc_f_tag`
+- `l10n_ca.l10n_ca_tr_pst_bc_h_tag`
+- `l10n_ca.l10n_ca_tr_pst_bc_i_tag`
+- `l10n_ca.l10n_ca_tr_pst_mb_1_tag`
+- `l10n_ca.l10n_ca_tr_pst_mb_2_under_3`
+- `l10n_ca.l10n_ca_tr_pst_mb_2_under_200`
+- `l10n_ca.l10n_ca_tr_pst_mb_2_under_3000`
+- `l10n_ca.l10n_ca_tr_pst_mb_2_balance`
+- `l10n_ca.l10n_ca_tr_pst_mb_3_tag`
+- `l10n_ca.l10n_ca_tr_pst_mb_35_balance`
+- `l10n_ca.l10n_ca_tr_qst_101_tag`
+- `l10n_ca.l10n_ca_tr_qst_103_tag`
+- `l10n_ca.l10n_ca_tr_qst_203_tag`
+- `l10n_ca.l10n_ca_tr_qst_104_tag`
+- `l10n_ca.l10n_ca_tr_qst_204_tag`
+- `l10n_ca.l10n_ca_tr_qst_105_aggr`
+- `l10n_ca.l10n_ca_tr_qst_205_aggr`
+- `l10n_ca.l10n_ca_tr_qst_106_tag`
+- `l10n_ca.l10n_ca_tr_qst_206_tag`
+- `l10n_ca.l10n_ca_tr_qst_107_tag`
+- `l10n_ca.l10n_ca_tr_qst_207_tag`
+- `l10n_ca.l10n_ca_tr_qst_108_aggr`
+- `l10n_ca.l10n_ca_tr_qst_208_aggr`
+- `l10n_ca.l10n_ca_tr_qst_109_aggr`
+- `l10n_ca.l10n_ca_tr_qst_209_aggr`
+- `l10n_ca.l10n_ca_tr_qst_111_tag`
+- `l10n_ca.l10n_ca_tr_qst_211_tag`
+- `l10n_ca.l10n_ca_tr_qst_113_aggr`
+- `l10n_ca.l10n_ca_tr_qst_213_aggr`
+- `l10n_ca.l10n_ca_tr_qst_114_tag`
+- `l10n_ca.l10n_ca_tr_qst_214_tag`
+- `l10n_ca.l10n_ca_tr_qst_115_tag`
+- `l10n_ca.l10n_ca_tr_qst_116_aggr`
+- `l10n_ca.l10n_ca_tr_qst_216_aggr`
+- `l10n_ca.l10n_ca_tr_pst_sk_total_sales_tag`
+- `l10n_ca.l10n_ca_tr_pst_sk_1_balance`
+- `l10n_ca.l10n_ca_tr_pst_sk_2_tag`
+- `l10n_ca.l10n_ca_tr_pst_sk_3_tag`
+- `l10n_ca.l10n_ca_tr_pst_sk_4_tag`
+- `l10n_ca.l10n_ca_tr_pst_sk_5_tag`
+- `l10n_ca.l10n_ca_tr_pst_sk_8_tag`
+- `l10n_ca.l10n_ca_tr_pst_sk_9_overflow`
+- `l10n_ca.l10n_ca_tr_pst_sk_9_aggr`
+- `l10n_ca.l10n_ca_tr_pst_sk_10_aggr`
+- `l10n_ca.l10n_ca_tr_pst_sk_12_tag`
+- `l10n_ca.l10n_ca_tr_pst_sk_13_overflow`
+- `l10n_ca.l10n_ca_tr_pst_sk_13_aggr`
+- `l10n_ca.l10n_ca_tr_pst_sk_14_aggr`
+- `l10n_ca.l10n_ca_tr_pst_sk_15_aggr`
+
+## account.report.line
+
+- `l10n_ca.l10n_ca_tr_gsthst_90`
+- `l10n_ca.l10n_ca_tr_gsthst_91`
+- `l10n_ca.l10n_ca_tr_gsthst_101`
+- `l10n_ca.l10n_ca_tr_gsthst_103`
+- `l10n_ca.l10n_ca_tr_gsthst_104`
+- `l10n_ca.l10n_ca_tr_gsthst_105`
+- `l10n_ca.l10n_ca_tr_gsthst_106`
+- `l10n_ca.l10n_ca_tr_gsthst_107`
+- `l10n_ca.l10n_ca_tr_gsthst_108`
+- `l10n_ca.l10n_ca_tr_gsthst_109`
+- `l10n_ca.l10n_ca_tr_gsthst_110`
+- `l10n_ca.l10n_ca_tr_gsthst_111`
+- `l10n_ca.l10n_ca_tr_gsthst_112`
+- `l10n_ca.l10n_ca_tr_gsthst_113A`
+- `l10n_ca.l10n_ca_tr_gsthst_205`
+- `l10n_ca.l10n_ca_tr_gsthst_405`
+- `l10n_ca.l10n_ca_tr_gsthst_113B`
+- `l10n_ca.l10n_ca_tr_gsthst_113C`
+- `l10n_ca.l10n_ca_tr_gsthst_114`
+- `l10n_ca.l10n_ca_tr_gsthst_115`
+- `l10n_ca.l10n_ca_tr_pst_bc_a`
+- `l10n_ca.l10n_ca_tr_pst_bc_B`
+- `l10n_ca.l10n_ca_tr_pst_bc_c`
+- `l10n_ca.l10n_ca_tr_pst_bc_d`
+- `l10n_ca.l10n_ca_tr_pst_bc_e`
+- `l10n_ca.l10n_ca_tr_pst_bc_f`
+- `l10n_ca.l10n_ca_tr_pst_bc_g`
+- `l10n_ca.l10n_ca_tr_pst_bc_h`
+- `l10n_ca.l10n_ca_tr_pst_bc_i`
+- `l10n_ca.l10n_ca_tr_pst_bc_j`
+- `l10n_ca.l10n_ca_tr_pst_bc_k`
+- `l10n_ca.l10n_ca_tr_pst_mb_1`
+- `l10n_ca.l10n_ca_tr_pst_mb_2`
+- `l10n_ca.l10n_ca_tr_pst_mb_3`
+- `l10n_ca.l10n_ca_tr_pst_mb_35`
+- `l10n_ca.l10n_ca_tr_pst_mb_4`
+- `l10n_ca.l10n_ca_tr_qst_101`
+- `l10n_ca.l10n_ca_tr_qst_103_203`
+- `l10n_ca.l10n_ca_tr_qst_104_204`
+- `l10n_ca.l10n_ca_tr_qst_105_205`
+- `l10n_ca.l10n_ca_tr_qst_106_206`
+- `l10n_ca.l10n_ca_tr_qst_107_207`
+- `l10n_ca.l10n_ca_tr_qst_108_208`
+- `l10n_ca.l10n_ca_tr_qst_109_209`
+- `l10n_ca.l10n_ca_tr_qst_111_211`
+- `l10n_ca.l10n_ca_tr_qst_113_213`
+- `l10n_ca.l10n_ca_tr_qst_114_214`
+- `l10n_ca.l10n_ca_tr_qst_115`
+- `l10n_ca.l10n_ca_tr_qst_116_216`
+- `l10n_ca.l10n_ca_tr_pst_sk_total_sales`
+- `l10n_ca.l10n_ca_tr_pst_sk_step_1`
+- `l10n_ca.l10n_ca_tr_pst_sk_1`
+- `l10n_ca.l10n_ca_tr_pst_sk_2`
+- `l10n_ca.l10n_ca_tr_pst_sk_3`
+- `l10n_ca.l10n_ca_tr_pst_sk_4`
+- `l10n_ca.l10n_ca_tr_pst_sk_5`
+- `l10n_ca.l10n_ca_tr_pst_sk_6`
+- `l10n_ca.l10n_ca_tr_pst_sk_7`
+- `l10n_ca.l10n_ca_tr_pst_sk_step_2`
+- `l10n_ca.l10n_ca_tr_pst_sk_8`
+- `l10n_ca.l10n_ca_tr_pst_sk_9`
+- `l10n_ca.l10n_ca_tr_pst_sk_10`
+- `l10n_ca.l10n_ca_tr_pst_sk_11`
+- `l10n_ca.l10n_ca_tr_pst_sk_step_3`
+- `l10n_ca.l10n_ca_tr_pst_sk_12`
+- `l10n_ca.l10n_ca_tr_pst_sk_13`
+- `l10n_ca.l10n_ca_tr_pst_sk_14`
+- `l10n_ca.l10n_ca_tr_pst_sk_15`
+
+## ir.ui.view
+
+- `l10n_ca.res_partner_form_inherit_ca` — on res.partner inherits account.view_partner_property_form
+- `l10n_ca.res_company_form_inherit_ca` — on res.company inherits base.view_company_form
+- `l10n_ca.l10n_ca_report_invoice_document_inherit` — inherits account.report_invoice_document
+- `l10n_ca.pst_external_layout`
+- `l10n_ca.l10n_ca_external_layout_standard` — inherits web.external_layout_standard
+- `l10n_ca.l10n_ca_external_layout_bold` — inherits web.external_layout_bold
+- `l10n_ca.l10n_ca_external_layout_boxed` — inherits web.external_layout_boxed
+- `l10n_ca.l10n_ca_external_layout_striped` — inherits web.external_layout_striped
+- `l10n_ca.l10n_ca_external_layout_bubble` — inherits web.external_layout_bubble
+- `l10n_ca.l10n_ca_external_layout_wave` — inherits web.external_layout_wave
+- `l10n_ca.l10n_ca_external_layout_folder` — inherits web.external_layout_folder

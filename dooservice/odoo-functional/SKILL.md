@@ -1,7 +1,7 @@
 ---
 name: odoo-functional
 description: >-
-  Configuring Odoo without code in a dooservice functional session: changing
+  Configuring Odoo without code in a dooservice console: changing
   settings, companies, users, access groups, standard modules, sequences,
   taxes, email templates, automations and data through the ORM in dooservice
   shell, with read-only psql for diagnosis. Use for any configuration,
@@ -61,12 +61,28 @@ Prefer archiving (`active=False`) to deleting.
 - Standard modules: `dooservice install <module>` then `dooservice restart`.
 - System parameters: `env['ir.config_parameter'].sudo().set_param(key, value)`.
 
+## Recipes
+
+Read the one that matches before starting; each names what differs between versions:
+
+- `recipes/companies.md`: companies, currencies, the chart of accounts.
+- `recipes/users-and-access.md`: users, groups, record rules.
+- `recipes/taxes-and-journals.md`: taxes, journals, invoice numbering.
+- `recipes/sequences.md`: document numbering.
+- `recipes/email-templates.md`: the emails Odoo sends.
+- `recipes/automations.md`: server, automated and scheduled actions.
+- `recipes/inventory.md`: warehouses, locations, stock products, initial quantities.
+- `recipes/pricelists.md`: pricelists and their rules.
+
+Field, setting and XML id names for this version are in the `odoo-reference` skill.
+
 ## What needs code
 
 A new model, a new stored field in a module, a report layout, an override of
-behaviour, an integration: say plainly that it needs development, in a code session
-with the project's repository. Offer the closest configuration instead when there is
-one (a server action, an automated action, a custom filter, a mail template).
+behaviour, an integration. Offer the closest configuration first when there is one (a
+server action, an automated action, a custom filter, a mail template). If it still needs
+code, say what module you would write and wait for the user's yes; without a repository
+in `/mnt/addons`, say that the project needs one to add code.
 
 ## After a change
 
