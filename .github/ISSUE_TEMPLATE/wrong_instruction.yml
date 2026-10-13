@@ -1,0 +1,29 @@
+name: Wrong instruction
+description: A skill tells the agent something that is not true for its Odoo version
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "If the instruction is unsafe, do not use this form: see SECURITY.md."
+  - type: dropdown
+    id: version
+    attributes:
+      label: Odoo version
+      multiple: true
+      options: ["16.0", "17.0", "18.0", "19.0", "20.0"]
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill and file
+      placeholder: odoo/17.0/odoo-guidelines/guidelines/views.md
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What it says, and what is true
+      description: Link to the Odoo source that shows it.
+    validations:
+      required: true

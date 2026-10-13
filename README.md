@@ -100,6 +100,11 @@ print(ReferenceCheck(env, Path("/usr/lib/python3/dist-packages")).run())
 Check every version-specific change in that branch's source before making it:
 `.odoo/` is ignored by git and is the place for those checkouts.
 
+## Contributing and security
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). If a skill tells an agent to do something unsafe,
+report it privately as [SECURITY.md](SECURITY.md) explains.
+
 ## Credits and license
 
 Derived from Odoo's skill library (odoo/odoo, branch 20.0, `skills/`), by Odoo S.A.,

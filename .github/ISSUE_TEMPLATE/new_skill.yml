@@ -1,0 +1,14 @@
+name: Skill idea
+description: Something agents get wrong in Odoo that a skill could fix
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What agents get wrong
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What the skill should say
