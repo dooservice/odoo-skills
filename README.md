@@ -104,7 +104,7 @@ Check every version-specific change in that branch's source before making it:
 
 Derived from Odoo's skill library (odoo/odoo, branch 20.0, `skills/`), by Odoo S.A.,
 licensed LGPL-3; this work is LGPL-3 as well: [LICENSE](LICENSE), with the GNU GPL v3 it
-incorporates in [COPYING](COPYING). Not affiliated
+incorporates in [licenses/GPL-3.0.txt](licenses/GPL-3.0.txt). Not affiliated
 with or endorsed by Odoo S.A.
 
 Maintained by [dooservice](https://dooservice.sh), which uses them in the AI console of
