@@ -35,6 +35,11 @@ the right to submit it under this project's license, as the
 [Developer Certificate of Origin](https://developercertificate.org) describes. Add it with
 `git commit -s`.
 
+## Code of conduct
+
+Everyone taking part follows the [Code of Conduct](CODE_OF_CONDUCT.md). Report unacceptable
+behaviour to [soporte@apiservicesac.com](mailto:soporte@apiservicesac.com).
+
 ## License
 
 By contributing, you agree that your contribution is licensed under the
