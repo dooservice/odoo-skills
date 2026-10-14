@@ -2,17 +2,15 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import shutil
+from pathlib import Path
 
+from .constants import HERE, SKIPPED_PREFIXES
 from .manifests import Addons
 from .models import ModelScanner
 from .settings import SettingsScanner
 from .writer import ReferenceWriter
 from .xmlids import XmlIdScanner
-
-HERE = Path(__file__).resolve().parent
-SKIPPED_PREFIXES = ("test_", "hw_", "theme_")
 
 
 class ReferenceBuild:

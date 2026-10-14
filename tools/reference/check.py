@@ -11,17 +11,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from .constants import KINDS
 from .manifests import Addons
 from .models import ModelScanner
 from .settings import SettingsScanner
 from .xmlids import XmlIdScanner
-
-KINDS = {
-    "Many2oneReference": "many2one_reference",
-    "PropertiesDefinition": "properties_definition",
-    "Image": "binary",
-    "Id": "integer",
-}
 
 
 class ReferenceCheck:

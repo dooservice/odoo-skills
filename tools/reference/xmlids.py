@@ -9,9 +9,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from xml.etree import ElementTree
 
+from .constants import SHORTHANDS
 from .manifests import Addon
-
-SHORTHANDS = {"menuitem": "ir.ui.menu", "template": "ir.ui.view"}
 
 
 @dataclass(frozen=True)

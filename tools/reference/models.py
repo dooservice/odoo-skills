@@ -5,11 +5,8 @@ from __future__ import annotations
 import ast
 from dataclasses import dataclass, field
 
+from .constants import FLAGS, HOOK_PREFIXES, RELATIONAL
 from .manifests import Addon
-
-RELATIONAL = {"Many2one", "One2many", "Many2many"}
-FLAGS = ("required", "readonly", "store", "index", "company_dependent")
-HOOK_PREFIXES = ("_prepare_", "_get_", "_action_", "_create_", "_post_", "_check_")
 
 
 @dataclass

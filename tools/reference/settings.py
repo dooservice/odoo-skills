@@ -11,10 +11,9 @@ from __future__ import annotations
 import ast
 from dataclasses import dataclass
 
+from .constants import SETTINGS_MODEL
 from .manifests import Addon
 from .models import ModelScanner
-
-SETTINGS_MODEL = "res.config.settings"
 
 
 @dataclass(frozen=True)
