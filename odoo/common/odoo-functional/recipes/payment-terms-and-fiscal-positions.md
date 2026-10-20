@@ -2,7 +2,9 @@
 
 A payment term (`account.payment.term`) splits an invoice total into due dates. A fiscal
 position (`account.fiscal.position`) swaps taxes and accounts for some customers or
-vendors: exports, intra-EU sales, another state's rules. Both are copied onto invoices
+vendors: exports, sales to businesses in another country, another state's rules. Which
+positions a country needs is set by law: the country's localization decides this; see
+its localization skill if installed. Both are copied onto invoices
 when they are created: changing one changes future documents, not posted ones. Changes
 to either need the user's yes; one already used on posted invoices is best replaced by
 a new record and the old one archived.
@@ -43,16 +45,16 @@ The same in 16.0, where the last line is the balance:
 ]
 ```
 
-| line field | 16.0 | 17.0 | 18.0 to 20.0 |
-|---|---|---|---|
-| `value` | `balance`, `percent`, `fixed` | `percent`, `fixed` | `percent`, `fixed` |
-| days | `days`, `months` | `nb_days` | `nb_days` |
-| end of month | `end_month`, `days_after` | `delay_type` | `delay_type`, `days_next_month` |
-| rule | exactly one `balance` line | percent lines sum to 100 | percent lines sum to 100 |
+| line field | 16.0 | 17.0 to 20.0 |
+|---|---|---|
+| `value` | `balance`, `percent`, `fixed` | `percent`, `fixed` |
+| days | `days`, `months` | `nb_days` |
+| end of month | `end_month`, `days_after` | `delay_type`, `days_next_month` |
+| rule | exactly one `balance` line | percent lines sum to 100 |
 
 `delay_type` (17.0 on): `days_after` (invoice date), `days_after_end_of_month`,
-`days_after_end_of_next_month`; from 18.0 also `days_end_of_month_on_the` with
-`days_next_month` (`'10'`: the 10th of the next month).
+`days_after_end_of_next_month`, `days_end_of_month_on_the` with `days_next_month`
+(`'10'`: the 10th of the next month).
 
 Standard terms to reuse first: `account.account_payment_term_immediate`,
 `account.account_payment_term_30days`, `account.account_payment_term_30_days_end_month_the_10`,
@@ -60,7 +62,7 @@ Standard terms to reuse first: `account.account_payment_term_immediate`,
 
 ## Early payment discount
 
-"2% if paid within 10 days, net 30", common in the US:
+"2% if paid within 10 days, net 30", from 17.0 on (16.0 below):
 
 ```python
 env['account.payment.term'].create({
@@ -84,9 +86,10 @@ env.cr.commit()
 ## Fiscal positions
 
 ```python
+group = env['res.country.group'].search([('name', '=', '<country group name>')], limit=1)
 position = env['account.fiscal.position'].create({
-    'name': 'EU business customers', 'company_id': company.id,
-    'auto_apply': True, 'country_group_id': env.ref('base.europe').id, 'vat_required': True,
+    'name': 'Business customers abroad', 'company_id': company.id,
+    'auto_apply': True, 'country_group_id': group.id, 'vat_required': True,
     'sequence': 10,
 })
 env.cr.commit()
@@ -94,7 +97,11 @@ env.cr.commit()
 
 - `auto_apply` picks it for a partner (the delivery address when there is one) that
   matches `country_id` or `country_group_id`, `state_ids`, `zip_from`/`zip_to` and, with
-  `vat_required`, has a VAT number. The most specific match wins, then `sequence`.
+  `vat_required`, has a VAT number. Up to 18.0 the most specific match wins, then
+  `sequence`; from 19.0 the first match by `sequence` wins, so give the narrower position
+  the lower sequence. A partner without a country gets no automatic position at all.
+- Country groups: `env['res.country.group'].search([]).mapped('name')`; a group's
+  countries are in `country_ids`.
 - A position set on the partner (`property_account_position_id`, per company) wins over
   auto-detection. Test with
   `env['account.fiscal.position'].with_company(company)._get_fiscal_position(partner)`.
@@ -106,7 +113,7 @@ env.cr.commit()
 16.0 to 18.0: lines of `account.fiscal.position.tax`.
 
 ```python
-position.write({'tax_ids': [(0, 0, {'tax_src_id': vat21.id, 'tax_dest_id': vat0_eu.id})]})
+position.write({'tax_ids': [(0, 0, {'tax_src_id': domestic_tax.id, 'tax_dest_id': export_tax.id})]})
 env.cr.commit()
 ```
 
@@ -117,13 +124,15 @@ list of taxes it uses, and each of them names the domestic taxes it replaces in
 `original_tax_ids` (the tax side of the same relation is `fiscal_position_ids`).
 
 ```python
-vat0_eu.write({'fiscal_position_ids': [(4, position.id)], 'original_tax_ids': [(4, vat21.id)]})
+export_tax.write({'fiscal_position_ids': [(4, position.id)], 'original_tax_ids': [(4, domestic_tax.id)]})
 env.cr.commit()
 ```
 
-- 19.0: a tax not replaced stays on the document.
+- 19.0: a tax not replaced stays on the document, except that a position with no
+  `tax_ids` drops every tax limited to other positions.
 - 20.0: a tax limited to some fiscal positions is dropped on documents with another one.
-- In every version, prefer a 0% replacement tax (export, intra-EU) to removing the tax:
+- In every version, prefer a 0% replacement tax (exports, sales to businesses abroad) to
+  removing the tax:
   the tax report still sees the base.
 
 ## Assigning to partners
