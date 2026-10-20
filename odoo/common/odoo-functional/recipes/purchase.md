@@ -43,7 +43,8 @@ env.cr.commit()
 ## Bill control
 
 `purchase_method` on the product: `purchase` (bill ordered quantities) or `receive`
-(bill received quantities). Services default to `purchase`.
+(bill received quantities). Services default to `purchase`; in 16.0 and 17.0 only through
+the form, so a service created from a script gets the general default: pass `purchase_method`.
 
 - 16.0 to 18.0: default for new goods from setting `default_purchase_method` (Bill
   Control, kept as an `ir.default`). 19.0+: no setting; new goods take that default if
@@ -89,13 +90,18 @@ bill = env['account.move'].browse(action.get('res_id')) or po.invoice_ids[-1:]
 ```python
 env['product.supplierinfo'].create({
     'partner_id': vendor.id, 'product_tmpl_id': template.id,
-    'min_qty': 10, 'price': 4.20, 'currency_id': env.ref('base.EUR').id, 'delay': 5,
+    'min_qty': 10, 'price': 4.20, 'currency_id': (vendor.property_purchase_currency_id or company.currency_id).id, 'delay': 5,
     'product_code': 'V-778', 'date_start': '2026-01-01',
 })
 env.cr.commit()
 ```
 
-- The first line that matches vendor, quantity, dates and company wins, by `sequence`.
+- `currency_id`: the vendor's purchase currency, else the company's. For another one,
+  find it by ISO code, inactive ones included
+  (`env['res.currency'].with_context(active_test=False).search([('name', '=', '<currency code>')])`);
+  it must be active to be used.
+- The first line that matches vendor, quantity, dates and company wins, by `sequence`,
+  then the largest `min_qty`, then the lowest price.
 - `discount` from 17.0. Unit: `product_uom` (related to the product's purchase unit) in
   16.0 to 18.0; `product_uom_id` (own unit) in 19.0; `uom_id` in 20.0.
 - Old prices: set `date_end` instead of deleting, so history stays readable.
