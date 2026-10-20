@@ -133,7 +133,7 @@ Bank Statement
 - `name` Char “Reference” (store, compute=_compute_name)
 - `reference` Char “External Reference”
 - `date` Date (store, index, compute=_compute_date_index)
-- `first_line_index` Char → `account.bank.statement.line` (store, index, compute=_compute_date_index)
+- `first_line_index` Char (store, index, compute=_compute_date_index)
 - `balance_start` Monetary “Starting Balance” (store, compute=_compute_balance_start)
 - `balance_end` Monetary “Computed Balance” (store, compute=_compute_balance_end)
 - `balance_end_real` Monetary “Ending Balance” (store, compute=_compute_balance_end_real)
