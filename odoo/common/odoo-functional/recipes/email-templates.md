@@ -39,20 +39,25 @@ env.cr.commit()
 - `partner_to` is a comma-separated list of partner ids (`{{ object.partner_id.id }}`);
   `email_to` is free addresses. Some standard templates set `use_default_to` instead,
   which sends to the document's default recipients.
-- `lang` (usually `{{ object.partner_id.lang }}`) picks which translation is sent.
+- `lang` (usually `{{ object.partner_id.lang }}`) picks which translation is sent. From
+  19.0 many standard templates leave it empty: the recipient's language is used.
 
 ## Translations
 
 `subject` and `body_html` keep one text per language. Write each language that customers
-receive:
+receive; the active ones are `env['res.lang'].search([]).mapped('code')`:
 
 ```python
-template.with_context(lang='es_MX').write({'subject': 'Factura {{ object.name }} de {{ object.company_id.name }}'})
-template.with_context(lang='fr_BE').write({'subject': 'Facture {{ object.name }} de {{ object.company_id.name }}'})
+for lang, subject in {
+    '<lang code>': '<subject in that language> {{ object.name }}',
+    '<other lang code>': '<subject in the other language> {{ object.name }}',
+}.items():
+    template.with_context(lang=lang).write({'subject': subject})
 env.cr.commit()
 ```
 
-The language must be active (`env['res.lang'].search([('code', '=', 'fr_BE')])`).
+Only active languages: with an inactive one, 16.0 and 17.0 overwrite the English text,
+18.0 and later refuse ("Invalid language code").
 
 ## Attachments and layout
 
@@ -69,7 +74,8 @@ can bring back the original with "Reset Template" (`template.reset_template()`),
 discards the edit, so ask first. For a different email for some documents, copy it:
 
 ```python
-copy = template.copy({'name': 'Invoice (wholesale customers)'})
+copy = template.copy()
+copy.name = 'Invoice (wholesale customers)'     # 16.0 ignores a name passed to copy()
 env.cr.commit()
 ```
 
