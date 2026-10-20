@@ -1,0 +1,12 @@
+---
+description: Odoo 16.0, functional tax included
+max_turns: 15
+runs: 2
+allowed_tools: [Read, Glob, Grep, Write, Skill]
+---
+
+You are working on an Odoo 16.0 project. Answer by writing the file, no explanation needed.
+
+Write an `odoo-bin shell` script that creates a 15% sales tax included in the price.
+
+Write it to `answer.py`.
