@@ -1,25 +1,53 @@
 # Odoo skills for every version, 16.0 to 20.0
 
-[Agent skills](https://agentskills.io) that help AI agents (Claude Code, OpenCode, Codex,
-Cursor, Copilot...) write, review and audit Odoo addons, and configure Odoo without code,
-**for the Odoo version you actually run**.
+[Agent skills](https://agentskills.io) that make AI agents (Claude Code, OpenCode, Codex,
+Cursor, Copilot...) work on Odoo the way an experienced developer and functional
+consultant would, **for the Odoo version you actually run**.
 
-Odoo ships its own skills in the `skills/` directory of the 20.0 branch. They are
-excellent, and they are written for 20.0: an agent following them on a 16.0 or 18.0
-codebase writes `models.Constraint`, `<list>`, `ir.access.csv` or `self.env._` where
-they do not exist. This repository adapts them to each supported version, with every
+An agent that knows Odoo 20.0 writes `<list>`, `models.Constraint` or `is_storable` in a
+16.0 project, where they do not exist, and configures a database with fields that
+version does not have. These skills tell it what each version has, and how Odoo itself
+does each task.
+
+## What is inside
+
+| For | Skills | What they cover |
+|---|---|---|
+| **Developers** | `odoo-guidelines`, `odoo-web-guidelines`, `odoo-security`, `odoo-review`, `odoo-git`, `odoo-upgrade` | modules, ORM, views, controllers, JavaScript and Owl, security audits, code review, commits, porting between versions |
+| **Functional consultants** | `odoo-functional` | configuring Odoo without code, in 26 recipes that follow Odoo's own flow step by step: from go-live, sales, purchase, inventory, manufacturing, point of sale and eCommerce to taxes, bank reconciliation, closing the period, users, automations and "why does Odoo do X" |
+| **Each country** | `odoo-l10n-<country>` | the chart of accounts, taxes, identification, electronic invoicing and legal reports of one country, by people who implement Odoo there |
+| **Everyone** | `odoo-reference` | every model, field, Settings switch and XML id of each version, generated from its source |
+
+## How it is checked
+
+- **Every recipe ran on a real database of each version.** Each step of `odoo-functional`
+  was executed on Odoo 16.0, 17.0, 18.0, 19.0 and 20.0, and its effect read back; the
+  steps follow Odoo's documentation of that version and the menus of that version.
+- **The reference matches a running Odoo.** Every model, field, XML id and Settings field
+  it lists was compared with Odoo's own registry, in each version: no mismatch.
+- **Every version difference is checked in that branch's source**, with the file and line.
+- **What it changes is measured.** `evals/` runs the same tasks with and without the
+  skills; see [the results](#results).
+
+The developer skills are adapted from Odoo's own skill library (20.0 branch), with every
 version-specific statement checked against that branch's source.
 
-| Skill | What it covers |
-|---|---|
-| `odoo-guidelines` | module structure, manifest, Python/ORM, fields, controllers, XML views and data, reports, access rights, performance, tests, changes to installed modules, and `guidelines/version.md`: what exists in that version |
-| `odoo-web-guidelines` | JavaScript, Owl templates and SCSS under `static/`: module headers, patches, registries, RPC, tests |
-| `odoo-security` | access control, `sudo()`, SQL and domain injection, XSS, routes and CSRF, `eval`, files, timing attacks |
-| `odoo-review` | a two-pass review of a diff: house rules, then the merits, then proving it installs |
-| `odoo-git` | commit messages (`[TAG] module: summary`, why first), branches, submodules, pull requests |
-| `odoo-upgrade` | porting a module to a newer version, and migration scripts with odoo-upgrade-util |
-| `odoo-functional` | configuring Odoo without a module, as a functional consultant: settings, users and access, taxes, fiscal positions, products, imports, pricelists, mail, reports, automations, and diagnosing "why does Odoo do X"; 18 recipes with the differences between versions |
-| `odoo-reference` | generated from each version's source: every addon's models (fields, public methods, extension points), every Settings switch and where it keeps its value, and every XML id an addon declares |
+## Results
+
+The same tasks, given to Claude Sonnet 5.5 with and without the skills, three runs each.
+Each task asks for a file (a view, a model, a controller, an `odoo-bin shell` script) and
+checks that it uses what that Odoo version has and nothing it does not:
+
+| Odoo | Tasks | With the skills | Without | Difference |
+|---|---|---|---|---|
+| 20.0 | 19 | **88.6%** | 69.2% | **+19.4 points** |
+| 16.0 | 20 | **97.8%** | 96.3% | +1.5 points |
+
+Models already know an older version like 16.0 well; the skills matter most on the newer
+ones, where field names, security files, stock and accounting changed. On 20.0, scrapping
+stock, time off types and fiscal positions went from 33% to 100%, and pricelists from 25%
+to 83%. The cases, the graders and how to run them are in [`evals/`](evals/README.md);
+tasks still below 98% are the next work.
 
 ## What changes between versions
 
@@ -89,7 +117,8 @@ module installed, and `install.sh` installs it when your modules depend on one.
 
 | Country | Skill | Maintained by |
 |---|---|---|
-| | | No country yet: yours can be the first |
+| Peru | [`odoo-l10n-pe`](localization/pe/odoo-l10n-pe/SKILL.md) | Josué Salazar ([@Josuesp1620](https://github.com/Josuesp1620)), [Dooservice](https://dooservice.sh) |
+| Yours | | [Add your country](CONTRIBUTING.md#add-your-country) |
 
 Install one: `/plugin install odoo-l10n-<country code> --marketplace dooservice/odoo-skills`,
 or `npx skills add dooservice/odoo-skills/localization/<country code>`.
