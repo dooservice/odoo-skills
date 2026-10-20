@@ -81,7 +81,10 @@ that country are not covered here, and check them with the user before acting.
 
 ## Recipes
 
-Read the matching one before starting. Each names what differs between versions.
+Read the matching one before starting. Each has the same parts: *Before you start* (apps,
+settings, what to read first), *The standard flow* (Odoo's own steps, in the order a user
+takes them, each with its menu, its ORM equivalent and the state it leaves),
+*Variations*, *Versions*, *Verify* and *Pitfalls*.
 
 | Recipe | Covers |
 |---|---|

@@ -22,6 +22,70 @@ of that version, and say in the pull request where (file and line, or a link).
 Do not edit generated files by hand: the next regeneration overwrites them. The README
 explains how to check out Odoo's source and regenerate.
 
+## How a recipe is written
+
+Every recipe of `odoo-functional` has the same parts, in this order, so an agent always
+knows where to look:
+
+````markdown
+# <Area, in business words>
+
+<One paragraph: what it covers, which apps it needs, what is Enterprise and left out.>
+
+## Before you start
+
+- Apps: `<module>` (and from which version, when that changes).
+- Settings: the switches it needs, by their `res.config.settings` field.
+- Read first:
+
+```python
+<a snippet that shows the current state>
+```
+
+## The standard flow
+
+The way Odoo does it, in the order a user does it in the interface. Each step names the
+menu, gives the ORM equivalent, and says the state it leaves:
+
+1. **<Step>.** <App> ‣ <Menu> ‣ <Item>.
+
+   ```python
+   <the same through the ORM>
+   ```
+
+   Leaves the <document> in `<state>`.
+
+## Variations
+
+<The common alternatives to the standard flow, each with when to choose it.>
+
+## Versions
+
+| | 16.0 | 17.0 | 18.0 | 19.0 | 20.0 |
+|---|---|---|---|---|---|
+| <what differs> | | | | | |
+
+## Verify
+
+```python
+<a snippet that proves the result>
+```
+
+## Pitfalls
+
+- <What goes wrong in real databases, with its fix.>
+````
+
+Two rules decide what a recipe says:
+
+- **The flow is Odoo's.** It follows Odoo's documentation of that version
+  (`odoo.com/documentation/<version>/applications/...`) and the menus of that version,
+  read from a running Odoo (`env.ref('<menu xml id>').complete_name`). A recipe never
+  invents a shortcut Odoo does not offer.
+- **Every snippet runs.** It is run on a database of each version it claims, and its
+  effect is read back. A step that differs between versions says so where it happens and
+  in `## Versions`.
+
 ## Add your country
 
 A localization tells an agent what a functional consultant in that country knows: which
