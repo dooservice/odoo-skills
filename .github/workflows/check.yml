@@ -16,7 +16,7 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - name: Every skill follows the Agent Skills format
         run: |
-          for skill in odoo/*/*/; do
+          for skill in odoo/*/*/ localization/*/*/; do
             uvx --from skills-ref==0.1.1 agentskills validate "$skill"
           done
 
@@ -27,5 +27,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Every localization is complete, and the marketplace lists what the folders hold
+        run: python3 tools/build_catalog.py --check
       - name: The Claude Code marketplace and its plugins are valid
         run: npx -y @anthropic-ai/claude-code@2.1.304 plugin validate .
+
+  tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: The generators pass the linter
+        run: uvx ruff check tools
