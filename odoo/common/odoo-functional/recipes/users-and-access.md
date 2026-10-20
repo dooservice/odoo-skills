@@ -30,9 +30,9 @@ included.
 
 ```python
 user = env['res.users'].create({
-    'name': 'Ana Ríos',
-    'login': 'ana@acme.example',
-    'email': 'ana@acme.example',
+    'name': '<full name>',
+    'login': '<email>',
+    'email': '<email>',
     'company_id': company.id,
     'company_ids': [(6, 0, [company.id])],
 })
@@ -44,11 +44,16 @@ env.cr.commit()
 ```
 
 - Creating a user with an email sends the invitation to set a password (module
-  `auth_signup`). Never set or send a password. To send it again:
+  `auth_signup`). Never set or send a password. The invitation is sent at once, not
+  queued: if the mail server fails, the user is still created, without invitation, and
+  nothing shows in the mail queue. To send it again once mail works:
   `user.action_reset_password()`. In a neutralized copy the email does not leave.
 - A new user starts with the default groups: those of the template user
-  (`base.default_user`) up to 18.0, those of `base.default_user_group` from 19.0. Add
-  application groups with `(4, id)`; replacing the list with `(6, 0, ids)` drops them.
+  (`base.default_user`) up to 18.0; Internal User plus the groups implied by
+  `base.default_user_group` from 19.0. Up to 18.0 the template often carries
+  application administrator groups: read the new user's groups after creating and remove
+  what the person should not have. Add application groups with `(4, id)`; replacing the
+  list with `(6, 0, ids)` drops the default ones.
 - An internal user usually counts as a paid user in an Odoo subscription; ask before
   creating one.
 - Application groups imply the lower ones: `sales_team.group_sale_manager` includes
@@ -62,7 +67,9 @@ env.cr.commit()
 ## Removing access
 
 Archive, never delete: `user.active = False`. The user's documents, messages and history
-stay. Remove a group with `(3, id)` on the groups field.
+stay. Remove a group with `(3, id)` on the groups field. Up to 18.0 the field also holds
+implied groups, and a group implied by another group the user keeps stays: remove the
+higher group too, then check with `user.has_group(...)`.
 
 ## Portal users
 
