@@ -36,12 +36,12 @@ env.cr.commit()
 ## A warehouse and its steps
 
 ```python
-warehouse = env['stock.warehouse'].create({'name': 'Monterrey', 'code': 'MTY', 'company_id': company.id})
+warehouse = env['stock.warehouse'].create({'name': 'Second warehouse', 'code': 'WH2', 'company_id': company.id})
 warehouse.write({'reception_steps': 'two_steps', 'delivery_steps': 'pick_ship'})
 env.cr.commit()
 ```
 
-- `code` prefixes the warehouse's locations and transfer numbers (`MTY/IN/00001`); at
+- `code` prefixes the warehouse's locations and transfer numbers (`WH2/IN/00001`); at
   most 5 characters up to 19.0.
 - `reception_steps`: `one_step`, `two_steps` (input, then stock), `three_steps` (input,
   quality, stock).
@@ -87,8 +87,8 @@ quant.action_apply_inventory()
 env.cr.commit()
 ```
 
-- `inventory_mode` only works for a user in the stock user group: run as that user
-  (`env(user=user.id)`), not as the superuser.
+- The user running it needs the stock user group (`stock.group_stock_user`). The shell's
+  superuser and the administrator have it; a user without it gets an access error.
 - Tracked products need `lot_id` (an existing or new `stock.lot`, with `name`,
   `product_id` and `company_id`). One quant per serial number, quantity 1.
 - If `action_apply_inventory()` returns an action instead of applying (quants changed
@@ -107,7 +107,8 @@ env.cr.commit()
 
 - `trigger`: `auto` (the scheduler creates purchase or manufacturing orders) or `manual`
   (shown in Replenishment for someone to order).
-- The product needs a route that can supply it: Buy with a vendor, or Manufacture with a
-  bill of materials. Without one the rule does nothing.
+- The product needs a route that can supply it: Buy with a vendor price, or Manufacture
+  with a bill of materials. Without one the scheduler orders nothing and leaves an
+  exception activity on the product saying why.
 - `qty_multiple` (order in multiples) exists up to 18.0; from 19.0 rounding comes from
   `replenishment_uom_id`.
