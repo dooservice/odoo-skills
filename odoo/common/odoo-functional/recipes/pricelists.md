@@ -4,7 +4,7 @@ A `product.pricelist` gives prices different from the product's sales price: per
 customer, country, quantity or period. Its rules (`product.pricelist.item`) are read in
 the order `applied_on, min_quantity desc, categ_id desc, id desc`: the most specific rule
 that matches the product, quantity and date wins; a product no rule matches keeps its
-sales price. A pricelist has one currency, so a price list in USD and one in EUR are two
+sales price. A pricelist has one currency, so prices in two currencies need two
 pricelists.
 
 ## Read first
@@ -30,8 +30,9 @@ env.cr.commit()
   do not run from a script, so set the group with it:
   `{'group_product_pricelist': True, 'product_pricelist_setting': 'advanced', 'group_sale_pricelist': True}`.
 - 18.0 on: `product_pricelist_setting` and `group_sale_pricelist` are gone; every rule
-  type is available. Turning the setting on creates a default pricelist per company;
-  turning it off archives every pricelist: never turn it off without the user's yes.
+  type is available.
+- 17.0 on: turning the setting on creates a default pricelist per company; turning it
+  off archives every pricelist: never turn it off without the user's yes.
 
 ## A pricelist with rules
 
