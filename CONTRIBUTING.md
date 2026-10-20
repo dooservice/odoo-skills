@@ -16,7 +16,7 @@ of that version, and say in the pull request where (file and line, or a link).
 | `odoo/<version>/odoo-guidelines`, `odoo-web-guidelines`, `odoo-security`, `odoo-review`, `odoo-git` | `tools/generate_guidelines.py`, then regenerate |
 | `odoo/<version>/odoo-reference` | `tools/reference/`, then regenerate with `tools/build_reference.py` |
 | `odoo/common/odoo-upgrade` | the files directly |
-| `dooservice/` | the files directly |
+| `odoo/common/odoo-functional` | the files directly; check every version difference against each branch's source |
 
 Do not edit generated files by hand: the next regeneration overwrites them. The README
 explains how to check out Odoo's source and regenerate.

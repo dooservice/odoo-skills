@@ -1,0 +1,86 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "odoo-skills",
+  "description": "Agent skills for Odoo 16.0 to 20.0, each checked against its version's source. Install the plugin of the version you run.",
+  "owner": {
+    "name": "dooservice",
+    "url": "https://dooservice.sh"
+  },
+  "plugins": [
+    {
+      "name": "odoo-16",
+      "source": "./",
+      "description": "Odoo 16.0: guidelines, web, security, review, git, upgrade, functional configuration and the 16.0 reference",
+      "skills": [
+        "./odoo/16.0/",
+        "./odoo/common/"
+      ],
+      "license": "LGPL-3.0-only",
+      "keywords": [
+        "odoo",
+        "erp",
+        "16.0"
+      ]
+    },
+    {
+      "name": "odoo-17",
+      "source": "./",
+      "description": "Odoo 17.0: guidelines, web, security, review, git, upgrade, functional configuration and the 17.0 reference",
+      "skills": [
+        "./odoo/17.0/",
+        "./odoo/common/"
+      ],
+      "license": "LGPL-3.0-only",
+      "keywords": [
+        "odoo",
+        "erp",
+        "17.0"
+      ]
+    },
+    {
+      "name": "odoo-18",
+      "source": "./",
+      "description": "Odoo 18.0: guidelines, web, security, review, git, upgrade, functional configuration and the 18.0 reference",
+      "skills": [
+        "./odoo/18.0/",
+        "./odoo/common/"
+      ],
+      "license": "LGPL-3.0-only",
+      "keywords": [
+        "odoo",
+        "erp",
+        "18.0"
+      ]
+    },
+    {
+      "name": "odoo-19",
+      "source": "./",
+      "description": "Odoo 19.0: guidelines, web, security, review, git, upgrade, functional configuration and the 19.0 reference",
+      "skills": [
+        "./odoo/19.0/",
+        "./odoo/common/"
+      ],
+      "license": "LGPL-3.0-only",
+      "keywords": [
+        "odoo",
+        "erp",
+        "19.0"
+      ]
+    },
+    {
+      "name": "odoo-20",
+      "source": "./",
+      "description": "Odoo 20.0: guidelines, web, security, review, git, upgrade, functional configuration and the 20.0 reference",
+      "skills": [
+        "./odoo/20.0/",
+        "./odoo/common/"
+      ],
+      "license": "LGPL-3.0-only",
+      "keywords": [
+        "odoo",
+        "erp",
+        "20.0"
+      ]
+    }
+  ]
+}

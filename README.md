@@ -1,8 +1,8 @@
 # Odoo skills for every version, 16.0 to 20.0
 
-[Agent skills](https://agentskills.io) that help AI coding agents (Claude Code, opencode,
-Codex, Copilot CLI...) write, review and audit Odoo addons **for the Odoo version you
-actually run**.
+[Agent skills](https://agentskills.io) that help AI agents (Claude Code, OpenCode, Codex,
+Cursor, Copilot...) write, review and audit Odoo addons, and configure Odoo without code,
+**for the Odoo version you actually run**.
 
 Odoo ships its own skills in the `skills/` directory of the 20.0 branch. They are
 excellent, and they are written for 20.0: an agent following them on a 16.0 or 18.0
@@ -18,6 +18,7 @@ version-specific statement checked against that branch's source.
 | `odoo-review` | a two-pass review of a diff: house rules, then the merits, then proving it installs |
 | `odoo-git` | commit messages (`[TAG] module: summary`, why first), branches, submodules, pull requests |
 | `odoo-upgrade` | porting a module to a newer version, and migration scripts with odoo-upgrade-util |
+| `odoo-functional` | configuring Odoo without a module, as a functional consultant: settings, users and access, taxes, fiscal positions, products, imports, pricelists, mail, reports, automations, and diagnosing "why does Odoo do X"; 18 recipes with the differences between versions |
 | `odoo-reference` | generated from each version's source: every addon's models (fields, public methods, extension points), every Settings switch and where it keeps its value, and every XML id an addon declares |
 
 ## What changes between versions
@@ -39,26 +40,54 @@ A few of the rows in each `odoo/<version>/odoo-guidelines/guidelines/version.md`
 
 ## Install
 
-Copy the skills of your version, together with `odoo/common/`, where your agent reads
-skills. The skills reference each other, so install them all:
+Install the skills of the Odoo version you run. They reference each other, so install
+the whole set: the version's own skills and the common ones.
+
+**Claude Code**: one plugin per version, `odoo-16` to `odoo-20`:
+
+```
+/plugin install odoo-18 --marketplace dooservice/odoo-skills
+```
+
+Or from your shell: `claude plugin marketplace add dooservice/odoo-skills`, then
+`claude plugin install odoo-18@odoo-skills`. `/plugin` updates it.
+
+**Any agent** (Claude Code, OpenCode, Codex, Cursor, Copilot and more), with
+[`npx skills`](https://github.com/vercel-labs/skills); from the root of your Odoo project:
 
 ```bash
-git clone https://github.com/dooservice/odoo-skills.git
-mkdir -p ~/.claude/skills
+curl -fsSL https://raw.githubusercontent.com/dooservice/odoo-skills/main/install.sh | bash
+```
+
+It reads the version from the first `__manifest__.py` it finds (`18.0.1.0.0` is Odoo
+18.0), or takes it as an argument (`| bash -s 17.0`), and installs for the agents it finds
+on your machine. Other options pass through to `npx skills add`: `-g` for every project of your user,
+`-a codex` for one agent. The same without the script:
+
+```bash
+npx skills add dooservice/odoo-skills/odoo/18.0
+npx skills add dooservice/odoo-skills/odoo/common
+```
+
+**By hand**: copy the folders where your agent reads skills (`.claude/skills/` or
+`.agents/skills/` in the project, `~/.claude/skills/` for your user):
+
+```bash
+git clone --depth 1 https://github.com/dooservice/odoo-skills.git
 cp -r odoo-skills/odoo/18.0/* odoo-skills/odoo/common/* ~/.claude/skills/
 ```
 
-For a single project, use `.claude/skills/` (or `.agents/skills/`) at its root instead.
-opencode reads `~/.config/opencode/skills/`. Restart the agent; it picks the skill that
-matches the task by itself.
+Restart the agent; it picks the skill that matches the task by itself.
 
 ## Layout
 
 ```
 odoo/<version>/      generated: odoo-guidelines, odoo-web-guidelines, odoo-security, odoo-review,
                      odoo-git (from Odoo's 20.0 skills) and odoo-reference (from that version's source)
-odoo/common/         version-independent: odoo-upgrade
-dooservice/          the dooservice platform's own: its console commands, and configuring Odoo without code
+odoo/common/         version-independent, written by hand: odoo-upgrade, and odoo-functional
+                     with its recipes, which name the differences between versions
+.claude-plugin/      the Claude Code marketplace: one plugin per version
+install.sh           the installer above
 tools/               the generators, not part of any skill: generate_guidelines.py builds the
                      guideline skills from Odoo's 20.0 skills, build_reference.py builds
                      odoo-reference from .odoo/src/<version>, and reference/ is its code
