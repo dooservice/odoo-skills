@@ -25,6 +25,9 @@ class ReferenceCheck:
         self.checked = {"models": 0, "fields": 0, "xmlids": 0, "settings": 0}
         self.wrong: list[str] = []
         self.settings: dict[str, list] = {}
+        classified = env["res.config.settings"]._get_classified_fields()
+        self.parameters = dict(classified["config"])
+        self.groups = {name: implied.get_external_id()[implied.id] for name, groups, implied in classified["group"]}
 
     def run(self) -> dict:
         installed = set(self.env["ir.module.module"].search([("state", "=", "installed")]).mapped("name"))
@@ -58,7 +61,7 @@ class ReferenceCheck:
             kind = KINDS.get(field.kind, field.kind.lower())
             if real.type != kind:
                 self.wrong.append(f"{addon}: {model.name}.{field.name} is {real.type}, reference says {kind}")
-            if field.target and getattr(real, "comodel_name", None) != field.target:
+            if field.target and real.comodel_name != field.target:
                 self.wrong.append(f"{addon}: {model.name}.{field.name} targets {real.comodel_name}, reference says {field.target}")
 
     def xmlid(self, addon, declared, known) -> None:
@@ -77,13 +80,13 @@ class ReferenceCheck:
         if real is None:
             self.wrong.append(f"{defined[0].addon}: setting {defined[0].name} does not exist")
             return
-        related = ".".join(real.related) if isinstance(real.related, (list, tuple)) else real.related
+        name = defined[0].name
         actual = {
-            f"parameter {getattr(real, 'config_parameter', None)}",
-            f"group {getattr(real, 'implied_group', None)}",
-            f"installs {defined[0].name.removeprefix('module_')}",
-            f"computed by {real.compute if isinstance(real.compute, str) else getattr(real.compute, '__name__', '')}",
-            str(related),
+            f"parameter {self.parameters.get(name)}",
+            f"group {self.groups.get(name)}",
+            f"installs {name.removeprefix('module_')}",
+            f"computed by {real.compute}",
+            str(real.related),
             "computed by the screen",
         }
         if not any(setting.kept_as.replace("`", "") in actual for setting in defined):

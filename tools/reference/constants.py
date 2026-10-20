@@ -21,5 +21,12 @@ FLAGS = ("required", "readonly", "store", "index", "company_dependent")
 HOOK_PREFIXES = ("_prepare_", "_get_", "_action_", "_create_", "_post_", "_check_")
 
 SETTINGS_MODEL = "res.config.settings"
+#: How a Settings field says where it keeps its value; the first keyword it has decides.
+KEPT_AS = (
+    ("compute", "computed by `{}`"),
+    ("config_parameter", "parameter `{}`"),
+    ("implied_group", "group `{}`"),
+    ("related", "`{}`"),
+)
 
 SHORTHANDS = {"menuitem": "ir.ui.menu", "template": "ir.ui.view"}

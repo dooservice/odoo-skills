@@ -5,7 +5,10 @@ from __future__ import annotations
 import ast
 from dataclasses import dataclass, field
 
+from .class_body import ClassBody
 from .constants import FLAGS, HOOK_PREFIXES, RELATIONAL
+from .field_call import FieldCall
+from .literal import Literal
 from .manifests import Addon
 
 
@@ -33,59 +36,40 @@ class ModelScanner:
     def scan(self, addon: Addon) -> list[Model]:
         found = []
         for path in addon.python_files:
-            try:
-                tree = ast.parse(path.read_text(encoding="utf-8"))
-            except (SyntaxError, UnicodeDecodeError):
-                continue
-            found += [model for node in tree.body if isinstance(node, ast.ClassDef) if (model := self.model(node))]
+            for body in ClassBody.top_level(ast.parse(path.read_text(encoding="utf-8"))):
+                if model := self.model(body):
+                    found.append(model)
         return found
 
-    def model(self, node: ast.ClassDef) -> Model | None:
-        attributes = {
-            target.id: statement.value
-            for statement in node.body if isinstance(statement, ast.Assign)
-            for target in statement.targets if isinstance(target, ast.Name)
-        }
-        name, inherits = self.literal(attributes.get("_name")), self.literal(attributes.get("_inherit"))
-        inherited = [inherits] if isinstance(inherits, str) else list(inherits or [])
-        if not isinstance(name, str) and not inherited:
+    def model(self, body: ClassBody) -> Model | None:
+        """The model a class of the source declares, if it declares one."""
+        name = Literal.text(body.attributes.get("_name"))
+        inherited = Literal.texts(body.attributes.get("_inherit"))
+        if not name and not inherited:
             return None
-        named = name if isinstance(name, str) else inherited[0]
+        named = name or inherited[0]
         model = Model(
             name=named,
-            extends=not isinstance(name, str) or name in inherited,
-            description=str(self.literal(attributes.get("_description")) or ""),
+            extends=not name or name in inherited,
+            description=Literal.text(body.attributes.get("_description")),
             inherits=[parent for parent in inherited if parent != named],
         )
-        for key, value in attributes.items():
-            if described := self.field(key, value):
-                model.fields.append(described)
-        for statement in node.body:
-            if isinstance(statement, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                if statement.name.startswith("action_") or not statement.name.startswith("_"):
-                    model.actions.append(statement.name)
-                elif statement.name.startswith(HOOK_PREFIXES):
-                    model.hooks.append(statement.name)
+        model.fields = [described for key, value in body.attributes.items() if (described := self.field(key, value))]
+        for method in body.methods:
+            if method.startswith("action_") or not method.startswith("_"):
+                model.actions.append(method)
+            elif method.startswith(HOOK_PREFIXES):
+                model.hooks.append(method)
         return model
 
     def field(self, name: str, value: ast.expr) -> Field | None:
-        if not (isinstance(value, ast.Call) and isinstance(value.func, ast.Attribute)):
+        call = FieldCall.of(value)
+        if call is None:
             return None
-        if not (isinstance(value.func.value, ast.Name) and value.func.value.id == "fields"):
-            return None
-        kind, keywords = value.func.attr, {keyword.arg: self.literal(keyword.value) for keyword in value.keywords if keyword.arg}
-        first = self.literal(value.args[0]) if value.args else None
-        target = keywords.get("comodel_name") or (first if kind in RELATIONAL else "")
-        label = keywords.get("string") or (first if isinstance(first, str) and kind not in RELATIONAL else "")
-        notes = [flag for flag in FLAGS if keywords.get(flag) is True]
-        notes += [f"{key}={keywords[key]}" for key in ("related", "compute") if isinstance(keywords.get(key), str)]
-        return Field(name, kind, str(target or ""), str(label or ""), notes)
-
-    @staticmethod
-    def literal(node: ast.expr | None):
-        if node is None:
-            return None
-        try:
-            return ast.literal_eval(node)
-        except (ValueError, SyntaxError, TypeError):
-            return None
+        first = Literal.text(call.first_argument)
+        relational = call.kind in RELATIONAL
+        target = (Literal.text(call.keyword("comodel_name")) or first) if relational else ""
+        label = Literal.text(call.keyword("string")) or ("" if relational else first)
+        notes = [flag for flag in FLAGS if Literal.is_true(call.keyword(flag))]
+        notes += [f"{key}={text}" for key in ("related", "compute") if (text := Literal.text(call.keyword(key)))]
+        return Field(name, call.kind, target, label, notes)

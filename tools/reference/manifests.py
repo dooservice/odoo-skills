@@ -23,8 +23,12 @@ class Addon:
 
     @property
     def data_files(self) -> list[Path]:
-        """What the addon loads on install, demo data left out."""
-        return [self.path / name for name in self.manifest.get("data", []) if str(name).endswith(".xml")]
+        """What the addon loads on install, demo data left out.
+
+        Only the files that are there: Odoo's packages leave some out that the manifest names.
+        """
+        declared = [self.path / name for name in self.manifest.get("data", []) if str(name).endswith(".xml")]
+        return [path for path in declared if path.is_file()]
 
     @property
     def python_files(self) -> list[Path]:
@@ -49,7 +53,4 @@ class Addons:
 
     @staticmethod
     def read(manifest: Path) -> dict:
-        try:
-            return ast.literal_eval(manifest.read_text(encoding="utf-8"))
-        except (ValueError, SyntaxError):
-            return {}
+        return ast.literal_eval(manifest.read_text(encoding="utf-8"))

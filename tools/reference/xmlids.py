@@ -24,11 +24,7 @@ class XmlIdScanner:
     def scan(self, addon: Addon) -> list[XmlId]:
         found = []
         for path in addon.data_files:
-            try:
-                root = ElementTree.parse(path).getroot()
-            except (ElementTree.ParseError, OSError):
-                continue
-            for element in self.top_level(root):
+            for element in self.top_level(ElementTree.parse(path).getroot()):
                 if (declared := self.declared(addon.name, element)) is not None:
                     found.append(declared)
         return found
@@ -49,13 +45,17 @@ class XmlIdScanner:
         if not identifier or not model:
             return None
         xmlid = identifier if "." in identifier else f"{addon}.{identifier}"
-        detail = element.get("name") or ""
-        if model == "ir.ui.view":
-            inherited = element.find("field[@name='inherit_id']")
-            target = element.find("field[@name='model']")
-            detail = " ".join(part for part in (
-                f"on {target.text}" if target is not None and target.text else "",
-                f"inherits {inherited.get('ref')}" if inherited is not None and inherited.get("ref") else "",
-                f"inherits {element.get('inherit_id')}" if element.get("inherit_id") else "",
-            ) if part)
+        detail = XmlIdScanner.view_detail(element) if model == "ir.ui.view" else element.get("name") or ""
         return XmlId(xmlid, model, detail)
+
+    @staticmethod
+    def view_detail(element: ElementTree.Element) -> str:
+        """Which model a view is on and which view it inherits, as far as the file says."""
+        model = element.findtext("field[@name='model']")
+        inherited = element.find("field[@name='inherit_id']")
+        parts = [
+            f"on {model}" if model else "",
+            f"inherits {inherited.get('ref')}" if inherited is not None and inherited.get("ref") else "",
+            f"inherits {element.get('inherit_id')}" if element.get("inherit_id") else "",
+        ]
+        return " ".join(part for part in parts if part)
