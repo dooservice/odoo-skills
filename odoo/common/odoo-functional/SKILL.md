@@ -88,18 +88,26 @@ takes them, each with its menu, its ORM equivalent and the state it leaves),
 
 | Recipe | Covers |
 |---|---|
+| `recipes/go-live.md` | starting a new company: the order to load its data, opening balances, open invoices, initial stock |
 | `recipes/diagnosis.md` | "why does Odoo do X": access errors, missing taxes, wrong prices, hidden records, silent automations |
 | `recipes/companies.md` | companies, multi-company, the chart of accounts |
 | `recipes/users-and-access.md` | users, groups, record rules, portal users |
 | `recipes/currencies-and-rates.md` | currencies, rates, multi-currency |
 | `recipes/taxes-and-journals.md` | taxes, journals, invoice numbering |
 | `recipes/payment-terms-and-fiscal-positions.md` | payment terms, fiscal positions, tax mapping |
+| `recipes/bank-and-reconciliation.md` | bank journals, statement lines, matching with invoices and payments, write-offs |
+| `recipes/closing-the-period.md` | checks before closing, the year's result, lock dates |
 | `recipes/products-and-categories.md` | product types, variants, units of measure, categories and their accounts |
 | `recipes/partners-and-imports.md` | contacts, companies and people, bulk loads that do not duplicate |
 | `recipes/pricelists.md` | pricelists and their rules |
-| `recipes/sales-and-crm.md` | sales teams, CRM stages, quotation settings |
-| `recipes/purchase.md` | purchase approval, receipts, vendor bills, vendor prices |
-| `recipes/inventory.md` | warehouses, locations, routes, initial quantities, reordering |
+| `recipes/sales-and-crm.md` | from opportunity to quotation, order, delivery and invoice; teams, stages, down payments |
+| `recipes/purchase.md` | from request for quotation to receipt and vendor bill; approval, vendor prices, tenders, blanket orders |
+| `recipes/inventory.md` | warehouses, locations, routes, initial quantities, reordering, batch transfers, scrap |
+| `recipes/manufacturing.md` | bills of materials, kits, work centers, manufacturing orders, unbuild |
+| `recipes/point-of-sale.md` | shops, payment methods, sessions and closing the cash register |
+| `recipes/website-and-ecommerce.md` | the online shop: publishing products, prices with or without tax, delivery, payment providers, sign-up |
+| `recipes/projects-and-timesheets.md` | projects, tasks, timesheets, services sold by the hour |
+| `recipes/employees-and-expenses.md` | employees, time off, expense reports and their accounting |
 | `recipes/sequences.md` | document numbering |
 | `recipes/email-templates.md` | the emails Odoo sends |
 | `recipes/mail-servers.md` | outgoing and incoming mail, aliases |
