@@ -5,6 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+#: The Odoo versions the reference is built for, each from `.odoo/src/<version>`.
+VERSIONS = ("16.0", "17.0", "18.0", "19.0", "20.0")
 SKIPPED_PREFIXES = ("test_", "hw_", "theme_")
 
 KINDS = {

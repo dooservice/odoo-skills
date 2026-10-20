@@ -63,16 +63,16 @@ class ReferenceWriter:
             by_name.setdefault(setting.name, []).append(setting)
         for name in sorted(by_name):
             defined = by_name[name]
-            label = next((s.label for s in defined if s.label), "")
-            kept = "; ".join(f"{s.kept_as} (with {s.addon})" for s in defined) if len(defined) > 1 else defined[0].kept_as
-            addons = ", ".join(dict.fromkeys(s.addon for s in defined))
+            label = next((setting.label for setting in defined if setting.label), "")
+            kept = "; ".join(f"{setting.kept_as} (with {setting.addon})" for setting in defined) if len(defined) > 1 else defined[0].kept_as
+            addons = ", ".join(dict.fromkeys(setting.addon for setting in defined))
             lines.append(f"| `{name}` | {label} | {kept} | {addons} |")
         self.write("settings.md", "\n".join(lines))
 
     def index(self, rows: list[tuple[Addon, list[Model]]]) -> None:
         lines = ["# Addons", "", "| Addon | Name | Defines | Extends |", "|---|---|---|---|"]
         for addon, models in rows:
-            defined = ", ".join(f"`{m.name}`" for m in models if not m.extends)
-            extended = ", ".join(sorted({f"`{m.name}`" for m in models if m.extends}))
+            defined = ", ".join(f"`{model.name}`" for model in models if not model.extends)
+            extended = ", ".join(sorted({f"`{model.name}`" for model in models if model.extends}))
             lines.append(f"| {addon.name} | {addon.title} | {defined} | {extended} |")
         self.write("addons.md", "\n".join(lines))

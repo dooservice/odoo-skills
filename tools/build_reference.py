@@ -3,10 +3,10 @@
 from pathlib import Path
 
 from reference.build import ReferenceBuild
+from reference.constants import VERSIONS
 
-ROOT = Path(__file__).resolve().parent.parent
-VERSIONS = ("16.0", "17.0", "18.0", "19.0", "20.0")
+REPOSITORY = Path(__file__).resolve().parent.parent
 
-build = ReferenceBuild(ROOT / ".odoo" / "src", ROOT)
+build = ReferenceBuild(REPOSITORY / ".odoo" / "src", REPOSITORY)
 for version in VERSIONS:
     print(version, build.build(version), "addons")

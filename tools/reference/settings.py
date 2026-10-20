@@ -49,7 +49,7 @@ class SettingsScanner:
         described = self.models.field(name, value)
         if described is None or not isinstance(value, ast.Call):
             return None
-        keywords = {k.arg: self.models.literal(k.value) for k in value.keywords if k.arg}
+        keywords = {keyword.arg: self.models.literal(keyword.value) for keyword in value.keywords if keyword.arg}
         if isinstance(keywords.get("compute"), str):
             kept = f"computed by `{keywords['compute']}`"
         elif isinstance(keywords.get("config_parameter"), str):

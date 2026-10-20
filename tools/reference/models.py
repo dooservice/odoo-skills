@@ -73,7 +73,7 @@ class ModelScanner:
             return None
         if not (isinstance(value.func.value, ast.Name) and value.func.value.id == "fields"):
             return None
-        kind, keywords = value.func.attr, {k.arg: self.literal(k.value) for k in value.keywords if k.arg}
+        kind, keywords = value.func.attr, {keyword.arg: self.literal(keyword.value) for keyword in value.keywords if keyword.arg}
         first = self.literal(value.args[0]) if value.args else None
         target = keywords.get("comodel_name") or (first if kind in RELATIONAL else "")
         label = keywords.get("string") or (first if isinstance(first, str) and kind not in RELATIONAL else "")

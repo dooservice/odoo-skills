@@ -14,20 +14,20 @@ from .xmlids import XmlIdScanner
 
 
 class ReferenceBuild:
-    def __init__(self, sources: Path, out: Path) -> None:
+    def __init__(self, sources: Path, repository: Path) -> None:
         self.sources = sources
-        self.out = out
+        self.repository = repository
         self.models = ModelScanner()
         self.settings = SettingsScanner()
         self.xmlids = XmlIdScanner()
 
     def build(self, version: str) -> int:
-        root = self.out / "odoo" / version / "odoo-reference"
+        root = self.repository / "odoo" / version / "odoo-reference"
         if root.exists():
             shutil.rmtree(root)
         writer = ReferenceWriter(root)
         index, settings = [], []
-        addons = [a for a in Addons(self.sources / version).all() if not a.name.startswith(SKIPPED_PREFIXES)]
+        addons = [addon for addon in Addons(self.sources / version).all() if not addon.name.startswith(SKIPPED_PREFIXES)]
         for addon in addons:
             models = self.models.scan(addon)
             declared = self.xmlids.scan(addon)
