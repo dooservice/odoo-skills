@@ -5,7 +5,9 @@ description: >-
   functional consultant does: settings, companies, users and access, products,
   partners, taxes, journals, fiscal positions, pricelists, sequences, email
   templates, reports, automations, imports, and diagnosing "why does Odoo do
-  X". Use for any configuration, data fix or functional question, before
+  X". Use for any task that creates, reads or changes the records or settings
+  of an Odoo database, through the interface, an `odoo-bin shell` script, the
+  external API or an agent's tools, and for any functional question, before
   deciding that something needs code.
 ---
 
