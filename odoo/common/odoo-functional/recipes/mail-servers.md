@@ -9,8 +9,9 @@ sent to. The sender, catchall and bounce addresses come from the alias domain.
 ```python
 print(env['ir.mail_server'].search_read([], ['name', 'smtp_host', 'smtp_port', 'smtp_encryption', 'smtp_user', 'from_filter', 'sequence', 'active']))
 print(env['fetchmail.server'].search_read([], ['name', 'server_type', 'server', 'state', 'object_id', 'active']))
-print(env['mail.mail'].read_group([], ['state'], ['state']))
-print(env['ir.config_parameter'].get_param('database.is_neutralized'))
+print({state: env['mail.mail'].search_count([('state', '=', state)]) for state in ('outgoing', 'exception', 'sent')})
+ICP = env['ir.config_parameter']
+print(ICP.get_bool('database.is_neutralized') if hasattr(ICP, 'get_bool') else ICP.get_param('database.is_neutralized'))   # 20.0 / up to 19.0
 ```
 
 ## Outgoing server
@@ -99,7 +100,8 @@ env.cr.commit()
 
 A neutralized database (a test or staging copy) has all mail servers archived, a dummy
 active server "neutralization - disable emails" on host `invalid`, incoming servers
-archived and scheduled actions off. Mails queue up and fail. Check
+archived and scheduled actions off. From 20.0 the archived servers also lose their user
+and password. Mails queue up and fail. Check
 `database.is_neutralized` before diagnosing "emails do not leave", and do not
 re-activate real servers in a copy without the user's explicit yes: customers would
 receive test mail.
