@@ -1,2 +1,4 @@
 .odoo/
 __pycache__/
+.env
+..env
