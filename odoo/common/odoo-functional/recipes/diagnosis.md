@@ -25,15 +25,17 @@ What to read: the user's groups, then the access rights and rules on that model.
 ```python
 groups = user.all_group_ids if 'all_group_ids' in user else user.groups_id   # 19.0+ / up to 18.0
 print(sorted(groups.mapped('full_name')))
-Order = env['sale.order'].with_user(user)
 order = env['sale.order'].browse(42)
 ```
 
 Up to 19.0, model access is `ir.model.access` and row filters are `ir.rule`:
 
 ```python
-print(Order.check_access_rights('write', raise_exception=False))            # 16.0, 17.0
-print(order.with_user(user).has_access('write'))                            # 18.0+
+as_user = order.with_user(user)
+if hasattr(as_user, 'has_access'):                                # 18.0, 19.0: access rights and rules
+    print(as_user.has_access('write'))
+else:                                                             # 16.0, 17.0: access rights only
+    print(as_user.check_access_rights('write', raise_exception=False))
 for acl in env['ir.model.access'].search([('model_id.model', '=', 'sale.order')]):
     print(acl.group_id.full_name, acl.perm_read, acl.perm_write, acl.perm_create, acl.perm_unlink)
 failing = env['ir.rule'].with_user(user)._get_failing(order.with_user(user), 'write')
@@ -96,8 +98,9 @@ print(doc.partner_id.with_company(doc.company_id).property_account_position_id.n
 ```
 
 The line takes the product's taxes of the invoice's company; with none, the default
-taxes of the line's income or expense account (and in 16.0, failing that, the company's
-default sale or purchase tax). The fiscal position then maps them.
+taxes of the line's income or expense account. In 16.0, failing that, it takes the
+company's default sale or purchase tax; in 20.0, a sale line typed without a product
+does. The fiscal position then maps them.
 
 Usual causes:
 
@@ -110,7 +113,8 @@ Usual causes:
   `original_tax_ids`.
 - The fiscal position came from the partner (`property_account_position_id`, set by
   company) or was detected automatically (`auto_apply`, by country, country group, and
-  `vat_required`). A partner without a VAT number or country misses the automatic one.
+  `vat_required`). A partner without a country gets no automatic position at all, and
+  one without a VAT number misses those with `vat_required`.
 - The invoice came from a sales order: the line keeps the order line's taxes
   (`tax_id` up to 18.0, `tax_ids` from 19.0). Check the order.
 
@@ -155,7 +159,9 @@ print(rule.read(['active', 'trigger', 'filter_pre_domain', 'filter_domain', 'las
 print(rule.trigger_field_ids.mapped('name'))
 cron = env['ir.cron'].with_context(active_test=False).search([('cron_name', 'ilike', 'reminder')])
 print(cron.read(['active', 'nextcall', 'lastcall', 'interval_number', 'interval_type', 'user_id']))
-print(env['ir.config_parameter'].sudo().get_param('database.is_neutralized'))
+params = env['ir.config_parameter'].sudo()
+print(params.get_bool('database.is_neutralized') if hasattr(params, 'get_bool')    # 20.0
+      else params.get_param('database.is_neutralized'))                           # up to 19.0
 ```
 
 Usual causes:
@@ -174,7 +180,10 @@ Usual causes:
   server log.
 
 Fix: reactivate or correct the domain. Run a scheduled action once to see its error:
-`cron.method_direct_trigger()` (it runs as the cron's user and commits).
+`cron.method_direct_trigger()`, which runs it as the cron's user and really does its
+work. Up to 18.0 it runs in the shell's transaction (kept only with `env.cr.commit()`);
+from 19.0 it runs like the scheduler, in its own transaction, and commits even in a dry
+run.
 
 ## Email not sent
 
@@ -225,7 +234,9 @@ print(seq.read(['implementation', 'number_next_actual', 'prefix', 'use_date_rang
 
 Usual causes: `standard` sequences take numbers from PostgreSQL and lose one whenever a
 transaction rolls back (an error on save, a cancelled wizard); `no_gap` avoids that at
-the cost of locking. Documents deleted after numbering. One sequence per company.
+the cost of locking. Documents deleted after numbering. A sequence without `company_id`
+is shared by every company, so each company's numbers have gaps; give each company its
+own sequence when that matters.
 Invoices and journal entries are numbered from their journal, not from `ir.sequence`:
 see `taxes-and-journals.md`.
 
