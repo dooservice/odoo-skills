@@ -51,9 +51,10 @@ env.cr.commit()
 `action_server_ids`.
 
 - `filter_pre_domain` is checked before the change, `filter_domain` after: together
-  they fire once, on the transition. With `filter_domain` alone the rule fires on every
-  later save of a confirmed order.
-- `trigger_field_ids` limits `on_create_or_write` to changes of those fields.
+  they fire once, on the transition. With `filter_domain` alone the rule fires again on
+  later saves of a confirmed order that change a trigger field.
+- `trigger_field_ids` limits `on_create_or_write` to changes of those fields. Without
+  it, every save fires the rule; 18.0 fills it from the fields in `filter_domain`.
 - Triggers in every version: `on_create`, `on_write`, `on_create_or_write`,
   `on_unlink`, `on_change` (form edits, Python code only), `on_time` (relative to a date
   field). 17.0 adds `on_stage_set`, `on_user_set`, `on_tag_set`, `on_state_set`,
@@ -123,9 +124,11 @@ env.cr.commit()
   `doall` replays missed runs; both are gone from 18.0.
 - From 18.0, a job that fails at least 5 times in a row over 7 days is turned off;
   `failure_count` and `first_failure_date` show it.
-- Run it now to check: `cron.method_direct_trigger()` (it commits).
-- In a neutralized copy every scheduled action is off except the autovacuum; they stay
-  as they were in production.
+- Run it now to check: `cron.method_direct_trigger()`. It acts on every record the code
+  finds, not on a test record. Up to 18.0 it runs in the current transaction; from 19.0
+  it runs and commits in its own, so it cannot be rolled back.
+- In a neutralized copy every scheduled action except the autovacuum is off (production
+  keeps its own); automation rules still run there.
 
 ## Turning off
 
