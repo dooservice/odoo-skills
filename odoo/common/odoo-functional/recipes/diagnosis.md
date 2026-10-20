@@ -2,9 +2,21 @@
 
 Most "Odoo is wrong" reports are configuration doing exactly what it says. Reproduce
 the case, read the records that decide it, find the one value that explains it, and only
-then propose a change. Each section below is: symptom, what to read, usual causes, fix.
+then propose a change. This recipe is a set of symptoms, not one flow: each section is
+symptom, what to read, usual causes, fix. Everything here reads; changes go through the
+matching recipe, with the user's yes. It covers the standard apps; Studio and
+Enterprise-only apps are left out.
 
-Read first, always: the exact document, the user, and the company.
+## Before you start
+
+- Apps: none to install. The sections on taxes and prices need `account` and `sale`.
+- Settings: developer mode (Settings ‣ Developer Tools ‣ Activate the developer mode, or
+  `?debug=1`). With it, an access error lists the groups that would allow the operation
+  and the rules that failed, the debug menu (bug icon) shows a field's technical name and
+  the view in use, and Settings ‣ Technical opens access rights, rules, views,
+  sequences, emails and scheduled actions.
+- Reproduce as the user: the exact document, the user, and the company. Read first,
+  always:
 
 ```python
 user = env['res.users'].search([('login', '=', 'maria@example.com')])
@@ -12,9 +24,12 @@ doc = env['account.move'].search([('name', '=', 'INV/2026/00042')])
 print(user.company_id.name, user.company_ids.mapped('name'), doc.company_id.name)
 ```
 
-Everything here reads. Changes go through the matching recipe, with the user's yes.
-
 ## Access error
+
+In Odoo (developer mode): the user's groups on Settings ‣ Users & Companies ‣ Users;
+up to 19.0 Settings ‣ Technical ‣ Security ‣ Access Rights and ‣ Record Rules, and the
+Access Rights and Record Rules tabs of a group; in 20.0 Settings ‣ Technical ‣ Security
+‣ Access Rights (`ir.access`) and the group's Access Rights tab.
 
 Symptom: "You are not allowed to access/modify ... (model)" or "Due to security
 restrictions...". The message names the model and the operation; in debug mode it also
@@ -62,6 +77,9 @@ itself is wrong, and say who else it affects.
 
 ## Record not visible
 
+In Odoo: the list with the Archived filter, the company selector, and the filters in
+the search bar.
+
 Symptom: "the invoice disappeared", "I cannot find the customer".
 
 ```python
@@ -85,6 +103,11 @@ Usual causes, in order:
 Fix: unarchive, add the company to the user, or explain the filter.
 
 ## Tax missing or wrong on an invoice line
+
+Symptom: a line without the expected tax, or with another one.
+
+In Odoo: the product's Customer Taxes and Vendor Taxes; Invoicing ‣ Configuration ‣
+Accounting ‣ Fiscal Positions; the contact's Fiscal Position (Sales & Purchase tab).
 
 ```python
 line = doc.invoice_line_ids.filtered(lambda l: l.product_id)[:1]
@@ -124,6 +147,11 @@ themselves; posted invoices are not changed.
 
 ## Wrong price
 
+Symptom: an order line priced differently from what the user expects.
+
+In Odoo: Sales ‣ Products ‣ Pricelists (shown with the pricelists setting), and the
+order's Pricelist field.
+
 ```python
 order = env['sale.order'].browse(42)
 for line in order.order_line:
@@ -152,6 +180,11 @@ Fix: correct the rule (`pricelists.md`). Existing order lines keep their price u
 user updates prices on the order.
 
 ## Automation or scheduled action not running
+
+Symptom: a rule or a scheduled job that should have acted and did not.
+
+In Odoo (developer mode): Settings ‣ Technical ‣ Automation ‣ Automation Rules
+(Automated Actions in 16.0) and ‣ Scheduled Actions.
 
 ```python
 rule = env['base.automation'].search([('name', 'ilike', 'confirmation')])
@@ -187,6 +220,11 @@ run.
 
 ## Email not sent
 
+Symptom: the customer did not receive an email Odoo says it sent.
+
+In Odoo (developer mode): Settings ‣ Technical ‣ Email ‣ Emails (the queue) and ‣
+Outgoing Mail Servers.
+
 ```python
 mails = env['mail.mail'].search([('subject', 'ilike', 'INV/2026/00042')])
 print(mails.read(['state', 'failure_reason', 'email_to', 'mail_server_id', 'scheduled_date']))
@@ -206,6 +244,11 @@ Fix: `mail-servers.md`. Retry failed mails with `mails.action_retry()` once the 
 fixed. Never reactivate servers in a copy of production.
 
 ## Field not shown
+
+Symptom: a field the user expects on a form or list is not there.
+
+In Odoo (developer mode): the debug menu (bug icon) ‣ Edit View, and Settings ‣
+Technical ‣ User Interface ‣ Views.
 
 ```python
 Model = env['res.partner']
@@ -227,6 +270,11 @@ standard views; an update restores them.
 
 ## Numbering skipped or out of order
 
+Symptom: a number missing between two documents, or numbers not in date order.
+
+In Odoo (developer mode): Settings ‣ Technical ‣ Sequences & Identifiers ‣ Sequences
+(‣ User Interface ‣ Sequences & Identifiers ‣ Sequences in 20.0).
+
 ```python
 seq = env['ir.sequence'].search([('code', '=', 'sale.order')])
 print(seq.read(['implementation', 'number_next_actual', 'prefix', 'use_date_range', 'company_id']))
@@ -242,3 +290,37 @@ see `taxes-and-journals.md`.
 
 Fix: explain the gap; switch to `no_gap` only where the law or the user requires it.
 Never lower `number_next_actual` without the user saying so.
+
+## Versions
+
+| | 16.0 | 17.0 | 18.0 | 19.0 | 20.0 |
+|---|---|---|---|---|---|
+| User's groups | `groups_id` | `groups_id` | `groups_id` | `all_group_ids` | `all_group_ids` |
+| Access model | `ir.model.access` + `ir.rule` | same | same | same | `ir.access` |
+| Security menus (developer mode) | Settings ‣ Technical ‣ Security ‣ Access Rights, Record Rules | same | same | same | Settings ‣ Technical ‣ Security ‣ Access Rights |
+| Check access as the user | `check_access_rights` | `check_access_rights` | `has_access` | `has_access` | `has_access` |
+| Fiscal position tax mapping | `tax_ids` (`tax_src_id` → `tax_dest_id`) | same | same | taxes' `original_tax_ids` | as 19.0 |
+| Sales order line taxes | `tax_id` | `tax_id` | `tax_id` | `tax_ids` | `tax_ids` |
+| Sales order line unit | `product_uom` | `product_uom` | `product_uom` | `product_uom_id` | `product_uom_id` |
+| `invisible` in views | in `attrs` | direct | direct | direct | direct |
+| Rules menu (developer mode) | Settings ‣ Technical ‣ Automation ‣ Automated Actions | ‣ Automation Rules | same as 17.0 | same | same |
+| `numbercall` on `ir.cron` | yes | yes | - | - | - |
+| Cron turned off after repeated failures | - | - | yes | yes | yes |
+| `method_direct_trigger()` commits | - | - | - | yes | yes |
+| `database.is_neutralized` read with | `get_param` | `get_param` | `get_param` | `get_param` | `get_bool` |
+| Sequences menu (developer mode) | Settings ‣ Technical ‣ Sequences & Identifiers ‣ Sequences | same | same | same | Settings ‣ Technical ‣ User Interface ‣ Sequences & Identifiers ‣ Sequences |
+
+## Pitfalls
+
+- **Testing as the administrator.** The superuser and administrators pass rules a
+  normal user does not. Always read with `with_user(user)` and the user's companies.
+- **Changing before reading.** Most reports end in an explanation, not a change. Find
+  the value that explains it first.
+- **Fixing a rule for one user.** Access rules and rights are shared by every member of
+  the group; say who else is affected.
+- **Running a scheduled action to see its error** does its work for real; from 19.0 it
+  also commits. Ask first.
+- **Reactivating servers or scheduled actions in a copy of production** sends real mail
+  and runs real jobs.
+- **Editing standard views or sequences to hide a symptom**: an update restores views,
+  and a lowered sequence number duplicates documents.
