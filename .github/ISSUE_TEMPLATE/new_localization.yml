@@ -1,0 +1,23 @@
+name: New localization
+description: Propose the skill of a country, and say who will maintain it
+labels: [localization]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country and ISO code
+      placeholder: Peru, pe
+    validations:
+      required: true
+  - type: textarea
+    id: maintainers
+    attributes:
+      label: Who will maintain it
+      description: Names, GitHub users and companies. At least one person who implements Odoo in that country.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: What agents get wrong there today
+      description: Taxes, electronic invoicing, identification of contacts, legal reports...

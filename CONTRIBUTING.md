@@ -17,9 +17,33 @@ of that version, and say in the pull request where (file and line, or a link).
 | `odoo/<version>/odoo-reference` | `tools/reference/`, then regenerate with `tools/build_reference.py` |
 | `odoo/common/odoo-upgrade` | the files directly |
 | `odoo/common/odoo-functional` | the files directly; check every version difference against each branch's source |
+| `localization/<country code>/` | the files directly; see [Add your country](#add-your-country) |
 
 Do not edit generated files by hand: the next regeneration overwrites them. The README
 explains how to check out Odoo's source and regenerate.
+
+## Add your country
+
+A localization tells an agent what a functional consultant in that country knows: which
+`l10n_*` modules to install, the chart of accounts and taxes, how contacts are
+identified, electronic invoicing, legal reports, and what breaks in production.
+
+1. Copy `localization/template/odoo-l10n-xx/` to `localization/<country code>/odoo-l10n-<country code>/`,
+   with the country's ISO code in lowercase, as Odoo names its modules (`l10n_pe` is `pe`).
+2. Rename `xx` and `<Country>` everywhere, including the `name` in `SKILL.md`.
+3. Replace each instruction with what is true in your country, and delete the
+   instructions. Keep the sections and their order: the check refuses a localization
+   without them.
+4. `versions.md`: what changes between 16.0 and 20.0 for this country.
+5. `MAINTAINERS.md`: at least one person who will review changes to it.
+6. Run `python3 tools/build_catalog.py`, which checks it and adds its plugin, and commit
+   `.claude-plugin/marketplace.json` with it.
+
+Every statement about Odoo is checked in the source of the version it names, like the rest
+of this repository; every legal rule cites its official source under `## Sources`. Nothing
+country-specific goes into `odoo-functional` or the other skills: it goes here.
+
+Changes to a country's folder are reviewed by its maintainers.
 
 ## Pull requests
 
