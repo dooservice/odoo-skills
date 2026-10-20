@@ -106,7 +106,7 @@ env.cr.commit()
   `stock_account`).
   - 16.0 to 18.0: `property_valuation` is `manual_periodic` or `real_time`; also
     `property_stock_account_input_categ_id` / `..._output_categ_id`. In 17.0 and 18.0
-    the product form shows `property_valuation` only with `group_stock_accounting_automatic`.
+    the category form shows `property_valuation` only with `group_stock_accounting_automatic`.
   - 19.0+: `property_valuation` is `periodic` or `real_time`; input and output accounts
     are gone, `property_price_difference_account_id` is added, and the company holds
     defaults (`inventory_valuation`, `cost_method`) that the category overrides.
