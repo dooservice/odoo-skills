@@ -11,15 +11,18 @@ read the direction twice before writing one.
 ```python
 company = env.company
 company.currency_id.name
-env['res.currency'].with_context(active_test=False).search_read([('name', 'in', ['USD', 'EUR', 'MXN', 'INR'])], ['name', 'active', 'rounding', 'decimal_places'])
-usd = env.ref('base.USD')
-env['res.currency.rate'].search_read([('currency_id', '=', usd.id), ('company_id', 'in', [company.id, False])], ['name', 'company_id', 'rate', 'company_rate', 'inverse_company_rate'], order='name desc', limit=5)
+env['res.currency'].with_context(active_test=False).search_read([('name', 'in', ['<currency code>'])], ['name', 'active', 'rounding', 'decimal_places'])
+foreign = env.ref('base.<currency code>')
+env['res.currency.rate'].search_read([('currency_id', '=', foreign.id), ('company_id', 'in', [company.id, False])], ['name', 'company_id', 'rate', 'company_rate', 'inverse_company_rate'], order='name desc', limit=5)
 ```
+
+A currency's XML id is `base.` followed by its ISO code in capitals (`name`); look it up
+with `env['res.currency'].with_context(active_test=False).search([('full_name', 'ilike', '<currency name>')]).mapped('name')`.
 
 ## Activate a currency
 
 ```python
-env.ref('base.USD').write({'active': True})
+env.ref('base.<currency code>').write({'active': True})
 env.cr.commit()
 ```
 
@@ -32,7 +35,7 @@ env.cr.commit()
 
 ```python
 env['res.currency.rate'].create({
-    'currency_id': env.ref('base.USD').id,
+    'currency_id': env.ref('base.<currency code>').id,
     'company_id': company.id,
     'name': '2026-10-20',
     'inverse_company_rate': 18.45,
@@ -40,24 +43,24 @@ env['res.currency.rate'].create({
 env.cr.commit()
 ```
 
-That reads "1 USD = 18.45 MXN" for a company in Mexican pesos. Three fields say the same
-thing in different directions; write one:
+That reads "1 unit of the foreign currency = 18.45 units of the company currency". Three
+fields say the same thing in different directions; write one:
 
-- `inverse_company_rate`: company currency per 1 unit of the foreign currency (1 USD =
-  18.45 MXN, 1 EUR = 89.6 INR). The way banks publish most rates; the safest to write.
-- `company_rate`: foreign currency per 1 unit of company currency (1 MXN = 0.0542 USD).
+- `inverse_company_rate`: company currency per 1 unit of the foreign currency (the 18.45
+  above). The way banks publish most rates; the safest to write.
+- `company_rate`: foreign currency per 1 unit of company currency (1 / 18.45 = 0.0542).
 - `rate`: the stored technical value, relative to the currency whose rate is 1,
   normally the company currency. Do not write it unless the user gives rates that way.
 - `name` is the date. One rate per currency, company and day: update the existing one
   instead of creating a second.
 - `company_id`: 16.0 defaults to the current company; from 17.0 on to the root company,
   whose rates its branches share. A rate without company applies to every company that
-  has none of its own.
+  has none of its own; a company's own rates win over it, even older ones.
 
 Check a conversion after writing:
 
 ```python
-usd._convert(100.0, company.currency_id, company, today)
+foreign._convert(100.0, company.currency_id, company, today)
 ```
 
 where `today` is a `datetime.date`. Rates on past dates change nothing already posted;
@@ -80,7 +83,7 @@ journal items already exist`). A different currency then means a new company.
 
 ## Rounding
 
-- `rounding` on the currency (0.01 for USD and EUR, 1.0 for currencies without cents)
+- `rounding` on the currency (0.01 for currencies with cents, 1.0 for those without)
   drives every amount; `decimal_places` is computed from it. Change it only with the
   user's yes and never on a currency with posted entries.
 - Rounding the total to coins (0.05) is cash rounding: setting `group_cash_rounding`,
