@@ -1,10 +1,11 @@
 ---
 name: odoo-guidelines
 description: >-
-  House rules for Odoo $version addon code: module structure, manifest, Python/ORM,
+  House rules for Odoo $version code: module structure, manifest, Python/ORM,
   fields, controllers, XML views and data, QWeb reports, access rights and
-  record rules, performance, tests, and what exists in $version. Use when writing or
-  reviewing any file in an Odoo addon outside static/ (for the JavaScript, Owl
+  record rules, performance, tests, and what exists in $version: names and APIs
+  change between versions. Use before writing or reviewing any Python, XML or
+  CSV for Odoo $version, in an addon or a script (for the JavaScript, Owl
   templates and SCSS under static/, see odoo-web-guidelines).
 ---
 
