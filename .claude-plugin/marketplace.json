@@ -81,6 +81,20 @@
         "erp",
         "20.0"
       ]
+    },
+    {
+      "name": "odoo-l10n-pe",
+      "source": "./",
+      "description": "Odoo localization for PE, 16.0 to 20.0",
+      "skills": [
+        "./localization/pe/"
+      ],
+      "license": "LGPL-3.0-only",
+      "keywords": [
+        "odoo",
+        "localization",
+        "pe"
+      ]
     }
   ]
 }
