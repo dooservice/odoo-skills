@@ -2,8 +2,9 @@
 
 Taxes (`account.tax`) decide how much is charged and where it is booked; journals
 (`account.journal`) group entries and number invoices. The chart of accounts usually
-installs the country's taxes, tax groups and journals: adjust what is there before
-creating anything. Both are shared by every document that uses them. Count the users
+installs the taxes, tax groups and journals: adjust what is there before creating
+anything. Which taxes exist and how they are reported depend on the country: the
+country's localization decides this; see its localization skill if installed. Both are shared by every document that uses them. Count the users
 before a change, and never change one with posted entries in place: create a new one,
 point new documents to it, archive the old one. Every accounting change needs the
 user's yes.
@@ -15,18 +16,18 @@ company = env.company
 taxes = env['account.tax'].with_context(active_test=False).search([('company_id', '=', company.id)])
 taxes.read(['name', 'type_tax_use', 'amount_type', 'amount', 'price_include', 'tax_group_id', 'active'])
 env['account.journal'].search_read([('company_id', '=', company.id)], ['name', 'code', 'type', 'default_account_id', 'currency_id'])
-tax = taxes.filtered(lambda t: t.name == 'VAT 21%')
+tax = taxes.filtered(lambda t: t.name == '<tax name>')
 env['account.move.line'].search_count(['|', ('tax_ids', 'in', tax.ids), ('tax_line_id', 'in', tax.ids), ('parent_state', '=', 'posted')])
 ```
 
 ## A tax
 
 Copy a tax of the same kind rather than creating one from nothing: the copy keeps the
-accounts and the tax grids (`tag_ids`) the tax report needs.
+repartition lines with their accounts and tax grids (`tag_ids`) the tax report needs.
 
 ```python
-source = env['account.tax'].search([('company_id', '=', company.id), ('type_tax_use', '=', 'sale'), ('amount', '=', 21)], limit=1)
-tax = source.copy({'name': 'VAT 21% (services)', 'tax_scope': 'service'})
+source = env['account.tax'].search([('company_id', '=', company.id), ('type_tax_use', '=', 'sale'), ('amount', '=', 10)], limit=1)
+tax = source.copy({'name': 'Sales tax 10% (services)', 'tax_scope': 'service'})
 env.cr.commit()
 ```
 
@@ -37,7 +38,7 @@ env.cr.commit()
 - `tax_scope`: `service` or `consu` restricts the tax to that kind of product.
 - `include_base_amount` makes the tax part of the base of the taxes after it (ordered
   by `sequence`); `is_base_affected` says whether a tax accepts that.
-- Tax included in the price (B2C shops, retail in Belgium or Spain):
+- Tax included in the price (B2C shops, retail):
   - 16.0, 17.0: `price_include=True` on the tax.
   - 18.0 on: `price_include` is computed. Set `price_include_override` to
     `tax_included` or `tax_excluded` on the tax, or the company default with the
@@ -63,7 +64,7 @@ env.cr.commit()
 
 ## Tax groups
 
-`account.tax.group` puts taxes together in the invoice totals ("VAT 21%", "IRPF -15%").
+`account.tax.group` puts taxes together in the invoice totals ("Tax 10%", "Withholding 5%").
 
 - 16.0: no `company_id`; tax closing accounts are `property_tax_payable_account_id`,
   `property_tax_receivable_account_id`, `property_advance_tax_payment_account_id`.
@@ -73,8 +74,9 @@ env.cr.commit()
 
 ## Cash basis
 
-Tax due when the invoice is paid, not when it is issued (Mexico's VAT, for example).
-Turn on the setting, then mark the tax.
+Tax due when the invoice is paid, not when it is issued. Whether the law asks for it
+depends on the country: the country's localization decides this; see its localization
+skill if installed. Turn on the setting, then mark the tax.
 
 ```python
 env['res.config.settings'].create({'tax_exigibility': True, 'tax_cash_basis_journal_id': journal.id}).execute()
@@ -82,20 +84,23 @@ tax.write({'tax_exigibility': 'on_payment', 'cash_basis_transition_account_id': 
 env.cr.commit()
 ```
 
-The transition account holds the tax until payment; it cannot be receivable or payable.
+The transition account holds the tax until payment. Do not use a receivable or payable
+account (the form does not offer them, but a script is not stopped), and pick one that
+allows reconciliation (`reconcile`; 19.0 refuses one that does not).
 
 ## Journals
 
 ```python
 env['account.journal'].create({
-    'name': 'Bank Santander', 'code': 'BSAN', 'type': 'bank',
-    'bank_acc_number': 'ES91 2100 0418 4502 0005 1332', 'company_id': company.id,
+    'name': 'Second bank', 'code': 'BNK2', 'type': 'bank',
+    'bank_acc_number': '<account number>', 'company_id': company.id,   # 'bank_account_number' in 20.0
 })
 env.cr.commit()
 ```
 
 - `type`: `sale`, `purchase`, `cash`, `bank`, `general`; `credit` (credit card) from 18.0.
-- `code` is the prefix of entry numbers; at most 5 characters up to 19.0.
+- `code` is the prefix of entry numbers; at most 5 characters up to 19.0, where a longer
+  one is cut to 5 without a warning.
 - Bank account: `bank_acc_number` creates the `res.partner.bank` up to 19.0. In 20.0
   the field is `bank_account_number` (with `bank_bic`): `res.bank` is gone and the bank
   name and BIC live on `res.partner.bank`.
