@@ -18,7 +18,7 @@ On the server, with the same configuration file as the running instance:
 
 ```bash
 odoo-bin shell -d <db> -c /etc/odoo/odoo.conf --no-http <<'EOF'
-partner = env['res.partner'].search([('vat', '=', 'ESA12345674')], limit=1)
+partner = env['res.partner'].search([('vat', '=', '<vat number>')], limit=1)
 print(partner.read(['name', 'property_payment_term_id']))
 EOF
 ```
@@ -38,11 +38,14 @@ Make the change, read the result, and roll back. Show the result to the user; ru
 again with `env.cr.commit()` once they agree.
 
 ```python
-partners = env['res.partner'].search([('country_id.code', '=', 'MX'), ('customer_rank', '>', 0)])
+partners = env['res.partner'].search([('country_id', '=', env.ref('base.<country code>').id), ('customer_rank', '>', 0)])
 partners.write({'property_payment_term_id': env.ref('account.account_payment_term_30days').id})
 print(len(partners), partners[:5].mapped('property_payment_term_id.name'))
 env.cr.rollback()
 ```
+
+A country's XML id is `base.` followed by its ISO code in lower case; read the code with
+`env['res.country'].search([('name', 'ilike', '<country name>')]).mapped('code')`.
 
 Some actions do things a rollback cannot undo: sending email immediately, calling an
 external service (payment provider, e-invoicing authority, webhook). Do not dry-run those.
@@ -54,7 +57,7 @@ user = env['res.users'].search([('login', '=', 'maria@example.com')])
 orders = env['sale.order'].with_user(user)
 print(orders.search_count([]))                      # what Maria sees
 
-company = env['res.company'].search([('name', '=', 'Acme Mexico')])
+company = env['res.company'].search([('name', '=', '<company name>')])
 env['account.journal'].with_company(company).create({...})   # created for that company
 ```
 
@@ -78,7 +81,8 @@ When there is no shell (Odoo Online, a server reached only over HTTP), call the 
 "Account Security" (up to 18.0) or "Security" (19.0 and later), section API Keys, button
 "New API Key" (up to 18.0), "Add API Key" (19.0) or "Create API Key" (20.0). The key replaces
 the password in API calls and acts with that user's rights. Use a dedicated user with
-only the groups the work needs. From 18.0 keys can carry an expiration date.
+only the groups the work needs. From 18.0 keys can carry an expiration date. In 20.0 a
+key also has a scope: keep the default, RPC, or the key is refused by the API.
 
 ### XML-RPC (all supported versions)
 
@@ -153,11 +157,13 @@ psql -d <db> -c "BEGIN READ ONLY; SELECT state, count(*) FROM account_move GROUP
 ```
 
 ```python
-env.cr.execute("SELECT id, name->>'en_US' FROM account_tax WHERE company_id = %s", [company.id])
+env.cr.execute("SELECT id, name->>'en_US' FROM product_template WHERE company_id = %s", [company.id])
 print(env.cr.fetchall())
 ```
 
-- Translatable fields are `jsonb`, one key per language: `name->>'en_US'`.
+- Translatable fields are `jsonb`, one key per language: `name->>'en_US'`. Which fields
+  are translatable changes by version (a tax name is plain text in 16.0, `jsonb` from
+  17.0): check the column type before using `->>`.
 - Company-dependent fields (a partner's payment terms, a product's income account) live
   in `ir_property` up to 17.0, and from 18.0 in a `jsonb` column keyed by company id.
 - Over the external API there is no SQL; use `search_read` and `search_count`.
