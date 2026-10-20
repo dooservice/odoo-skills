@@ -1,4 +1,38 @@
+# Odoo's source, checked out locally to build and check the skills (see the README)
 .odoo/
-__pycache__/
+
+# Secrets: API keys and other local settings, never committed
 .env
-..env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Node, used through npx by the installer and the checks
+node_modules/
+
+# Evaluation runs: results are reported, not kept in the repository
+evals/**/results/
+*.log
+
+# Agents' local state from trying the skills in this repository
+.claude/settings.local.json
+.agents/
+skills-lock.json
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
