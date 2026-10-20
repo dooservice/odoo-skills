@@ -88,18 +88,22 @@ odoo/common/         version-independent, written by hand: odoo-upgrade, and odo
                      with its recipes, which name the differences between versions
 .claude-plugin/      the Claude Code marketplace: one plugin per version
 install.sh           the installer above
-tools/               the generators, not part of any skill: generate_guidelines.py builds the
-                     guideline skills from Odoo's 20.0 skills, build_reference.py builds
-                     odoo-reference from .odoo/src/<version>, and reference/ is its code
+tools/               the generators, not part of any skill:
+  build_guidelines.py  builds the guideline skills from Odoo's 20.0 skills; guidelines/ is its
+                       code, one class per file it writes, and guidelines/templates/ the text
+  build_reference.py   builds odoo-reference from .odoo/src/<version>; reference/ is its code
 ```
 
-The `odoo/<version>/` skills are generated; change `tools/`, not the files. To
-regenerate after Odoo updates its skills:
+The `odoo/<version>/` skills are generated; change `tools/`, not the files. The text of
+each guideline file is a Markdown template in `tools/guidelines/templates/`, where `$name`
+marks what differs between versions; the class of the same name in
+`tools/guidelines/documents/` says what it is in each version. To regenerate after Odoo
+updates its skills:
 
 ```bash
 git clone --depth 1 -b 20.0 --filter=blob:none --sparse https://github.com/odoo/odoo.git .odoo/src/20.0
 git -C .odoo/src/20.0 sparse-checkout set skills
-python3 tools/generate_guidelines.py .odoo/src/20.0/skills .
+python3 tools/build_guidelines.py .odoo/src/20.0/skills .
 ```
 
 To regenerate the references, check out each version without its static files and

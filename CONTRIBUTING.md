@@ -13,7 +13,7 @@ of that version, and say in the pull request where (file and line, or a link).
 
 | To change | Edit |
 |---|---|
-| `odoo/<version>/odoo-guidelines`, `odoo-web-guidelines`, `odoo-security`, `odoo-review`, `odoo-git` | `tools/generate_guidelines.py`, then regenerate |
+| `odoo/<version>/odoo-guidelines`, `odoo-web-guidelines`, `odoo-security`, `odoo-review`, `odoo-git` | the template in `tools/guidelines/templates/`, or its class in `tools/guidelines/documents/` for what differs per version, then regenerate |
 | `odoo/<version>/odoo-reference` | `tools/reference/`, then regenerate with `tools/build_reference.py` |
 | `odoo/common/odoo-upgrade` | the files directly |
 | `odoo/common/odoo-functional` | the files directly; check every version difference against each branch's source |
