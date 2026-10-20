@@ -1,0 +1,1 @@
+| `innerHTML`, `insertAdjacentHTML`, `markup(` (JS), `Markup(` (Python), `t-raw` (dead code) |
