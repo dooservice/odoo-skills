@@ -4,7 +4,14 @@
 - Components are Owl classes with a static `template` (an XML file next to them,
   `t-name="<module>.<Component>"`) and static `props`. Owl 3: reactive `signal` and `computed` next to `useState`; lifecycle with `onWillStart`/`onMounted`/`onWillUnmount`.
 - Extend a field widget: `registry.category("fields").add("my_widget", { component: MyField, supportedTypes: [...] })` registers a descriptor.
-- Server calls: `import { rpc } from "@web/core/network/rpc"` for a route, `useService("orm")` for model methods.
+- Server calls: `import { rpc } from "@web/core/network/rpc"` for a route, `usePlugin(ORM)` (`ORM` from `@web/core/orm_plugin`) for model methods.
+- Shared logic is a plugin, not a service: `class MyPlugin extends Plugin`, with `Plugin`,
+  `usePlugin` and `useListener` from `@odoo/owl`, registered with `services.add(MyPlugin)` from
+  `@web/core/services`; components and other plugins get it with `usePlugin(MyPlugin)`. The bus,
+  the ORM, actions, dialogs and notifications are plugins (`GlobalBusPlugin`, `ORM`,
+  `ActionPlugin`, `DialogPlugin`, `NotificationPlugin`). `registry.category("services")` and
+  `useService` still work through a temporary bridge started after the plugins: keep them for
+  code not moved yet, never for new code.
 - Override existing behaviour: `patch(Target.prototype, { setup() { super.setup(...arguments); ... } })`.
 - Raw HTML: never assign `innerHTML` from data; escape with `htmlEscape`, build with `htmlJoin`/`htmlSprintf`, and set content with `setElementContent` (`@web/core/utils/html`), or render through `t-out`.
 - Tests: hoot (`@odoo/hoot`): `*.test.js` under `static/tests/`, added to `web.assets_unit_tests`.

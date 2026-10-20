@@ -27,6 +27,7 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | JS patch | `patch(Target.prototype, "module.name", { ... })` |
 | JS field registry | `registry.category("fields").add("x", MyField)`, the component itself |
 | JS RPC | `this.rpc = useService("rpc")`; `this.orm = useService("orm")` |
+| Shared logic | services: `registry.category("services").add("x", { dependencies, start })`, used with `useService("x")` |
 | JS tests | QUnit, under `static/tests/`, in the `web.qunit_suite_tests` bundle |
 
 ## When unsure

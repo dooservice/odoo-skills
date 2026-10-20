@@ -28,7 +28,13 @@ class InterfaceVersionNotes:
             ),
             "js_rpc": version.pick(
                 v16_17='`this.rpc = useService("rpc")`; `this.orm = useService("orm")`',
-                v18_='`import { rpc } from "@web/core/network/rpc"`; `useService("orm")`',
+                v18_19='`import { rpc } from "@web/core/network/rpc"`; `useService("orm")`',
+                v20='`import { rpc } from "@web/core/network/rpc"`; `usePlugin(ORM)`, `ORM` from `@web/core/orm_plugin`',
+            ),
+            "js_shared_logic": version.pick(
+                v16_19='services: `registry.category("services").add("x", { dependencies, start })`, used with `useService("x")`',
+                v20='plugins: `class X extends Plugin` (`@odoo/owl`), `services.add(X)` (`@web/core/services`), used with '
+                '`usePlugin(X)`; the `services` registry still starts, after the plugins, for code not moved yet',
             ),
             "js_tests": version.pick(
                 v16_17="QUnit, under `static/tests/`, in the `web.qunit_suite_tests` bundle",

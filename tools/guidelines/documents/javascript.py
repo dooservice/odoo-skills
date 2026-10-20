@@ -29,7 +29,19 @@ class Javascript(Document):
             ),
             "rpc": version.pick(
                 v16_17='`useService("rpc")` for a route, `useService("orm")` for model methods',
-                v18_='`import { rpc } from "@web/core/network/rpc"` for a route, `useService("orm")` for model methods',
+                v18_19='`import { rpc } from "@web/core/network/rpc"` for a route, `useService("orm")` for model methods',
+                v20='`import { rpc } from "@web/core/network/rpc"` for a route, `usePlugin(ORM)` '
+                '(`ORM` from `@web/core/orm_plugin`) for model methods',
+            ),
+            "plugins": version.pick(
+                v16_19="",
+                v20="\n- Shared logic is a plugin, not a service: `class MyPlugin extends Plugin`, with `Plugin`,\n"
+                "  `usePlugin` and `useListener` from `@odoo/owl`, registered with `services.add(MyPlugin)` from\n"
+                "  `@web/core/services`; components and other plugins get it with `usePlugin(MyPlugin)`. The bus,\n"
+                "  the ORM, actions, dialogs and notifications are plugins (`GlobalBusPlugin`, `ORM`,\n"
+                "  `ActionPlugin`, `DialogPlugin`, `NotificationPlugin`). `registry.category(\"services\")` and\n"
+                "  `useService` still work through a temporary bridge started after the plugins: keep them for\n"
+                "  code not moved yet, never for new code.",
             ),
             "patch": version.pick(
                 v16='`patch(Target.prototype, "my_module.Target", { setup() { super.setup(); ... } })`',

@@ -27,6 +27,7 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | JS patch | `patch(Target.prototype, { ... })` |
 | JS field registry | `registry.category("fields").add("x", { component: MyField, ... })` |
 | JS RPC | `import { rpc } from "@web/core/network/rpc"`; `useService("orm")` |
+| Shared logic | services: `registry.category("services").add("x", { dependencies, start })`, used with `useService("x")` |
 | JS tests | hoot (`@odoo/hoot`), `*.test.js` in `web.assets_unit_tests`; QUnit only for legacy suites |
 
 ## When unsure

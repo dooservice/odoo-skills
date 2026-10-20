@@ -27,6 +27,7 @@ $version source.
 | JS patch | $js_patch |
 | JS field registry | $js_field_registry |
 | JS RPC | $js_rpc |
+| Shared logic | $js_shared_logic |
 | JS tests | $js_tests |
 
 ## When unsure

@@ -4,7 +4,7 @@ $header
 - Components are Owl classes with a static `template` (an XML file next to them,
   `t-name="<module>.<Component>"`) and static `props`. $owl.
 - Extend a field widget: $field.
-- Server calls: $rpc.
+- Server calls: $rpc.$plugins
 - Override existing behaviour: $patch.
 - Raw HTML: never assign `innerHTML` from data; $html.
 - Tests: $tests.

@@ -26,7 +26,8 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | JS module header | none needed |
 | JS patch | `patch(Target.prototype, { ... })` |
 | JS field registry | `registry.category("fields").add("x", { component: MyField, ... })` |
-| JS RPC | `import { rpc } from "@web/core/network/rpc"`; `useService("orm")` |
+| JS RPC | `import { rpc } from "@web/core/network/rpc"`; `usePlugin(ORM)`, `ORM` from `@web/core/orm_plugin` |
+| Shared logic | plugins: `class X extends Plugin` (`@odoo/owl`), `services.add(X)` (`@web/core/services`), used with `usePlugin(X)`; the `services` registry still starts, after the plugins, for code not moved yet |
 | JS tests | hoot (`@odoo/hoot`), `*.test.js` in `web.assets_unit_tests` |
 
 ## When unsure
