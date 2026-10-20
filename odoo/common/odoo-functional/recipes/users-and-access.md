@@ -152,8 +152,10 @@ env.cr.commit()
 ```python
 Orders = env['sale.order'].with_user(user)
 print(Orders.search_count([]), env['sale.order'].search_count([]))
-print(Orders.check_access_rights('write', raise_exception=False))   # 16.0, 17.0
-print(Orders.has_access('write'))                                    # 18.0+
+if hasattr(Orders, 'has_access'):                                    # 18.0+
+    print(Orders.has_access('write'))
+else:                                                                # 16.0, 17.0
+    print(Orders.check_access_rights('write', raise_exception=False))
 ```
 
 Then ask the person to log in and try the action. To explain an access error, see
