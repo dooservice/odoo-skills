@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "odoo-skills",
-  "description": "Agent skills for Odoo 16.0 to 20.0, each checked against its version's source. Install the plugin of the version you run.",
+  "description": "Agent skills for Odoo 16.0 to 20.0, each checked against its version's source. Install the plugin of the version you run, and the one of your country if there is one.",
   "owner": {
     "name": "dooservice",
     "url": "https://dooservice.sh"
