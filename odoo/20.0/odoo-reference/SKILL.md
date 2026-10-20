@@ -3,9 +3,11 @@ name: odoo-reference
 description: >-
   What exists in this Odoo 20.0 Community: every addon's models with their
   fields, public methods and extension points, every Settings switch and where it
-  keeps its value, and every XML id an addon declares. Use before writing code
-  or configuration that names a model, field, setting, view, action, menu or
-  group, instead of searching the source.
+  keeps its value, and every XML id an addon declares. Model and field names
+  change between versions: use before writing any code, `odoo-bin shell`
+  script, API call or configuration for Odoo 20.0 that names a model,
+  field, setting, view, action, menu or group, instead of guessing or searching
+  the source.
 ---
 
 # What Odoo 20.0 has
