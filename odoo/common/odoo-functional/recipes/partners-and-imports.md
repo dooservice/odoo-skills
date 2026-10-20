@@ -7,35 +7,44 @@ that data. Bulk loads go through `load()` with external ids, so a second run upd
 instead of creating duplicates.
 
 ```python
-partner = env['res.partner'].search([('vat', '=', 'ESA12345674')])
+partner = env['res.partner'].search([('vat', '=', '<vat number>'), ('parent_id', '=', False)])
 print(partner.read(['name', 'is_company', 'parent_id', 'type', 'country_id', 'vat', 'user_id', 'lang', 'active']))
 print(partner.child_ids.mapped('name'), partner.commercial_partner_id.name)
 print(env['ir.model.data'].search([('model', '=', 'res.partner'), ('res_id', '=', partner.id)]).mapped('complete_name'))
 ```
 
+Contacts under a company get the company's VAT, so a search by VAT alone also returns
+them: filter on `parent_id`.
+
 ## Companies and people
 
 ```python
 acme = env['res.partner'].create({
-    'name': 'Acme Industrial SA de CV', 'is_company': True,
-    'country_id': env.ref('base.mx').id, 'vat': 'AIN010101AB1',
+    'name': 'Acme Industrial', 'is_company': True,
+    'country_id': env.ref('base.<country code>').id, 'vat': '<vat number>',
     'category_id': [(4, env['res.partner.category'].create({'name': 'Distributor'}).id)],
     'user_id': salesperson.id,
 })
-env['res.partner'].create({'name': 'Laura Gómez', 'parent_id': acme.id, 'type': 'contact', 'email': 'laura@acme.example'})
-env['res.partner'].create({'name': 'Monterrey warehouse', 'parent_id': acme.id, 'type': 'delivery', 'city': 'Monterrey'})
+env['res.partner'].create({'name': 'Laura Grey', 'parent_id': acme.id, 'type': 'contact', 'email': 'laura@acme.example'})
+env['res.partner'].create({'name': 'North warehouse', 'parent_id': acme.id, 'type': 'delivery', 'city': '<city>'})
 env.cr.commit()
 ```
 
+- `base.<country code>` is the lowercase ISO code (`env['res.country'].search([('name', 'ilike', ...)]).code`).
+  A VAT number must be a real, valid one for that country; never invent one.
 - `type`: `contact`, `invoice`, `delivery`, `other`; 16.0 also has `private`.
 - Commercial fields (VAT, payment terms, pricelist, fiscal position) are synced from the
   company to its children: set them on the company, not on each contact.
 - 16.0 to 19.0: `is_company` is a plain boolean, with `company_type` (`person`,
   `company`) as its form widget. 20.0: `is_company` is computed (a contact without parent
-  and with a VAT is a company) and `company_type` is gone.
-- VAT is checked against the country by `base_vat` (16.0 to 19.0) or by `base` itself
-  (20.0). Set `country_id` before or with `vat`. `vat_check_vies` (company setting)
-  adds the EU VIES check.
+  and with a VAT is a company) and `company_type` is gone: writing `is_company` has no
+  effect, the VAT decides.
+- VAT is checked against the country by `base_vat` (16.0 to 19.0, only when installed;
+  without it any text is accepted) or by `base` itself (20.0). Set `country_id` before
+  or with `vat`. `vat_check_vies` (company setting, `base_vat` up to 19.0, `account` in
+  20.0) adds an online check against the VIES service. The country's localization
+  decides the VAT format and other partner fields; see its localization skill if
+  installed.
 - Tags: `res.partner.category`, Many2many `category_id`. Salesperson: `user_id`. 16.0
   and 17.0 also have a default sales team `team_id` on the partner; 18.0 removed it.
 
@@ -57,6 +66,7 @@ env.cr.commit()
   partner. Through the ORM the code is the same; a SQL query is not.
 - `property_product_pricelist` is computed (by country when empty) with an inverse; from
   18.0 the stored value is `specific_property_product_pricelist`. Write the first.
+  From 19.0 it reads empty while pricelists are off in Settings (`pricelists.md`).
 
 ## Bulk loads that do not duplicate
 
@@ -68,8 +78,8 @@ module update would delete the record.
 ```python
 fields = ['id', 'name', 'is_company', 'country_id/id', 'vat', 'category_id/id', 'parent_id/id', 'email']
 rows = [
-    ['cust_0001', 'Brasserie Lefèvre SPRL', '1', 'base.be', 'BE0477472701', '', '', 'info@lefevre.example'],
-    ['cust_0001_c1', 'Marc Lefèvre', '0', 'base.be', '', '', 'cust_0001', 'marc@lefevre.example'],
+    ['cust_0001', 'Harbor Foods', '1', 'base.<country code>', '<vat number>', '', '', 'info@harbor.example'],
+    ['cust_0001_c1', 'Mark Harbor', '0', 'base.<country code>', '', '', 'cust_0001', 'mark@harbor.example'],
 ]
 result = env['res.partner'].load(fields, rows)
 print(result['ids'], result['messages'])
@@ -99,7 +109,8 @@ wizard.action_merge()
 env.cr.commit()
 ```
 
-- At most 3 contacts per merge, none parent of another, at most one user among them.
+- At most 3 contacts per merge, none parent of another; from 17.0 at most one user
+  among them.
 - Different emails need an administrator.
 - Merging cannot be undone and deletes records: the user confirms each group. Archiving
   the duplicate (`active=False`) is the safe alternative.
