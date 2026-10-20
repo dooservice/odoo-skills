@@ -15,7 +15,7 @@ print(s.portal_confirmation_sign, s.portal_confirmation_pay, s.quotation_validit
 ## Teams and members
 
 ```python
-team = env['crm.team'].create({'name': 'Iberia', 'user_id': leader.id, 'company_id': company.id})
+team = env['crm.team'].create({'name': 'Key accounts', 'user_id': leader.id, 'company_id': company.id})
 env['crm.team.member'].create([{'crm_team_id': team.id, 'user_id': u.id} for u in sellers])
 env.cr.commit()
 ```
@@ -68,7 +68,7 @@ Write them through settings, per company (`with_company`). Names from
 ```python
 env['res.config.settings'].create({
     'portal_confirmation_sign': True,
-    'quotation_validity_days': 30,
+    'quotation_validity_days': 30,  # 16.0: also 'use_quotation_validity_days': True
     'group_discount_per_so_line': True,
 }).execute()
 env.cr.commit()
@@ -102,6 +102,8 @@ env.cr.commit()
 ```
 
 - 16.0: uses a down payment service product (parameter `sale.default_deposit_product_id`).
+  When that product has no taxes (the one Odoo creates has none), `percentage` is taken
+  from the total with taxes, not the untaxed amount: check the amount before posting.
 - 17.0: the product is on the company, `sale_down_payment_product_id`.
 - 18.0: no product.
 - 19.0+: the account can be set on the company, `downpayment_account_id`.
