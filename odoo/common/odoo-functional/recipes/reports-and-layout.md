@@ -20,7 +20,7 @@ The wizard's fields are related to the company, so writing the company is the sa
 ```python
 company.write({
     'external_report_layout_id': env.ref('web.external_layout_standard').id,
-    'logo': logo_base64,
+    'logo': logo_base64,  # base64 text: base64.b64encode(png_bytes).decode(); 20.0 refuses bytes
     'primary_color': '#1f3a5f', 'secondary_color': '#c8a24a',
     'font': 'Roboto',
 })
@@ -39,8 +39,8 @@ env.cr.commit()
 - 20.0 adds `report_tables_id` (table style): `light`, `boxed`, `bold`, `striped`,
   `bubble`, `column`, `compact`.
 - `company_details` (address block), `report_header` (tagline) and `report_footer` are
-  HTML. `report_footer` is translatable in every version, `report_header` from 17.0,
-  `company_details` in 17.0 to 19.0: write them per language (see
+  HTML. `report_footer` is translatable in every version, `report_header` and
+  `company_details` from 17.0: write them per language (see
   `languages-and-translations.md`).
 - The layout is per company. In multi-company, set each one.
 
