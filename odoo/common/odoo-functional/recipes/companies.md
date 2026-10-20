@@ -18,21 +18,23 @@ print(env['account.move'].search_count([('state', '=', 'posted')]))
 
 ```python
 company = env['res.company'].create({
-    'name': 'Acme Services Mexico',
-    'country_id': env.ref('base.mx').id,
-    'currency_id': env.ref('base.MXN').id,
-    'street': 'Av. Reforma 100',
-    'city': 'Ciudad de México',
-    'email': 'billing@acme.example',
+    'name': '<company name>',
+    'country_id': env.ref('base.<country code>').id,       # lower-case ISO code, see res.country
+    'currency_id': env.ref('base.<currency code>').id,     # ISO code, see res.currency
+    'street': '<street>',
+    'city': '<city>',
+    'email': 'billing@<domain>',
 })
 env.cr.commit()
 ```
 
 - Creating a company gives it to the user who creates it, and activates its currency if
   it was inactive.
-- From 18.0, with Accounting installed, a company created or changed with a country
-  gets that country's localization installed and its chart of accounts loaded, when
-  the country has its own chart. Up to 17.0, load the chart yourself (below).
+- From 18.0, with Accounting installed, a company created with a country (or given one
+  when it had none) gets that country's localization modules installed at once, and its
+  chart of accounts loaded at commit, when the country has its own chart. Installing a
+  module cannot be rolled back: ask before creating the company. Up to 17.0, load the
+  chart yourself (below).
 - Address, VAT and email live on the company's partner; the company fields write
   through to it.
 - Logo, document layout and footer: see `reports-and-layout.md`.
@@ -47,7 +49,7 @@ Use branches for establishments of one legal entity (offices, shops with their o
 journals); use separate companies for separate legal entities.
 
 ```python
-branch = env['res.company'].create({'name': 'Acme Spain - Valencia', 'parent_id': company.id})
+branch = env['res.company'].create({'name': '<branch name>', 'parent_id': company.id})
 env.cr.commit()
 ```
 
@@ -82,7 +84,7 @@ env.cr.commit()
   company. Write them with `with_company()`:
 
 ```python
-partner = env['res.partner'].search([('name', '=', 'Brasserie Dupont SA')], limit=1)
+partner = env['res.partner'].search([('name', '=', '<partner name>')], limit=1)
 partner.with_company(company).write({
     'property_payment_term_id': env.ref('account.account_payment_term_30days').id,
 })
@@ -92,7 +94,7 @@ env.cr.commit()
 ## Currencies
 
 ```python
-env.ref('base.USD').active = True
+env.ref('base.<currency code>').active = True     # ISO code, see res.currency
 env.cr.commit()
 ```
 
@@ -103,41 +105,44 @@ journal items.
 
 ## Chart of accounts
 
-The chart comes from the country's localization module (`l10n_<country>`, see
-`odoo-reference/addons.md`) and is loaded on a company with no posted entries. Ask
-before loading: on a company without entries, loading a different chart replaces the
-accounts, taxes and journals already there.
+The chart comes from the country's localization module (`l10n_<country code>`, see
+`odoo-reference/addons.md`) and is loaded on a company with no journal entries. Which
+chart and what it contains is for the country's localization to decide; see its
+localization skill if installed. Ask before loading: in 17.0 and later, on a company
+without journal entries, loading a different chart deletes the accounts, taxes and
+journals already there.
 
 17.0 and later: templates have a code. List them, then load one:
 
 ```python
 Chart = env['account.chart.template']
 print({code: t['name'] for code, t in Chart._get_chart_template_mapping().items()})
-print(Chart._guess_chart_template(company.country_id))       # the country's default
-Chart.try_loading('mx', company, install_demo=False)          # 'es_common', 'be_comp', 'in', 'generic_coa'...
+code = Chart._guess_chart_template(company.country_id)      # the country's default code
+Chart.try_loading(code, company, install_demo=False)          # or another code from the list
 env.cr.commit()
 ```
 
-`try_loading` installs the localization module when it is missing. The setting does
-the same:
-`env['res.config.settings'].with_company(company).create({'chart_template': 'mx'}).execute()`.
+`try_loading` installs the localization module when it is missing (which cannot be
+rolled back). The setting does the same:
+`env['res.config.settings'].with_company(company).create({'chart_template': code}).execute()`.
 
-16.0: install the localization first (Apps, or `odoo-bin -d <db> -i l10n_mx --stop-after-init`),
-then, in a new shell, load its template record:
+16.0: install the localization first (Apps, or `odoo-bin -d <db> -i l10n_<country code> --stop-after-init`),
+then, in a new shell, list the template records and load one:
 
 ```python
-template = env.ref('l10n_mx.mx_coa')
+print(env['account.chart.template'].search([]).mapped(lambda t: (t.id, t.name, t.country_id.code)))
+template = env['account.chart.template'].browse(<template id>)
 template.try_loading(company, install_demo=False)
 env.cr.commit()
 ```
 
-Other 16.0 templates: `l10n_es.account_chart_template_common`,
-`l10n_be.l10nbe_chart_template`, `l10n_in.indian_chart_template_standard`,
-`l10n_generic_coa.configurable_chart_template` (United States and generic). 16.0 does
-nothing when the company already has a chart (`chart_template_id`) or entries.
+`l10n_generic_coa.configurable_chart_template` is the generic one. 16.0 does nothing
+when the company already has a chart (`chart_template_id`) or entries.
 
-A company with posted entries keeps its chart: say so and stop. Missing accounts are
-added one by one (`taxes-and-journals.md`), never by reloading.
+A company with journal entries keeps its chart: say so and stop. In 17.0 and later
+`try_loading` does not refuse; it adds the other chart's records on top of the old
+ones. Missing accounts are added one by one (`taxes-and-journals.md`), never by
+reloading.
 
 ## Archiving a company
 
