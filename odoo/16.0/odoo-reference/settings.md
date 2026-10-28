@@ -121,7 +121,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `group_discount_per_so_line` | Discounts | group `product.group_discount_per_so_line` | product |
 | `group_display_incoterm` | Incoterms | group `sale_stock.group_display_incoterm` | sale_stock |
 | `group_expiry_date_on_delivery_slip` | Display Expiration Dates on Delivery Slips | group `product_expiry.group_expiry_date_on_delivery_slip` | product_expiry |
-| `group_l10n_in_reseller` | Manage Reseller(E-Commerce) | group `l10n_in.group_l10n_in_reseller` | l10n_in |
 | `group_lot_on_delivery_slip` | Display Lots & Serial Numbers on Delivery Slips | group `stock.group_lot_on_delivery_slip` | stock |
 | `group_lot_on_invoice` | Display Lots & Serial Numbers on Invoices | group `stock_account.group_lot_on_invoice` | stock_account |
 | `group_mass_mailing_campaign` | Mailing Campaigns | group `mass_mailing.group_mass_mailing_campaign` | mass_mailing |
@@ -195,40 +194,11 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `is_account_peppol_eligible` | PEPPOL eligible | computed by `_compute_is_account_peppol_eligible` | account |
 | `is_account_peppol_participant` | Use PEPPOL | `company_id.is_account_peppol_participant` | account_peppol |
 | `is_default_pricelist_displayed` |  | computed by `_compute_pos_pricelist_id` | point_of_sale |
-| `is_edi_proxy_active` |  | computed by `_compute_is_edi_proxy_active` | l10n_it_edi |
 | `is_encode_uom_days` |  | computed by `_compute_is_encode_uom_days` | hr_timesheet |
 | `is_installed_sale` | Is the Sale Module Installed | computed by the screen | purchase_stock |
 | `is_membership_multi` | Multi Teams | parameter `sales_team.membership_multi` | crm |
 | `is_stripe_supported_country` |  | `company_id.country_id.is_stripe_supported_country` | website_payment |
 | `jitsi_server_domain` | Jitsi Server Domain | parameter `website_jitsi.jitsi_server_domain` | website_event_jitsi |
-| `l10n_ch_isr_preprinted_account` | Preprinted account | `company_id.l10n_ch_isr_preprinted_account` | l10n_ch |
-| `l10n_ch_isr_preprinted_bank` | Preprinted bank | `company_id.l10n_ch_isr_preprinted_bank` | l10n_ch |
-| `l10n_ch_isr_print_bank_location` | Print bank on ISR | `company_id.l10n_ch_isr_print_bank_location` | l10n_ch |
-| `l10n_ch_isr_scan_line_left` | Horizontal offset | `company_id.l10n_ch_isr_scan_line_left` | l10n_ch |
-| `l10n_ch_isr_scan_line_top` | Vertical offset | `company_id.l10n_ch_isr_scan_line_top` | l10n_ch |
-| `l10n_eg_client_identifier` |  | `company_id.l10n_eg_client_identifier` | l10n_eg_edi_eta |
-| `l10n_eg_client_secret` |  | `company_id.l10n_eg_client_secret` | l10n_eg_edi_eta |
-| `l10n_eg_invoicing_threshold` |  | `company_id.l10n_eg_invoicing_threshold` | l10n_eg_edi_eta |
-| `l10n_eg_production_env` |  | `company_id.l10n_eg_production_env` | l10n_eg_edi_eta |
-| `l10n_es_edi_certificate_ids` |  | `company_id.l10n_es_edi_certificate_ids` | l10n_es_edi_sii |
-| `l10n_es_edi_tax_agency` |  | `company_id.l10n_es_edi_tax_agency` | l10n_es_edi_sii |
-| `l10n_es_edi_test_env` |  | `company_id.l10n_es_edi_test_env` | l10n_es_edi_sii |
-| `l10n_es_tbai_tax_agency` |  | `company_id.l10n_es_tbai_tax_agency` | l10n_es_edi_tbai |
-| `l10n_eu_oss_eu_country` | Is European country? | computed by `_compute_l10n_eu_oss_european_country` | l10n_eu_oss |
-| `l10n_id_tax_address` | Tax Address | `company_id.partner_id.l10n_id_tax_address` | l10n_id_efaktur |
-| `l10n_id_tax_name` | Tax Name | `company_id.partner_id.l10n_id_tax_address` | l10n_id_efaktur |
-| `l10n_in_edi_ewaybill_password` | Indian EDI Stock password | `company_id.l10n_in_edi_ewaybill_password` | l10n_in_edi_ewaybill |
-| `l10n_in_edi_ewaybill_username` | Indian EDI Stock username | `company_id.l10n_in_edi_ewaybill_username` | l10n_in_edi_ewaybill |
-| `l10n_in_edi_password` | Indian EDI password | `company_id.l10n_in_edi_password` | l10n_in_edi |
-| `l10n_in_edi_production_env` | Indian EDI Testing Environment | `company_id.l10n_in_edi_production_env` | l10n_in_edi |
-| `l10n_in_edi_username` | Indian EDI username | `company_id.l10n_in_edi_username` | l10n_in_edi |
-| `l10n_in_gsp` | GSP | computed by the screen | l10n_in |
-| `l10n_it_edi_proxy_current_state` |  | computed by `_compute_l10n_it_edi_proxy_current_state` | l10n_it_edi |
-| `l10n_it_edi_sdicoop_demo_mode` |  | computed by `_compute_l10n_it_edi_sdicoop_demo_mode` | l10n_it_edi |
-| `l10n_it_edi_sdicoop_register` |  | computed by `_compute_l10n_it_edi_sdicoop_register` | l10n_it_edi |
-| `l10n_ke_cu_proxy_address` |  | `company_id.l10n_ke_cu_proxy_address` | l10n_ke_edi_tremol |
-| `l10n_pl_reports_tax_office_id` |  | `company_id.l10n_pl_reports_tax_office_id` | l10n_pl_jpk |
-| `l10n_sa_api_mode` |  | `company_id.l10n_sa_api_mode` | l10n_sa_edi |
 | `language_count` | Number of Languages | computed by `_compute_language_count` | base_setup |
 | `language_ids` |  | `website_id.language_ids` | website |
 | `lc_journal_id` | Default Journal | `company_id.lc_journal_id` | stock_landed_costs |
@@ -295,7 +265,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `module_hr_skills` | Skills Management | installs `hr_skills` | hr |
 | `module_hr_timesheet` | Task Logs | installs `hr_timesheet` | project |
 | `module_l10n_eu_oss` | EU Intra-community Distance Selling | installs `l10n_eu_oss` | account |
-| `module_l10n_mx_edi` | Mexican Electronic Invoicing | installs `l10n_mx_edi` | l10n_mx |
 | `module_loyalty` | Promotions, Coupons, Gift Card & Loyalty Program | installs `loyalty` | product |
 | `module_mail_plugin` | Allow integration with the mail plugins | installs `mail_plugin` | base_setup |
 | `module_marketing_automation` |  | installs `marketing_automation` | website |

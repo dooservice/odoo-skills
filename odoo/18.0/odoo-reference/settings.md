@@ -102,7 +102,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `company_lunch_minimum_threshold` | Maximum Allowed Overdraft | `company_id.lunch_minimum_threshold` | lunch |
 | `company_lunch_notify_message` | Lunch notification message | `company_id.lunch_notify_message` | lunch |
 | `company_name` | Company Name | `company_id.display_name` | base_setup |
-| `company_parent_id` |  | `company_id.parent_id` | l10n_it_edi |
 | `company_so_template_id` | Default Template | `company_id.sale_order_template_id` | sale_management |
 | `contract_expiration_notice_period` | Contract Expiry Notice Period | `company_id.contract_expiration_notice_period` | hr_contract |
 | `country_code` |  | `company_id.account_fiscal_country_id.code` | account |
@@ -158,7 +157,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `group_delivery_invoice_address` | Shipping Address | group `account.group_delivery_invoice_address` | website_sale |
 | `group_discount_per_so_line` | Discounts | group `sale.group_discount_per_so_line` | sale |
 | `group_expiry_date_on_delivery_slip` | Display Expiration Dates on Delivery Slips | group `product_expiry.group_expiry_date_on_delivery_slip` | product_expiry |
-| `group_l10n_in_reseller` | Manage Reseller(E-Commerce) | group `l10n_in.group_l10n_in_reseller` | l10n_in |
 | `group_lot_on_delivery_slip` | Display Lots & Serial Numbers on Delivery Slips | group `stock.group_lot_on_delivery_slip` | stock |
 | `group_lot_on_invoice` | Display Lots & Serial Numbers on Invoices | group `stock_account.group_lot_on_invoice` | stock_account |
 | `group_mass_mailing_campaign` | Mailing Campaigns | group `mass_mailing.group_mass_mailing_campaign` | mass_mailing |
@@ -226,7 +224,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `invoice_terms` | Terms & Conditions | `company_id.invoice_terms` | account |
 | `invoice_terms_html` | Terms & Conditions as a Web page | `company_id.invoice_terms_html` | account |
 | `is_account_peppol_eligible` | PEPPOL eligible | computed by `_compute_is_account_peppol_eligible` | account |
-| `is_edi_proxy_active` |  | computed by `_compute_is_edi_proxy_active` | l10n_it_edi |
 | `is_encode_uom_days` |  | computed by `_compute_is_encode_uom_days` | hr_timesheet |
 | `is_installed_sale` | Is the Sale Module Installed | computed by the screen | purchase_stock |
 | `is_kiosk_mode` | Is Kiosk Mode | computed by the screen | point_of_sale |
@@ -235,103 +232,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `is_root_company` |  | computed by `_compute_is_root_company` | base_setup |
 | `is_stripe_supported_country` |  | `company_id.country_id.is_stripe_supported_country` | website_payment |
 | `jitsi_server_domain` | Jitsi Server Domain | parameter `website_jitsi.jitsi_server_domain` | website_event_jitsi |
-| `l10n_ar_tax_base_account_id` | Tax Base Account | `company_id.l10n_ar_tax_base_account_id` | l10n_ar_withholding |
-| `l10n_dk_nemhandel_proxy_state` |  | `company_id.l10n_dk_nemhandel_proxy_state` | l10n_dk_nemhandel |
-| `l10n_eg_client_identifier` |  | `company_id.l10n_eg_client_identifier` | l10n_eg_edi_eta |
-| `l10n_eg_client_secret` |  | `company_id.l10n_eg_client_secret` | l10n_eg_edi_eta |
-| `l10n_eg_invoicing_threshold` |  | `company_id.l10n_eg_invoicing_threshold` | l10n_eg_edi_eta |
-| `l10n_eg_production_env` |  | `company_id.l10n_eg_production_env` | l10n_eg_edi_eta |
-| `l10n_es_edi_verifactu_certificate_ids` |  | `company_id.l10n_es_edi_verifactu_certificate_ids` | l10n_es_edi_verifactu |
-| `l10n_es_edi_verifactu_required` |  | `company_id.l10n_es_edi_verifactu_required` | l10n_es_edi_verifactu |
-| `l10n_es_edi_verifactu_special_vat_regime` |  | `company_id.l10n_es_edi_verifactu_special_vat_regime` | l10n_es_edi_verifactu |
-| `l10n_es_edi_verifactu_test_environment` |  | `company_id.l10n_es_edi_verifactu_test_environment` | l10n_es_edi_verifactu |
-| `l10n_es_sii_certificate_ids` |  | `company_id.l10n_es_sii_certificate_ids` | l10n_es_edi_sii |
-| `l10n_es_sii_tax_agency` |  | `company_id.l10n_es_sii_tax_agency` | l10n_es_edi_sii |
-| `l10n_es_sii_test_env` |  | `company_id.l10n_es_sii_test_env` | l10n_es_edi_sii |
-| `l10n_es_simplified_invoice_limit` |  | `company_id.l10n_es_simplified_invoice_limit` | l10n_es |
-| `l10n_es_tbai_certificate_ids` |  | `company_id.l10n_es_tbai_certificate_ids` | l10n_es_edi_tbai |
-| `l10n_es_tbai_tax_agency` |  | `company_id.l10n_es_tbai_tax_agency` | l10n_es_edi_tbai |
-| `l10n_es_tbai_test_env` |  | `company_id.l10n_es_tbai_test_env` | l10n_es_edi_tbai |
-| `l10n_eu_oss_eu_country` | Is European country? | computed by `_compute_l10n_eu_oss_european_country` | l10n_eu_oss |
-| `l10n_fr_pdp_annuaire_start_date` | Annuaire Start Date | `company_id.l10n_fr_pdp_annuaire_start_date` | l10n_fr_pdp |
-| `l10n_fr_pdp_periodicity` | Flow 10 Report Periodicity | `company_id.l10n_fr_pdp_periodicity` | l10n_fr_pdp |
-| `l10n_fr_pdp_pilot_phase` | Pilot Phase | computed by `_compute_l10n_fr_pdp_pilot_phase` | l10n_fr_pdp |
-| `l10n_fr_pdp_registered` | Approved Platform Registered | `company_id.l10n_fr_pdp_registered` | l10n_fr_pdp |
-| `l10n_fr_pdp_send_to_ppf` | Send to PPF | `company_id.l10n_fr_pdp_send_to_ppf` | l10n_fr_pdp |
-| `l10n_fr_reference_leave_type` |  | `company_id.l10n_fr_reference_leave_type` | l10n_fr_hr_holidays |
-| `l10n_gr_edi_aade_id` |  | `company_id.l10n_gr_edi_aade_id` | l10n_gr_edi |
-| `l10n_gr_edi_aade_key` |  | `company_id.l10n_gr_edi_aade_key` | l10n_gr_edi |
-| `l10n_gr_edi_branch_number` |  | `company_id.l10n_gr_edi_branch_number` | l10n_gr_edi |
-| `l10n_gr_edi_test_env` |  | `company_id.l10n_gr_edi_test_env` | l10n_gr_edi |
-| `l10n_hr_mer_company_bu` |  | `company_id.partner_id.l10n_hr_business_unit_code` | l10n_hr_edi |
-| `l10n_hr_mer_company_ident` |  | `company_id.l10n_hr_mer_company_ident` | l10n_hr_edi |
-| `l10n_hr_mer_connection_mode` |  | `company_id.l10n_hr_mer_connection_mode` | l10n_hr_edi |
-| `l10n_hr_mer_connection_state` |  | `company_id.l10n_hr_mer_connection_state` | l10n_hr_edi |
-| `l10n_hr_mer_password` |  | `company_id.l10n_hr_mer_password` | l10n_hr_edi |
-| `l10n_hr_mer_purchase_journal_id` |  | `company_id.l10n_hr_mer_purchase_journal_id` | l10n_hr_edi |
-| `l10n_hr_mer_software_ident` |  | `company_id.l10n_hr_mer_software_ident` | l10n_hr_edi |
-| `l10n_hr_mer_username` |  | `company_id.l10n_hr_mer_username` | l10n_hr_edi |
-| `l10n_hu_edi_is_active` |  | computed by `_compute_l10n_hu_edi_is_active` | l10n_hu_edi |
-| `l10n_hu_edi_password` |  | `company_id.l10n_hu_edi_password` | l10n_hu_edi |
-| `l10n_hu_edi_replacement_key` |  | `company_id.l10n_hu_edi_replacement_key` | l10n_hu_edi |
-| `l10n_hu_edi_server_mode` |  | `company_id.l10n_hu_edi_server_mode` | l10n_hu_edi |
-| `l10n_hu_edi_signature_key` |  | `company_id.l10n_hu_edi_signature_key` | l10n_hu_edi |
-| `l10n_hu_edi_username` |  | `company_id.l10n_hu_edi_username` | l10n_hu_edi |
-| `l10n_hu_tax_regime` |  | `company_id.l10n_hu_tax_regime` | l10n_hu_edi |
-| `l10n_in_edi_ewaybill_password` | Indian EDI Stock password | `company_id.l10n_in_edi_ewaybill_password` | l10n_in_edi_ewaybill |
-| `l10n_in_edi_ewaybill_username` | Indian EDI Stock username | `company_id.l10n_in_edi_ewaybill_username` | l10n_in_edi_ewaybill |
-| `l10n_in_edi_password` | Indian EDI password | `company_id.l10n_in_edi_password` | l10n_in_edi |
-| `l10n_in_edi_production_env` | Indian Production Environment | `company_id.l10n_in_edi_production_env` | l10n_in |
-| `l10n_in_edi_username` | Indian EDI username | `company_id.l10n_in_edi_username` | l10n_in_edi |
-| `l10n_in_gsp` | GSP | computed by the screen | l10n_in |
-| `l10n_in_hsn_code_digit` |  | `company_id.l10n_in_hsn_code_digit` | l10n_in |
-| `l10n_in_withholding_account_id` |  | `company_id.l10n_in_withholding_account_id` | l10n_in_withholding |
-| `l10n_in_withholding_journal_id` |  | `company_id.l10n_in_withholding_journal_id` | l10n_in_withholding |
-| `l10n_it_edi_demo_mode` |  | computed by `_compute_l10n_it_edi_demo_mode` | l10n_it_edi |
-| `l10n_it_edi_proxy_current_state` |  | computed by `_compute_l10n_it_edi_proxy_current_state` | l10n_it_edi |
-| `l10n_it_edi_register` |  | computed by `_compute_l10n_it_edi_register` | l10n_it_edi |
-| `l10n_jo_edi_client_identifier` | JoFotara Client ID | `company_id.l10n_jo_edi_client_identifier` | l10n_jo_edi |
-| `l10n_jo_edi_demo_mode` | JoFotara Demo Mode | `company_id.l10n_jo_edi_demo_mode` | l10n_jo_edi_extended |
-| `l10n_jo_edi_pos_enabled` |  | `company_id.l10n_jo_edi_pos_enabled` | l10n_jo_edi_pos |
-| `l10n_jo_edi_pos_testing_mode` |  | `company_id.l10n_jo_edi_pos_testing_mode` | l10n_jo_edi_pos |
-| `l10n_jo_edi_secret_key` | JoFotara Secret Key | `company_id.l10n_jo_edi_secret_key` | l10n_jo_edi |
-| `l10n_jo_edi_sequence_income_source` | JoFotara Sequence of Income Source | `company_id.l10n_jo_edi_sequence_income_source` | l10n_jo_edi |
-| `l10n_jo_edi_taxpayer_type` | JoFotara Taxpayer Type | `company_id.l10n_jo_edi_taxpayer_type` | l10n_jo_edi |
-| `l10n_ke_cu_proxy_address` |  | `company_id.l10n_ke_cu_proxy_address` | l10n_ke_edi_tremol |
-| `l10n_my_accept_processing` |  | computed by the screen | l10n_my_edi |
-| `l10n_my_edi_company_vat` |  | `company_id.vat` | l10n_my_edi |
-| `l10n_my_edi_default_import_journal_id` |  | `company_id.l10n_my_edi_default_import_journal_id` | l10n_my_edi |
-| `l10n_my_edi_mode` |  | `company_id.l10n_my_edi_mode` | l10n_my_edi |
-| `l10n_my_edi_proxy_user_id` |  | `company_id.l10n_my_edi_proxy_user_id` | l10n_my_edi |
-| `l10n_pl_edi_access_token` | KSeF Access Token | `company_id.l10n_pl_edi_access_token` | l10n_pl_edi |
-| `l10n_pl_edi_certificate` |  | computed by `_compute_l10n_pl_edi_certificate` | l10n_pl_edi |
-| `l10n_pl_edi_register` | Allow KSeF integration | `company_id.l10n_pl_edi_register` | l10n_pl_edi |
-| `l10n_pl_reports_tax_office_id` |  | `company_id.l10n_pl_reports_tax_office_id` | l10n_pl |
-| `l10n_ro_edi_access_expiry_date` |  | `company_id.l10n_ro_edi_access_expiry_date` | l10n_ro_edi |
-| `l10n_ro_edi_access_token` |  | `company_id.l10n_ro_edi_access_token` | l10n_ro_edi |
-| `l10n_ro_edi_anaf_imported_inv_journal_id` |  | `company_id.l10n_ro_edi_anaf_imported_inv_journal_id` | l10n_ro_efactura_synchronize |
-| `l10n_ro_edi_callback_url` |  | `company_id.l10n_ro_edi_callback_url` | l10n_ro_edi |
-| `l10n_ro_edi_client_id` |  | `company_id.l10n_ro_edi_client_id` | l10n_ro_edi |
-| `l10n_ro_edi_client_secret` |  | `company_id.l10n_ro_edi_client_secret` | l10n_ro_edi |
-| `l10n_ro_edi_oauth_error` |  | `company_id.l10n_ro_edi_oauth_error` | l10n_ro_edi |
-| `l10n_ro_edi_refresh_expiry_date` |  | `company_id.l10n_ro_edi_refresh_expiry_date` | l10n_ro_edi |
-| `l10n_ro_edi_refresh_token` |  | `company_id.l10n_ro_edi_refresh_token` | l10n_ro_edi |
-| `l10n_ro_edi_test_env` |  | `company_id.l10n_ro_edi_test_env` | l10n_ro_edi |
-| `l10n_rs_edi_api_key` |  | `company_id.l10n_rs_edi_api_key` | l10n_rs_edi |
-| `l10n_rs_edi_demo_env` |  | `company_id.l10n_rs_edi_demo_env` | l10n_rs_edi |
-| `l10n_sa_api_mode` |  | `company_id.l10n_sa_api_mode` | l10n_sa_edi |
-| `l10n_tr_nilvera_api_key` | Nilvera API key | `company_id.l10n_tr_nilvera_api_key` | l10n_tr_nilvera |
-| `l10n_tr_nilvera_environment` | Nilvera Environment | `company_id.l10n_tr_nilvera_environment` | l10n_tr_nilvera |
-| `l10n_tr_nilvera_export_alias` | Nilvera Export Alias | `company_id.l10n_tr_nilvera_export_alias` | l10n_tr_nilvera_einvoice_extended |
-| `l10n_tr_nilvera_purchase_journal_id` |  | `company_id.l10n_tr_nilvera_purchase_journal_id` | l10n_tr_nilvera |
-| `l10n_tw_edi_ecpay_hashIV` |  | `company_id.l10n_tw_edi_ecpay_hashIV` | l10n_tw_edi_ecpay |
-| `l10n_tw_edi_ecpay_hashkey` |  | `company_id.l10n_tw_edi_ecpay_hashkey` | l10n_tw_edi_ecpay |
-| `l10n_tw_edi_ecpay_merchant_id` |  | `company_id.l10n_tw_edi_ecpay_merchant_id` | l10n_tw_edi_ecpay |
-| `l10n_tw_edi_ecpay_staging_mode` |  | `company_id.l10n_tw_edi_ecpay_staging_mode` | l10n_tw_edi_ecpay |
-| `l10n_vn_edi_default_symbol` | Default Symbol | computed by `_compute_l10n_vn_edi_default_symbol` | l10n_vn_edi_viettel |
-| `l10n_vn_edi_password` |  | `company_id.l10n_vn_edi_password` | l10n_vn_edi_viettel |
-| `l10n_vn_edi_pos_default_symbol` | Default PoS Symbol | `company_id.l10n_vn_pos_default_symbol` | l10n_vn_edi_viettel_pos |
-| `l10n_vn_edi_username` |  | `company_id.l10n_vn_edi_username` | l10n_vn_edi_viettel |
 | `language_count` | Number of Languages | computed by `_compute_language_count` | base_setup |
 | `language_ids` |  | `website_id.language_ids` | website |
 | `lc_journal_id` | Default Journal | `company_id.lc_journal_id` | stock_landed_costs |
@@ -401,11 +301,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `module_hr_skills` | Skills Management | installs `hr_skills` | hr |
 | `module_hr_timesheet` | Task Logs | installs `hr_timesheet` | project |
 | `module_l10n_eu_oss` | EU Intra-community Distance Selling | installs `l10n_eu_oss` | account |
-| `module_l10n_in_edi` | Indian Electronic Invoicing | installs `l10n_in_edi` | l10n_in |
-| `module_l10n_in_edi_ewaybill` | Indian Electronic Waybill | installs `l10n_in_edi_ewaybill` | l10n_in |
-| `module_l10n_in_enet_batch_payment` | Vendor Payment | installs `l10n_in_enet_batch_payment` | l10n_in |
-| `module_l10n_in_gstin_status` | Check GST Number Status | installs `l10n_in_gstin_status` | l10n_in |
-| `module_l10n_in_withholding` | Indian TDS and TCS | installs `l10n_in_withholding` | l10n_in |
 | `module_loyalty` | Promotions, Coupons, Gift Card & Loyalty Program | installs `loyalty` | product |
 | `module_mail_plugin` | Allow integration with the mail plugins | installs `mail_plugin` | base_setup |
 | `module_maintenance_worksheet` | Custom Maintenance Worksheets | installs `maintenance_worksheet` | maintenance |
@@ -471,14 +366,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `module_website_sale_wishlist` | Wishlists | installs `website_sale_wishlist` | website_sale |
 | `module_website_slides_forum` | Forum | installs `website_slides_forum` | website_slides |
 | `module_website_slides_survey` | Certifications | installs `website_slides_survey` | website_slides |
-| `nemhandel_contact_email` |  | `company_id.nemhandel_contact_email` | l10n_dk_nemhandel |
-| `nemhandel_edi_identification` | Nemhandel identification | `nemhandel_edi_user.edi_identification` | l10n_dk_nemhandel |
-| `nemhandel_edi_mode` | Nemhandel EDI operating mode | `nemhandel_edi_user.edi_mode` | l10n_dk_nemhandel |
-| `nemhandel_edi_user` |  | `company_id.nemhandel_edi_user` | l10n_dk_nemhandel |
-| `nemhandel_identifier_type` |  | `company_id.nemhandel_identifier_type` | l10n_dk_nemhandel |
-| `nemhandel_identifier_value` |  | `company_id.nemhandel_identifier_value` | l10n_dk_nemhandel |
-| `nemhandel_phone_number` |  | `company_id.nemhandel_phone_number` | l10n_dk_nemhandel |
-| `nemhandel_purchase_journal_id` |  | `company_id.nemhandel_purchase_journal_id` | l10n_dk_nemhandel |
 | `newsletter_id` |  | `website_id.newsletter_id` | website_sale_mass_mailing |
 | `overtime_company_threshold` | Tolerance Time In Favor Of Company | computed by the screen | hr_attendance |
 | `overtime_employee_threshold` | Tolerance Time In Favor Of Employee | computed by the screen | hr_attendance |
@@ -544,9 +431,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `pos_is_order_printer` |  | computed by `_compute_pos_printer` | point_of_sale |
 | `pos_is_posbox` |  | `pos_config_id.is_posbox` | point_of_sale |
 | `pos_journal_id` |  | `pos_config_id.journal_id` | point_of_sale |
-| `pos_l10n_es_simplified_invoice_journal_id` |  | `pos_config_id.l10n_es_simplified_invoice_journal_id` | l10n_es_pos |
-| `pos_l10n_vn_auto_send_to_sinvoice` |  | `pos_config_id.l10n_vn_auto_send_to_sinvoice` | l10n_vn_edi_viettel_pos |
-| `pos_l10n_vn_pos_symbol` |  | `pos_config_id.l10n_vn_pos_symbol` | l10n_vn_edi_viettel_pos |
 | `pos_limit_categories` |  | `pos_config_id.limit_categories` | point_of_sale |
 | `pos_manual_discount` |  | `pos_config_id.manual_discount` | point_of_sale |
 | `pos_module_pos_avatax` |  | `pos_config_id.module_pos_avatax` | point_of_sale |
@@ -664,7 +548,6 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `use_invoice_terms` | Default Terms & Conditions | parameter `account.use_invoice_terms` | account |
 | `use_manufacturing_lead` | Default Manufacturing Lead Time | parameter `mrp.use_manufacturing_lead` | mrp |
 | `use_po_lead` | Security Lead Time for Purchase | parameter `purchase.use_po_lead` | purchase |
-| `use_root_proxy_user` |  | computed by `_compute_use_root_proxy_user` | l10n_it_edi |
 | `use_security_lead` | Security Lead Time for Sales | parameter `sale_stock.use_security_lead` | sale_stock |
 | `use_twilio_rtc_servers` | Use Twilio ICE servers | parameter `mail.use_twilio_rtc_servers` | mail |
 | `user_default_rights` | Default Access Rights | parameter `base_setup.default_user_rights` | base_setup |
@@ -686,5 +569,4 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `website_sale_prevent_zero_price_sale` | Prevent Sale of Zero Priced Product | `website_id.prevent_zero_price_sale` | website_sale |
 | `website_slide_google_app_key` |  | `website_id.website_slide_google_app_key` | website_slides |
 | `website_warehouse_id` |  | `website_id.warehouse_id` | website_sale_stock |
-| `withholding_tax_base_account_id` |  | `company_id.withholding_tax_base_account_id` | l10n_account_withholding_tax |
 | `work_permit_expiration_notice_period` | Work Permit Expiry Notice Period | `company_id.work_permit_expiration_notice_period` | hr_contract |
