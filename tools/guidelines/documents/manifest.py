@@ -3,7 +3,17 @@
 from __future__ import annotations
 
 from ..document import Document
+from ..version import OdooVersion
 
 
 class Manifest(Document):
     path = "odoo-guidelines/guidelines/manifest.md"
+
+    def values(self, version: OdooVersion) -> dict[str, str]:
+        return {
+            **super().values(version),
+            "base_dependency": version.pick(
+                v16_18="List `base` only when the module depends on\n  nothing else.",
+                v19_="Don't list `base`: a manifest without `depends`\n  gets `['base']` injected.",
+            ),
+        }

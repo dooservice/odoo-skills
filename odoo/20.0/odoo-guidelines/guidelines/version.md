@@ -18,7 +18,7 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | Translations in Python | `self.env._("...")`; `_lt = LazyTranslate(__name__)` for module-level constants; bare `_` still works |
 | Group categories | `privilege_id` on `res.groups` (a `res.groups.privilege`) |
 | Access rights | `security/ir.access.csv` (`ir.access`, one model for ACLs and record rules) |
-| Route types | `'http'`, `'jsonrpc'`, `'json2'` |
+| Route types | `'http'`, `'jsonrpc'` (`'json'` is a deprecated alias), `'json2'` |
 | Route auth | `user`, `public`, `none`, `bearer` |
 | Default test tags | `post_install` |
 | QWeb output | `t-out` only; `t-esc` and `t-raw` are gone from server QWeb |

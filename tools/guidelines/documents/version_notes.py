@@ -71,8 +71,7 @@ class VersionNotes(Document):
             ),
             "route_types": version.pick(
                 v16_18="`type='http'` or `type='json'`",
-                v19="`'http'`, `'jsonrpc'` (`'json'` is a deprecated alias), `'json2'`",
-                v20="`'http'`, `'jsonrpc'`, `'json2'`",
+                v19_="`'http'`, `'jsonrpc'` (`'json'` is a deprecated alias), `'json2'`",
             ),
             "route_auth": version.pick(
                 v16_17="`user`, `public`, `none`",

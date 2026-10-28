@@ -17,13 +17,15 @@
   `state` for lifecycle, `parent_id` + `parent_path` (`index=True`, with
   `_parent_store`) for trees, `company_id` for multi-company (consistency via
   `_check_company_auto = True` and `check_company=True` on the relations).
+  Keep `_log_access` enabled on a `TransientModel`: its vacuum relies on it.
 - A field and a method can't share a name (same namespace); flag collisions.
 - `related` fields can't chain `One2many`/`Many2many` in the dependency path:
   the ORM does not reject it, it *silently truncates each x2many hop to its
   first record* and returns wrong data; reach the target through a `Many2one`
   (ending the chain on an x2many is fine). Reusing one compute for several
   fields is fine; reusing one **inverse** is discouraged: while the inverse
-  runs, every field sharing it reads as `False` when not cached.
+  runs, every field sharing it is protected and reads as `False` when not
+  cached, so the method sees wrong sibling values.
 - A new stored field on a model with many records: give it a `compute` or a
   `default` that the database can fill in one statement, or the module update
   computes it row by row.

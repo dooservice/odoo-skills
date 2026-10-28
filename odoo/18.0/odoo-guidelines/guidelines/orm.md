@@ -11,7 +11,7 @@
   name custom context keys carefully and prefix module-specific ones (a stray
   `default_<field>` in context leaks into unrelated `create` calls).
 - Delegation inheritance (`_inherits`) inherits fields but **not** methods; avoid
-  it where you can.
+  it where you can (chained `_inherits` is unsupported).
 
 # Computes, onchange and constraints
 

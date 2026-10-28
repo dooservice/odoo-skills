@@ -18,11 +18,18 @@ class Controllers(Document):
             ),
             "bearer": version.pick(
                 v16_17="",
-                v18_=" `auth='bearer'` authenticates with an API key in the `Authorization` header.",
+                v18_19="\n  `auth='bearer'` authenticates with an API key in the `Authorization` header.",
+                v20="\n  `auth='bearer'` authenticates with an API key in the `Authorization` header\n"
+                "  and requires `bearer_scope` (which is only valid there).",
+            ),
+            "readonly": version.pick(
+                v16_17="",
+                v18_="; an override that makes a read/write route `readonly`\n"
+                "  is set back to read/write, also with a warning",
             ),
             "route_types": version.pick(
                 v16_18="Route `type` is `'http'` or `'json'` (JSON-RPC).",
-                v19="Route `type` is `'http'`, `'jsonrpc'`, or `'json2'`; `type='json'` is a deprecated alias of `'jsonrpc'`.",
-                v20="Route `type` is `'http'`, `'jsonrpc'`, or `'json2'`; `type='json'` is gone.",
+                v19_="Route `type` is `'http'`, `'jsonrpc'`, or `'json2'`; `type='json'` is a deprecated\n"
+                "  19.0 alias of `'jsonrpc'`.",
             ),
         }

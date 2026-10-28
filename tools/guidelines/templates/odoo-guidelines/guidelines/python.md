@@ -2,7 +2,7 @@
 
 PEP 8 applies; $linter_reference.
 
-- Four groups, each alphabetically sorted:
+- Four groups, each alphabetically sorted$isort_order:
   1. stdlib
   2. third-party libs
   3. `odoo` submodules (`$odoo_imports`)
@@ -11,8 +11,9 @@ PEP 8 applies; $linter_reference.
 # Naming and model layout
 
 - Model `_name`: dotted, prefixed by module, **singular** (`sale.order`, not
-  `sale.orders`). Transient/wizard: `<base_model>.<action>`. SQL-view report
-  model: `<base_model>.report.<action>`.
+  `sale.orders`). Transient/wizard: `<base_model>.<action>` (avoiding the word
+  "wizard" is a soft preference; core ships many `.wizard` names). SQL-view
+  report model: `<base_model>.report.<action>`.
 - A variable holding a model class is PascalCase (`Partner =
   self.env['res.partner']`). Suffix a var holding a record id / list of ids
   with `_id` / `_ids` (don't name a `res.partner` record `partner_id`).
@@ -36,13 +37,13 @@ raise UserError($translate("Record %s cannot be modified", record.display_name))
 
 # good (several variables): name them so translators keep them straight
 msg = $translate("%(count)s records imported by %(user)s", count=len(records), user=user.name)
-
+$list_good
 # bad (formats before the lookup): the dynamic string matches no exported term
 raise UserError($translate("Record %s cannot be modified" % record.display_name))
 
 # bad (formats after the lookup): bypasses placeholder validation and reordering
 raise UserError($translate("Record %s cannot be modified") % record.display_name)
-```
+$list_bad```
 
 ## Why
 
@@ -51,7 +52,7 @@ raise UserError($translate("Record %s cannot be modified") % record.display_name
   inside `_()` produce strings that exist in neither.
 - Named placeholders let translators reorder words per language; passing them
   as arguments lets the framework validate them per translation and apply
-  Markup-aware escaping.
+  Markup-aware escaping (post-lookup `%` formatting loses that safety).
 
 ## Exceptions and notes
 

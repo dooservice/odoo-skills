@@ -27,10 +27,9 @@ class Tests(Document):
   loaded registry: decorate them `@tagged('post_install', '-at_install')`. An
   `HttpCase` (tours) must be `post_install`.""",
             v20="""- Tests are tagged `standard` and `post_install` by default (fully-loaded
-  registry); set exactly one of `at_install`/`post_install`. Opt into
-  `@tagged('at_install', '-post_install')` only when the test must run before
-  other modules load, with a comment justifying it; an `HttpCase` must stay
-  `post_install`.""",
+  registry). Opt into `@tagged('at_install', '-post_install')` only when the
+  test must run before other modules load, with a comment justifying it; an
+  `HttpCase` must stay `post_install`.""",
         )
 
     def tour(self, version: OdooVersion) -> str:
@@ -39,5 +38,5 @@ class Tests(Document):
   edits or in-flight requests), or the teardown races the browser.""",
             v18_="""- Tours: a step that triggers a page unload must set `expectUnloadPage: true`,
   and the last step must leave the client in a stable state (no pending edits
-  or in-flight requests).""",
+  or in-flight requests) to avoid teardown race conditions.""",
         )

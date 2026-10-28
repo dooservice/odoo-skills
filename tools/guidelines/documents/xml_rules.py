@@ -15,6 +15,10 @@ class XmlRules(Document):
         return {
             **super().values(version),
             "list_tag": version.pick(v16_17="tree", v18_="list"),
+            "sugar_tags": version.pick(
+                v16="`<menuitem>` and `<template>`", v17_="`<menuitem>`, `<template>`, and `<asset>`"
+            ),
+            "active_tags": version.pick(v16="`<template>`", v17_="`<template>`/`<asset>`"),
             "modifiers": self.modifiers(version),
             "chatter": version.pick(
                 v16_17="""- The chatter of a form inheriting `mail.thread` goes last:

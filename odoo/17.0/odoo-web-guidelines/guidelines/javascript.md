@@ -15,8 +15,9 @@
 # Organize files by feature, not by type
 
 Code is organized by feature, not by type. Instead of folders like `components/`,
-`services/` or `hooks/`, each feature gets one folder holding all of its files:
-`notification/` contains the notification component, its template and its styles.
+`services/` or `hooks/`, each feature gets one folder holding all of its
+files: `notification/` contains the notification component, its template
+and its styles.
 
 # Avoid getters
 

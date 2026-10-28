@@ -32,5 +32,6 @@ raise UserError($translate("Book %s is already borrowed, return it first", book.
 
 - Data, not prose: a test fixture, a localization file, or a string whose content is
   the character itself.
-- Existing translatable text in an installed module: rewording a term breaks its
-  translations (see [Changes to an installed module](installed.md#changes-to-an-installed-module)).
+- Existing text in a released module version. Fixing punctuation is a cosmetic
+  change, and rewording a translatable term breaks its translations (see
+  [Changes in a stable version](stable.md#changes-in-a-stable-version)).

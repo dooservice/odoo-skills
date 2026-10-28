@@ -1,12 +1,14 @@
 # Controllers
 
 - Routes are methods decorated with `@route` on a `http.Controller` subclass.
-  Always re-decorate an **override** with `@route` (an undecorated override is
-  not exposed reliably). An empty `@route()` keeps the parent's arguments and
-  any argument overrides the parent's, except `type`, which an override can
-  never change.
-- Set the right `auth` on each route ($auth_modes): a `public` route must not expose
-  internal data or perform privileged writes (see the `odoo-security` skill).$bearer
+  Always re-decorate an **override** with `@route` (an undecorated override
+  still works: the framework auto-decorates it and logs a warning). An empty
+  `@route()` keeps the parent's arguments and any argument overrides the
+  parent's, except `type`, which an override can never change (ignored with
+  a warning$readonly).
+- Set the right `auth` on each route ($auth_modes):
+  a `public` route must not expose internal data or perform privileged writes
+  (see the `odoo-security` skill).$bearer
 - $route_types
 - Keep controllers thin: parse and check the request, then call a model method
   that does the work. Models never read `odoo.http.request`.

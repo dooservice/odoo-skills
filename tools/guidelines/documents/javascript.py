@@ -10,7 +10,12 @@ class Javascript(Document):
     path = "odoo-web-guidelines/guidelines/javascript.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:
-        return {**super().values(version), **self.framework(version), **self.safety(version)}
+        return {
+            **super().values(version),
+            **self.framework(version),
+            **self.safety(version),
+            **self.structure(version),
+        }
 
     def framework(self, version: OdooVersion) -> dict[str, str]:
         return {
@@ -61,4 +66,15 @@ class Javascript(Document):
                 v18="hoot (`@odoo/hoot`): `*.test.js` under `static/tests/`, added to `web.assets_unit_tests`; QUnit is only for legacy suites",
                 v19_="hoot (`@odoo/hoot`): `*.test.js` under `static/tests/`, added to `web.assets_unit_tests`",
             ),
+        }
+
+    def structure(self, version: OdooVersion) -> dict[str, str]:
+        """Plugins and Owl's `computed` exist from 20.0 (Owl 3)."""
+        if version.number < 20:
+            return {"type_folders": "`components/`,\n`services/`", "feature_files": "", "computed": ""}
+        return {
+            "type_folders": "`components/`,\n`plugins/`, `services/`",
+            "feature_files": " its plugin,",
+            "computed": "\n\nWhen the value is derived state, an Owl `computed` is the better answer: unlike a\n"
+            "getter, it recomputes only when what it reads changes.",
         }

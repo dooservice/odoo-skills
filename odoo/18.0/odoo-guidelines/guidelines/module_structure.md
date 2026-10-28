@@ -12,7 +12,8 @@
 - Security files: access rows in `security/ir.model.access.csv`; groups and record
   rules in `security/<module>_security.xml`.
 - Controllers: feature-named files, or `<inherited_module>.py` when extending
-  another module's controller (e.g. `portal.py`).
+  another module's controller (e.g. `portal.py`); `main.py` is legacy (still
+  widespread in core).
 - Reports: a statistics (SQL-view) report is `<model>_report.py` +
   `<model>_report_views.xml`; a printable report splits `<model>_reports.xml`
   (report actions, paperformat) from `<model>_templates.xml` (QWeb templates).

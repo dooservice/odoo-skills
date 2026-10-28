@@ -2,7 +2,7 @@
 
 PEP 8 applies; the `ruff.toml` of the Odoo source is the reference for what core enforces.
 
-- Four groups, each alphabetically sorted:
+- Four groups, each alphabetically sorted (the ruff isort order):
   1. stdlib
   2. third-party libs
   3. `odoo` submodules (`from odoo import Command, api, fields, models`)
@@ -11,8 +11,9 @@ PEP 8 applies; the `ruff.toml` of the Odoo source is the reference for what core
 # Naming and model layout
 
 - Model `_name`: dotted, prefixed by module, **singular** (`sale.order`, not
-  `sale.orders`). Transient/wizard: `<base_model>.<action>`. SQL-view report
-  model: `<base_model>.report.<action>`.
+  `sale.orders`). Transient/wizard: `<base_model>.<action>` (avoiding the word
+  "wizard" is a soft preference; core ships many `.wizard` names). SQL-view
+  report model: `<base_model>.report.<action>`.
 - A variable holding a model class is PascalCase (`Partner =
   self.env['res.partner']`). Suffix a var holding a record id / list of ids
   with `_id` / `_ids` (don't name a `res.partner` record `partner_id`).
@@ -51,16 +52,18 @@ raise UserError(self.env._("Record %s cannot be modified") % record.display_name
   inside `_()` produce strings that exist in neither.
 - Named placeholders let translators reorder words per language; passing them
   as arguments lets the framework validate them per translation and apply
-  Markup-aware escaping.
+  Markup-aware escaping (post-lookup `%` formatting loses that safety).
 
 ## Exceptions and notes
 
 - Bare `_` (imported from `odoo`) still works: it locates the environment by
-  inspecting the caller's frame; in plain functions and comprehensions it can
-  silently return the untranslated string. Prefer `self.env._`.
+  inspecting the caller's frame; in plain functions and comprehensions it
+  silently returns the untranslated (or wrong-language) string with only a
+  logged warning. Prefer `self.env._`.
 - Never call `_()` at module or class level: it runs at import time with no
-  user language. If a module-level constant is unavoidable, make it lazy
+  user language and silently doesn't translate. Translate inside the method
+  when you can; if a module-level constant is unavoidable, make it lazy
   (`_lt = LazyTranslate(__name__)`; `LABEL = _lt("...")`) and resolve it where
-  the language is known, with `self.env._(LABEL)`.
+  the language is known, by passing it through `self.env._(LABEL)`.
 - Field *values* are translated via the field's `translate` flag, never `_()`.
 - Prefer `%`-style placeholders over `.format()`.

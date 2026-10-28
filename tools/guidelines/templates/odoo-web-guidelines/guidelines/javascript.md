@@ -13,15 +13,15 @@ $header
 
 # Organize files by feature, not by type
 
-Code is organized by feature, not by type. Instead of folders like `components/`,
-`services/` or `hooks/`, each feature gets one folder holding all of its files:
-`notification/` contains the notification component, its template and its styles.
+Code is organized by feature, not by type. Instead of folders like $type_folders or `hooks/`, each feature gets one folder holding all of its
+files: `notification/` contains the notification component,$feature_files its template
+and its styles.
 
 # Avoid getters
 
 A getter hides the fact that a computation happens, and only saves a pair of
 parentheses. Write a plain function instead: the call site then shows that code runs,
-and it can take an argument the day the computation needs one.
+and it can take an argument the day the computation needs one.$computed
 
 # Patch sparingly
 
