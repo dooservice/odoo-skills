@@ -188,7 +188,8 @@ the attacker's reading:
   `ast.literal_eval()`; only at worst `odoo.tools.safe_eval.safe_eval` with a
   constrained namespace, and only for trusted privileged users (it still
   gives broad capabilities, and plain `eval` allows
-  `__import__('os').popen(...)` RCE).
+  `__import__('os').popen(...)` RCE; the extra `--unsafe-policy` whitelist
+  sandbox is observe-only by default: it logs, it does not block).
 
 ## Don't return complex objects from model methods
 
