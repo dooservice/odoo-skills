@@ -4,7 +4,7 @@ Closing a month, quarter or year means checking that everything in it is posted 
 reconciled, allocating the year's result, then setting lock dates on the company
 (`res.company`) so nobody changes it. Odoo posts no closing entry by itself. Which periods must be closed, when the tax return is due and how the result is
 allocated depend on the country and the company's statutes: the country's localization
-decides this; see its localization skill if installed. The Accounting app
+decides this; it is not covered here, so check it with the user. The Accounting app
 (`account_accountant`), its Lock Dates form, fiscal years and financial reports (balance
 sheet, profit and loss, tax report, aged balances) are Enterprise; this recipe uses what
 Community has. Every step is an accounting change and needs the user's yes.

@@ -5,8 +5,7 @@ Customers, vendors, employees' addresses and the contacts inside a company are a
 pricelist, fiscal position); the people and addresses under it point to it with
 `parent_id` and share that data. Bulk loads go through `load()` with external ids, so a
 second run updates instead of creating duplicates. This recipe needs only `contacts`
-(the app) on top of `base`; what a country adds to a partner belongs to its
-localization skill.
+(the app) on top of `base`; what a country adds to a partner comes from its `l10n_*` module and is not covered here.
 
 ## Before you start
 
@@ -67,8 +66,7 @@ it, its sales and purchase data; then bulk loads and merging duplicates.
      installed; without it any text is accepted) or by `base` itself (20.0). Set
      `country_id` before or with `vat`. `vat_check_vies` (company setting, `base_vat` up
      to 19.0, `account` in 20.0) adds an online check against the VIES service. The
-     country's localization decides the VAT format and other partner fields; see its
-     localization skill if installed.
+     country's localization decides the VAT format and other partner fields; it is not covered here, so check it with the user.
    - Salesperson: `user_id`. 16.0 and 17.0 also have a default sales team `team_id` on
      the partner; 18.0 removed it.
 

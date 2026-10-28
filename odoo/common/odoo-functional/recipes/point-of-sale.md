@@ -86,8 +86,7 @@ print(env['pos.session'].search_read([('state', '!=', 'closed')], ['name', 'conf
 
    `pricelist_id` must be among `available_pricelist_ids`, all in the shop's currency.
    `tax_regime_selection` lets the cashier pick a fiscal position (eat in, take away).
-   Which taxes it maps is the localization's decision: see its localization skill if
-   installed. `iface_tax_included`: `total` shows prices with taxes, `subtotal` without.
+   Which taxes it maps is the localization's decision: it is not covered here, so check it with the user. `iface_tax_included`: `total` shows prices with taxes, `subtotal` without.
 
 5. **Open the session.** Point of Sale ‣ Dashboard ‣ New Session then Open Session (16.0
    to 18.0), Open Register (19.0+), counting the opening cash. Done by the cashier in the

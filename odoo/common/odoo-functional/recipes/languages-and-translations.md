@@ -109,8 +109,7 @@ print(env.user.lang, partner.lang)
    `decimal_point`, `thousands_sep`, `grouping` (digits per group from the right,
    `[3,0]` by default), `week_start` (`1` Monday to `7` Sunday), `direction` (`ltr`,
    `rtl`). 18.0 only also has `short_time_format`. Each language ships with its usual
-   formats; the country's localization decides any legal format; see its localization
-   skill if installed.
+   formats; the country's localization decides any legal format; it is not covered here, so check it with the user.
 
    Leaves every user of that language seeing the new format.
 

@@ -33,7 +33,7 @@ If entries or stock are already posted, this is not day one: ask what was loaded
 2. **Accounting master data.** Invoicing ‣ Configuration ‣ Accounting ‣ Chart of Accounts:
    rename or recode standard accounts, never delete them; then journals, fiscal positions,
    taxes, payment terms (`taxes-and-journals.md`, `payment-terms-and-fiscal-positions.md`).
-   The chart is the localization's; see its localization skill if installed.
+   The chart is the localization's; it is not covered here, so check it with the user.
 3. **Product categories, products, then contacts:** `products-and-categories.md`,
    `pricelists.md`, `purchase.md`, `partners-and-imports.md`.
 4. **Open invoices and bills.** Invoicing ‣ Customers ‣ Invoices and Invoicing ‣ Vendors ‣
@@ -161,5 +161,4 @@ Compare with the old trial balance, open items per partner (`credit` owed by a c
   type"). Retire them instead.
 - One receivable total without partner cannot be matched with payments: one item each.
 - Foreign-currency items need `currency_id` and `amount_currency` on the line.
-- Opening invoices outside e-invoicing: the country's localization decides this; see its
-  localization skill if installed.
+- Opening invoices outside e-invoicing: the country's localization decides this; it is not covered here, so check it with the user.

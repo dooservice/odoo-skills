@@ -1,4 +1,4 @@
-"""The Claude Code marketplace, made from the folders: one plugin per version and per country."""
+"""The Claude Code marketplace, made from the folders: one plugin per version."""
 
 from __future__ import annotations
 
@@ -11,7 +11,6 @@ from .constants import (
     MARKETPLACE_FILE,
     VERSIONS_FOLDER,
 )
-from .localization import Localization
 
 
 class Marketplace:
@@ -32,19 +31,8 @@ class Marketplace:
             "keywords": ["odoo", "erp", version],
         }
 
-    def localization_plugin(self, localization: Localization) -> dict:
-        return {
-            "name": localization.skill_name,
-            "source": "./",
-            "description": f"Odoo localization for {localization.country.upper()}, 16.0 to 20.0",
-            "skills": [f"./localization/{localization.country}/"],
-            "license": LICENSE,
-            "keywords": ["odoo", "localization", localization.country],
-        }
-
     def content(self) -> str:
         plugins = [self.version_plugin(version) for version in self.versions()]
-        plugins += [self.localization_plugin(localization) for localization in Localization.all()]
         return json.dumps({**MARKETPLACE, "plugins": plugins}, indent=2, ensure_ascii=False) + "\n"
 
     def is_current(self) -> bool:

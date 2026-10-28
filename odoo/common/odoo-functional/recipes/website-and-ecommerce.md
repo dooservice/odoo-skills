@@ -144,7 +144,7 @@ cart, check the price display, the delivery methods and the payment providers.
 - Publishing many products at once makes their prices and descriptions public: ask.
 - The tax display only changes how prices show. Whether a price contains the tax is set
   on the tax (`taxes-and-journals.md`); the country's localization decides which taxes
-  apply, see its localization skill if installed.
+  apply, it is not covered here, so check it with the user.
 - A neutralized copy disables enabled providers (16.0–19.0) or puts them in test mode
   (20.0): no real payments there. Say so when the user tests in a copy. Never try a
   live provider with a real payment without the user's yes.

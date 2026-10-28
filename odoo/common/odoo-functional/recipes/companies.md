@@ -85,8 +85,7 @@ added from the parent company once it exists.
    Configuration ‣ Settings ‣ Fiscal Localization ‣ Package, with the company selected
    in the switcher, then Save. The chart comes from the country's localization module
    (`l10n_<country code>`, see `odoo-reference/addons.md`); which chart and what it
-   contains is for the country's localization to decide; see its localization skill if
-   installed. Ask before loading: on a company without journal entries, loading a
+   contains is for the country's localization to decide; it is not covered here, so check it with the user. Ask before loading: on a company without journal entries, loading a
    different chart through the setting deletes the accounts, taxes and journals already
    there.
 

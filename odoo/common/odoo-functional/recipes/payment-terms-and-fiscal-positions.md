@@ -3,8 +3,7 @@
 A payment term (`account.payment.term`) splits an invoice total into due dates. A fiscal
 position (`account.fiscal.position`) swaps taxes and accounts for some customers or
 vendors: exports, sales to businesses in another country, another state's rules. Which
-positions a country needs is set by law: the country's localization decides this; see
-its localization skill if installed. Both need `account` (Invoicing). Both are copied
+positions a country needs is set by law: the country's localization decides this; it is not covered here, so check it with the user. Both need `account` (Invoicing). Both are copied
 onto documents when they are created: changing one changes future documents, not posted
 ones. Changes to either need the user's yes; one already used on posted invoices is best
 replaced by a new record and the old one archived.

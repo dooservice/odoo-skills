@@ -15,8 +15,11 @@ does each task.
 |---|---|---|
 | **Developers** | `odoo-guidelines`, `odoo-web-guidelines`, `odoo-security`, `odoo-review`, `odoo-git`, `odoo-upgrade` | modules, ORM, views, controllers, JavaScript and Owl, security audits, code review, commits, porting between versions |
 | **Functional consultants** | `odoo-functional` | configuring Odoo without code, in 26 recipes that follow Odoo's own flow step by step: from go-live, sales, purchase, inventory, manufacturing, point of sale and eCommerce to taxes, bank reconciliation, closing the period, users, automations and "why does Odoo do X" |
-| **Each country** | `odoo-l10n-<country>` | the chart of accounts, taxes, identification, electronic invoicing and legal reports of one country, by people who implement Odoo there |
 | **Everyone** | `odoo-reference` | every model, field, Settings switch and XML id of each version, generated from its source |
+
+Only Odoo's standard flows, the same in every country. Localizations (`l10n_*`: a
+country's chart of accounts, taxes, electronic invoicing, legal reports) are not covered:
+each needs accountants of that country to keep it right as its law changes.
 
 ## How it is checked
 
@@ -107,28 +110,6 @@ cp -r odoo-skills/odoo/18.0/* odoo-skills/odoo/common/* ~/.claude/skills/
 
 Restart the agent; it picks the skill that matches the task by itself.
 
-## Localizations
-
-The skills above hold for every country. What depends on one (its chart of accounts and
-taxes, how contacts are identified, electronic invoicing, legal reports) lives in a skill
-of its own, `odoo-l10n-<country code>`, written and maintained by people who implement
-Odoo there. `odoo-functional` loads it when the database has that country's `l10n_*`
-module installed, and `install.sh` installs it when your modules depend on one.
-
-| Country | Skill | Maintained by |
-|---|---|---|
-| Peru | [`odoo-l10n-pe`](localization/pe/odoo-l10n-pe/SKILL.md) | Josué Salazar ([@Josuesp1620](https://github.com/Josuesp1620)), [Dooservice](https://dooservice.sh) |
-| Yours | | [Add your country](CONTRIBUTING.md#add-your-country) |
-
-Install one: `/plugin install odoo-l10n-<country code> --marketplace dooservice/odoo-skills`,
-or `npx skills add dooservice/odoo-skills/localization/<country code>`.
-
-**Add your country.** Copy `localization/template/odoo-l10n-xx/` to
-`localization/<country code>/odoo-l10n-<country code>/`, fill in each section, name
-yourself in `MAINTAINERS.md`, run `python3 tools/build_catalog.py`, and open a pull
-request. [CONTRIBUTING.md](CONTRIBUTING.md#add-your-country) has the rules. You stay listed
-here as its maintainer.
-
 ## Layout
 
 ```
@@ -136,15 +117,14 @@ odoo/<version>/      generated: odoo-guidelines, odoo-web-guidelines, odoo-secur
                      odoo-git (from Odoo's 20.0 skills) and odoo-reference (from that version's source)
 odoo/common/         version-independent, written by hand: odoo-upgrade, and odoo-functional
                      with its recipes, which name the differences between versions
-localization/        one skill per country, written by hand; template/ is the one to copy
-.claude-plugin/      the Claude Code marketplace: one plugin per version and per country,
+.claude-plugin/      the Claude Code marketplace: one plugin per version,
                      written by tools/build_catalog.py from the folders
 install.sh           the installer above
 tools/               the generators, not part of any skill:
   build_guidelines.py  builds the guideline skills from Odoo's 20.0 skills; guidelines/ is its
                        code, one class per file it writes, and guidelines/templates/ the text
   build_reference.py   builds odoo-reference from .odoo/src/<version>; reference/ is its code
-  build_catalog.py     checks every localization and writes the marketplace; catalog/ is its code
+  build_catalog.py     writes the marketplace; catalog/ is its code
 ```
 
 The `odoo/<version>/` skills are generated; change `tools/`, not the files. The text of

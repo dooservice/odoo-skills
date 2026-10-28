@@ -117,8 +117,7 @@ print(env['product.product'].search_read([('can_be_expensed', '=', True)], ['nam
 
    `standard_price` 0 lets the employee enter the amount; a value fixes the unit cost.
    The expense account is the product's (or its category's) expense account; the taxes
-   are its vendor taxes, which the localization decides: see its localization skill if
-   installed.
+   are its vendor taxes, which the localization decides: it is not covered here, so check it with the user.
 
 8. **Log and submit.** Expenses ‣ My Expenses ‣ New, Paid By (`payment_mode`):
    `own_account` (employee, to reimburse) or `company_account`.

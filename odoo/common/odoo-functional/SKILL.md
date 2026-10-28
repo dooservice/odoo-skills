@@ -50,17 +50,17 @@ Use what the environment gives, in this order. `connect.md` has the details.
 
 ## The country
 
-This skill holds for every country. What depends on one (its chart of accounts, taxes,
-identification of contacts, electronic invoicing, legal reports) belongs to its
-localization. Read which ones the database has:
+This skill covers Odoo's standard flows, the same in every country. What depends on one
+country (its chart of accounts, taxes, identification of contacts, electronic invoicing,
+legal reports) comes from its `l10n_*` modules and is not covered here. Read which ones the
+database has:
 
 ```python
 env['ir.module.module'].search([('name', '=like', 'l10n\\_%'), ('state', '=', 'installed')]).mapped('name')
 ```
 
-For an installed `l10n_<country code>`, load the `odoo-l10n-<country code>` skill when it is
-available, and follow it for anything country-specific. Without it, say that the rules of
-that country are not covered here, and check them with the user before acting.
+For anything country-specific, say that it is not covered, read what the installed `l10n_*`
+module defines, and check it with the user before acting.
 
 ## Rules that save databases
 

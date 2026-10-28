@@ -4,7 +4,7 @@ Taxes (`account.tax`) decide how much is charged and where it is booked; journal
 (`account.journal`) group entries and number invoices. The chart of accounts usually
 installs the taxes, tax groups and journals: adjust what is there before creating
 anything. Which taxes exist and how they are reported depend on the country: the
-country's localization decides this; see its localization skill if installed. It needs
+country's localization decides this; it is not covered here, so check it with the user. It needs
 `account` (Invoicing); tax return reports and bank synchronization are Enterprise and
 left out. Both taxes and journals are shared by every document that uses them. Count the
 users before a change, and never change one with posted entries in place: create a new
@@ -157,8 +157,7 @@ Configuration menu.
 ## Variations
 
 - **Cash basis.** Tax due when the invoice is paid, not when it is issued. Whether the
-  law asks for it depends on the country: the country's localization decides this; see
-  its localization skill if installed. Invoicing ‣ Configuration ‣ Settings ‣ Taxes ‣
+  law asks for it depends on the country: the country's localization decides this; it is not covered here, so check it with the user. Invoicing ‣ Configuration ‣ Settings ‣ Taxes ‣
   Cash Basis and its journal, then the tax form ‣ Advanced Options ‣ Tax Exigibility
   Based on Payment and the Cash Basis Transition Account.
 
