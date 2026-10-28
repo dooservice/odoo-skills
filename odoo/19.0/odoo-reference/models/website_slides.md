@@ -38,7 +38,7 @@ Public methods: `write`
 
 - `slide_channel_ids` Many2many → `slide.channel` “eLearning Courses” (compute=_compute_slide_channel_values)
 - `slide_channel_completed_ids` One2many → `slide.channel` “Completed Courses” (compute=_compute_slide_channel_values)
-- `slide_channel_count` Integer “Course Count” (compute=_compute_slide_channel_values)
+- `slide_channel_count` Integer “Course Count” (compute=_compute_slide_channel_company_count)
 - `slide_channel_company_count` Integer “Company Course Count” (compute=_compute_slide_channel_company_count)
 
 Public methods: `action_view_courses`
@@ -280,7 +280,7 @@ Inherits: `mail.thread`, `image.mixin`, `website.seo.metadata`, `website.publish
 - `is_published` Boolean
 - `website_published` Boolean
 
-Public methods: `action_dislike`, `action_like`, `action_mark_completed`, `action_mark_uncompleted`, `action_set_viewed`, `action_view_embeds`, `copy_data`, `create`, `get_backend_menu_id`, `get_base_url`, `message_post`, `unlink`, `write`
+Public methods: `action_dislike`, `action_like`, `action_mark_completed`, `action_mark_uncompleted`, `action_set_viewed`, `action_view_embeds`, `copy_data`, `create`, `get_backend_menu_id`, `get_base_url`, `get_image_1024_src`, `message_post`, `unlink`, `write`
 
 Extension points: `_action_mark_completed`, `_action_set_quiz_done`, `_action_set_viewed`, `_action_vote`, `_get_access_action`, `_get_can_publish_error_message`, `_get_completion_time_pdf`, `_get_next_category`, `_get_placeholder_filename`, `_post_publication`
 

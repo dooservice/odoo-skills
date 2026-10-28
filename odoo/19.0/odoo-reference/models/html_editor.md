@@ -137,7 +137,7 @@ Qweb Field qweb
 
 Public methods: `delete_snippet`, `extract_embedded_fields`, `extract_oe_structures`, `get_default_lang_code`, `get_related_views`, `rename_snippet`, `replace_arch_section`, `save`, `save_embedded_field`, `save_oe_structure`, `save_snippet`, `to_empty_oe_structure`, `to_field_ref`
 
-Extension points: `_get_allowed_root_attrs`, `_get_cleaned_non_editing_attributes`, `_get_snippet_addition_view_key`
+Extension points: `_get_allowed_root_attrs`, `_get_cleaned_non_editing_attributes`, `_get_snippet_addition_view_key`, `_get_written_view`
 
 ## `ir.websocket` (extends)
 

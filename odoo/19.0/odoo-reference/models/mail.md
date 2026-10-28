@@ -973,6 +973,7 @@ Inherits: `mail.activity.mixin`, `mail.thread.blacklist`
 
 - `name` Char
 - `email` Char
+- `email_normalized` Char
 - `phone` Char
 - `parent_id` Many2one
 - `user_id` Many2one

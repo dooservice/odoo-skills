@@ -471,7 +471,7 @@ Inherits: `pos.load.mixin`
 
 Public methods: `copy_data`, `create`, `get_payment_providers`, `get_provider_status`, `get_qr_code_value`, `write`
 
-Extension points: `_check_cash_method_single_shop`, `_check_company_config`, `_check_currency_ids`, `_check_payment_method`, `_create_bank_payment_line`, `_create_cash_payment_line`, `_create_payment_line`, `_get_cash_machine_selection`, `_get_external_qr_provider_selection`, `_get_payment_method_type`, `_get_provider_selection`, `_get_terminal_provider_selection`, `_get_write_forbidden_fields`
+Extension points: `_check_cash_method_single_shop`, `_check_company_config`, `_check_currency_ids`, `_check_payment_method`, `_create_bank_payment_line`, `_create_cash_payment_line`, `_create_pay_later_payment_line`, `_create_payment_line`, `_get_cash_machine_selection`, `_get_external_qr_provider_selection`, `_get_payment_method_type`, `_get_provider_selection`, `_get_terminal_provider_selection`, `_get_write_forbidden_fields`
 
 ## `pos.prep.line` (defines)
 
@@ -569,7 +569,7 @@ Inherits: `mail.thread`, `mail.activity.mixin`, `pos.bus.mixin`, `pos.load.mixin
 - `closing_notes` Text “Closing Notes”
 - `state` Selection “Status” (required, readonly, index)
 - `bank_statement_id` Many2one → `account.bank.statement` “Bank Statement” (readonly)
-- `bank_statement_line_ids` One2many → `account.bank.statement.line` “Bank Statement Lines” (readonly, related=bank_statement_id.line_ids)
+- `bank_statement_line_ids` One2many → `account.bank.statement.line` “Bank Transactions” (readonly, related=bank_statement_id.line_ids)
 - `opening_balance` Monetary “Opening Balance” (readonly, related=bank_statement_id.balance_start)
 - `closing_balance` Monetary “Closing Balance” (readonly, related=bank_statement_id.balance_end_real)
 - `closing_difference` Monetary “Closing Difference” (compute=_compute_closing_difference)
@@ -700,7 +700,7 @@ Point of Sale Details
 
 Public methods: `get_sale_details`
 
-Extension points: `_get_date_start_and_date_stop`, `_get_domain`, `_get_product_total_amount`, `_get_products_and_taxes_dict`, `_get_report_values`, `_get_taxes_info`, `_get_total_and_qty_per_category`, `_prepare_get_sale_details_args_kwargs`
+Extension points: `_get_date_start_and_date_stop`, `_get_domain`, `_get_order_line_sign`, `_get_product_total_amount`, `_get_products_and_taxes_dict`, `_get_report_values`, `_get_taxes_info`, `_get_total_and_qty_per_category`, `_prepare_get_sale_details_args_kwargs`
 
 ## `res.company` (extends)
 
@@ -878,7 +878,7 @@ Point of Sale Order Receipt Generator
 
 Public methods: `order_receipt_generate_data`, `order_receipt_generate_html`, `order_receipt_generate_image`
 
-Extension points: `_get_common_extra_data`, `_get_common_record_data`, `_get_total_item_count`, `_prepare_preparation_grouped_data`
+Extension points: `_get_common_extra_data`, `_get_common_record_data`, `_get_preset_customer_info`, `_get_total_item_count`, `_prepare_preparation_grouped_data`
 
 ## `report.point_of_sale.report_invoice` (defines)
 

@@ -198,7 +198,7 @@ Inherits: `mail.thread`, `mail.activity.mixin`, `product.catalog.mixin`
 
 Public methods: `action_assign`, `action_cancel`, `action_clear_lot_producing_ids`, `action_confirm`, `action_detailed_operations`, `action_generate_bom`, `action_generate_serial`, `action_merge`, `action_open_label_layout`, `action_open_label_type`, `action_product_forecast_report`, `action_reset_to_draft`, `action_reset_to_progress`, `action_scrap`, `action_see_move_scrap`, `action_split`, `action_start`, `action_toggle_is_locked`, `action_update_bom`, `action_view_allocation_report`, `action_view_mo_delivery`, `action_view_mrp_production_all_childs`, `action_view_mrp_production_backorders`, `action_view_mrp_production_childs`, `action_view_mrp_production_sources`, `action_view_mrp_production_unbuilds`, `action_view_packages`, `action_view_serial_numbers`, `button_mark_done`, `button_plan`, `button_unbuild`, `button_unplan`, `copy_data`, `create`, `default_get`, `do_unreserve`, `get_empty_list_help`, `pre_button_mark_done`, `set_qty_producing`, `unlink`, `write`
 
-Extension points: `_action_confirm_mo_backorders`, `_action_generate_backorder_wizard`, `_action_generate_consumption_wizard`, `_check_byproducts`, `_check_lot_producing_ids`, `_check_sn_uniqueness`, `_create_update_move_finished`, `_get_action_add_from_catalog_extra_context`, `_get_all_children`, `_get_autoprint_done_report_actions`, `_get_backorder_mo_vals`, `_get_bom_values`, `_get_children`, `_get_consumption_issues`, `_get_default_date_finished`, `_get_default_date_start`, `_get_default_is_locked`, `_get_default_picking_type_id`, `_get_document_iterate_key`, `_get_move_finished_values`, `_get_move_raw_values`, `_get_moves_finished_values`, `_get_moves_raw_values`, `_get_name_backorder`, `_get_origin`, `_get_packages_for_print`, `_get_produced_qty`, `_get_product_catalog_domain`, `_get_quantity_produced_issues`, `_get_quantity_to_backorder`, `_get_ratio_between_mo_and_bom_quantities`, `_get_ready_to_produce_state`, `_get_sources`, `_post_inventory`, `_post_run_manufacture`, `_prepare_finished_extra_vals`, `_prepare_merge_orig_links`, `_prepare_stock_lot_values`
+Extension points: `_action_confirm_mo_backorders`, `_action_generate_backorder_wizard`, `_action_generate_consumption_wizard`, `_check_byproducts`, `_check_date_finished_not_future`, `_check_lot_producing_ids`, `_check_sn_uniqueness`, `_create_update_move_finished`, `_get_action_add_from_catalog_extra_context`, `_get_all_children`, `_get_autoprint_done_report_actions`, `_get_backorder_mo_vals`, `_get_bom_values`, `_get_children`, `_get_consumption_issues`, `_get_default_date_finished`, `_get_default_date_start`, `_get_default_is_locked`, `_get_default_picking_type_id`, `_get_document_iterate_key`, `_get_move_finished_values`, `_get_move_raw_values`, `_get_moves_finished_values`, `_get_moves_raw_values`, `_get_name_backorder`, `_get_origin`, `_get_packages_for_print`, `_get_produced_qty`, `_get_product_catalog_domain`, `_get_quantity_produced_issues`, `_get_quantity_to_backorder`, `_get_ratio_between_mo_and_bom_quantities`, `_get_ready_to_produce_state`, `_get_sources`, `_post_inventory`, `_post_run_manufacture`, `_prepare_finished_extra_vals`, `_prepare_merge_orig_links`, `_prepare_stock_lot_values`
 
 ## `mrp.routing.workcenter` (defines)
 
@@ -428,7 +428,7 @@ Inherits: `mail.thread`, `mail.activity.mixin`, `product.catalog.mixin`
 
 Public methods: `action_cancel`, `action_mark_as_done`, `action_plan`, `action_replan`, `action_scrap`, `action_select_mo_to_plan`, `action_unplan`, `action_view_backorders`, `button_finish`, `button_pending`, `button_start`, `button_unblock`, `create`, `end_all`, `end_previous`, `get_duration`, `set_state`, `unlink`, `web_resequence`, `write`
 
-Extension points: `_action_confirm`, `_action_plan`, `_action_reset_to_draft`, `_action_reset_to_progress`, `_check_no_cyclic_dependencies`, `_get_action_add_from_catalog_extra_context`, `_get_backorders`, `_get_conflicted_workorder_ids`, `_get_duration_expected`, `_get_operation_values`, `_get_product_catalog_domain`, `_prepare_timeline_vals`
+Extension points: `_action_confirm`, `_action_plan`, `_action_reset_to_draft`, `_action_reset_to_progress`, `_check_no_cyclic_dependencies`, `_get_action_add_from_catalog_extra_context`, `_get_actual_duration`, `_get_backorders`, `_get_conflicted_workorder_ids`, `_get_duration_expected`, `_get_operation_values`, `_get_product_catalog_domain`, `_prepare_timeline_vals`
 
 ## `product.template` (extends)
 
@@ -511,7 +511,7 @@ Extension points: `_check_create`
 
 Public methods: `action_add_from_catalog_byproduct`, `action_add_from_catalog_raw`, `action_add_from_catalog_wo`, `action_explode`, `action_open_reference`, `action_show_details`, `create`, `default_get`, `write`
 
-Extension points: `_action_assign`, `_action_cancel`, `_action_confirm`, `_action_done`, `_action_replenish`, `_action_reset_to_progress`, `_check_negative_quantity`, `_get_backorder_move_vals`, `_get_production_assignation_domain`, `_get_relevant_state_among_moves`, `_get_source_document`, `_get_upstream_documents_and_responsibles`, `_prepare_merge_moves_distinct_fields`, `_prepare_merge_negative_moves_excluded_distinct_fields`, `_prepare_move_line_vals`, `_prepare_move_split_vals`, `_prepare_phantom_move_values`, `_prepare_procurement_origin`, `_prepare_procurement_values`, `_prepare_scrap_move_vals`
+Extension points: `_action_assign`, `_action_cancel`, `_action_confirm`, `_action_done`, `_action_replenish`, `_action_reset_to_progress`, `_check_negative_quantity`, `_get_backorder_move_vals`, `_get_production_assignation_domain`, `_get_quantity_to_assign`, `_get_relevant_state_among_moves`, `_get_source_document`, `_get_upstream_documents_and_responsibles`, `_prepare_merge_moves_distinct_fields`, `_prepare_merge_negative_moves_excluded_distinct_fields`, `_prepare_move_line_vals`, `_prepare_move_split_vals`, `_prepare_phantom_move_values`, `_prepare_procurement_origin`, `_prepare_procurement_values`, `_prepare_scrap_move_vals`
 
 ## `stock.move.line` (extends)
 
@@ -530,7 +530,7 @@ Extension points: `_get_aggregated_product_quantities`, `_get_aggregated_propert
 - `bom_id_placeholder` Char (compute=_compute_bom_id_placeholder)
 - `effective_bom_id` Many2one → `mrp.bom` “Effective Bill of Materials” (compute=_compute_effective_bom_id)
 
-Extension points: `_get_default_bom`, `_get_default_route`, `_get_lead_days_values`, `_get_replenishment_multiple_alternative`, `_get_replenishment_order_notification`, `_post_process_scheduler`, `_prepare_procurement_values`
+Extension points: `_get_default_bom`, `_get_default_route`, `_get_lead_days_values`, `_get_matching_boms`, `_get_replenishment_multiple_alternative`, `_get_replenishment_order_notification`, `_post_process_scheduler`, `_prepare_procurement_values`
 
 ## `stock.package` (extends)
 

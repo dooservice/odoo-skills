@@ -112,7 +112,7 @@ Extension points: `_check_allow_timesheet`, `_get_processed_analytic_account_val
 
 Public methods: `TASK_PORTAL_READABLE_FIELDS`, `action_print_timesheets`, `action_view_subtask_timesheet`
 
-Extension points: `_check_project_root`, `_get_cannot_start_with_patterns`, `_get_domain_effective_hours`, `_get_group_pattern`, `_get_groups`, `_get_portal_total_hours_dict`, `_get_template_field_blacklist`, `_get_timesheet`, `_get_timesheet_report_data`, `_prepare_pattern_groups`
+Extension points: `_check_project_root`, `_get_cannot_start_with_patterns`, `_get_domain_effective_hours`, `_get_group_pattern`, `_get_groups`, `_get_portal_timesheet_domain`, `_get_portal_total_hours_dict`, `_get_template_field_blacklist`, `_get_timesheet`, `_get_timesheet_report_data`, `_prepare_pattern_groups`
 
 ## `project.update` (extends)
 

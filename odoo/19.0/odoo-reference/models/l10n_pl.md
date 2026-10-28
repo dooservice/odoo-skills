@@ -8,7 +8,7 @@ Depends on: base_iban, base_vat, account, account_edi_ubl_cii.
 - `l10n_pl_vat_b_spv_dostawa` Boolean “B_SPV_Dostawa”
 - `l10n_pl_vat_b_mpv_prowizja` Boolean “B_MPV_Prowizja”
 
-Extension points: `_get_accounting_date_source`, `_get_invoice_currency_rate_date`
+Extension points: `_get_accounting_date_source`, `_get_default_currency_rate_date`, `_get_invoice_currency_rate_date`
 
 ## `l10n_pl.l10n_pl_tax_office` (defines)
 

@@ -613,7 +613,7 @@ Extension points: `_get_employee_fields_to_sync`, `_get_personal_info_partner_id
 - `work_phone` Char (related=employee_id.work_phone)
 - `show_hr_icon_display` Boolean (related=employee_id.show_hr_icon_display)
 - `hr_icon_display` Selection (related=employee_id.hr_icon_display)
-- `calendar_id` Many2one
+- `calendar_id` Many2one (store, compute=_compute_calendar_id)
 
 Extension points: `_get_calendar_data_at`, `_get_calendars_validity_within_period`, `_get_contracts_valid_periods`, `_get_flexible_resources_calendars_validity_within_period`, `_get_resource_without_contract`
 

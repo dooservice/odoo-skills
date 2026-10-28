@@ -37,6 +37,7 @@ Inherits: `mail.thread`, `hr.time.rule.source.mixin`
 - `day_of_date` Selection “Day” (store, index, compute=_compute_day_of_date)
 - `resource_calendar_id` Many2one “Working Schedule” (related=employee_id.resource_calendar_id)
 - `break_duration` Float “Break Duration”
+- `allowed_work_entry_type_ids` Many2many → `hr.work.entry.type` (compute=_compute_allowed_work_entry_type_ids)
 - `work_entry_type_id` Many2one → `hr.work.entry.type` “Time Type” (required, index)
 - `wet_display_code` Char (related=work_entry_type_id.display_code)
 - `wet_color` Integer “Work Entry Color” (related=work_entry_type_id.color)
@@ -46,9 +47,9 @@ Inherits: `mail.thread`, `hr.time.rule.source.mixin`
 - `overtime_attendance_ids` One2many → `hr.attendance`
 - `source_stale` Boolean
 
-Public methods: `action_in_attendance_maps`, `action_mark_reviewed`, `action_out_attendance_maps`, `action_refuse`, `action_reset_to_draft`, `action_try_kiosk`, `action_validate`, `copy`, `create`, `get_kiosk_url`, `get_unusual_days`, `has_demo_data`, `init`, `write`
+Public methods: `action_in_attendance_maps`, `action_mark_reviewed`, `action_out_attendance_maps`, `action_refuse`, `action_reset_to_draft`, `action_try_kiosk`, `action_validate`, `copy`, `create`, `get_kiosk_url`, `get_record_default_action`, `get_unusual_days`, `has_demo_data`, `init`, `write`
 
-Extension points: `_check_break_duration`, `_check_validity`, `_check_validity_check_in_check_out`, `_get_break_duration_within_period`, `_get_localized_times`, `_get_source_extra_fields_domain`, `_get_time_rule_break_hours`, `_get_time_rule_deficit_occupied`, `_get_time_rule_output_vals`, `_get_time_rule_remainder_vals`, `_get_write_source_extra_source_fields`
+Extension points: `_check_break_duration`, `_check_validity`, `_check_validity_check_in_check_out`, `_get_break_duration_within_period`, `_get_localized_times`, `_get_source_extra_fields_domain`, `_get_time_rule_break_hours`, `_get_time_rule_deficit_occupied`, `_get_time_rule_output_vals`, `_get_time_rule_remainder_vals`, `_get_work_entry_type_domain`, `_get_write_source_extra_source_fields`
 
 ## `hr.employee` (extends)
 

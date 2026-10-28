@@ -58,7 +58,7 @@ Extension points: `_get_onboarding_action_data`
 
 Public methods: `action_pdp_open_response_wizard`, `button_cancel`, `button_draft`, `fields_get`
 
-Extension points: `_get_l10n_fr_pdp_errors`, `_get_ubl_cii_builder_from_xml_tree`
+Extension points: `_get_import_file_type`, `_get_l10n_fr_pdp_errors`, `_get_ubl_cii_builder_from_xml_tree`
 
 ## `account.move.send` (extends)
 

@@ -17,7 +17,7 @@ Depends on: account_debit_note, base_iban, l10n_hu.
 
 Public methods: `button_request_cancel`, `l10n_hu_edi_button_hide_banner`, `l10n_hu_edi_button_update_status`
 
-Extension points: `_check_posted_if_active`, `_get_invoice_currency_rate_date`, `_get_name_invoice_report`
+Extension points: `_check_posted_if_active`, `_get_default_currency_rate_date`, `_get_invoice_currency_rate_date`, `_get_name_invoice_report`
 
 ## `account.move.send` (extends)
 

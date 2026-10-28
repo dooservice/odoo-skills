@@ -64,7 +64,7 @@ Inherits: `mail.thread`, `mail.activity.mixin`
 - `general_question_ids` Many2many → `event.question` “General Questions”
 - `specific_question_ids` Many2many → `event.question` “Specific Questions”
 
-Public methods: `action_open_slot_calendar`, `action_set_done`, `default_get`, `get_kiosk_url`
+Public methods: `action_open_slot_calendar`, `action_set_done`, `create`, `default_get`, `get_kiosk_url`, `write`
 
 Extension points: `_check_closing_date`, `_check_event_url`, `_check_slots_dates`, `_get_date_range_str`, `_get_default_stage_id`, `_get_external_description_url_encoded`, `_get_ics_description`, `_get_ics_file`, `_get_seats_availability`, `_get_tickets_access_hash`
 

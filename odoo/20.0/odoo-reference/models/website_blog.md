@@ -73,6 +73,7 @@ Inherits: `mail.thread`, `website.seo.metadata`, `website.published.multi.mixin`
 - `write_uid` Many2one → `res.users` (readonly)
 - `visits` Integer “No of Views” (readonly)
 - `website_id` Many2one (readonly, store, related=blog_id.website_id)
+- `comment_count` Integer “Comment count” (compute=_compute_comment_count)
 
 Public methods: `create`, `write`
 

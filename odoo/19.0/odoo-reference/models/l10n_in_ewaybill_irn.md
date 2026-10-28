@@ -9,4 +9,4 @@ Depends on: l10n_in_ewaybill, l10n_in_edi.
 
 Public methods: `action_generate_ewaybill`, `action_reset_to_pending`
 
-Extension points: `_get_edi_irn_number`, `_prepare_ewaybill_transportation_json_payload`
+Extension points: `_get_edi_irn_number`, `_get_ewaybill_request_json`, `_prepare_ewaybill_transportation_json_payload`

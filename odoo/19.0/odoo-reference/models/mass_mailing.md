@@ -2,6 +2,11 @@
 
 Depends on: contacts, mail, html_builder, utm, link_tracker, social_media, web_tour, digest.
 
+## `ir.attachment` (extends)
+
+
+Extension points: `_get_mimetype_exempt_groups`
+
 ## `ir.http` (extends)
 
 

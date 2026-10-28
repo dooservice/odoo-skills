@@ -9,7 +9,7 @@
 | account_debit_note | Debit Notes | `account.debit.note` | `account.journal`, `account.move` |
 | account_edi | Import/Export Invoices From XML/PDF | `account.edi.document`, `account.edi.format` | `account.journal`, `account.move.send`, `account.move`, `account.resequence.wizard`, `ir.actions.report`, `ir.attachment` |
 | account_edi_proxy_client | Proxy features for account_edi | `account_edi_proxy_client.user` | `certificate.key`, `res.company` |
-| account_edi_ubl_cii | Import/Export electronic invoices with UBL/CII | `account.edi.cii`, `account.edi.common`, `account.edi.ubl`, `account.edi.ubl_cen_en16931`, `account.edi.ubl_pint`, `account.edi.ubl_pint_eu`, `account.edi.xml.cii`, `account.edi.xml.ubl_20`, `account.edi.xml.ubl_21`, `account.edi.xml.ubl_a_nz`, `account.edi.xml.ubl_bis3`, `account.edi.xml.ubl_efff`, `account.edi.xml.ubl_nl`, `account.edi.xml.ubl_sg`, `account.edi.xml.ubl_de` | `account.move.send.wizard`, `account.move.send`, `account.move`, `account.tax`, `ir.actions.report`, `res.partner` |
+| account_edi_ubl_cii | Import/Export electronic invoices with UBL/CII | `account.edi.cii`, `account.edi.common`, `account.edi.ubl`, `account.edi.ubl_cen_en16931`, `account.edi.ubl_pint`, `account.edi.ubl_pint_eu`, `account.edi.xml.cii`, `account.edi.xml.ubl_20`, `account.edi.xml.ubl_21`, `account.edi.xml.ubl_a_nz`, `account.edi.xml.ubl_bis3`, `account.edi.xml.ubl_efff`, `account.edi.xml.ubl_nl`, `account.edi.xml.ubl_sg`, `account.edi.xml.ubl_de` | `account.move.send.wizard`, `account.move.send`, `account.move`, `account.tax`, `ir.actions.report`, `res.company`, `res.partner` |
 | account_fleet | Accounting/Fleet bridge |  | `account.automatic.entry.wizard`, `account.move.line`, `account.move`, `fleet.vehicle.log.services`, `fleet.vehicle` |
 | account_payment | Payment - Account | `payment.refund.wizard` | `account.bank.statement.line`, `account.journal`, `account.move`, `account.payment.method.line`, `account.payment.method`, `account.payment.register`, `account.payment`, `payment.link.wizard`, `payment.provider`, `payment.transaction`, `res.config.settings` |
 | account_payment_interco | Intercompany Payment - Account |  | `account.move`, `res.company`, `res.config.settings` |
@@ -143,7 +143,8 @@
 | l10n_bf | Burkina Faso - Accounting |  | `account.chart.template` |
 | l10n_bg | Bulgaria - Accounting |  | `account.chart.template` |
 | l10n_bg_ledger | Bulgaria - Report ledger |  | `account.journal`, `account.move` |
-| l10n_bh | Bahrain - Accounting |  | `account.chart.template` |
+| l10n_bh | Bahrain - Accounting |  | `account.chart.template`, `account.move` |
+| l10n_bh_pos | Bahrain - Point of Sale |  | `res.partner` |
 | l10n_bj | Benin - Accounting |  | `account.chart.template` |
 | l10n_bo | Bolivia - Accounting |  | `account.chart.template` |
 | l10n_br | Brazilian - Accounting | `l10n_br.zip.range` | `account.chart.template`, `account.fiscal.position`, `account.journal`, `account.move.reversal`, `account.move`, `account.tax`, `res.city`, `res.company`, `res.partner.bank`, `res.partner` |
@@ -217,6 +218,7 @@
 | l10n_gr | Greece - Accounting |  | `account.chart.template` |
 | l10n_gr_edi | Greece - myDATA | `l10n_gr_edi.document`, `l10n_gr_edi.preferred_classification` | `account.fiscal.position`, `account.move.line`, `account.move.reversal`, `account.move.send`, `account.move`, `account.tax`, `product.template`, `res.company`, `res.config.settings`, `res.partner` |
 | l10n_gr_edi_e_invoo | Greece - myDATA E-invoicing through e-invoo |  | `account.move.send`, `account.move`, `account_edi_proxy_client.user`, `l10n_gr_edi.document`, `res.company` |
+| l10n_gr_edi_e_invoo_bridge | Greece - myDATA E-invoicing through e-invoo (direct API) |  | `account.move.send`, `account.move`, `res.company`, `res.config.settings` |
 | l10n_gt | Guatemala - Accounting |  | `account.chart.template` |
 | l10n_gw | Guinea-Bissau - Accounting |  | `account.chart.template` |
 | l10n_hk | Hong Kong - Accounting |  | `account.chart.template`, `res.partner.bank` |
@@ -329,6 +331,7 @@
 | l10n_th | Thailand - Accounting |  | `account.chart.template`, `account.move`, `ir.actions.report`, `res.partner.bank`, `res.partner` |
 | l10n_tn | Tunisia - Accounting |  | `account.chart.template` |
 | l10n_tr | Türkiye - Accounting |  | `account.chart.template`, `account.journal`, `account.move.line`, `ir.http`, `product.template` |
+| l10n_tr_gib_invoice_scenarios | Türkiye - Nilvera E-Invoice Commercial and Return | `l10n_tr.ticarifatura.response.wizard` | `account.edi.xml.ubl.tr`, `account.move.line`, `account.move.send`, `account.move` |
 | l10n_tr_nilvera | Türkiye - Nilvera | `l10n_tr.nilvera.alias` | `account.journal`, `res.company`, `res.config.settings`, `res.partner`, `uom.uom` |
 | l10n_tr_nilvera_base_vat | Türkiye - Nilvera/Base VAT |  | `res.partner` |
 | l10n_tr_nilvera_edispatch | Türkiye - e-Irsaliye (e-Dispatch) | `l10n_tr.nilvera.trailer.plate` | `res.partner`, `stock.picking.type`, `stock.picking` |
@@ -364,7 +367,7 @@
 | mail_plugin | Mail Plugin | `res.partner.iap` | `ir.http`, `res.partner` |
 | maintenance | Maintenance | `maintenance.stage`, `maintenance.equipment.category`, `maintenance.mixin`, `maintenance.equipment`, `maintenance.request`, `maintenance.team` | `res.config.settings` |
 | marketing_card | Marketing Card | `card.campaign`, `card.campaign.tag`, `card.card`, `card.template` | `ir.model`, `mail.compose.message`, `mailing.mailing`, `utm.source` |
-| mass_mailing | Email Marketing | `mailing.mailing`, `mailing.contact`, `mailing.filter`, `mailing.list`, `mailing.subscription`, `mailing.subscription.optout`, `mailing.trace`, `mailing.trace.report`, `mailing.contact.import`, `mailing.contact.to.list`, `mailing.list.merge`, `mailing.mailing.schedule.date`, `mailing.mailing.test` | `ir.http`, `ir.mail_server`, `ir.model`, `link.tracker.click`, `link.tracker`, `mail.blacklist`, `mail.compose.message`, `mail.mail`, `mail.render.mixin`, `mail.thread`, `res.company`, `res.config.settings`, `res.partner`, `res.users`, `utm.campaign`, `utm.medium`, `utm.source` |
+| mass_mailing | Email Marketing | `mailing.mailing`, `mailing.contact`, `mailing.filter`, `mailing.list`, `mailing.subscription`, `mailing.subscription.optout`, `mailing.trace`, `mailing.trace.report`, `mailing.contact.import`, `mailing.contact.to.list`, `mailing.list.merge`, `mailing.mailing.schedule.date`, `mailing.mailing.test` | `ir.attachment`, `ir.http`, `ir.mail_server`, `ir.model`, `link.tracker.click`, `link.tracker`, `mail.blacklist`, `mail.compose.message`, `mail.mail`, `mail.render.mixin`, `mail.thread`, `res.company`, `res.config.settings`, `res.partner`, `res.users`, `utm.campaign`, `utm.medium`, `utm.source` |
 | mass_mailing_crm | Mass mailing on lead / opportunities |  | `crm.lead`, `mailing.mailing`, `utm.campaign` |
 | mass_mailing_crm_sms | Mass mailing sms on lead / opportunities |  | `utm.campaign` |
 | mass_mailing_event | Mass mailing on attendees |  | `event.event`, `event.registration` |
@@ -446,11 +449,11 @@
 | pos_repair | POS - Repair |  | `sale.order.line`, `stock.picking` |
 | pos_restaurant | Restaurant | `restaurant.floor`, `restaurant.table`, `restaurant.order.course` | `pos.config`, `pos.order.line`, `pos.order`, `pos.payment`, `pos.preset`, `pos.session`, `res.config.settings` |
 | pos_restaurant_adyen | POS Restaurant Adyen |  | `pos.order`, `pos.payment.method`, `pos.payment` |
-| pos_restaurant_loyalty | POS - Restaurant Loyality |  |  |
+| pos_restaurant_loyalty | POS - Restaurant Loyalty |  |  |
 | pos_restaurant_stripe | POS Restaurant Stripe |  |  |
 | pos_safaricom | POS Safaricom | `transaction.lipa.na.mpesa` | `pos.payment.method` |
 | pos_sale | POS - Sales |  | `account.move.line`, `account.move`, `crm.team`, `pos.config`, `pos.order.line`, `pos.order`, `pos.session`, `product.template`, `res.config.settings`, `res.partner`, `sale.order.line`, `sale.order`, `sale.report`, `stock.picking` |
-| pos_sale_loyalty | POS - Sales Loyality |  | `sale.order.line` |
+| pos_sale_loyalty | POS - Sales Loyalty |  | `sale.order.line` |
 | pos_sale_margin | POS - Sale Margin |  | `sale.report` |
 | pos_self_order | POS Self Order | `pos_self_order.custom_link` | `ir.http`, `mail.template`, `pos.category`, `pos.config`, `pos.load.mixin`, `pos.order.line`, `pos.order`, `pos.payment.method`, `pos.preset`, `pos.session`, `product.product`, `product.tag`, `product.template`, `res.config.settings`, `res.country`, `res.partner`, `restaurant.floor`, `restaurant.table` |
 | pos_self_order_adyen | POS Self Order Adyen |  | `pos.payment.method` |

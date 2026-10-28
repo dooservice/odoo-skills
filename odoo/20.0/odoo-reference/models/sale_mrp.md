@@ -33,7 +33,7 @@ Extension points: `_get_bom_component_qty`, `_get_incoming_outgoing_moves_filter
 ## `stock.move` (extends)
 
 
-Extension points: `_get_source_document`
+Extension points: `_get_source_document`, `_prepare_procurement_values`
 
 ## `stock.warehouse.orderpoint` (extends)
 

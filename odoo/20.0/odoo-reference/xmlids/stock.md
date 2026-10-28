@@ -396,7 +396,7 @@
 ## mail.template
 
 - `stock.mail_template_data_delivery_confirmation`
-- `stock.mail_template_data_stock_move_line_recall`
+- `stock.mail_template_data_stock_picking_recall`
 
 ## product.removal
 

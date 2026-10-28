@@ -405,7 +405,7 @@ Work Order
 
 Public methods: `action_cancel`, `action_mark_as_done`, `action_open_wizard`, `action_replan`, `action_see_move_scrap`, `button_finish`, `button_pending`, `button_scrap`, `button_start`, `button_unblock`, `create`, `end_all`, `end_previous`, `get_duration`, `get_working_duration`, `set_state`, `unlink`, `write`
 
-Extension points: `_action_confirm`, `_check_no_cyclic_dependencies`, `_get_byproduct_move_to_update`, `_get_conflicted_workorder_ids`, `_get_current_theorical_operation_cost`, `_get_duration_expected`, `_get_operation_values`, `_prepare_timeline_vals`
+Extension points: `_action_confirm`, `_check_no_cyclic_dependencies`, `_get_actual_duration`, `_get_byproduct_move_to_update`, `_get_conflicted_workorder_ids`, `_get_current_theorical_operation_cost`, `_get_duration_expected`, `_get_operation_values`, `_prepare_timeline_vals`
 
 ## `product.template` (extends)
 
@@ -489,7 +489,7 @@ Extension points: `_check_create`
 
 Public methods: `action_add_from_catalog_byproduct`, `action_add_from_catalog_raw`, `action_explode`, `action_open_reference`, `action_show_details`, `create`, `default_get`, `write`
 
-Extension points: `_action_cancel`, `_action_confirm`, `_action_done`, `_check_negative_quantity`, `_get_backorder_move_vals`, `_get_production_assignation_domain`, `_get_relevant_state_among_moves`, `_get_source_document`, `_get_upstream_documents_and_responsibles`, `_prepare_merge_moves_distinct_fields`, `_prepare_merge_negative_moves_excluded_distinct_fields`, `_prepare_move_line_vals`, `_prepare_move_split_vals`, `_prepare_phantom_move_values`, `_prepare_procurement_origin`, `_prepare_procurement_values`
+Extension points: `_action_cancel`, `_action_confirm`, `_action_done`, `_check_negative_quantity`, `_get_backorder_move_vals`, `_get_production_assignation_domain`, `_get_quantity_to_assign`, `_get_relevant_state_among_moves`, `_get_source_document`, `_get_upstream_documents_and_responsibles`, `_prepare_merge_moves_distinct_fields`, `_prepare_merge_negative_moves_excluded_distinct_fields`, `_prepare_move_line_vals`, `_prepare_move_split_vals`, `_prepare_phantom_move_values`, `_prepare_procurement_origin`, `_prepare_procurement_values`
 
 ## `stock.move.line` (extends)
 

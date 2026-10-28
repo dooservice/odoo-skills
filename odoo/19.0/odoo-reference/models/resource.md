@@ -6,10 +6,11 @@ Depends on: base, web.
 
 - `resource_calendar_ids` One2many → `resource.calendar`
 - `resource_calendar_id` Many2one → `resource.calendar`
+- `tz` Selection “Timezone” (related=partner_id.tz)
 
 Public methods: `create`
 
-Extension points: `_create_resource_calendar`, `_prepare_resource_calendar_values`
+Extension points: `_create_resource_calendar`, `_get_company_today`, `_get_company_tz`, `_prepare_resource_calendar_values`
 
 ## `res.users` (extends)
 

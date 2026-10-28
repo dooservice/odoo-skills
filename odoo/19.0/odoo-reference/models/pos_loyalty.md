@@ -62,7 +62,7 @@ Extension points: `_check_before_creating_new_session`, `_get_program_ids`
 ## `pos.order` (extends)
 
 
-Public methods: `add_loyalty_history_lines`, `confirm_coupon_programs`, `validate_coupon_programs`
+Public methods: `add_loyalty_history_lines`, `confirm_coupon_programs`, `read_pos_orders`, `validate_coupon_programs`
 
 Extension points: `_check_existing_loyalty_cards`, `_get_fields_for_order_line`
 

@@ -5,7 +5,7 @@ Depends on: account.
 ## `res.partner.bank` (extends)
 
 - `display_qr_setting` Boolean (compute=_compute_display_qr_setting)
-- `company_qr_code` Boolean (related=company_id.qr_code)
+- `company_qr_code` Boolean (compute=_compute_company_qr_code)
 - `include_reference` Boolean “Include Reference”
 - `proxy_type` Selection “Account Identifier Type”
 - `country_proxy_keys` Char (compute=_compute_country_proxy_keys)

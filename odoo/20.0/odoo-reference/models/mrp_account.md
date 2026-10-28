@@ -95,8 +95,6 @@ Extension points: `_get_bom_components_price`
 
 - `stock_account_production_cost_id` Many2one → `account.account` “Production Account”
 
-Extension points: `_get_inventory_valuation_products_domain`
-
 ## `stock.move` (extends)
 
 

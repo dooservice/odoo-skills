@@ -440,4 +440,4 @@ Discount Wizard
 
 Public methods: `action_apply_discount`
 
-Extension points: `_check_discount_amount`, `_create_discount_lines`, `_get_discount_product`, `_prepare_discount_product_values`, `_prepare_global_discount_so_lines`
+Extension points: `_check_discount_amount`, `_create_discount_lines`, `_get_discount_product`, `_get_discountable_order_lines`, `_prepare_discount_product_values`, `_prepare_global_discount_so_lines`

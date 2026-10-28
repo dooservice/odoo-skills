@@ -73,7 +73,7 @@ Inherits: `portal.mixin`, `mail.thread`, `mail.activity.mixin`
 
 Public methods: `action_cancel_ewaybill`, `action_export_content_json`, `action_generate_ewaybill`, `action_print`, `action_reset_to_pending`
 
-Extension points: `_check_configuration`, `_check_document_number`, `_check_gst_treatment`, `_check_lines`, `_check_partners`, `_check_pincode`, `_check_state`, `_check_transporter`, `_create_and_post_response_attachment`, `_get_billing_partner`, `_get_cancellation_request_vals`, `_get_default_help_message`, `_get_ewaybill_company`, `_get_ewaybill_dependencies`, `_get_ewaybill_document_details`, `_get_l10n_in_ewaybill_line_details`, `_get_partner_state_code`, `_get_seller_buyer_details`, `_prepare_ewaybill_base_json_payload`, `_prepare_ewaybill_tax_details_json_payload`, `_prepare_ewaybill_transportation_json_payload`
+Extension points: `_check_configuration`, `_check_document_number`, `_check_gst_treatment`, `_check_lines`, `_check_partners`, `_check_pincode`, `_check_state`, `_check_transporter`, `_create_and_post_response_attachment`, `_get_billing_partner`, `_get_cancellation_request_vals`, `_get_default_help_message`, `_get_ewaybill_company`, `_get_ewaybill_dependencies`, `_get_ewaybill_document_details`, `_get_ewaybill_request_json`, `_get_l10n_in_ewaybill_line_details`, `_get_partner_state_code`, `_get_seller_buyer_details`, `_prepare_ewaybill_base_json_payload`, `_prepare_ewaybill_tax_details_json_payload`, `_prepare_ewaybill_transportation_json_payload`
 
 ## `res.company` (extends)
 

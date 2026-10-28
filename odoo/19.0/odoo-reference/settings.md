@@ -262,6 +262,7 @@ addon defines is kept as the last of them installed says: each is listed with it
 | `l10n_gr_edi_aade_id` |  | `company_id.l10n_gr_edi_aade_id` | l10n_gr_edi |
 | `l10n_gr_edi_aade_key` |  | `company_id.l10n_gr_edi_aade_key` | l10n_gr_edi |
 | `l10n_gr_edi_branch_number` |  | `company_id.l10n_gr_edi_branch_number` | l10n_gr_edi |
+| `l10n_gr_edi_methodoos_api_token` |  | `company_id.l10n_gr_edi_methodoos_api_token` | l10n_gr_edi_e_invoo_bridge |
 | `l10n_gr_edi_test_env` |  | `company_id.l10n_gr_edi_test_env` | l10n_gr_edi |
 | `l10n_hr_mer_company_bu` |  | `company_id.partner_id.l10n_hr_business_unit_code` | l10n_hr_edi |
 | `l10n_hr_mer_company_ident` |  | `company_id.l10n_hr_mer_company_ident` | l10n_hr_edi |

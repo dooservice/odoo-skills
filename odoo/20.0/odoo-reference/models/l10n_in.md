@@ -41,6 +41,8 @@ Extension points: `_get_l10n_in_invoice_label`, `_get_l10n_in_seller_buyer_party
 
 - `l10n_in_self_invoice` Boolean “Self Invoice”
 
+Extension points: `_get_onboarding_action_data`
+
 ## `account.move.line` (extends)
 
 - `l10n_in_hsn_code` Char “HSN/SAC Code” (store, compute=_compute_l10n_in_hsn_code)
@@ -83,7 +85,7 @@ Extension points: `_prepare_base_line_for_taxes_computation`
 
 Public methods: `action_update_state_as_per_gstin`, `create`, `onchange_vat`, `write`
 
-Extension points: `_get_gst_group_refs`
+Extension points: `_get_gst_group_refs`, `_get_l10n_in_tax_group_ids`
 
 ## `iap.account` (extends)
 

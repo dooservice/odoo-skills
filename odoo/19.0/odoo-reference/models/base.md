@@ -284,7 +284,7 @@ Automatic Vacuum
 File streaming helper model for controllers
 
 
-Extension points: `_get_image_stream_from`, `_get_placeholder_stream`, `_get_stream_from`
+Extension points: `_get_filename_from_record`, `_get_image_stream_from`, `_get_placeholder_stream`, `_get_stream_from`
 
 ## `ir.config_parameter` (defines)
 
@@ -1401,7 +1401,7 @@ Access Groups
 
 Public methods: `action_show_all_users`, `copy_data`, `create`, `unlink`, `write`
 
-Extension points: `_check_disjoint_groups`, `_check_inherited_view_groups`, `_check_user_disjoint_groups`, `_get_group_definitions`, `_get_user_type_groups`, `_get_view_group_hierarchy`
+Extension points: `_check_at_least_one_administrator`, `_check_disjoint_groups`, `_check_inherited_view_groups`, `_check_user_disjoint_groups`, `_get_group_definitions`, `_get_user_type_groups`, `_get_view_group_hierarchy`
 
 ## `res.groups.privilege` (defines)
 

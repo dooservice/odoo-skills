@@ -25,7 +25,7 @@ Extension points: `_check_move_configuration`, `_get_move_applicability`
 
 Public methods: `action_get_eta_invoice_pdf`, `action_post_sign_invoices`, `button_draft`
 
-Extension points: `_get_fields_to_detach`
+Extension points: `_get_fields_to_detach`, `_get_l10n_eg_eta_document_type`
 
 ## `l10n_eg_edi.activity.type` (defines)
 

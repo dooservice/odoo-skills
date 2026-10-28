@@ -19,7 +19,7 @@ Extension points: `_create_missing_subcontracting_dropshipping_picking_type`, `_
 ## `stock.move` (extends)
 
 
-Extension points: `_get_value_from_account_move`
+Extension points: `_get_partner_id`, `_get_value_from_account_move`
 
 ## `stock.warehouse.orderpoint` (extends)
 

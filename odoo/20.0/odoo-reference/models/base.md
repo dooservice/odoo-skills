@@ -319,7 +319,7 @@ Automatic Vacuum
 File streaming helper model for controllers
 
 
-Extension points: `_get_image_stream_from`, `_get_placeholder_stream`, `_get_stream_from`
+Extension points: `_get_filename_from_record`, `_get_image_stream_from`, `_get_placeholder_stream`, `_get_stream_from`
 
 ## `ir.config_parameter` (defines)
 
@@ -484,7 +484,7 @@ HTTP Routing
 
 Public methods: `routing_map`
 
-Extension points: `_check_identity`, `_get_converters`, `_get_host_id_from_domain`, `_get_public_users`, `_get_translations_for_webclient`, `_get_web_translations_hash`, `_post_dispatch`, `_post_logout`
+Extension points: `_check_identity`, `_get_cached_web_translations_hash`, `_get_converters`, `_get_host_id_from_domain`, `_get_public_users`, `_get_translations_for_webclient`, `_get_web_translations_hash`, `_get_web_translations_lang`, `_get_web_translations_modules`, `_post_dispatch`, `_post_logout`
 
 ## `ir.logging` (defines)
 
@@ -1406,7 +1406,7 @@ Access Groups
 
 Public methods: `action_show_all_users`, `action_view_access_ids`, `action_view_implied_by_ids`, `action_view_implied_ids`, `create`, `unlink`, `write`
 
-Extension points: `_check_disjoint_groups`, `_check_inherited_view_groups`, `_check_user_disjoint_groups`, `_get_group_definitions`, `_get_internal_group_ids`, `_get_light_group_xmlids`, `_get_user_type_groups`, `_get_view_group_hierarchy`
+Extension points: `_check_at_least_one_administrator`, `_check_disjoint_groups`, `_check_inherited_view_groups`, `_check_user_disjoint_groups`, `_get_group_definitions`, `_get_internal_group_ids`, `_get_light_group_xmlids`, `_get_user_type_groups`, `_get_view_group_hierarchy`
 
 ## `res.groups.privilege` (defines)
 
@@ -1517,7 +1517,7 @@ Inherits: `format.address.mixin`, `format.vat.label.mixin`, `avatar.mixin`, `pro
 
 Public methods: `address_get`, `check_vat_al`, `check_vat_br`, `check_vat_ch`, `check_vat_cr`, `check_vat_de`, `check_vat_do`, `check_vat_ec`, `check_vat_gr`, `check_vat_gt`, `check_vat_hu`, `check_vat_id`, `check_vat_ie`, `check_vat_il`, `check_vat_in`, `check_vat_jp`, `check_vat_ma`, `check_vat_mx`, `check_vat_no`, `check_vat_pe`, `check_vat_ph`, `check_vat_pk`, `check_vat_ro`, `check_vat_rs`, `check_vat_sa`, `check_vat_th`, `check_vat_tr`, `check_vat_tw`, `check_vat_ua`, `check_vat_uy`, `check_vat_uz`, `check_vat_ve`, `check_vat_vn`, `country_name`, `create`, `default_get`, `find_or_create`, `format_vat_al`, `format_vat_ca`, `format_vat_ch`, `format_vat_cl`, `format_vat_co`, `format_vat_eu`, `format_vat_hu`, `format_vat_is`, `format_vat_pk`, `format_vat_sm`, `format_vat_vn`, `get_import_templates`, `is_valid_ruc_ec`, `name_create`, `onchange_parent_id`, `open_commercial_entity`, `view_header_get`, `write`
 
-Extension points: `_check_additional_identifiers`, `_check_barcode_unicity`, `_check_import_consistency`, `_check_parent_id`, `_check_partner_company`, `_check_vat`, `_check_vat_number`, `_create_contact_parent_company`, `_create_parent_from_name`, `_get_additional_identifier`, `_get_address_format`, `_get_address_values`, `_get_all_additional_identifiers_metadata`, `_get_all_addr`, `_get_all_identifiers`, `_get_all_identifiers_metadata`, `_get_all_identifiers_metadata_by_scheme`, `_get_allowed_identifier_metadata_keys`, `_get_commercial_values`, `_get_complete_name`, `_get_country_specific_vat_variants`, `_get_default_address_format`, `_get_identifier_fields`, `_get_identifier_label`, `_get_legal_entity_category_priority`, `_get_preferred_legal_entity_identifier_vals`, `_get_preferred_tax_identifier_vals`, `_get_res_city_by_name`, `_get_street_split`, `_get_synced_commercial_values`, `_get_tax_category_priority`, `_prepare_display_address`
+Extension points: `_check_additional_identifiers`, `_check_barcode_unicity`, `_check_import_consistency`, `_check_parent_id`, `_check_partner_company`, `_check_vat`, `_check_vat_number`, `_create_contact_parent_company`, `_create_parent_from_name`, `_get_additional_identifier`, `_get_address_format`, `_get_address_values`, `_get_all_additional_identifiers_metadata`, `_get_all_addr`, `_get_all_identifiers`, `_get_all_identifiers_metadata`, `_get_all_identifiers_metadata_by_scheme`, `_get_allowed_identifier_metadata_keys`, `_get_commercial_values`, `_get_complete_name`, `_get_country_specific_vat_variants`, `_get_default_address_format`, `_get_identifier_fields`, `_get_identifier_label`, `_get_legal_entity_category_priority`, `_get_preferred_legal_entity_identifier_vals`, `_get_preferred_tax_identifier_vals`, `_get_res_city_by_name`, `_get_street_split`, `_get_synced_commercial_values`, `_get_tax_category_priority`, `_get_vat_validation_method`, `_prepare_display_address`
 
 ## `res.partner.industry` (defines)
 

@@ -20,6 +20,8 @@ Extension points: `_get_view`
 ## `res.partner` (extends)
 
 
+Extension points: `_get_peppol_endpoint_value`
+
 ## `account.chart.template` (extends)
 
 

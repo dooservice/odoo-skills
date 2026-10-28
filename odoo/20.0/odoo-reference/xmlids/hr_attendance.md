@@ -20,6 +20,7 @@
 - `hr_attendance.open_kiosk_url`
 - `hr_attendance.action_attendance_validate`
 - `hr_attendance.action_attendance_refuse`
+- `hr_attendance.action_attendance_employee_view_access`
 
 ## ir.cron
 

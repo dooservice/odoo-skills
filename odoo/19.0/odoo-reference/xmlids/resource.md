@@ -30,6 +30,7 @@
 - `resource.view_resource_resource_search` — on resource.resource
 - `resource.resource_resource_form` — on resource.resource
 - `resource.resource_resource_tree` — on resource.resource
+- `resource.view_company_form_inherit_resource` — on res.company inherits base.view_company_form
 - `resource.view_resource_calendar_leaves_search` — on resource.calendar.leaves
 - `resource.view_resource_calendar` — on resource.calendar.leaves
 - `resource.resource_calendar_leave_form` — on resource.calendar.leaves

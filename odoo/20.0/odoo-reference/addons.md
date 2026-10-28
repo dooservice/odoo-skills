@@ -177,7 +177,7 @@
 | l10n_eg_edi_pos | Egypt E-Receipts (POS) |  | `pos.config`, `pos.order.receipt`, `pos.order`, `pos.payment.method`, `res.config.settings` |
 | l10n_es | Spain - Accounting (PGCE 2008) |  | `account.chart.template`, `account.move`, `account.tax`, `res.company`, `res.config.settings`, `res.partner` |
 | l10n_es_edi_facturae | Spain - Facturae EDI | `l10n_es_edi_facturae.ac_role_type` | `account.chart.template`, `account.move.reversal`, `account.move.send.wizard`, `account.move.send`, `account.move`, `account.tax`, `certificate.certificate`, `res.company`, `res.partner`, `uom.uom` |
-| l10n_es_edi_sii | Spain - SII EDI Suministro de Libros | `l10n_es_edi_sii.document` | `account.move.send.wizard`, `account.move.send`, `account.move`, `certificate.certificate`, `res.company`, `res.config.settings` |
+| l10n_es_edi_sii | Spain - SII EDI Suministro de Libros | `l10n_es_edi_sii.document` | `account.journal`, `account.move.send.wizard`, `account.move.send`, `account.move`, `certificate.certificate`, `res.company`, `res.config.settings` |
 | l10n_es_edi_tbai | Spain - TicketBAI | `l10n_es_edi_tbai.document` | `account.move.line`, `account.move.send`, `account.move`, `account.tax`, `certificate.certificate`, `res.company`, `res.config.settings` |
 | l10n_es_edi_tbai_pos | Spain - Point of Sale + TicketBAI |  | `pos.config`, `pos.order.receipt`, `pos.order`, `res.company` |
 | l10n_es_edi_verifactu | Spain - Veri*Factu | `l10n_es_edi_verifactu.document`, `l10n_es_edi_verifactu.issuer` | `account.journal`, `account.move.reversal`, `account.move.send`, `account.move`, `account.resequence.wizard`, `account.tax`, `certificate.certificate`, `res.company`, `res.config.settings`, `res.partner` |
@@ -210,6 +210,7 @@
 | l10n_gr_edi | Greece - myDATA | `account.edi.xml.ubl_gr`, `l10n_gr_edi.document`, `l10n_gr_edi.preferred_classification` | `account.fiscal.position`, `account.move.line`, `account.move.reversal`, `account.move.send`, `account.move`, `account.tax`, `product.template`, `res.company`, `res.config.settings`, `res.partner` |
 | l10n_gr_edi_delivery_note | Greece - myDATA Delivery Note |  | `account.move`, `l10n_gr_edi.document`, `stock.move`, `stock.picking` |
 | l10n_gr_edi_e_invoo | Greece - myDATA E-invoicing through e-invoo |  | `account.move.send`, `account.move`, `account_edi_proxy_client.user`, `l10n_gr_edi.document`, `res.company` |
+| l10n_gr_edi_e_invoo_bridge | Greece - myDATA E-invoicing through e-invoo (direct API) |  | `account.move.send`, `account.move`, `res.company`, `res.config.settings` |
 | l10n_gt | Guatemala - Accounting |  | `account.chart.template`, `res.partner` |
 | l10n_gw | Guinea-Bissau - Accounting |  | `account.chart.template` |
 | l10n_hk | Hong Kong - Accounting |  | `account.chart.template`, `res.partner.bank` |
@@ -315,7 +316,7 @@
 | l10n_sg | Singapore - Accounting |  | `account.chart.template`, `account.move`, `account.tax`, `account_edi_proxy_client.user`, `base.document.layout`, `res.company`, `res.partner.bank`, `res.partner` |
 | l10n_sg_ubl_pint | Singapore - UBL PINT | `account.edi.xml.pint_sg` | `account.move`, `res.company`, `res.partner` |
 | l10n_si | Slovenian - Accounting |  | `account.chart.template`, `account.journal`, `account.move` |
-| l10n_sk | Slovak - Accounting |  | `account.chart.template`, `account.move`, `base.document.layout`, `res.company` |
+| l10n_sk | Slovak - Accounting |  | `account.chart.template`, `account.move`, `base.document.layout`, `res.company`, `res.partner.bank`, `res.partner` |
 | l10n_sn | Sénégal - Accounting |  | `account.chart.template` |
 | l10n_syscohada | OHADA - Accounting |  | `account.chart.template` |
 | l10n_td | Tchad - Accounting |  | `account.chart.template` |
@@ -445,11 +446,11 @@
 | pos_razorpay | POS Razorpay |  | `pos.payment.method`, `pos.payment` |
 | pos_repair | POS - Repair |  | `sale.order.line`, `stock.picking` |
 | pos_restaurant | Restaurant | `pos.course`, `restaurant.floor`, `restaurant.table`, `restaurant.order.course` | `pos.category`, `pos.config`, `pos.order.line`, `pos.order.receipt`, `pos.order`, `pos.preset`, `pos.session`, `product.template`, `res.config.settings` |
-| pos_restaurant_loyalty | POS - Restaurant Loyality |  |  |
+| pos_restaurant_loyalty | POS - Restaurant Loyalty |  |  |
 | pos_safaricom | POS Safaricom | `transaction.lipa.na.mpesa` | `pos.order.receipt`, `pos.payment.method`, `pos.payment` |
 | pos_sale | POS - Sales |  | `account.move.line`, `account.move`, `crm.team`, `pos.config`, `pos.order.line`, `pos.order.receipt`, `pos.order`, `pos.session`, `product.template`, `res.config.settings`, `res.partner`, `sale.order.line`, `sale.order`, `sale.report` |
 | pos_sale_delivery | POS - Sales Delivery |  | `pos.order` |
-| pos_sale_loyalty | POS - Sales Loyality |  | `loyalty.rule`, `sale.order.line` |
+| pos_sale_loyalty | POS - Sales Loyalty |  | `loyalty.rule`, `sale.order.line` |
 | pos_sale_margin | POS - Sale Margin |  | `sale.report` |
 | pos_sale_stock | POS - Sales Stock |  | `pos.order.line`, `pos.order`, `sale.order.line`, `sale.order`, `sale.report`, `stock.picking` |
 | pos_self_order | POS Self Order | `pos_self_order.custom_link` | `ir.http`, `ir.ui.view`, `mail.template`, `pos.category`, `pos.config`, `pos.load.mixin`, `pos.order.line`, `pos.order.receipt`, `pos.order`, `pos.payment.method`, `pos.prep.line`, `pos.prep.order`, `pos.preset`, `pos.session`, `pos.snooze`, `product.product`, `product.tag`, `product.template`, `res.config.settings`, `res.country`, `res.partner`, `restaurant.floor`, `restaurant.table` |
@@ -463,6 +464,7 @@
 | pos_sms | POS - SMS |  | `pos.config`, `pos.order`, `res.config.settings` |
 | pos_stock | PoS - Stock | `pos.pack.operation.lot` | `account.move.line`, `account.move`, `pos.config`, `pos.order.line`, `pos.order.receipt`, `pos.order`, `pos.session`, `product.category`, `product.removal`, `product.template`, `res.company`, `res.config.settings`, `stock.move`, `stock.picking.type`, `stock.picking`, `stock.reference`, `stock.rule`, `stock.warehouse` |
 | pos_stripe | POS Stripe |  | `pos.payment.method` |
+| pos_sumup | POS SumUp |  | `pos.payment.method` |
 | pos_viva_com | PoS Viva.com |  | `pos.payment.method`, `pos.payment` |
 | printer | Printer | `printer.printer`, `select.printers.wizard` | `ir.actions.report` |
 | privacy_lookup | Privacy | `privacy.log`, `privacy.lookup.wizard`, `privacy.lookup.wizard.line` | `res.partner` |

@@ -217,7 +217,7 @@ Inherits: `mail.thread`, `mail.activity.mixin`
 - `is_favorite` Boolean (store, related=product_tmpl_id.is_favorite)
 - `is_in_selected_section_of_order` Boolean
 
-Public methods: `action_archive`, `action_open_documents`, `action_open_label_layout`, `action_unarchive`, `copy`, `create`, `get_contextual_price`, `get_empty_list_help`, `get_product_multiline_description_sale`, `load`, `name_search`, `open_product_template`, `unlink`, `view_header_get`, `write`
+Public methods: `action_archive`, `action_open_documents`, `action_open_label_layout`, `action_unarchive`, `copy`, `create`, `default_get`, `get_contextual_price`, `get_empty_list_help`, `get_product_multiline_description_sale`, `load`, `name_search`, `open_product_template`, `unlink`, `view_header_get`, `write`
 
 Extension points: `_check_barcode_uniqueness`, `_check_company_id`, `_check_duplicated_packaging_barcodes`, `_check_duplicated_product_barcodes`, `_get_attributes_extra_price`, `_get_barcode_search_domain`, `_get_barcodes_by_company`, `_get_contextual_discount`, `_get_contextual_price`, `_get_filtered_sellers`, `_get_invoice_policy`, `_get_no_variant_attributes_price_extra`, `_get_placeholder_filename`, `_get_product_placeholder_filename`, `_get_product_price_context`, `_prepare_sellers`
 

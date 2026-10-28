@@ -1071,7 +1071,7 @@ Extension points: `_get_rotting_depends_fields`, `_get_rotting_domain`
 
 Public methods: `mail_allowed_qweb_expressions`, `mail_get_partner_fields`, `unlink`, `with_user`
 
-Extension points: `_get_backend_root_menu_ids`, `_get_default_activity_view`, `_get_html_link`
+Extension points: `_get_backend_root_menu_ids`, `_get_default_activity_view`, `_get_html_link`, `_get_html_link_with_href`
 
 ## `res.company` (extends)
 
@@ -1124,6 +1124,7 @@ Inherits: `mail.thread.blacklist`, `mail.activity.mixin`
 
 - `name` Char
 - `email` Char
+- `email_normalized` Char
 - `phone` Char
 - `parent_id` Many2one
 - `user_id` Many2one

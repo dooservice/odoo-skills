@@ -21,4 +21,4 @@ Depends on: point_of_sale.
 
 Public methods: `send_dpopay_request`
 
-Extension points: `_get_dpopay_base_url`, `_get_terminal_provider_selection`, `_get_transaction_type`
+Extension points: `_get_dpopay_base_url`, `_get_dpopay_transaction_type`, `_get_terminal_provider_selection`

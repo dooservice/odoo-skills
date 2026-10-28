@@ -47,7 +47,7 @@ Public methods: `write`
 
 - `slide_channel_ids` Many2many → `slide.channel` “eLearning Courses” (compute=_compute_slide_channel_values)
 - `slide_channel_completed_ids` One2many → `slide.channel` “Completed Courses” (compute=_compute_slide_channel_values)
-- `slide_channel_count` Integer “Course Count” (compute=_compute_slide_channel_values)
+- `slide_channel_count` Integer “Course Count” (compute=_compute_slide_channel_company_count)
 - `slide_channel_company_count` Integer “Company Course Count” (compute=_compute_slide_channel_company_count)
 
 Public methods: `action_view_courses`

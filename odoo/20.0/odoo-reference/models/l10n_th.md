@@ -72,6 +72,8 @@ Extension points: `_check_for_qr_code_errors`, `_check_th_proxy`, `_get_emv_qr_c
 - `l10n_th_company_type` Selection “Company Type”
 - `l10n_th_address_no_country` Char (compute=_compute_l10n_th_address_no_country)
 
+Extension points: `_get_vat_required_valid`
+
 ## `account.chart.template` (extends)
 
 

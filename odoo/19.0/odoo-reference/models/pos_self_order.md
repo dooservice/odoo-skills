@@ -36,7 +36,7 @@ Inherits: `pos.load.mixin`
 
 Public methods: `action_close_kiosk_session`, `action_open_wizard`, `close_ui`, `create`, `get_kiosk_url`, `get_pos_qr_order_data`, `has_valid_self_payment_method`, `load_data_params`, `load_onboarding_kiosk_scenario`, `load_self_data`, `preview_self_order_app`, `write`
 
-Extension points: `_check_default_user`, `_get_qr_code_data`, `_get_self_order_route`, `_get_self_order_url`, `_get_self_ordering_attachment`, `_prepare_self_order_custom_btn`, `_prepare_self_order_splash_screen`
+Extension points: `_check_default_user`, `_get_kiosk_reload_fields`, `_get_qr_code_data`, `_get_self_order_route`, `_get_self_order_url`, `_get_self_ordering_attachment`, `_prepare_self_order_custom_btn`, `_prepare_self_order_splash_screen`
 
 ## `pos.load.mixin` (extends)
 

@@ -9,4 +9,4 @@ Depends on: point_of_sale, payment_mollie.
 
 Public methods: `mollie_cancel_payment`, `mollie_create_payment`, `mollie_create_refund`, `mollie_get_payment`
 
-Extension points: `_get_terminal_provider_selection`
+Extension points: `_check_mollie_access_right`, `_get_terminal_provider_selection`

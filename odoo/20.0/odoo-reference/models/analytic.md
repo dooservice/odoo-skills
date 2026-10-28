@@ -85,7 +85,7 @@ Analytic Mixin
 
 Public methods: `create`, `filtered_domain`, `init`, `write`
 
-Extension points: `_get_analytic_account_ids_from_distributions`, `_get_count_id`
+Extension points: `_check_analytic_distribution`, `_get_analytic_account_ids_from_distributions`, `_get_count_id`
 
 ## `account.analytic.plan` (defines)
 

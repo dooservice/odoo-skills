@@ -128,7 +128,7 @@ Inherits: `website.seo.metadata`
 - `visibility_password` Char
 - `visibility_password_display` Char (compute=_get_pwd)
 
-Public methods: `create`, `extract_embedded_fields`, `extract_oe_structures`, `filter_duplicate`, `get_default_lang_code`, `get_related_views`, `get_view_hierarchy`, `replace_arch_section`, `save`, `save_embedded_field`, `save_oe_structure`, `to_empty_oe_structure`, `to_field_ref`, `unlink`, `write`
+Public methods: `copy`, `create`, `extract_embedded_fields`, `extract_oe_structures`, `filter_duplicate`, `get_default_lang_code`, `get_related_views`, `get_view_hierarchy`, `replace_arch_section`, `save`, `save_embedded_field`, `save_oe_structure`, `to_empty_oe_structure`, `to_field_ref`, `unlink`, `write`
 
 Extension points: `_create_all_specific_views`, `_create_website_specific_pages_for_view`, `_get_allowed_root_attrs`, `_get_base_lang`, `_get_cached_template_prefetched_keys`, `_get_cached_visibility`, `_get_filter_xmlid_query`, `_get_inheriting_views`, `_get_inheriting_views_domain`, `_get_pwd`, `_get_snippet_addition_view_key`, `_get_template_domain`, `_get_template_minimal_cache_keys`, `_get_template_order`, `_get_used_names_domain`
 

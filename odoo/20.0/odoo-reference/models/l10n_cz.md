@@ -5,7 +5,7 @@ Depends on: account, account_edi_ubl_cii.
 ## `account.move` (extends)
 
 
-Extension points: `_get_accounting_date_source`, `_get_invoice_currency_rate_date`
+Extension points: `_get_accounting_date_source`, `_get_default_currency_rate_date`, `_get_invoice_currency_rate_date`
 
 ## `l10n_cz.tax_office` (defines)
 

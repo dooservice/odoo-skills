@@ -26,7 +26,7 @@ Extension points: `_get_translations_for_webclient`
 - `module_type` Selection
 - `total_lines_of_code` Integer “Extra lines of Code”
 
-Public methods: `button_immediate_install_app`, `button_upgrade`, `module_uninstall`, `more_info`, `search_panel_select_range`, `web_read`, `web_search_read`
+Public methods: `button_immediate_install_app`, `module_uninstall`, `more_info`, `search_panel_select_range`, `web_read`, `web_search_read`
 
 Extension points: `_get_icon_image`, `_get_imported_module_names`, `_get_imported_module_translations_for_webclient`, `_get_industry_categories_from_apps`, `_get_latest_version`, `_get_missing_dependencies`, `_get_missing_dependencies_modules`, `_get_modules_from_apps`, `_get_modules_to_load_domain`
 

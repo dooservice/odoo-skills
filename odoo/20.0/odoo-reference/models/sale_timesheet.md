@@ -112,11 +112,10 @@ Extension points: `_get_working_hours_per_calendar`
 - `remaining_hours_so` Float “Time Remaining on SO” (compute=_compute_remaining_hours_so)
 - `remaining_hours_available` Boolean (related=sale_line_id.remaining_hours_available)
 - `last_sol_of_customer` Many2one → `sale.order.line` (compute=_compute_last_sol_of_customer)
-- `portal_timesheet_ids` One2many → `account.analytic.line`
 
 Public methods: `TASK_PORTAL_READABLE_FIELDS`
 
-Extension points: `_get_action_view_so_ids`, `_get_default_partner_id`, `_get_domain_effective_hours`, `_get_last_sol_of_customer_domain`, `_get_timesheet`
+Extension points: `_get_action_view_so_ids`, `_get_default_partner_id`, `_get_domain_effective_hours`, `_get_last_sol_of_customer_domain`, `_get_portal_timesheet_domain`, `_get_timesheet`
 
 ## `res.config.settings` (extends)
 

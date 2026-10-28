@@ -16,7 +16,7 @@ Common functions for EDI documents: generate the data, the constraints, etc
 
 Public methods: `format_float`, `module_installed`
 
-Extension points: `_check_customer_vat_match`, `_check_required_fields`, `_get_basis_qty`, `_get_belgian_cocontractant_note`, `_get_currency_decimal_places`, `_get_default_notes`, `_get_document_allowance_charge_xpaths`, `_get_document_type`, `_get_document_type_code_vals`, `_get_invoice_line_xpaths`, `_get_tax_category_code`, `_get_tax_exemption_reason`
+Extension points: `_check_customer_vat_match`, `_check_required_fields`, `_get_basis_qty`, `_get_belgian_cocontractant_note`, `_get_currency_decimal_places`, `_get_default_notes`, `_get_document_allowance_charge_xpaths`, `_get_document_type`, `_get_document_type_code_vals`, `_get_invoice_line_xpaths`, `_get_line_label`, `_get_tax_category_code`, `_get_tax_exemption_reason`
 
 ## `account.edi.ubl` (defines)
 
@@ -160,6 +160,8 @@ Extension points: `_get_alerts`, `_get_invoice_extra_attachments`, `_get_move_co
 - `routing_scheme` Selection (related=partner_id.routing_scheme)
 - `routing_endpoint` Char (related=partner_id.routing_endpoint)
 - `routing_identifier` Char (related=partner_id.routing_identifier)
+
+Extension points: `_get_l10n_de_stnr`
 
 ## `res.partner` (extends)
 

@@ -39,7 +39,7 @@ Resource Working Time
 - `calendar_type` Selection “Calendar Type” (required)
 - `reference_calendar_id` Many2one → `resource.calendar` “Reference Calendar”
 
-Public methods: `create`, `default_get`, `get_attendances`, `get_work_duration_data`, `get_work_hours_count`, `is_calendar_referenced`, `plan_days`, `plan_hours`, `write`
+Public methods: `copy_data`, `create`, `default_get`, `get_attendances`, `get_work_duration_data`, `get_work_hours_count`, `is_calendar_referenced`, `plan_days`, `plan_hours`, `write`
 
 Extension points: `_get_attendance_intervals_days_data`, `_get_attendances_by_date`, `_get_attendances_to_unlink`, `_get_closest_work_time`, `_get_default_attendance_ids`, `_get_reference_hours_per_day`, `_get_unusual_days`
 

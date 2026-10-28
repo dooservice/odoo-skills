@@ -33,6 +33,8 @@ Extension points: `_check_type_for_peppol_journal`, `_get_onboarding_action_data
 
 Public methods: `action_cancel_peppol_documents`, `action_open_peppol_reponses`, `action_peppol_cancel_and_remove_sequence`, `action_peppol_open_rejection_wizard`, `action_peppol_reset_documents`, `action_peppol_send_approval_response`, `action_send_and_print`, `button_cancel`
 
+Extension points: `_check_draftable`
+
 ## `account.move.send` (extends)
 
 

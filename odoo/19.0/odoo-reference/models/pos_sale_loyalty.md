@@ -1,4 +1,4 @@
-# pos_sale_loyalty — POS - Sales Loyality
+# pos_sale_loyalty — POS - Sales Loyalty
 
 Depends on: pos_sale, pos_loyalty.
 

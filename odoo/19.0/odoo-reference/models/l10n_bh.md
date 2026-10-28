@@ -2,6 +2,9 @@
 
 Depends on: account, l10n_gcc_invoice.
 
+## `account.move` (extends)
+
+
 ## `account.chart.template` (extends)
 
 

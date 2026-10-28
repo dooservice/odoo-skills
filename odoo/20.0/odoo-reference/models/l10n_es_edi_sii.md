@@ -2,14 +2,24 @@
 
 Depends on: certificate, l10n_es.
 
+## `account.journal` (extends)
+
+- `l10n_es_sii_pending_count` Integer (compute=_compute_l10n_es_sii_pending_count)
+- `l10n_es_sii_kanban_state` Selection (compute=_compute_l10n_es_sii_pending_count)
+
+Public methods: `action_l10n_es_sii_open_pending`
+
+Extension points: `_get_l10n_es_sii_pending_domain`
+
 ## `account.move` (extends)
 
 - `l10n_es_registration_date` Date “Registration Date”
 - `l10n_es_edi_sii_document_ids` One2many → `l10n_es_edi_sii.document` “SII Documents”
 - `l10n_es_edi_is_required` Boolean “Is the Spanish EDI needed” (compute=_compute_l10n_es_edi_is_required)
 - `l10n_es_edi_sii_state` Selection “Spain SII Status” (compute=_compute_l10n_es_edi_sii_data)
-- `l10n_es_edi_csv` Char “CSV” (compute=_compute_l10n_es_edi_sii_data)
-- `l10n_es_edi_sii_error` Html “SII Error” (compute=_compute_l10n_es_edi_sii_data)
+- `l10n_es_edi_sii_last_document_id` Many2one → `l10n_es_edi_sii.document` “Last SII Document” (compute=_compute_l10n_es_edi_sii_data)
+- `l10n_es_edi_csv` Char “CSV” (related=l10n_es_edi_sii_last_document_id.csv)
+- `l10n_es_edi_sii_error` Html “SII Error” (related=l10n_es_edi_sii_last_document_id.response_message)
 
 Public methods: `action_l10n_es_send_sii`, `action_l10n_es_sii_send_in_batch`, `button_request_cancel`
 

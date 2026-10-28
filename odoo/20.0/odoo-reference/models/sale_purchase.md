@@ -6,7 +6,7 @@ Depends on: sale, purchase.
 
 - `service_tracking` Selection
 
-Public methods: `create`, `write`
+Public methods: `copy_data`, `create`, `write`
 
 Extension points: `_check_vendor_for_service_tracking_subcontract`, `_get_saleable_tracking_types`, `_prepare_service_tracking_tooltip`
 

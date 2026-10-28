@@ -24,7 +24,7 @@ Extension points: `_get_view`
 - `l10n_fr_siret` Char (compute=_compute_l10n_fr_siret)
 - `l10n_fr_siren` Char (compute=_compute_l10n_fr_siren)
 
-Extension points: `_get_identifier_fields`
+Extension points: `_get_identifier_fields`, `_get_preferred_routing_identifier_vals`
 
 ## `account.chart.template` (extends)
 

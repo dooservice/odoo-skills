@@ -70,6 +70,7 @@ Inherits: `mail.thread`, `mail.activity.mixin`
 - `name` Char “Meeting Subject” (required)
 - `calendar_id` Many2one → `calendar.calendar` “Calendar” (store, compute=_compute_calendar_id)
 - `calendar_color` Integer (related=calendar_id.color)
+- `calendar_is_displayed` Boolean “Display Calendar” (compute=_compute_calendar_is_displayed)
 - `description` Html “Description”
 - `is_draft` Boolean “Is draft”
 - `user_id` Many2one → `res.users`
@@ -143,7 +144,7 @@ Inherits: `mail.thread`, `mail.activity.mixin`
 
 Public methods: `action_confirm`, `action_join_meeting`, `action_join_video_call`, `action_mass_archive`, `action_mass_deletion`, `action_open_archive_or_unlink_wizard`, `action_open_calendar_event`, `action_open_composer`, `action_sendmail`, `change_attendee_status`, `clear_videocall_location`, `copy`, `create`, `default_get`, `find_partner_customer`, `get_default_duration`, `get_discuss_videocall_location`, `get_display_time_tz`, `get_formatted_date_and_time`, `get_next_alarm_date`, `get_state_selections`, `set_discuss_videocall_location`, `unlink`, `write`
 
-Extension points: `_check_closing_date`, `_check_organizer_validation_conditions`, `_check_private_event_conditions`, `_check_values_to_sync`, `_create_videocall_channel`, `_create_videocall_channel_id`, `_get_activity_deadline_from_start`, `_get_activity_excluded_models`, `_get_archive_values`, `_get_calendar_id_domain`, `_get_contact_details_description`, `_get_custom_fields`, `_get_customer_description`, `_get_customer_summary`, `_get_default_privacy_domain`, `_get_display_time`, `_get_duration`, `_get_ics_file`, `_get_mail_tz`, `_get_model_selection`, `_get_new_invited_attendees`, `_get_public_fields`, `_get_recurrence_params`, `_get_recurrence_params_by_date`, `_get_recurrent_fields`, `_get_remove_sync_id_values`, `_get_start_date`, `_get_time_fields`, `_get_time_update_dict`, `_get_today_domain`, `_get_trigger_alarm_types`, `_get_update_future_events_values`, `_get_updated_recurrence_values`, `_get_valid_event_domain`, `_get_videocall_channel_description`, `_prepare_partner_contact_details_html`
+Extension points: `_check_closing_date`, `_check_organizer_validation_conditions`, `_check_private_event_conditions`, `_check_values_to_sync`, `_create_videocall_channel`, `_create_videocall_channel_id`, `_get_activity_deadline_from_start`, `_get_activity_excluded_models`, `_get_alarm_triggers`, `_get_archive_values`, `_get_calendar_id_domain`, `_get_contact_details_description`, `_get_custom_fields`, `_get_customer_description`, `_get_customer_summary`, `_get_default_privacy_domain`, `_get_display_time`, `_get_duration`, `_get_ics_file`, `_get_mail_tz`, `_get_model_selection`, `_get_new_invited_attendees`, `_get_public_fields`, `_get_recurrence_params`, `_get_recurrence_params_by_date`, `_get_recurrent_fields`, `_get_remove_sync_id_values`, `_get_start_date`, `_get_time_fields`, `_get_time_update_dict`, `_get_today_domain`, `_get_trigger_alarm_types`, `_get_update_future_events_values`, `_get_updated_recurrence_values`, `_get_valid_event_domain`, `_get_videocall_channel_description`, `_prepare_partner_contact_details_html`
 
 ## `calendar.event.type` (defines)
 

@@ -153,6 +153,11 @@ Extension points: `_get_alerts`, `_get_invoice_extra_attachments`, `_get_move_co
 ## `ir.actions.report` (extends)
 
 
+## `res.company` (extends)
+
+
+Extension points: `_get_l10n_de_stnr`
+
 ## `res.partner` (extends)
 
 - `invoice_edi_format` Selection

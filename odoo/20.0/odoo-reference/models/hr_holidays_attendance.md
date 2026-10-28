@@ -7,6 +7,8 @@ Depends on: hr_attendance, hr_holidays.
 
 Public methods: `write`
 
+Extension points: `_get_work_entry_type_domain`
+
 ## `hr.employee` (extends)
 
 

@@ -32,7 +32,7 @@ Public methods: `button_draft`
 
 Public methods: `action_cancel`, `action_draft`, `action_post`
 
-Extension points: `_check_move_id`, `_get_blocking_l10n_latam_warning_msg`, `_get_latam_checks`, `_get_reconciled_checks_error`, `_get_trigger_fields_to_synchronize`, `_prepare_move_line_default_vals`
+Extension points: `_check_move_id`, `_get_blocking_l10n_latam_warning_msg`, `_get_latam_checks`, `_get_reconciled_checks_error`, `_get_trigger_fields_to_synchronize`, `_prepare_move_line_default_vals`, `_prepare_move_liquidity_lines`
 
 ## `account.payment.method` (extends)
 

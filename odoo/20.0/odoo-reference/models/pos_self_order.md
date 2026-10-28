@@ -54,7 +54,7 @@ Extension points: `_check_default_user`, `_get_qr_code_data`, `_get_self_order_r
 
 Public methods: `action_pos_order_cancel`, `action_send_self_order_receipt`, `cancel_order_from_pos`, `recompute_prices`, `remove_from_ui`, `sync_from_ui`
 
-Extension points: `_check_combo_lines`, `_check_pos_order`, `_check_pos_order_lines`, `_check_pos_order_payment`, `_get_self_order_floating_name`
+Extension points: `_check_combo_lines`, `_check_pos_order`, `_check_pos_order_lines`, `_check_pos_order_payment`, `_get_self_order_floating_name`, `_get_self_partner_from_token`, `_get_self_partner_token`, `_get_signed_self_partner_id`
 
 ## `pos.order.line` (extends)
 

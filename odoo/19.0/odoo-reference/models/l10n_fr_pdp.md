@@ -22,7 +22,7 @@ Extension points: `_get_peppol_proxy_types`, `_get_proxy_identification`, `_get_
 ## `account.edi.xml.cii` (extends)
 
 
-Extension points: `_get_exchanged_document_vals`
+Extension points: `_get_exchanged_document_vals`, `_get_import_document_amount_sign`
 
 ## `account.edi.xml.ubl_21_fr` (defines)
 

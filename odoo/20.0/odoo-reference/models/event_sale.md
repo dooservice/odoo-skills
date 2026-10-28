@@ -48,7 +48,7 @@ Extension points: `_get_product_catalog_domain`
 - `is_multi_slots` Boolean (related=event_id.is_multi_slots)
 - `registration_ids` One2many → `event.registration` “Registrations”
 
-Extension points: `_check_event_registration_ticket`, `_get_display_price`, `_get_sale_order_line_multiline_description_sale`
+Extension points: `_check_event_registration_ticket`, `_get_display_price`, `_get_product_display_name`, `_get_sale_order_line_multiline_description_sale`
 
 ## `event.sale.report` (defines)
 
