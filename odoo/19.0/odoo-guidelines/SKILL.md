@@ -41,7 +41,10 @@ is in doubt: these rules are written for 19.0 and the table says what 19.0 has.
 | [Performance conventions](guidelines/performance.md#performance-conventions) | code that loops over records or filters query results |
 | [Tests](guidelines/tests.md#tests) | touching `tests/` |
 | [Plain ASCII punctuation in comments and messages](guidelines/comments.md#plain-ascii-punctuation-in-comments-and-messages) | writing a comment, a docstring, a user-facing string, or a commit message |
-| [Changes to an installed module](guidelines/installed.md#changes-to-an-installed-module) | changing a module that is already installed in a database that matters |
+| [Changes to an installed module](guidelines/installed.md#changes-to-an-installed-module) | updating a module that is already installed in a database that matters: version, migration, test on a clone |
+| [Changes in a stable version](guidelines/stable.md#changes-in-a-stable-version) | fixing a module version that is already installed in a database that matters |
+
+To add or restructure a guideline, follow [AUTHORING.md](AUTHORING.md).
 
 Adapted from Odoo's own skill library (odoo/odoo, branch 20.0, `skills/`, LGPL-3) and
 checked against the 19.0 source.

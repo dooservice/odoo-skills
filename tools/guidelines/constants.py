@@ -18,3 +18,9 @@ TYPOGRAPHIC = ("—", "–", "“", "”", "‘", "’", "…")
 
 #: The one document that shows that punctuation, to say what to avoid.
 SHOWS_TYPOGRAPHIC = "comments.md"
+
+#: The upstream commit and `skills/` tree the guidelines were last generated from.
+UPSTREAM = Path(__file__).resolve().parent / "UPSTREAM"
+
+#: The folder of odoo/odoo the guidelines are generated from.
+UPSTREAM_FOLDER = "skills"

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .constants import SKILLS, VERSIONS
 from .documents.assets import Assets
+from .documents.authoring import GuidelinesAuthoring, WebAuthoring
 from .documents.comments import Comments
 from .documents.controllers import Controllers
 from .documents.fields import Fields
@@ -24,6 +25,7 @@ from .documents.review_skill import ReviewSkill
 from .documents.scss import Scss
 from .documents.security_rules import AccessRights
 from .documents.security_skill import SecuritySkill
+from .documents.stable import StableVersion
 from .documents.tests import Tests
 from .documents.version_notes import VersionNotes
 from .documents.web_skill import WebSkill
@@ -32,9 +34,10 @@ from .version import OdooVersion
 from .writer import SkillWriter
 
 DOCUMENTS = (
-    GuidelinesSkill, VersionNotes, Comments, Controllers, Fields, Manifest, ModuleStructure, Orm,
-    Performance, PythonRules, Reports, AccessRights, InstalledModules, Tests, XmlRules,
-    WebSkill, Javascript, Scss, Assets, ReviewSkill, SecuritySkill, GitSkill,
+    GuidelinesSkill, GuidelinesAuthoring, VersionNotes, Comments, Controllers, Fields, Manifest,
+    ModuleStructure, Orm, Performance, PythonRules, Reports, AccessRights, InstalledModules,
+    StableVersion, Tests, XmlRules, WebSkill, WebAuthoring, Javascript, Scss, Assets,
+    ReviewSkill, SecuritySkill, GitSkill,
 )
 
 
