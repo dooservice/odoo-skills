@@ -1,0 +1,34 @@
+# Which modules' flow each recipe of odoo/common/odoo-functional/recipes describes.
+#
+# A module is listed under a recipe only when the recipe walks through what a user does
+# with it (setup, the standard flow or a variation), not when it is merely named. Every
+# recipe has an entry, even an empty one, so a new recipe cannot be forgotten. A module
+# listed here counts as covered in every version that ships it.
+
+[recipes]
+automations = ["base_automation"]
+bank-and-reconciliation = ["account"]
+closing-the-period = ["account", "account_lock"]
+companies = ["base", "account"]
+currencies-and-rates = ["account"]
+diagnosis = []
+email-templates = ["mail"]
+employees-and-expenses = ["hr", "hr_holidays", "hr_expense", "sale_expense"]
+go-live = ["account"]
+inventory = ["stock", "stock_picking_batch"]
+languages-and-translations = ["base"]
+mail-servers = ["mail", "google_gmail", "microsoft_outlook"]
+manufacturing = ["mrp"]
+partners-and-imports = ["contacts", "base_import", "base_vat"]
+payment-terms-and-fiscal-positions = ["account"]
+point-of-sale = ["point_of_sale"]
+pricelists = ["product"]
+products-and-categories = ["product", "uom"]
+projects-and-timesheets = ["project", "hr_timesheet", "sale_project", "sale_timesheet"]
+purchase = ["purchase", "purchase_stock", "purchase_requisition", "purchase_alternative"]
+reports-and-layout = ["web", "base_setup"]
+sales-and-crm = ["sales_team", "crm", "sale", "sale_management", "sale_crm", "sale_stock"]
+sequences = ["base"]
+taxes-and-journals = ["account", "account_tax_python"]
+users-and-access = ["base", "portal", "auth_signup"]
+website-and-ecommerce = ["website_sale", "website_sale_delivery", "delivery", "payment", "payment_custom", "payment_demo"]
