@@ -4,13 +4,19 @@ description: >-
   What exists in this Odoo 18.0 Community: every addon's models with their
   fields, public methods and extension points, every Settings switch and where it
   keeps its value, and every XML id an addon declares. Model and field names
-  change between versions: use before writing any code, `odoo-bin shell`
-  script, API call or configuration for Odoo 18.0 that names a model,
-  field, setting, view, action, menu or group, instead of guessing or searching
-  the source.
+  change between versions: use to look up a model, field, setting, view,
+  action, menu or group of Odoo 18.0 instead of guessing or searching the
+  source. For business flows and configuration (creating companies, users,
+  products, pricelists, journals, taxes, expenses, time off, automation rules
+  and the like), load odoo-functional first and this skill only for names.
 ---
 
 # What Odoo 18.0 has
+
+This skill lists names, not flows. For a business flow or a configuration task
+(an `odoo-bin shell` script that creates or changes records, settings, documents),
+read the matching recipe of `odoo-functional` first: it gives the order of the steps,
+the methods to call and the state each leaves, which a list of fields cannot.
 
 Generated from the Odoo 18.0 source. Each file is plain markdown, small enough to
 read whole; grep across them when you do not know which addon holds something.
