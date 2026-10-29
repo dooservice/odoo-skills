@@ -27,6 +27,26 @@ class XmlRules(Document):
                 v18_="- The chatter of a form inheriting `mail.thread` is `<chatter/>`, last in the form.",
             ),
             "anchor": self.anchor_section(),
+            "removed_tags": version.pick(
+                v16="\n- `<report>` and `<act_window>` still load in this version but later versions\n"
+                "  drop them: write `<record model=\"ir.actions.report\">` and\n"
+                "  `<record model=\"ir.actions.act_window\">`.",
+                v17_="\n- There is no `<report>` or `<act_window>` tag: write\n"
+                "  `<record model=\"ir.actions.report\">` and `<record model=\"ir.actions.act_window\">`.",
+            ),
+            "binary_type": version.pick(
+                v16_17="`type=\"base64\"` stores the body, or with `file=` the file, base64-encoded.",
+                v18_19="`type=\"base64\" file=\"module/static/img/cover.png\"` stores a file\n"
+                "  base64-encoded; without `file` it raises.",
+                v20="`type=\"bytes\" file=\"module/static/img/cover.png\"` stores a file in a\n"
+                "  `Binary` field; `type=\"base64\"` is deprecated.",
+            ),
+            "attribute_separator": version.pick(
+                v16_17="`separator`, default `,`",
+                v18_="`separator`, default `,`; on `invisible`, `readonly`, `required`,\n"
+                "    `column_invisible` and `decoration-*` the separator must be `and` or `or`,\n"
+                "    and the expressions are combined",
+            ),
         }
 
     def modifiers(self, version: OdooVersion) -> str:
