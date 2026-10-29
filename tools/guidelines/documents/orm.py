@@ -1,17 +1,25 @@
-"""`odoo-guidelines/guidelines/orm.md`: recordsets, computes, extension points, transactions."""
+"""`odoo-guidelines/guidelines/orm.md`: recordsets, reads, writes, access, cache, transactions."""
 
 from __future__ import annotations
 
 from ..document import Document
 from ..version import OdooVersion
+from .orm_access import OrmAccess
+from .orm_reads import OrmReads
+from .orm_writes import OrmWrites
 
 
 class Orm(Document):
     path = "odoo-guidelines/guidelines/orm.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:
+        writes = OrmWrites(version)
         return {
             **super().values(version),
+            **OrmReads(version).values(),
+            **writes.records(),
+            **OrmAccess(version).values(),
+            **writes.cache(),
             "recordset_methods": version.pick(
                 v16="`filtered`, `mapped`, `sorted`",
                 v17_="`filtered`, `grouped`, `mapped`, `sorted`",
@@ -23,21 +31,22 @@ class Orm(Document):
                 "  domains written inline, `Domain.AND`/`Domain.OR` for a list of domains you\n"
                 "  already hold. Never hand-build `'&'`/`'|'` prefix-notation lists.",
             ),
-            "constraints": self.constraints(version),
-            "display_name": version.pick(
-                v16="`name_get()`; override it returning `[(id, name)]`.",
-                v17_="`_compute_display_name`; override it with\n"
-                "  `@api.depends` on what it reads, never `name_get`.",
+            "filtered_note": version.pick(
+                v16_18="takes a callable or a field path (`'author_id.active'`)",
+                v19_="takes a callable, a field path (`'author_id.active'`) or a `Domain`",
+            ),
+            "sorted_note": version.pick(
+                v16_18="`key` is a callable or one field name; without `key`, it runs a "
+                "`search` to apply `_order`",
+                v19_="`key` is a callable or an order string (`'name desc, id'`); without "
+                "`key`, it applies `_order`; both in memory",
+            ),
+            "grouped_row": version.pick(
+                v16="",
+                v17_="| `records.grouped('author_id')` | a dict `{key: records}` | a callable "
+                "works too; in memory, no query |\n",
+            ),
+            "onchange_args": version.pick(
+                v16="field_name, field_onchange", v17_="field_names, fields_spec"
             ),
         }
-
-    def constraints(self, version: OdooVersion) -> str:
-        return version.pick(
-            v16_18="enforce invariants with `@api.constrains` or `_sql_constraints = [(name,\n"
-            "  definition, message)]`.",
-            v19_="enforce invariants with `@api.constrains` or SQL constraints declared as model\n"
-            '  attributes (`_x_check = models.Constraint("CHECK (...)", "msg")`; the\n'
-            "  attribute name must start with `_`). Indexes are declared the same way\n"
-            "  (`_x_index = models.Index(...)`, `models.UniqueIndex(...)`). `_sql_constraints`\n"
-            "  is **ignored** with a log warning in this version: the constraint is never created.",
-        )
