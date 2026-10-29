@@ -26,15 +26,15 @@ Framework items covered, of those in the version:
 
 | Category | 16.0 | 17.0 | 18.0 | 19.0 | 20.0 |
 |---|---|---|---|---|---|
-| Field types | 5/20 | 5/20 | 5/20 | 5/20 | 5/20 |
-| API decorators | 5/11 | 5/11 | 5/12 | 5/10 | 5/10 |
-| View types | 4/8 | 4/8 | 4/8 | 4/8 | 4/9 |
-| Action types | 0/9 | 0/9 | 0/9 | 0/10 | 0/10 |
-| Route types | 2/2 | 2/2 | 2/2 | 1/3 | 1/3 |
-| Route auth values | 0/3 | 0/3 | 1/4 | 1/4 | 1/4 |
-| ORM methods | 22/63 | 23/62 | 22/61 | 21/62 | 21/59 |
-| Web client registries | 2/30 | 2/30 | 2/29 | 2/31 | 2/32 |
-| Test tools | 5/14 | 5/12 | 5/14 | 5/14 | 5/13 |
+| Field types | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 |
+| API decorators | 11/11 | 11/11 | 12/12 | 10/10 | 10/10 |
+| View types | 8/8 | 8/8 | 8/8 | 8/8 | 9/9 |
+| Action types | 9/9 | 9/9 | 9/9 | 10/10 | 10/10 |
+| Route types | 2/2 | 2/2 | 2/2 | 3/3 | 3/3 |
+| Route auth values | 3/3 | 3/3 | 4/4 | 4/4 | 4/4 |
+| ORM methods | 63/63 | 62/62 | 61/61 | 62/62 | 59/59 |
+| Web client registries | 30/30 | 30/30 | 29/29 | 31/31 | 32/32 |
+| Test tools | 14/14 | 12/12 | 14/14 | 14/14 | 13/13 |
 
 ## 16.0
 
@@ -258,15 +258,15 @@ Framework items covered, of those in the version:
 
 ### Missing framework items
 
-- **Field types** (15): `Boolean`, `Char`, `Date`, `Datetime`, `Float`, `Image`, `Integer`, `Json`, `Many2oneReference`, `Monetary`, `Properties`, `PropertiesDefinition`, `Reference`, `Selection`, `Text`
-- **API decorators** (6): `autovacuum`, `depends_context`, `model`, `model_create_single`, `ondelete`, `returns`
-- **View types** (4): `calendar`, `graph`, `pivot`, `qweb`
-- **Action types** (9): `ir.actions.act_url`, `ir.actions.act_window`, `ir.actions.act_window.view`, `ir.actions.act_window_close`, `ir.actions.actions`, `ir.actions.client`, `ir.actions.report`, `ir.actions.server`, `ir.actions.todo`
+- **Field types** (0): none
+- **API decorators** (0): none
+- **View types** (0): none
+- **Action types** (0): none
 - **Route types** (0): none
-- **Route auth values** (3): `none`, `public`, `user`
-- **ORM methods** (41): `action_unarchive`, `check_access_rights`, `check_access_rule`, `check_field_access_rights`, `clear_caches`, `concat`, `copy`, `copy_data`, `copy_translations`, `default_get`, `exists`, `export_data`, `fields_get_keys`, `filtered_domain`, `flush`, `flush_model`, `flush_recordset`, `get_base_url`, `get_external_id`, `get_field_translations`, `get_metadata`, `get_xml_id`, `invalidate_cache`, `invalidate_model`, `invalidate_recordset`, `is_transient`, `load`, `modified`, `name_create`, `name_search`, `new`, `recompute`, `refresh`, `toggle_active`, `union`, `unlink`, `update`, `update_field_translations`, `user_has_groups`, `with_env`, `with_prefetch`
-- **Web client registries** (28): `action_handlers`, `action_menus`, `actions`, `command_categories`, `command_provider`, `command_setup`, `debug`, `domain_selector/fields`, `domain_selector/operator`, `effects`, `error_dialogs`, `error_handlers`, `error_notifications`, `favoriteMenu`, `form_compilers`, `formatters`, `ir.actions.report handlers`, `lazy_components`, `main_components`, `parsers`, `preloadedData`, `public_root_widgets`, `sample_server`, `systray`, `user_menuitems`, `view_widgets`, `views`, `wowlToLegacyServiceMappers`
-- **Test tools** (9): `BaseCase`, `Form`, `HttpSavepointCase`, `O2MForm`, `SavepointCase`, `SingleTransactionCase`, `TestCase`, `no_retry`, `standalone`
+- **Route auth values** (0): none
+- **ORM methods** (0): none
+- **Web client registries** (0): none
+- **Test tools** (0): none
 
 ## 17.0
 
@@ -505,15 +505,15 @@ Framework items covered, of those in the version:
 
 ### Missing framework items
 
-- **Field types** (15): `Boolean`, `Char`, `Date`, `Datetime`, `Float`, `Image`, `Integer`, `Json`, `Many2oneReference`, `Monetary`, `Properties`, `PropertiesDefinition`, `Reference`, `Selection`, `Text`
-- **API decorators** (6): `autovacuum`, `depends_context`, `model`, `model_create_single`, `ondelete`, `returns`
-- **View types** (4): `calendar`, `graph`, `pivot`, `qweb`
-- **Action types** (9): `ir.actions.act_url`, `ir.actions.act_window`, `ir.actions.act_window.view`, `ir.actions.act_window_close`, `ir.actions.actions`, `ir.actions.client`, `ir.actions.report`, `ir.actions.server`, `ir.actions.todo`
+- **Field types** (0): none
+- **API decorators** (0): none
+- **View types** (0): none
+- **Action types** (0): none
 - **Route types** (0): none
-- **Route auth values** (3): `none`, `public`, `user`
-- **ORM methods** (39): `action_unarchive`, `check_access_rights`, `check_access_rule`, `check_field_access_rights`, `clear_caches`, `concat`, `copy`, `copy_data`, `copy_multi`, `copy_translations`, `default_get`, `exists`, `export_data`, `fetch`, `filtered_domain`, `flush_model`, `flush_recordset`, `get_base_url`, `get_external_id`, `get_field_translations`, `get_metadata`, `get_property_definition`, `invalidate_model`, `invalidate_recordset`, `is_transient`, `load`, `modified`, `name_create`, `name_search`, `new`, `search_fetch`, `toggle_active`, `union`, `unlink`, `update`, `update_field_translations`, `user_has_groups`, `with_env`, `with_prefetch`
-- **Web client registries** (28): `action_handlers`, `actions`, `cogMenu`, `command_categories`, `command_provider`, `command_setup`, `debug`, `dialogs`, `effects`, `error_dialogs`, `error_handlers`, `error_notifications`, `favoriteMenu`, `form_compilers`, `formatters`, `ir.actions.report handlers`, `kanban_header_config_items`, `lazy_components`, `main_components`, `parsers`, `public_components`, `public_root_widgets`, `sample_server`, `systray`, `user_menuitems`, `view_widgets`, `views`, `xml_templates`
-- **Test tools** (7): `BaseCase`, `Form`, `O2MForm`, `SingleTransactionCase`, `TestCase`, `no_retry`, `standalone`
+- **Route auth values** (0): none
+- **ORM methods** (0): none
+- **Web client registries** (0): none
+- **Test tools** (0): none
 
 ## 18.0
 
@@ -769,15 +769,15 @@ Framework items covered, of those in the version:
 
 ### Missing framework items
 
-- **Field types** (15): `Boolean`, `Char`, `Date`, `Datetime`, `Float`, `Image`, `Integer`, `Json`, `Many2oneReference`, `Monetary`, `Properties`, `PropertiesDefinition`, `Reference`, `Selection`, `Text`
-- **API decorators** (7): `autovacuum`, `depends_context`, `model`, `model_create_single`, `ondelete`, `readonly`, `returns`
-- **View types** (4): `calendar`, `graph`, `pivot`, `qweb`
-- **Action types** (9): `ir.actions.act_url`, `ir.actions.act_window`, `ir.actions.act_window.view`, `ir.actions.act_window_close`, `ir.actions.actions`, `ir.actions.client`, `ir.actions.report`, `ir.actions.server`, `ir.actions.todo`
+- **Field types** (0): none
+- **API decorators** (0): none
+- **View types** (0): none
+- **Action types** (0): none
 - **Route types** (0): none
-- **Route auth values** (3): `none`, `public`, `user`
-- **ORM methods** (39): `action_unarchive`, `check_access`, `check_access_rights`, `check_access_rule`, `check_field_access_rights`, `clear_caches`, `concat`, `copy`, `copy_data`, `copy_translations`, `default_get`, `exists`, `export_data`, `fetch`, `filtered_domain`, `flush_model`, `flush_recordset`, `get_base_url`, `get_external_id`, `get_field_translations`, `get_metadata`, `get_property_definition`, `has_access`, `invalidate_model`, `invalidate_recordset`, `is_transient`, `load`, `modified`, `name_create`, `name_search`, `new`, `search_fetch`, `toggle_active`, `union`, `unlink`, `update`, `update_field_translations`, `with_env`, `with_prefetch`
-- **Web client registries** (27): `action_handlers`, `actions`, `cogMenu`, `command_categories`, `command_provider`, `command_setup`, `debug`, `debug_section`, `dialogs`, `effects`, `error_dialogs`, `error_handlers`, `error_notifications`, `favoriteMenu`, `form_compilers`, `formatters`, `ir.actions.report handlers`, `kanban_header_config_items`, `lazy_components`, `main_components`, `parsers`, `public_components`, `sample_server`, `systray`, `user_menuitems`, `view_widgets`, `views`
-- **Test tools** (9): `BaseCase`, `Form`, `O2MForm`, `SingleTransactionCase`, `TestCase`, `freeze_time`, `no_retry`, `standalone`, `test_xsd`
+- **Route auth values** (0): none
+- **ORM methods** (0): none
+- **Web client registries** (0): none
+- **Test tools** (0): none
 
 ## 19.0
 
@@ -1039,15 +1039,15 @@ Framework items covered, of those in the version:
 
 ### Missing framework items
 
-- **Field types** (15): `Boolean`, `Char`, `Date`, `Datetime`, `Float`, `Image`, `Integer`, `Json`, `Many2oneReference`, `Monetary`, `Properties`, `PropertiesDefinition`, `Reference`, `Selection`, `Text`
-- **API decorators** (5): `autovacuum`, `depends_context`, `model`, `ondelete`, `readonly`
-- **View types** (4): `calendar`, `graph`, `pivot`, `qweb`
-- **Action types** (10): `ir.actions.act_url`, `ir.actions.act_window`, `ir.actions.act_window.view`, `ir.actions.act_window_close`, `ir.actions.actions`, `ir.actions.client`, `ir.actions.report`, `ir.actions.server`, `ir.actions.server.history`, `ir.actions.todo`
-- **Route types** (2): `json2`, `jsonrpc`
-- **Route auth values** (3): `none`, `public`, `user`
-- **ORM methods** (41): `action_unarchive`, `check_access`, `check_access_rights`, `check_access_rule`, `check_field_access_rights`, `concat`, `copy`, `copy_data`, `copy_translations`, `default_get`, `exists`, `export_data`, `fetch`, `filtered_domain`, `flush_model`, `flush_recordset`, `get_base_url`, `get_external_id`, `get_field_translations`, `get_metadata`, `get_property_definition`, `has_access`, `init`, `invalidate_model`, `invalidate_recordset`, `is_transient`, `load`, `lock_for_update`, `modified`, `name_create`, `name_search`, `new`, `search_fetch`, `toggle_active`, `try_lock_for_update`, `union`, `unlink`, `update`, `update_field_translations`, `with_env`, `with_prefetch`
-- **Web client registries** (29): `action_handlers`, `actions`, `cogMenu`, `color_picker_tabs`, `command_categories`, `command_provider`, `command_setup`, `debug`, `debug_section`, `dialogs`, `effects`, `error_dialogs`, `error_handlers`, `error_notifications`, `favoriteMenu`, `form_compilers`, `formatters`, `group_config_items`, `ir.actions.report handlers`, `lazy_components`, `main_components`, `parsers`, `public.interactions`, `public_components`, `sample_server`, `systray`, `user_menuitems`, `view_widgets`, `views`
-- **Test tools** (9): `BaseCase`, `Form`, `O2MForm`, `SingleTransactionCase`, `TestCase`, `freeze_time`, `no_retry`, `standalone`, `test_xsd`
+- **Field types** (0): none
+- **API decorators** (0): none
+- **View types** (0): none
+- **Action types** (0): none
+- **Route types** (0): none
+- **Route auth values** (0): none
+- **ORM methods** (0): none
+- **Web client registries** (0): none
+- **Test tools** (0): none
 
 ## 20.0
 
@@ -1310,12 +1310,12 @@ Framework items covered, of those in the version:
 
 ### Missing framework items
 
-- **Field types** (15): `Boolean`, `Char`, `Date`, `Datetime`, `Float`, `Image`, `Integer`, `Json`, `Many2oneReference`, `Monetary`, `Properties`, `PropertiesDefinition`, `Reference`, `Selection`, `Text`
-- **API decorators** (5): `autovacuum`, `depends_context`, `model`, `ondelete`, `readonly`
-- **View types** (5): `calendar`, `card`, `graph`, `pivot`, `qweb`
-- **Action types** (10): `ir.actions.act_url`, `ir.actions.act_window`, `ir.actions.act_window.view`, `ir.actions.act_window_close`, `ir.actions.actions`, `ir.actions.client`, `ir.actions.report`, `ir.actions.server`, `ir.actions.server.history`, `ir.actions.todo`
-- **Route types** (2): `json2`, `jsonrpc`
-- **Route auth values** (3): `none`, `public`, `user`
-- **ORM methods** (38): `action_unarchive`, `check_access`, `check_field_access`, `concat`, `copy`, `copy_data`, `default_get`, `exists`, `export_data`, `fetch`, `filtered_domain`, `flush_model`, `flush_recordset`, `get_base_url`, `get_external_id`, `get_field_translations`, `get_metadata`, `get_property_definition`, `has_access`, `has_field_access`, `init`, `invalidate_model`, `invalidate_recordset`, `is_transient`, `load`, `lock_for_update`, `modified`, `name_create`, `name_search`, `new`, `search_fetch`, `try_lock_for_update`, `union`, `unlink`, `update`, `update_field_translations`, `with_env`, `with_prefetch`
-- **Web client registries** (30): `action_handlers`, `actions`, `cogMenu`, `command_categories`, `command_provider`, `command_setup`, `debug`, `debug_section`, `dialogs`, `effects`, `error_dialogs`, `error_handlers`, `error_notifications`, `favoriteMenu`, `form_compilers`, `formatters`, `group_config_items`, `ir.actions.report handlers`, `lazy_components`, `main_components`, `parsers`, `phone_call_handlers`, `public.interactions`, `public_components`, `sample_server`, `share_target_items`, `systray`, `user_menuitems`, `view_widgets`, `views`
-- **Test tools** (8): `BaseCase`, `Form`, `O2MForm`, `TestCase`, `freeze_time`, `no_retry`, `standalone`, `test_xsd`
+- **Field types** (0): none
+- **API decorators** (0): none
+- **View types** (0): none
+- **Action types** (0): none
+- **Route types** (0): none
+- **Route auth values** (0): none
+- **ORM methods** (0): none
+- **Web client registries** (0): none
+- **Test tools** (0): none
