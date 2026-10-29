@@ -1,0 +1,1 @@
+A formatter receives its options from the caller; nothing reads them from the arch.

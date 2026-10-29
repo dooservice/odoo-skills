@@ -1,0 +1,1 @@
+`rpc("/my_module/books", { limit: 10 })` (`rpc` from `@web/core/network/rpc`)

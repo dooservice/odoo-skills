@@ -1,0 +1,1 @@
+a public widget whose `selector` is the block's class.

@@ -1,0 +1,1 @@
+@web/core/lazy_component

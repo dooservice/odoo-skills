@@ -1,0 +1,1 @@
+`(env) => entry`, called with the environment

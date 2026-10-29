@@ -1,0 +1,1 @@
+`provide(env, options)` (`options.searchValue` is what the user typed)

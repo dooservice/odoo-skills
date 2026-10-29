@@ -1,0 +1,1 @@
+A handler that throws breaks error handling: return false instead.

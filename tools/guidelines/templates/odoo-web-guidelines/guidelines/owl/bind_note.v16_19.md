@@ -1,0 +1,1 @@
+(`onLend.bind="onLend"`, where `.bind` keeps `this`)

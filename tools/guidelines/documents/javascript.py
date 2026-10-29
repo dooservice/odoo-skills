@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .spanned import SpannedDocument
 
 
-class Javascript(Document):
+class Javascript(SpannedDocument):
+    """Short values come from `pick`, longer ones from the fragments in `guidelines/javascript/`."""
+
     path = "odoo-web-guidelines/guidelines/javascript.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:
@@ -26,7 +28,7 @@ class Javascript(Document):
             ),
             "owl": version.pick(
                 v16_19="Owl 2: state with `useState`, lifecycle with `onWillStart`/`onMounted`/`onWillUnmount`",
-                v20="Owl 3: reactive `signal` and `computed` next to `useState`; lifecycle with `onWillStart`/`onMounted`/`onWillUnmount`",
+                v20="Owl 3: state with `proxy`, `signal` and `computed`; lifecycle with `onWillStart`/`onMounted`/`onWillUnmount`",
             ),
             "field": version.pick(
                 v16='`registry.category("fields").add("my_widget", MyField)` registers the component',
@@ -49,7 +51,7 @@ class Javascript(Document):
                 "  code not moved yet, never for new code.",
             ),
             "patch": version.pick(
-                v16='`patch(Target.prototype, "my_module.Target", { setup() { super.setup(); ... } })`',
+                v16='`patch(Target.prototype, "my_module.Target", { setup() { this._super(...arguments); ... } })`',
                 v17_="`patch(Target.prototype, { setup() { super.setup(...arguments); ... } })`",
             ),
         }

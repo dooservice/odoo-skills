@@ -1,0 +1,1 @@
+, and the test framework `@odoo/hoot`, `@odoo/hoot-dom` and `@odoo/hoot-mock`

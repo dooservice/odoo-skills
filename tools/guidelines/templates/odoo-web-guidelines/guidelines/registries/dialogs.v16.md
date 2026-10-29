@@ -1,0 +1,1 @@
+Dialogs have no registry in this version: open one with the `dialog` service.

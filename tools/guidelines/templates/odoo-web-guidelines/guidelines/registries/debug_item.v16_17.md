@@ -1,0 +1,2 @@
+, or
+  `{ type: "separator" }`

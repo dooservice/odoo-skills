@@ -1,0 +1,1 @@
+import { listView } from "@web/views/list/list_view";

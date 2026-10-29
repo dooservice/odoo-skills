@@ -1,0 +1,1 @@
+odoo.http.session.SessionExpiredException

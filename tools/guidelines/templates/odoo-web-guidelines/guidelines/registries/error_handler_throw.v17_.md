@@ -1,0 +1,1 @@
+A handler that throws is logged and stops the chain: return false instead.

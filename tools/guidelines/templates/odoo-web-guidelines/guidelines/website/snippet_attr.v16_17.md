@@ -1,0 +1,1 @@
+t-thumbnail="/my_module/static/src/img/s_book_list.svg"

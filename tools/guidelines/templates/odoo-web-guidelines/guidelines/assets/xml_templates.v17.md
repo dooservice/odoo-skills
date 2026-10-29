@@ -1,0 +1,4 @@
+The XML files of a bundle are compiled into that bundle and registered when it loads
+(the server adds them to `category("xml_templates")`). A component whose template sits
+in another bundle fails at render with a missing template, so ship the `.xml` next to the
+`.js` that uses it and let the same glob take both.

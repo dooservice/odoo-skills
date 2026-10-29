@@ -1,0 +1,2 @@
+, or
+  `"component"` (with `contentComponent`)
