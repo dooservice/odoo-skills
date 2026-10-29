@@ -68,7 +68,9 @@ the partners that need them.
 
    - `delay_type` (17.0 on): `days_after` (invoice date), `days_after_end_of_month`,
      `days_after_end_of_next_month`, `days_end_of_month_on_the` with `days_next_month`
-     (`'10'`: the 10th of the next month).
+     (`'10'`: the 10th of the next month). In 17.0, `days_end_of_month_on_the` and
+     `days_next_month` come from `account_payment_term`, which installs itself with
+     Invoicing; from 18.0 they are part of `account`.
    - The text on the document is `note` (Description on the Invoice in 16.0, the
      Preview box from 17.0).
 
