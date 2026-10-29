@@ -223,7 +223,7 @@ The example: when a quotation is confirmed, tag its customer.
 
 Server action types (`state`); Python code (`code`) works in every version:
 
-| Type | 16.0 | 17.0–19.0 | 20.0 |
+| Type | 16.0 | 17.0 to 19.0 | 20.0 |
 |---|---|---|---|
 | Update record | `object_write` with `fields_lines`, on the record's own fields | `object_write` with `update_path`, `value` | as 17.0 |
 | Create record | `object_create` | `object_create` | as 17.0 |

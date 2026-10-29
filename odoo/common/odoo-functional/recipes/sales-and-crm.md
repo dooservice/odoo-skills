@@ -18,13 +18,13 @@ Community; online payment providers and subscriptions are left out.
 |---|---|---|
 | Online signature / payment | `portal_confirmation_sign`, `portal_confirmation_pay` | all; 17.0+ adds `prepayment_percent` |
 | Quotation validity | `quotation_validity_days` (0 = no expiry from 17.0) | 16.0 also needs `use_quotation_validity_days` |
-| Discounts on lines | `group_discount_per_so_line` | group in `product` 16.0–17.0, in `sale` 18.0+ |
+| Discounts on lines | `group_discount_per_so_line` | group in `product` 16.0 to 17.0, in `sale` 18.0+ |
 | Default terms | `use_invoice_terms`, `invoice_terms`, `terms_type` (`plain`, `html`) | all |
 | Lock confirmed orders | `group_auto_done_setting` | all |
 | Pro-forma invoice | `group_proforma_sales` | all |
-| Quotation templates | `group_sale_order_template` (`sale_management`) | 16.0–19.0 |
-| Automatic invoice after online payment | `automatic_invoice` (16.0–19.0), `sale_automatic_invoice` (20.0) | |
-| Default invoicing policy | `default_invoice_policy` (`order`, `delivery`) | 16.0–19.0; 20.0: `sale_invoice_policy` on the company |
+| Quotation templates | `group_sale_order_template` (`sale_management`) | 16.0 to 19.0 |
+| Automatic invoice after online payment | `automatic_invoice` (16.0 to 19.0), `sale_automatic_invoice` (20.0) | |
+| Default invoicing policy | `default_invoice_policy` (`order`, `delivery`) | 16.0 to 19.0; 20.0: `sale_invoice_policy` on the company |
 | Multi Teams | `is_membership_multi` | all |
 | Leads | `group_use_lead` | all |
 

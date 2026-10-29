@@ -46,7 +46,7 @@ print(env['product.template'].search_read([('service_tracking', '!=', 'no')], ['
    to their `project_ids` instead of creating copies.
 
 2. **Set who sees it.** The project's Settings tab, Visibility (`privacy_visibility`, see
-   Versions). For a private project, add the people (16.0–19.0 as followers, 20.0 as team
+   Versions). For a private project, add the people (16.0 to 19.0 as followers, 20.0 as team
    members):
 
    20.0:

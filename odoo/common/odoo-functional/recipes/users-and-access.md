@@ -199,7 +199,7 @@ group only for a need no standard group covers. People who leave are archived.
 | Record rules menu | Settings ‣ Technical ‣ Security ‣ Record Rules | same | same | same | none: `domain` on `ir.access` |
 | User's groups | `groups_id` (implied included) | same | same | `group_ids` (explicit); `all_group_ids` (with implied) | same as 19.0 |
 | Group's users | `users` | same | same | `user_ids`; `all_user_ids` | same as 19.0 |
-| Group's application | `category_id` | same | same | `privilege_id` → `res.groups.privilege` (`category_id`) | same as 19.0 |
+| Group's application | `category_id` | same | same | `privilege_id` -> `res.groups.privilege` (`category_id`) | same as 19.0 |
 | Group's access and rules | `model_access`, `rule_groups` | same | same | same | `access_ids` |
 | Default groups of a new user | template user `base.default_user` | same | same | `base.default_user_group` | same as 19.0 |
 | User role | none | none | none | none | `role` |

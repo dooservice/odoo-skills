@@ -70,7 +70,7 @@ If entries or stock are already posted, this is not day one: ask what was loaded
    env.cr.commit()
    ```
 
-   Leaves `done` moves "Opening inventory". Quantity × cost must equal the old stock
+   Leaves `done` moves "Opening inventory". Quantity x cost must equal the old stock
    accounts; with automated valuation the count posts it too: agree who carries it.
 6. **Opening trial balance.** Journal Entries (per version below), Import: one miscellaneous
    entry the day before go-live, receivables and payables on the clearing accounts.

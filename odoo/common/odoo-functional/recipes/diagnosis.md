@@ -133,7 +133,7 @@ Usual causes:
 - The product has taxes only for another company (each company has its own taxes; from
   17.0 a branch also uses its parent company's taxes).
 - A fiscal position replaced or removed it. Up to 18.0 the mapping is
-  `fpos.tax_ids` (`account.fiscal.position.tax`: `tax_src_id` → `tax_dest_id`; an empty
+  `fpos.tax_ids` (`account.fiscal.position.tax`: `tax_src_id` -> `tax_dest_id`; an empty
   destination removes the tax). From 19.0 the fiscal position lists its taxes in
   `tax_ids`, and each foreign tax names the domestic ones it replaces in
   `original_tax_ids`.
@@ -303,7 +303,7 @@ Never lower `number_next_actual` without the user saying so.
 | Access model | `ir.model.access` + `ir.rule` | same | same | same | `ir.access` |
 | Security menus (developer mode) | Settings ‣ Technical ‣ Security ‣ Access Rights, Record Rules | same | same | same | Settings ‣ Technical ‣ Security ‣ Access Rights |
 | Check access as the user | `check_access_rights` | `check_access_rights` | `has_access` | `has_access` | `has_access` |
-| Fiscal position tax mapping | `tax_ids` (`tax_src_id` → `tax_dest_id`) | same | same | taxes' `original_tax_ids` | as 19.0 |
+| Fiscal position tax mapping | `tax_ids` (`tax_src_id` -> `tax_dest_id`) | same | same | taxes' `original_tax_ids` | as 19.0 |
 | Sales order line taxes | `tax_id` | `tax_id` | `tax_id` | `tax_ids` | `tax_ids` |
 | Sales order line unit | `product_uom` | `product_uom` | `product_uom` | `product_uom_id` | `product_uom_id` |
 | `invisible` in views | in `attrs` | direct | direct | direct | direct |

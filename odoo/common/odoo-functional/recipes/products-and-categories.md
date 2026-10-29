@@ -88,7 +88,7 @@ type, then attributes and variants, as Odoo's documentation orders it.
      Each unit has `uom_type` (`reference`, `bigger`, `smaller`), `factor` and
      `rounding`.
    - 19.0+: no categories. A unit points to a `relative_uom_id` with `relative_factor`
-     (Dozens = 12 × Units); `factor` is computed. Rounding comes from the decimal
+     (Dozens = 12 x Units); `factor` is computed. Rounding comes from the decimal
      precision "Product Unit".
    - Never change the factor of a unit already used: past quantities are reread with it.
 

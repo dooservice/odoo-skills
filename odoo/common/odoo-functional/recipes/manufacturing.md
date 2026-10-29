@@ -149,8 +149,8 @@ print(mo.state, finished.qty_available, component_a.qty_available, component_b.q
 print([(m.product_id.display_name, m.state, m.location_id.complete_name, m.location_dest_id.complete_name) for m in mo.move_raw_ids | mo.move_finished_ids])
 ```
 
-`done`; the product rose by the order quantity, each component fell by line quantity ×
-order quantity; all moves `done`, stock → production for components and back for the product.
+`done`; the product rose by the order quantity, each component fell by line quantity x
+order quantity; all moves `done`, stock -> production for components and back for the product.
 
 ## Pitfalls
 

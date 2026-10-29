@@ -245,7 +245,7 @@ print(types.read(['name', 'requires_allocation', 'leave_validation_type', 'alloc
 | | 16.0 | 17.0 | 18.0 | 19.0 | 20.0 |
 |---|---|---|---|---|---|
 | Time off type | `hr.leave.type` | same | same | same, `requires_allocation` boolean | `hr.work.entry.type` (`work_entry_type_id`) |
-| Allocation approval | `draft` → `action_confirm`, `action_validate` | `action_validate` | `action_approve` | same | same |
+| Allocation approval | `draft` -> `action_confirm`, `action_validate` | `action_validate` | `action_approve` | same | same |
 | Expense amount | `total_amount` | `total_amount_currency` | same | same | same |
 | Submit / approve | report `hr.expense.sheet` | same | same | on the expense | same |
 | Employee-paid entry | `in_invoice` on post | same | same | `in_receipt` on post | `in_receipt` created draft on approval |

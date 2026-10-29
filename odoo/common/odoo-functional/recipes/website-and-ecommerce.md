@@ -84,7 +84,7 @@ carriers need `website_sale_delivery`.
    offered at checkout.
 
 5. **Payment providers.** Website ‣ Configuration ‣ eCommerce ‣ Payment Providers
-   (16.0–19.0), Payments (20.0); open the provider, enter its credentials, enable it.
+   (16.0 to 19.0), Payments (20.0); open the provider, enter its credentials, enable it.
 
    ```python
    provider = env.ref('payment.payment_provider_transfer')
@@ -150,7 +150,7 @@ cart, check the price display, the delivery methods and the payment providers.
 - The tax display only changes how prices show. Whether a price contains the tax is set
   on the tax (`taxes-and-journals.md`); the country's localization decides which taxes
   apply, it is not covered here, so check it with the user.
-- A neutralized copy disables enabled providers (16.0–19.0) or puts them in test mode
+- A neutralized copy disables enabled providers (16.0 to 19.0) or puts them in test mode
   (20.0): no real payments there. Say so when the user tests in a copy. Never try a
   live provider with a real payment without the user's yes.
 - Odoo's documentation for master still names a provider State field; 20.0 has `is_live`.

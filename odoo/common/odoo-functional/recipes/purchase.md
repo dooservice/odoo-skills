@@ -283,7 +283,7 @@ approve), receive, bill.
 | Alternative RFQs | `purchase_requisition` | same | same + `group_purchase_alternatives` | same as 18.0 | `purchase_alternative` |
 | Alternatives wizard | `purchase.requisition.create.alternative` (`partner_id`) | same | same | same, `partner_ids` (several vendors at once) | `purchase.alternative.create` (`partner_ids`) |
 | Agreement type | `type_id` record | same | `requisition_type` selection | same | same |
-| Agreement confirm | `action_in_progress()` → `ongoing` | same | `action_confirm()` → `confirmed` | same | same |
+| Agreement confirm | `action_in_progress()` -> `ongoing` | same | `action_confirm()` -> `confirmed` | same | same |
 | Menu: agreements | Purchase ‣ Orders ‣ Blanket Orders | same | Purchase ‣ Orders ‣ Purchase Agreements | same | same |
 | Menu: receipts | Inventory ‣ Operations ‣ Transfers | Inventory ‣ Operations ‣ Transfers ‣ Receipts | same | same | same |
 | Menu: units | Purchase ‣ Configuration ‣ Units of Measures ‣ Units of Measure | same | same | Purchase ‣ Configuration ‣ Products ‣ Units & Packagings | same |
