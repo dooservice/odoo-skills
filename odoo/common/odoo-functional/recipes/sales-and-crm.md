@@ -31,11 +31,13 @@ Community; online payment providers and subscriptions are left out.
 ```python
 env['res.config.settings'].create({
     'portal_confirmation_sign': True,
-    'quotation_validity_days': 30,  # 16.0: also 'use_quotation_validity_days': True
+    'quotation_validity_days': 30,
     'group_discount_per_so_line': True,
 }).execute()
 env.cr.commit()
 ```
+
+16.0 also needs `'use_quotation_validity_days': True`.
 
 - With `use_invoice_terms`, new quotations take `invoice_terms` (or the web page when
   `terms_type` is `html`) as their note, as invoices do.
@@ -78,11 +80,14 @@ opportunity, quotation from the opportunity, send, confirm, mark won, deliver, i
 
 2. **Adapt the pipeline stages.** CRM ‣ Configuration ‣ Pipeline ‣ Stages.
 
+   19.0 and 20.0:
+
    ```python
-   # 16.0-18.0: 'team_id': team.id    19.0+: 'team_ids': [(6, 0, [team.id])]
    env['crm.stage'].create({'name': 'Demo done', 'sequence': 3, 'team_ids': [(6, 0, [team.id])]})
    env.cr.commit()
    ```
+
+   16.0 to 18.0: `'team_id': team.id` instead of `team_ids`.
 
    Leaves a stage shown in that team's pipeline.
 
@@ -158,10 +163,12 @@ opportunity, quotation from the opportunity, send, confirm, mark won, deliver, i
    ```python
    picking = order.picking_ids.filtered(lambda p: p.state not in ('done', 'cancel'))
    for move in picking.move_ids:
-       move.quantity = move.product_uom_qty   # 16.0: quantity_done
+       move.quantity = move.product_uom_qty
    res = picking.button_validate()
    env.cr.commit()
    ```
+
+   That is 17.0 and later; 16.0 sets `move.quantity_done` instead of `move.quantity`.
 
    Leaves the delivery `done` and `qty_delivered` on the order lines. `button_validate`
    may return a wizard (backorder, immediate transfer in 16.0) instead of finishing:

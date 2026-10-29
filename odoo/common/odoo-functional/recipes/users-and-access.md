@@ -14,11 +14,14 @@ Access changes need the user's yes: they decide what people can see and do.
   interface needs developer mode.
 - Read first:
 
+19.0 and 20.0 (`group_ids` holds the groups given explicitly):
+
 ```python
-groups_field = 'group_ids' if 'group_ids' in env['res.users'] else 'groups_id'   # 19.0+ / up to 18.0
 for u in env['res.users'].search([('share', '=', False)]):
-    print(u.login, u.company_id.name, sorted(u[groups_field].mapped('full_name')))
+    print(u.login, u.company_id.name, sorted(u.group_ids.mapped('full_name')))
 ```
+
+16.0 to 18.0: the same with `u.groups_id`, which includes the implied groups.
 
 `user.has_group('sales_team.group_sale_manager')` works in every version, implied groups
 included.
@@ -33,6 +36,8 @@ group only for a need no standard group covers. People who leave are archived.
    opens Settings ‣ Users & Companies ‣ Users. Name, email, Companies and Default
    Company; in the Access Rights tab, one level per application.
 
+   19.0 and 20.0:
+
    ```python
    company = env.company
    user = env['res.users'].create({
@@ -42,12 +47,15 @@ group only for a need no standard group covers. People who leave are archived.
        'company_id': company.id,
        'company_ids': [(6, 0, [company.id])],
    })
-   user.write({groups_field: [
+   user.write({'group_ids': [
        (4, env.ref('sales_team.group_sale_salesman').id),
        (4, env.ref('account.group_account_invoice').id),
    ]})
    env.cr.commit()
    ```
+
+   16.0 to 18.0: the same with `groups_id` instead of `group_ids`. Add the groups after
+   `create()`, as above: passing them to `create()` replaces the default groups.
 
    Leaves an active internal user, invited by email to set a password.
 
@@ -202,11 +210,10 @@ group only for a need no standard group covers. People who leave are archived.
 ```python
 Orders = env['sale.order'].with_user(user)
 print(Orders.search_count([]), env['sale.order'].search_count([]))
-if hasattr(Orders, 'has_access'):                                    # 18.0+
-    print(Orders.has_access('write'))
-else:                                                                # 16.0, 17.0
-    print(Orders.check_access_rights('write', raise_exception=False))
+print(Orders.has_access('write'))
 ```
+
+That is 18.0 and later. 16.0, 17.0: `Orders.check_access_rights('write', raise_exception=False)`.
 
 Then ask the person to log in and try the action. To explain an access error, see
 `diagnosis.md`.

@@ -43,15 +43,21 @@ it, its sales and purchase data; then bulk loads and merging duplicates.
 2. **Create the company.** Contacts ‣ Contacts ‣ New, with Company selected (16.0 to
    19.0; in 20.0 the VAT makes it a company).
 
+   20.0: there is no `company_type` and `is_company` is computed, so write neither. A
+   partner without parent is its own commercial entity (the company of the contacts
+   created under it), and its VAT makes it `is_company`:
+
    ```python
    acme = env['res.partner'].create({
-       'name': 'Acme Industrial', 'is_company': True,
+       'name': 'Acme Industrial',
        'country_id': env.ref('base.<country code>').id, 'vat': '<vat number>',
        'category_id': [(4, distributor.id)],
        'user_id': salesperson.id,
    })
    env.cr.commit()
    ```
+
+   16.0 to 19.0: the same with `'is_company': True`.
 
    Leaves an active company contact, its own commercial partner.
 

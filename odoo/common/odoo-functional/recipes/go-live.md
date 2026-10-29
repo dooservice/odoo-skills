@@ -78,9 +78,8 @@ If entries or stock are already posted, this is not day one: ask what was loaded
    ```python
    import datetime
    company.account_opening_date = datetime.date(2026, 1, 1)    # the go-live date
-   company_field = 'company_ids' if 'company_ids' in env['account.account']._fields else 'company_id'
    def account(code):
-       return env['account.account'].search([('code', '=', code), (company_field, 'in', company.ids)], limit=1)
+       return env['account.account'].search([('code', '=', code), ('company_ids', 'in', company.ids)], limit=1)
    misc = env['account.journal'].search([('company_id', '=', company.id), ('type', '=', 'general')], limit=1)
    opening = env['account.move'].create({
        'move_type': 'entry', 'journal_id': misc.id, 'ref': 'Opening balance',
@@ -97,6 +96,9 @@ If entries or stock are already posted, this is not day one: ask what was loaded
    env.cr.commit()
    ```
 
+   That is 18.0 on. 16.0, 17.0: accounts have `company_id`, so search
+   `('company_id', 'in', company.ids)` instead of `company_ids`.
+
    Leaves one `posted`, balanced entry: the Chart of Accounts' opening balances.
 7. **Opening bank statements**, starting balance before the first transaction:
    `bank-and-reconciliation.md`.
@@ -105,9 +107,11 @@ If entries or stock are already posted, this is not day one: ask what was loaded
    ```python
    for clearing in ar_clearing | ap_clearing:
        print(clearing.code, sum(env['account.move.line'].search([('account_id', '=', clearing.id), ('parent_state', '=', 'posted')]).mapped('balance')))
-   (ar_clearing | ap_clearing).write({'deprecated': True} if 'deprecated' in ar_clearing._fields else {'active': False})
+   (ar_clearing | ap_clearing).write({'active': False})
    env.cr.commit()
    ```
+
+   That is 19.0 on. 16.0 to 18.0: accounts have no `active`; write `{'deprecated': True}`.
 
 9. **Numbering and lock:** `sequences.md`, then lock before go-live (`closing-the-period.md`).
 

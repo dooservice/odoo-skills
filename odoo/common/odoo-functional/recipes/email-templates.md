@@ -84,9 +84,10 @@ Render before and after every change.
    Settings tab, reports and attachments on the Options tab.
 
    ```python
-   template.read(['report_template_ids', 'attachment_ids', 'lang', 'mail_server_id', 'auto_delete'])   # 17.0+
-   template.read(['report_template', 'attachment_ids', 'lang', 'mail_server_id', 'auto_delete'])       # 16.0
+   template.read(['report_template_ids', 'attachment_ids', 'lang', 'mail_server_id', 'auto_delete'])
    ```
+
+   That is 17.0 on. 16.0: read `report_template` instead of `report_template_ids`.
 
    - The PDF attached: `report_template` (one report) in 16.0; `report_template_ids`
      (several) from 17.0. `attachment_ids` adds fixed files such as terms and conditions.
@@ -137,9 +138,11 @@ Render before and after every change.
 
   ```python
   copy = template.copy()
-  copy.name = 'Invoice (wholesale customers)'     # 16.0 ignores a name passed to copy()
+  copy.name = 'Invoice (wholesale customers)'
   env.cr.commit()
   ```
+
+  Set the name after copying: 16.0 ignores a name passed to `copy()`.
 
   A copy is not used by anything until something points to it: the Send wizard's
   choice, an automation rule (`automations.md`), or a setting such as

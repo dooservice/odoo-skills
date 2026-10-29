@@ -38,24 +38,27 @@ lists the groups that would allow it and the rules that failed.
 What to read: the user's groups, then the access rights and rules on that model.
 
 ```python
-groups = user.all_group_ids if 'all_group_ids' in user else user.groups_id   # 19.0+ / up to 18.0
-print(sorted(groups.mapped('full_name')))
+print(sorted(user.all_group_ids.mapped('full_name')))
 order = env['sale.order'].browse(42)
 ```
 
-Up to 19.0, model access is `ir.model.access` and row filters are `ir.rule`:
+That is 19.0 on (`all_group_ids` adds the implied groups). Up to 18.0 read
+`user.groups_id`, which already includes them.
+
+Up to 19.0, model access is `ir.model.access` and row filters are `ir.rule`. 18.0,
+19.0 (`has_access` checks access rights and rules):
 
 ```python
-as_user = order.with_user(user)
-if hasattr(as_user, 'has_access'):                                # 18.0, 19.0: access rights and rules
-    print(as_user.has_access('write'))
-else:                                                             # 16.0, 17.0: access rights only
-    print(as_user.check_access_rights('write', raise_exception=False))
+print(order.with_user(user).has_access('write'))
 for acl in env['ir.model.access'].search([('model_id.model', '=', 'sale.order')]):
     print(acl.group_id.full_name, acl.perm_read, acl.perm_write, acl.perm_create, acl.perm_unlink)
 failing = env['ir.rule'].with_user(user)._get_failing(order.with_user(user), 'write')
 print(failing.mapped(lambda r: (r.name, r.domain_force, r.groups.mapped('full_name'))))
 ```
+
+16.0, 17.0 have no `has_access`: the first line is
+`print(order.with_user(user).check_access_rights('write', raise_exception=False))`, which
+checks access rights only.
 
 In 20.0 both are one model, `ir.access` (group set: a permission; no group: a
 restriction that applies to everyone):
@@ -192,10 +195,11 @@ print(rule.read(['active', 'trigger', 'filter_pre_domain', 'filter_domain', 'las
 print(rule.trigger_field_ids.mapped('name'))
 cron = env['ir.cron'].with_context(active_test=False).search([('cron_name', 'ilike', 'reminder')])
 print(cron.read(['active', 'nextcall', 'lastcall', 'interval_number', 'interval_type', 'user_id']))
-params = env['ir.config_parameter'].sudo()
-print(params.get_bool('database.is_neutralized') if hasattr(params, 'get_bool')    # 20.0
-      else params.get_param('database.is_neutralized'))                           # up to 19.0
+print(env['ir.config_parameter'].sudo().get_bool('database.is_neutralized'))
 ```
+
+That is 20.0. Up to 19.0 the last line is
+`print(env['ir.config_parameter'].sudo().get_param('database.is_neutralized'))`.
 
 Usual causes:
 

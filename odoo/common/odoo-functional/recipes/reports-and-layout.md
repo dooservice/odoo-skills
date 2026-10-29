@@ -36,12 +36,15 @@ print(report.read(['name', 'report_name', 'paperformat_id', 'print_report_name',
    ```python
    company.write({
        'external_report_layout_id': env.ref('web.external_layout_standard').id,
-       'logo': logo_base64,  # base64 text: base64.b64encode(png_bytes).decode(); 20.0 refuses bytes
+       'logo': logo_base64,
        'primary_color': '#1f3a5f', 'secondary_color': '#c8a24a',
        'font': 'Roboto',
    })
    env.cr.commit()
    ```
+
+   `logo_base64` is base64 text, `base64.b64encode(png_bytes).decode()`: 20.0 refuses
+   bytes.
 
    - Layouts (XML ids in `web`): `external_layout_standard`, `_boxed`, `_bold`,
      `_striped` in 16.0 and 17.0; 18.0 and 19.0 add `_folder`, `_wave`, `_bubble`. 20.0

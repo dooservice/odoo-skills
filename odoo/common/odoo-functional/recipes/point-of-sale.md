@@ -66,9 +66,11 @@ print(env['pos.session'].search_read([('state', '!=', 'closed')], ['name', 'conf
    Point of Sale ‣ Configuration ‣ Products ‣ PoS Product Categories.
 
    ```python
-   products.write({'available_in_pos': True, 'pos_categ_ids': [(4, pos_category.id)]})  # 16.0: 'pos_categ_id': pos_category.id
+   products.write({'available_in_pos': True, 'pos_categ_ids': [(4, pos_category.id)]})
    env.cr.commit()
    ```
+
+   That is 17.0 on. 16.0 has one category per product: `'pos_categ_id': pos_category.id`.
 
 4. **Pricelists, fiscal positions, tax display.** Settings of the shop, sections Pricing
    and Accounting; Restrict Categories in the product section.
@@ -167,9 +169,11 @@ Bank methods post one payment per method at closing in every version.
 
 ```python
 session = env['pos.session'].search([('config_id', '=', config.id)], order='id desc', limit=1)
-moves = session.move_ids if 'move_ids' in session._fields else session.move_id   # 20.0 / up to 19.0
-print(session.state, [(m.name, m.state, m.amount_total) for m in moves], session.order_ids.mapped('state'))
+print(session.state, [(m.name, m.state, m.amount_total) for m in session.move_ids], session.order_ids.mapped('state'))
 ```
+
+That is 20.0. Up to 19.0 the session has one entry: `session.move_id` instead of
+`session.move_ids`.
 
 Then ask a cashier to open a session, sell once with each method, and close it.
 

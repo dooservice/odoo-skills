@@ -66,11 +66,18 @@ type, then attributes and variants, as Odoo's documentation orders it.
    Inventory ‣ Configuration ‣ Units of Measures ‣ UoM (16.0 to 18.0), Inventory ‣
    Configuration ‣ Products ‣ Units & Packagings (19.0+). Needs `group_uom`.
 
+   19.0 and 20.0:
+
    ```python
    units = env.ref('uom.product_uom_unit')
-   # 19.0+
    env['uom.uom'].create({'name': 'Box of 24', 'relative_factor': 24, 'relative_uom_id': units.id})
-   # 16.0-18.0
+   env.cr.commit()
+   ```
+
+   16.0 to 18.0:
+
+   ```python
+   units = env.ref('uom.product_uom_unit')
    env['uom.uom'].create({'name': 'Box of 24', 'category_id': units.category_id.id, 'uom_type': 'bigger', 'factor_inv': 24, 'rounding': 1})
    env.cr.commit()
    ```
@@ -89,25 +96,29 @@ type, then attributes and variants, as Odoo's documentation orders it.
    Inventory ‣ Products ‣ Products). The product has `uom_id` (sales and stock); 16.0 to
    18.0 also have `uom_po_id` (purchase unit, same category).
 
+   18.0 and later:
+
    ```python
-   # 18.0+
    template = env['product.template'].create({
        'name': 'Office chair', 'default_code': 'CHAIR-01', 'categ_id': categ.id,
        'type': 'consu', 'is_storable': True, 'list_price': 120, 'standard_price': 70,
    })
-   # 16.0 / 17.0: 'detailed_type': 'product' instead of 'type' and 'is_storable'
    env.cr.commit()
    ```
 
-   To change the type of an existing product:
+   16.0, 17.0:
 
    ```python
-   # 16.0 / 17.0
-   template.write({'detailed_type': 'product'})
-   # 18.0+
-   template.write({'type': 'consu', 'is_storable': True})
+   template = env['product.template'].create({
+       'name': 'Office chair', 'default_code': 'CHAIR-01', 'categ_id': categ.id,
+       'detailed_type': 'product', 'list_price': 120, 'standard_price': 70,
+   })
    env.cr.commit()
    ```
+
+   To change the type of an existing product: `template.write({'type': 'consu',
+   'is_storable': True})` from 18.0, `template.write({'detailed_type': 'product'})` in
+   16.0 and 17.0.
 
    Leaves an active template with one variant.
 

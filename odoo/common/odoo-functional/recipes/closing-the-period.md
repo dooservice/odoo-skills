@@ -19,12 +19,14 @@ Community has. Every step is an accounting change and needs the user's yes.
 
 ```python
 company = env.company
-lock_fields = [f for f in ('period_lock_date', 'fiscalyear_lock_date', 'tax_lock_date',
-                           'sale_lock_date', 'purchase_lock_date', 'hard_lock_date') if f in company._fields]
-print(company.read(lock_fields + ['fiscalyear_last_day', 'fiscalyear_last_month']))
+print(company.read(['fiscalyear_lock_date', 'tax_lock_date', 'sale_lock_date', 'purchase_lock_date',
+                    'hard_lock_date', 'fiscalyear_last_day', 'fiscalyear_last_month']))
 print(company.get_unaffected_earnings_account().read(['code', 'name', 'account_type']))
 print(company.read(['currency_exchange_journal_id', 'income_currency_exchange_account_id', 'expense_currency_exchange_account_id']))
 ```
+
+That is 18.0 on. 16.0, 17.0: the lock fields are `period_lock_date`,
+`fiscalyear_lock_date` and `tax_lock_date`.
 
 ## The standard flow
 
@@ -67,9 +69,17 @@ The order of Odoo's year-end documentation; a month or quarter stops after step 
    allocation of step 4 first, or open an exception (Variations). Monthly and quarterly
    closes also set the tax lock. Leaves entries on or before the date unchangeable.
 
+   18.0 on:
+
    ```python
-   field = 'period_lock_date' if 'period_lock_date' in company._fields else 'fiscalyear_lock_date'
-   company.write({field: period_end, 'tax_lock_date': period_end})
+   company.write({'fiscalyear_lock_date': period_end, 'tax_lock_date': period_end})
+   env.cr.commit()
+   ```
+
+   16.0, 17.0:
+
+   ```python
+   company.write({'period_lock_date': period_end, 'tax_lock_date': period_end})
    env.cr.commit()
    ```
 
@@ -80,8 +90,7 @@ The order of Odoo's year-end documentation; a month or quarter stops after step 
 
    ```python
    journal = env['account.journal'].search([('company_id', '=', company.id), ('type', '=', 'general')], limit=1)
-   domain = [('company_ids', 'in', company.id)] if 'company_ids' in env['account.account']._fields else [('company_id', '=', company.id)]
-   retained = env['account.account'].search(domain + [('code', '=', '<account code>')])
+   retained = env['account.account'].search([('company_ids', 'in', company.id), ('code', '=', '<account code>')])
    amount = 1000.0   # a profit; for a loss swap debit and credit
    move = env['account.move'].create({'journal_id': journal.id, 'date': end, 'ref': 'Allocation of the 2025 result', 'line_ids': [
        (0, 0, {'account_id': company.get_unaffected_earnings_account().id, 'name': 'Result 2025', 'debit': amount}),
@@ -89,6 +98,9 @@ The order of Odoo's year-end documentation; a month or quarter stops after step 
    ]})
    env.cr.commit()
    ```
+
+   That is 18.0 on. 16.0, 17.0: search accounts with `('company_id', '=', company.id)`
+   instead of `company_ids`.
 
    Leaves the entry in `draft`. Posted after a lock that covers its date, it is moved
    into the next period.
@@ -106,7 +118,7 @@ The order of Odoo's year-end documentation; a month or quarter stops after step 
   Adviser opens a temporary exception for one user, or everyone without `user_id`:
 
   ```python
-  env['account.lock_exception'].create({   # 18.0 on
+  env['account.lock_exception'].create({
       'company_id': company.id, 'user_id': user.id, 'lock_date_field': 'fiscalyear_lock_date', 'lock_date': datetime.date(2026, 1, 31),
       'reason': '<why>', 'end_datetime': datetime.datetime.now() + datetime.timedelta(hours=2),
   })

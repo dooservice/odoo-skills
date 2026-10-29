@@ -49,23 +49,30 @@ print(env['product.template'].search_read([('service_tracking', '!=', 'no')], ['
    Versions). For a private project, add the people (16.0–19.0 as followers, 20.0 as team
    members):
 
+   20.0:
+
    ```python
-   if 'allowed_internal_user_ids' in project:                     # 20.0
-       project.allowed_internal_user_ids = [(4, user.id)]
-   else:                                                          # 16.0-19.0
-       project.message_subscribe(partner_ids=user.partner_id.ids)
+   project.allowed_internal_user_ids = [(4, user.id)]
+   env.cr.commit()
+   ```
+
+   16.0 to 19.0:
+
+   ```python
+   project.message_subscribe(partner_ids=user.partner_id.ids)
    env.cr.commit()
    ```
 
 3. **Create tasks.** Open the project, New in a stage column.
 
    ```python
-   hours_field = 'allocated_hours' if 'allocated_hours' in env['project.task'] else 'planned_hours'  # 17.0+ / 16.0
    task = env['project.task'].create({
-       'name': '<task>', 'project_id': project.id, 'user_ids': [(6, 0, [user.id])], hours_field: 8,
+       'name': '<task>', 'project_id': project.id, 'user_ids': [(6, 0, [user.id])], 'allocated_hours': 8,
    })
    env.cr.commit()
    ```
+
+   That is 17.0 and later; 16.0 names the field `planned_hours`.
 
    Leaves the task in the first stage; from 17.0 its `state` is `01_in_progress`.
 
@@ -88,19 +95,21 @@ print(env['product.template'].search_read([('service_tracking', '!=', 'no')], ['
    Service, Invoicing Policy "Based on Timesheets" (`service_policy`), Create on Order
    (`service_tracking`): Task in an existing project, or Project & Task.
 
+   19.0 and 20.0:
+
    ```python
    hour = env.ref('uom.product_uom_hour')
-   vals = {'name': '<service>', 'type': 'service', 'list_price': 100, 'uom_id': hour.id,
-           'service_tracking': 'task_global_project', 'project_id': project.id,
-           'service_policy': 'delivered_timesheet'}
-   if 'detailed_type' in env['product.template']:                 # 16.0, 17.0
-       vals['detailed_type'] = 'service'
-   if 'uom_po_id' in env['product.template']:                     # 16.0-18.0
-       vals['uom_po_id'] = hour.id
-   product = env['product.product'].create(vals)
+   product = env['product.product'].create({
+       'name': '<service>', 'type': 'service', 'list_price': 100, 'uom_id': hour.id,
+       'service_tracking': 'task_global_project', 'project_id': project.id,
+       'service_policy': 'delivered_timesheet',
+   })
    project.allow_billable = True
    env.cr.commit()
    ```
+
+   18.0: also `'uom_po_id': hour.id`. 16.0, 17.0: also `'uom_po_id': hour.id` and
+   `'detailed_type': 'service'`.
 
    Writing `service_policy` sets `invoice_policy` (`delivery`) and `service_type`
    (`timesheet`). Sell it in Hours so logged time converts.

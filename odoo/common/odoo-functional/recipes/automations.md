@@ -188,10 +188,11 @@ The example: when a quotation is confirmed, tag its customer.
       'interval_number': 1,
       'interval_type': 'days',
       'nextcall': '2026-10-21 03:00:00',
-      # 16.0 and 17.0 only: 'numbercall': -1,
   })
   env.cr.commit()
   ```
+
+  That is 18.0 on. 16.0, 17.0: add `'numbercall': -1`.
 
   - `nextcall` is in UTC. `interval_type`: `minutes`, `hours`, `days`, `weeks`,
     `months`.

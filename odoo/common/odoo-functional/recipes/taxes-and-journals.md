@@ -122,10 +122,22 @@ Configuration menu.
 6. **Add a journal.** Invoicing ‣ Configuration ‣ Accounting ‣ Journals ‣ New; for a bank, the bank
    card on the Invoicing dashboard creates the journal and its account.
 
+   20.0 (`bank_account_number`, with `bank_bic` when known):
+
    ```python
    env['account.journal'].create({
        'name': 'Second bank', 'code': 'BNK2', 'type': 'bank',
-       'bank_acc_number': '<account number>', 'company_id': company.id,   # 'bank_account_number' in 20.0
+       'bank_account_number': '<account number>', 'bank_bic': '<BIC>', 'company_id': company.id,
+   })
+   env.cr.commit()
+   ```
+
+   16.0 to 19.0 (`bank_acc_number`):
+
+   ```python
+   env['account.journal'].create({
+       'name': 'Second bank', 'code': 'BNK2', 'type': 'bank',
+       'bank_acc_number': '<account number>', 'company_id': company.id,
    })
    env.cr.commit()
    ```

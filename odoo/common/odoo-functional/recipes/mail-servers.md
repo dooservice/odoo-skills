@@ -23,9 +23,11 @@ the domain is outside Odoo.
 print(env['ir.mail_server'].search_read([], ['name', 'smtp_host', 'smtp_port', 'smtp_encryption', 'smtp_user', 'from_filter', 'sequence', 'active']))
 print(env['fetchmail.server'].search_read([], ['name', 'server_type', 'server', 'state', 'object_id', 'active']))
 print({state: env['mail.mail'].search_count([('state', '=', state)]) for state in ('outgoing', 'exception', 'sent')})
-ICP = env['ir.config_parameter']
-print(ICP.get_bool('database.is_neutralized') if hasattr(ICP, 'get_bool') else ICP.get_param('database.is_neutralized'))   # 20.0 / up to 19.0
+print(env['ir.config_parameter'].get_bool('database.is_neutralized'))
 ```
+
+That is 20.0. Up to 19.0 read it with `get_param('database.is_neutralized')`; `get_bool`
+does not exist there.
 
 A neutralized database sends nothing (see Pitfalls): check it before anything else.
 
@@ -78,11 +80,17 @@ A neutralized database sends nothing (see Pitfalls): check it before anything el
    Domain field in Settings ‣ General Settings ‣ Discuss; catchall, bounce and default
    from are system parameters (Settings ‣ Technical ‣ Parameters ‣ System Parameters).
 
+   17.0 and later:
+
    ```python
-   # 17.0+
    domain = env['mail.alias.domain'].create({'name': 'example.com', 'default_from': 'notifications'})
    env['res.config.settings'].with_company(company).create({'alias_domain_id': domain.id}).execute()
-   # 16.0
+   env.cr.commit()
+   ```
+
+   16.0:
+
+   ```python
    env['res.config.settings'].create({'alias_domain': 'example.com'}).execute()
    env.cr.commit()
    ```
@@ -190,10 +198,13 @@ A neutralized database sends nothing (see Pitfalls): check it before anything el
 ```python
 server = env['ir.mail_server'].search([('name', '=', 'Company SMTP')])
 print(server.read(['smtp_host', 'smtp_port', 'smtp_encryption', 'from_filter', 'active']))
-print(env.company.alias_domain_id.read(['name', 'catchall_alias', 'bounce_alias', 'default_from']) if 'alias_domain_id' in env.company else env['ir.config_parameter'].get_param('mail.catchall.domain'))   # 17.0+ / 16.0
+print(env.company.alias_domain_id.read(['name', 'catchall_alias', 'bounce_alias', 'default_from']))
 print(env.ref('mail.ir_cron_mail_scheduler_action').read(['active', 'nextcall']))
 print({state: env['mail.mail'].search_count([('state', '=', state)]) for state in ('outgoing', 'exception')})
 ```
+
+That is 17.0 and later. 16.0 has no alias domain record: read
+`env['ir.config_parameter'].get_param('mail.catchall.domain')` instead of the second line.
 
 Then send a test document to the user's own address and watch it leave the queue.
 

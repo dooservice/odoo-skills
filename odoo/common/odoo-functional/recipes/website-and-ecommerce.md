@@ -18,13 +18,15 @@ website builder; that is outside this recipe.
 - Read first:
 
 ```python
-mode = 'is_live' if 'is_live' in env['payment.provider'] else 'state'   # 20.0 / up to 19.0
 print(env['website'].search_read([], ['name', 'domain', 'company_id', 'auth_signup_uninvited', 'account_on_checkout']))
 print(env['product.template'].search_count([('is_published', '=', True)]), 'published products')
 print(env['product.public.category'].search_read([], ['name', 'parent_id', 'website_id']))
-print(env['delivery.carrier'].search_read([], ['name', 'delivery_type', 'is_published', 'website_id']))   # 16.0: needs website_sale_delivery
-print(env['payment.provider'].search_read([('module_state', '=', 'installed')], ['name', 'code', mode, 'is_published', 'company_id']))
+print(env['delivery.carrier'].search_read([], ['name', 'delivery_type', 'is_published', 'website_id']))
+print(env['payment.provider'].search_read([('module_state', '=', 'installed')], ['name', 'code', 'is_live', 'is_published', 'company_id']))
 ```
+
+That is 20.0. Up to 19.0 the provider's mode is `state`, not `is_live`; in 16.0 the
+carriers need `website_sale_delivery`.
 
 ## The standard flow
 
@@ -35,10 +37,12 @@ print(env['payment.provider'].search_read([('module_state', '=', 'installed')], 
    env['res.config.settings'].create({
        'website_id': website.id,
        'account_on_checkout': 'optional',
-       'show_line_subtotals_tax_selection': 'tax_included',   # 16.0: see Versions
+       'show_line_subtotals_tax_selection': 'tax_included',
    }).execute()
    env.cr.commit()
    ```
+
+   That is 17.0 and later. In 16.0 the tax display is company-wide: see `## Versions`.
 
    Leaves `website.account_on_checkout` `optional` and `auth_signup_uninvited` `b2c`:
    `optional` and `mandatory` set free sign-up, `disabled` (guest checkout only) sets
@@ -85,10 +89,11 @@ print(env['payment.provider'].search_read([('module_state', '=', 'installed')], 
    ```python
    provider = env.ref('payment.payment_provider_transfer')
    print(provider.module_id.name, provider.module_state)   # stop unless 'installed'
-   provider.write({'state': 'enabled', 'is_published': True})   # 16.0-19.0
-   provider.write({'is_live': True, 'is_published': True})      # 20.0
+   provider.write({'is_live': True, 'is_published': True})
    env.cr.commit()
    ```
+
+   That is 20.0. 16.0 to 19.0: `provider.write({'state': 'enabled', 'is_published': True})`.
 
    Leaves the wire transfer offered at checkout; payments go to the provider's `journal_id`.
    The provider records exist before their module is installed (the wire transfer is

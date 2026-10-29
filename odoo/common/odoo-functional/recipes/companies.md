@@ -18,10 +18,12 @@ Inter-company transactions are Enterprise and left out.
 
 ```python
 for c in env['res.company'].search([]):
-    print(c.id, c.name, c.country_id.code, c.currency_id.name, c.parent_id.name,
-          c.chart_template if 'chart_template' in c else c.chart_template_id.name)   # 17.0+ / 16.0
+    print(c.id, c.name, c.country_id.code, c.currency_id.name, c.parent_id.name, c.chart_template)
 print(env['account.move'].search_count([('state', '=', 'posted')]))
 ```
+
+That is 17.0 on, where the chart is a code. 16.0: print `c.chart_template_id.name`
+instead of `c.chart_template`.
 
 ## The standard flow
 
@@ -141,11 +143,29 @@ added from the parent company once it exists.
   with their own journals); separate companies for separate legal entities, and for any
   entity in another country: a branch always follows the parent's localization.
 - **Loading the chart from a script.** `try_loading` without the setting, for a company
-  other than the current one:
-  `Chart.try_loading(code, company, install_demo=False)` (17.0+), or
-  `template.try_loading(company, install_demo=False)` (16.0). In 16.0 `try_loading` does
-  nothing when the company already has a chart (`chart_template_id`) or entries; the
-  16.0 setting replaces a chart without entries and refuses with entries.
+  other than the current one.
+
+  17.0 on: the template is a code string (`generic_coa` is the generic chart).
+
+  ```python
+  company = env['res.company'].search([('name', '=', '<company name>')], limit=1)
+  env['account.chart.template'].try_loading('generic_coa', company, install_demo=False)
+  env.cr.commit()
+  ```
+
+  16.0: the template is an `account.chart.template` record, never a code string, and
+  `try_loading` is called on it. The generic one needs the module `l10n_generic_coa`
+  installed.
+
+  ```python
+  company = env['res.company'].search([('name', '=', '<company name>')], limit=1)
+  env.ref('l10n_generic_coa.configurable_chart_template').try_loading(company=company, install_demo=False)
+  env.cr.commit()
+  ```
+
+  In 16.0 `try_loading` does nothing when the company already has a chart
+  (`chart_template_id`) or entries; the 16.0 setting replaces a chart without entries
+  and refuses with entries.
 - **Records shared or per company.** A record with `company_id` empty is shared by all
   companies (partners and products by default). Set `company_id` to restrict it to one.
   Taxes, journals, fiscal positions and payment terms with a company belong to it: a
@@ -196,12 +216,13 @@ Enterprise accounting app is installed; Odoo's documentation writes Accounting.
 ## Verify
 
 ```python
-print(company.name, company.country_id.code, company.currency_id.name, company.parent_id.name,
-      company.chart_template if 'chart_template' in company else company.chart_template_id.name)
+print(company.name, company.country_id.code, company.currency_id.name, company.parent_id.name, company.chart_template)
 print(env['account.journal'].search_count([('company_id', '=', company.id)]),
       env['account.tax'].search_count([('company_id', '=', company.id)]))
 print(env['res.users'].search([('company_ids', 'in', company.ids)]).mapped('login'))
 ```
+
+16.0: `company.chart_template_id.name` instead of `company.chart_template`.
 
 Then select the company in the switcher and create a draft invoice.
 

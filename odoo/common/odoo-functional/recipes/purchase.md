@@ -126,10 +126,12 @@ approve), receive, bill.
    ```python
    picking = po.picking_ids.filtered(lambda p: p.state not in ('done', 'cancel'))
    for move in picking.move_ids:
-       move.quantity = move.product_uom_qty   # 16.0: quantity_done
+       move.quantity = move.product_uom_qty
    res = picking.button_validate()
    env.cr.commit()
    ```
+
+   That is 17.0 and later; 16.0 sets `move.quantity_done` instead of `move.quantity`.
 
    Leaves the receipt `done`, `qty_received` on the lines and, with `receive` control,
    the order `to invoice`. `button_validate` may return a wizard (backorder, immediate
@@ -167,14 +169,29 @@ approve), receive, bill.
   (20.0, setting `module_purchase_alternative`). On an RFQ, the Alternatives tab ‣ Create
   Alternative, once per vendor:
 
+  20.0:
+
   ```python
   action = po.action_create_alternative()
-  # 16.0-18.0
-  wizard = env['purchase.requisition.create.alternative'].with_context(action['context']).create({'partner_id': vendor2.id, 'copy_products': True})
-  # 19.0
-  wizard = env['purchase.requisition.create.alternative'].with_context(action['context']).create({'partner_ids': [(6, 0, vendor2.ids)], 'copy_products': True})
-  # 20.0
   wizard = env['purchase.alternative.create'].with_context(action['context']).create({'partner_ids': [(6, 0, vendor2.ids)], 'copy_products': True})
+  wizard.action_create_alternative()
+  env.cr.commit()
+  ```
+
+  19.0:
+
+  ```python
+  action = po.action_create_alternative()
+  wizard = env['purchase.requisition.create.alternative'].with_context(action['context']).create({'partner_ids': [(6, 0, vendor2.ids)], 'copy_products': True})
+  wizard.action_create_alternative()
+  env.cr.commit()
+  ```
+
+  16.0 to 18.0:
+
+  ```python
+  action = po.action_create_alternative()
+  wizard = env['purchase.requisition.create.alternative'].with_context(action['context']).create({'partner_id': vendor2.id, 'copy_products': True})
   wizard.action_create_alternative()
   env.cr.commit()
   ```
@@ -209,14 +226,20 @@ approve), receive, bill.
 - **Blanket order: a long-term agreement with set prices.** Purchase ‣ Orders ‣ Blanket
   Orders (16.0, 17.0) or Purchase Agreements (18.0+) ‣ New, with `purchase_requisition`.
 
+  18.0 and later:
+
   ```python
-  # 18.0+
   agreement = env['purchase.requisition'].create({
       'vendor_id': vendor.id, 'requisition_type': 'blanket_order', 'date_end': '2026-12-31',
       'line_ids': [(0, 0, {'product_id': product.id, 'product_qty': 1000, 'price_unit': 3.9})],
   })
   agreement.action_confirm()
-  # 16.0 / 17.0
+  env.cr.commit()
+  ```
+
+  16.0, 17.0:
+
+  ```python
   agreement = env['purchase.requisition'].create({
       'vendor_id': vendor.id, 'type_id': env.ref('purchase_requisition.type_single').id, 'date_end': '2026-12-31 23:59:59',
       'line_ids': [(0, 0, {'product_id': product.id, 'product_qty': 1000, 'price_unit': 3.9})],

@@ -149,10 +149,12 @@ daily transfers.
    ```python
    picking.action_assign()
    for move in picking.move_ids:
-       move.quantity = move.product_uom_qty   # 16.0: quantity_done
+       move.quantity = move.product_uom_qty
    res = picking.button_validate()
    env.cr.commit()
    ```
+
+   That is 17.0 on. 16.0: write `move.quantity_done` instead of `move.quantity`.
 
    Leaves the transfer `done` and the stock moved. `button_validate` may return a wizard
    (backorder, immediate transfer in 16.0) instead of finishing: read `res`. Validating
@@ -186,10 +188,12 @@ daily transfers.
 
   ```python
   for move in batch.picking_ids.move_ids:
-      move.quantity = move.product_uom_qty   # 16.0: quantity_done
+      move.quantity = move.product_uom_qty
   res = batch.action_done()
   env.cr.commit()
   ```
+
+  That is 17.0 on. 16.0: `move.quantity_done` instead of `move.quantity`.
 
   Leaves the batch `done` and each transfer `done`. As with a transfer, `res` may be a
   backorder or immediate transfer wizard: read it. Automatic batches (by contact,
@@ -199,13 +203,19 @@ daily transfers.
   Inventory ‣ Operations ‣ Adjustments ‣ Scrap (17.0+) ‣ New; also the Scrap action on a
   transfer or a lot. No setting needed.
 
+  20.0 (a scrap is a stock move; there is no `stock.scrap`):
+
   ```python
-  # 16.0-19.0
-  scrap = env['stock.scrap'].create({'product_id': product.id, 'scrap_qty': 2, 'location_id': warehouse.lot_stock_id.id})
-  res = scrap.action_validate()
-  # 20.0: a scrap is a stock move
   scrap = env['stock.move'].with_context(default_is_scrap=True).create({'product_id': product.id, 'quantity': 2, 'location_id': warehouse.lot_stock_id.id})
   res = scrap.action_scrap()
+  env.cr.commit()
+  ```
+
+  16.0 to 19.0:
+
+  ```python
+  scrap = env['stock.scrap'].create({'product_id': product.id, 'scrap_qty': 2, 'location_id': warehouse.lot_stock_id.id})
+  res = scrap.action_validate()
   env.cr.commit()
   ```
 
