@@ -2,13 +2,19 @@
 name: odoo-functional
 description: >-
   Configuring and fixing an Odoo database without writing a module, the way a
-  functional consultant does: settings, companies, users and access, products,
-  partners, taxes, journals, fiscal positions, pricelists, sequences, email
-  templates, reports, automations, imports, and diagnosing "why does Odoo do
-  X". Use for any task that creates, reads or changes the records or settings
-  of an Odoo database, through the interface, an `odoo-bin shell` script, the
-  external API or an agent's tools, and for any functional question, before
-  deciding that something needs code.
+  functional consultant does, in the interface or with an `odoo-bin shell`
+  script: companies and the chart of accounts, users and user groups, access
+  and record rules, contacts (customer companies and their contact persons),
+  products and units of measure, pricelists and discounts, taxes, bank and
+  other journals, payment terms, fiscal positions and tax mapping, bank
+  reconciliation and reconciliation models, sales, purchase, inventory and
+  scrap, manufacturing, point of sale, employees, time off types and
+  allocations, expenses and expense reports, sequences, email templates and
+  mail servers, reports, automation rules, server and scheduled actions,
+  imports, and diagnosing "why does Odoo do X". Use for any task that
+  creates, reads or changes records or settings of an Odoo database (shell
+  script, external API or an agent's tools) and for any functional question,
+  before deciding that something needs code.
 ---
 
 # Configuring Odoo without code
@@ -64,6 +70,12 @@ module defines, and check it with the user before acting.
 
 ## Rules that save databases
 
+- **Write for one version.** Read it first (`odoo.release.series` in a shell, the
+  `server_version` of the external API) and use only that version's models, fields and
+  values. Recipes give one block per version range, newest first: copy the block of
+  this version. Never write fallbacks that test for a field or model
+  (`'a' if 'a' in env['x'] else 'b'`) and never leave another version's names in
+  comments: a name from another version fails, or is silently ignored.
 - **Records are shared.** A tax, journal, pricelist or template changed here changes every
   document that uses it. Count the users before changing one in use.
 - **Posted accounting is history.** Never change a tax, account or journal that has posted
