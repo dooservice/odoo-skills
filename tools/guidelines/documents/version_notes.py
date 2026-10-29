@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from ..document import Document
 from ..version import OdooVersion
+from .flow_version_notes import FlowVersionNotes
 from .interface_version_notes import InterfaceVersionNotes
+from .record_version_notes import RecordVersionNotes
 
 
 class VersionNotes(Document):
@@ -16,6 +18,8 @@ class VersionNotes(Document):
             **self.models(version),
             **self.server(version),
             **InterfaceVersionNotes().values(version),
+            **RecordVersionNotes().values(version),
+            **FlowVersionNotes().values(version),
         }
 
     def models(self, version: OdooVersion) -> dict[str, str]:
@@ -66,8 +70,11 @@ class VersionNotes(Document):
                 v19_="`privilege_id` on `res.groups` (a `res.groups.privilege`)",
             ),
             "access_rights": version.pick(
-                v16_19="`security/ir.model.access.csv` plus `ir.rule` records",
-                v20="`security/ir.access.csv` (`ir.access`, one model for ACLs and record rules)",
+                v16_19="`security/ir.model.access.csv` plus record rules as `<record model=\"ir.rule\">` "
+                "with `domain_force` and `groups`",
+                v20="`security/ir.access.csv` (`ir.access`, one model for ACLs and record rules): a record "
+                "rule is an `ir.access` row with a `domain`, in the CSV or as `<record model=\"ir.access\">`. "
+                "`ir.model.access` and `ir.rule` do not exist",
             ),
             "route_types": version.pick(
                 v16_18="`type='http'` or `type='json'`",

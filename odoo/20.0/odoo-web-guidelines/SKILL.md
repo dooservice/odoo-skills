@@ -2,10 +2,11 @@
 name: odoo-web-guidelines
 description: >-
   House rules for the web framework code of Odoo 20.0 addons: JavaScript
-  modules, Owl components and templates, registries (fields, views, actions,
-  systray...), services, field widgets and js_class views, website and portal
-  frontend code, the Point of Sale, assets bundles, SCSS, JavaScript unit tests
-  and tours, in static/src/ and static/tests/ of any addon (community,
+  modules and their header, Owl components and templates, patching
+  components, registries (fields, views, actions, systray...), services,
+  RPC and ORM calls, field widgets and js_class views, website and portal
+  frontend code, the Point of Sale, assets bundles, SCSS, JavaScript unit
+  tests and tours, in static/src/ and static/tests/ of any addon (community,
   enterprise, or custom). Use when writing, reviewing, or moving files under
   static/ in an Odoo addon.
 ---

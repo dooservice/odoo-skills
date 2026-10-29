@@ -42,7 +42,18 @@ library_book_company,library.book multi-company,library.book,,crud,"[('company_i
 
 # Restrict records with domains
 
-Restrict which records a group sees with the `domain` of its `ir.access` rows.
+Restrict which records a group sees with the `domain` of its `ir.access` rows;
+a record rule is an `ir.access` record, never `model="ir.rule"`.
+
+```xml
+<record id="library_book_rule_reader_company" model="ir.access">
+    <field name="name">library.book: reader, own companies</field>
+    <field name="model_id" ref="model_library_book"/>
+    <field name="group_id" ref="library.group_reader"/>
+    <field name="operation">r</field>
+    <field name="domain">[('company_id', 'in', company_ids)]</field>
+</record>
+```
 
 - The optional `domain` restricts the row to matching records (what record rules
   used to do).

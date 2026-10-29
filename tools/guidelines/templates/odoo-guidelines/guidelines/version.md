@@ -17,7 +17,9 @@ $version source.
 | Domains | $domains |
 | Translations in Python | $translations |
 | Group categories | $group_categories |
-| Access rights | $access_rights |
+| Access rights and record rules | $access_rights |
+| User groups | $user_groups |
+| System parameters | $system_parameters |
 | Route types | $route_types |
 | Route auth | $route_auth |
 | Default test tags | $test_tags |
@@ -29,6 +31,22 @@ $version source.
 | JS RPC | $js_rpc |
 | Shared logic | $js_shared_logic |
 | JS tests | $js_tests |
+
+Business records, for `odoo-bin shell` scripts and data files (the `odoo-functional`
+recipes give the whole flow):
+
+| Topic | In $version |
+| --- | --- |
+| Company and its contact persons | $company_contacts |
+| Automation rules | $automation_rules |
+| Bank journal account | $bank_journal |
+| Loading a chart of accounts | $chart_loading |
+| Pricelist rules | $pricelist_rules |
+| Pricelist discount shown on the line | $line_discount |
+| Reconciliation models | $reconcile_models |
+| Fiscal position tax mapping | $tax_mapping |
+| Time off types | $time_off_types |
+| Expense reports | $expense_reports |
 
 ## When unsure
 

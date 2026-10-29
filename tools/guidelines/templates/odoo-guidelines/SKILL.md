@@ -1,15 +1,18 @@
 ---
 name: odoo-guidelines
 description: >-
-  House rules for Odoo $version code: module structure, manifest, models and
-  inheritance, fields, the ORM and api decorators, controllers and the external
-  API, mail and chatter, multi-company, access rights and record rules, XML
-  views, actions, menus and scheduled actions, QWeb reports, data files,
-  migrations, translations, tests, odoo-bin, performance, and what exists in
-  $version: names and APIs change between versions. Use before writing or
-  reviewing any Python, XML or CSV for Odoo $version, in an addon or a script
-  (for the JavaScript, Owl templates and SCSS under static/, see
-  odoo-web-guidelines).
+  House rules for Odoo $version code and what exists in $version (names and
+  APIs change between versions): module structure, manifest, models and
+  inheritance, fields, display names, SQL constraints and indexes, the ORM,
+  domains and api decorators, system parameters (ir.config_parameter),
+  controllers and JSON routes, the external API, mail and chatter,
+  multi-company, access rights, record rules, user groups and res.users
+  groups, XML views (form, list, kanban, search, inherited views, conditional
+  visibility with invisible, readonly and required), actions, menus,
+  scheduled actions, QWeb reports, data files, migrations, translations,
+  tests, odoo-bin and performance. Use before writing or reviewing any
+  Python, XML or CSV for Odoo $version, in an addon or a script (for the
+  JavaScript, Owl templates and SCSS under static/, see odoo-web-guidelines).
 ---
 
 # Odoo $version addon guidelines
@@ -24,7 +27,7 @@ is in doubt: these rules are written for $version and the table says what $versi
 
 | Guideline | Read it when |
 | --- | --- |
-| [What Odoo $version has](guidelines/version.md#$version_anchor) | before writing any API, view attribute or JS import you are not sure exists in this version |
+| [What Odoo $version has](guidelines/version.md#$version_anchor) | before writing any API, view attribute, JS import, security record, system parameter call or business record field you are not sure exists in this version |
 | [Module structure and file naming](guidelines/module_structure.md#module-structure-and-file-naming) | creating or moving files in an addon, or adding a module |
 | [Manifest](guidelines/manifest.md#manifest) | touching `__manifest__.py` |
 | [Imports](guidelines/python.md#imports) | writing Python anywhere in an addon |

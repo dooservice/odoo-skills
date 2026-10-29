@@ -17,7 +17,9 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | Domains | lists; combine with `odoo.osv.expression.AND([...])` / `OR([...])` |
 | Translations in Python | `from odoo import _, _lt`; `_("...")`, `_lt` for module-level constants |
 | Group categories | `category_id` on `res.groups` (an `ir.module.category`) |
-| Access rights | `security/ir.model.access.csv` plus `ir.rule` records |
+| Access rights and record rules | `security/ir.model.access.csv` plus record rules as `<record model="ir.rule">` with `domain_force` and `groups` |
+| User groups | `groups_id` on `res.users` (implied groups included): `user.write({'groups_id': [Command.link(group.id)]})` |
+| System parameters | `env['ir.config_parameter'].sudo().get_param('key', default)` returns a string: convert it (`int(...)`); `set_param('key', value)` writes |
 | Route types | `type='http'` or `type='json'` |
 | Route auth | `user`, `public`, `none` |
 | Default test tags | `at_install`: write `@tagged('post_install', '-at_install')` on business tests |
@@ -29,6 +31,22 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | JS RPC | `this.rpc = useService("rpc")`; `this.orm = useService("orm")` |
 | Shared logic | services: `registry.category("services").add("x", { dependencies, start })`, used with `useService("x")` |
 | JS tests | QUnit, under `static/tests/`, in the `web.qunit_suite_tests` bundle |
+
+Business records, for `odoo-bin shell` scripts and data files (the `odoo-functional`
+recipes give the whole flow):
+
+| Topic | In 17.0 |
+| --- | --- |
+| Company and its contact persons | `res.partner` with `is_company=True` (`company_type='company'` in the form); its people are partners with `parent_id` set to it |
+| Automation rules | `base.automation` no longer inherits `ir.actions.server`: its actions are `ir.actions.server` records in `action_server_ids` (their `base_automation_id`); trigger `on_create_or_write` (`on_create` and `on_write` are deprecated) or a value trigger such as `on_state_set` |
+| Bank journal account | `account.journal` with `type='bank'` and `bank_acc_number` (plus `bank_id`), which creates the `res.partner.bank` |
+| Loading a chart of accounts | by code: `env['account.chart.template'].try_loading('generic_coa', company)` |
+| Pricelist rules | `compute_price`: `fixed`, `percentage` (with `percent_price`), `formula`; `applied_on` written (`3_global`, `1_product`...) |
+| Pricelist discount shown on the line | `discount_policy='without_discount'` on the pricelist, with the setting `group_discount_per_so_line` (in `product`) |
+| Reconciliation models | `account.reconcile.model` with `rule_type`: `writeoff_button`, `writeoff_suggestion`, `invoice_matching` |
+| Fiscal position tax mapping | lines on the position: `tax_ids` of `account.fiscal.position.tax` (`tax_src_id`, `tax_dest_id`) |
+| Time off types | `hr.leave.type`; `requires_allocation` `'yes'`/`'no'`; `allocation_validation_type` `'officer'`/`'no'` |
+| Expense reports | expenses are submitted in a report: `hr.expense.sheet` with `expense_line_ids`, then `sheet.action_submit_sheet()` |
 
 ## When unsure
 

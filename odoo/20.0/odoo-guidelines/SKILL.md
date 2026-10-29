@@ -1,15 +1,18 @@
 ---
 name: odoo-guidelines
 description: >-
-  House rules for Odoo 20.0 code: module structure, manifest, models and
-  inheritance, fields, the ORM and api decorators, controllers and the external
-  API, mail and chatter, multi-company, access rights and record rules, XML
-  views, actions, menus and scheduled actions, QWeb reports, data files,
-  migrations, translations, tests, odoo-bin, performance, and what exists in
-  20.0: names and APIs change between versions. Use before writing or
-  reviewing any Python, XML or CSV for Odoo 20.0, in an addon or a script
-  (for the JavaScript, Owl templates and SCSS under static/, see
-  odoo-web-guidelines).
+  House rules for Odoo 20.0 code and what exists in 20.0 (names and
+  APIs change between versions): module structure, manifest, models and
+  inheritance, fields, display names, SQL constraints and indexes, the ORM,
+  domains and api decorators, system parameters (ir.config_parameter),
+  controllers and JSON routes, the external API, mail and chatter,
+  multi-company, access rights, record rules, user groups and res.users
+  groups, XML views (form, list, kanban, search, inherited views, conditional
+  visibility with invisible, readonly and required), actions, menus,
+  scheduled actions, QWeb reports, data files, migrations, translations,
+  tests, odoo-bin and performance. Use before writing or reviewing any
+  Python, XML or CSV for Odoo 20.0, in an addon or a script (for the
+  JavaScript, Owl templates and SCSS under static/, see odoo-web-guidelines).
 ---
 
 # Odoo 20.0 addon guidelines
@@ -24,7 +27,7 @@ is in doubt: these rules are written for 20.0 and the table says what 20.0 has.
 
 | Guideline | Read it when |
 | --- | --- |
-| [What Odoo 20.0 has](guidelines/version.md#what-odoo-200-has) | before writing any API, view attribute or JS import you are not sure exists in this version |
+| [What Odoo 20.0 has](guidelines/version.md#what-odoo-200-has) | before writing any API, view attribute, JS import, security record, system parameter call or business record field you are not sure exists in this version |
 | [Module structure and file naming](guidelines/module_structure.md#module-structure-and-file-naming) | creating or moving files in an addon, or adding a module |
 | [Manifest](guidelines/manifest.md#manifest) | touching `__manifest__.py` |
 | [Imports](guidelines/python.md#imports) | writing Python anywhere in an addon |
