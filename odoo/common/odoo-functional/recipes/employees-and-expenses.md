@@ -19,13 +19,22 @@ check `## Versions` before every step.
 ```python
 print(env['hr.employee'].search_read([], ['name', 'user_id', 'department_id', 'parent_id', 'leave_manager_id', 'company_id']))
 print(env['hr.department'].search_read([], ['name', 'manager_id', 'parent_id']))
-if 'hr.leave.type' in env:                                                   # 16.0-19.0
-    types = env['hr.leave.type'].search([])
-else:                                                                        # 20.0
-    types = env['hr.work.entry.type'].search([('time_off_selectable', '=', True), ('count_as', '=', 'absence'),
-                                              ('country_id', 'in', [False, env.company.country_id.id])])
-print(types.read(['name', 'requires_allocation', 'leave_validation_type', 'allocation_validation_type']))
 print(env['product.product'].search_read([('can_be_expensed', '=', True)], ['name', 'default_code', 'standard_price']))
+```
+
+The time off types, 20.0 (they are work entry types):
+
+```python
+types = env['hr.work.entry.type'].search([('time_off_selectable', '=', True), ('count_as', '=', 'absence'),
+                                          ('country_id', 'in', [False, env.company.country_id.id])])
+print(types.read(['name', 'requires_allocation', 'leave_validation_type', 'allocation_validation_type']))
+```
+
+16.0 to 19.0:
+
+```python
+types = env['hr.leave.type'].search([])
+print(types.read(['name', 'requires_allocation', 'leave_validation_type', 'allocation_validation_type']))
 ```
 
 ## The standard flow
@@ -54,31 +63,65 @@ print(env['product.product'].search_read([('can_be_expensed', '=', True)], ['nam
 
 3. **Time off type.** Time Off ‣ Configuration ‣ Time Off Types (20.0: Time Types).
 
+   Write the block of the database's version only: the field values differ.
+
+   20.0, a work entry type counted as an absence:
+
    ```python
-   leave_type = env['hr.leave.type'].create({                 # 16.0-19.0
-       'name': '<type>', 'requires_allocation': 'yes',          # 19.0: True
-       'leave_validation_type': 'manager',
-       'allocation_validation_type': 'officer',                 # 18.0+: 'hr'
-       'request_unit': 'day',
-   })
-   leave_type = env['hr.work.entry.type'].create({             # 20.0
+   leave_type = env['hr.work.entry.type'].create({
        'name': '<type>', 'code': '<CODE>', 'count_as': 'absence', 'requires_allocation': True,
        'leave_validation_type': 'manager', 'allocation_validation_type': 'hr',
        'request_unit': 'day', 'unit_of_measure': 'day',
    })
-   type_field = 'holiday_status_id' if 'hr.leave.type' in env else 'work_entry_type_id'
    ```
+
+   19.0 (`requires_allocation` is a boolean):
+
+   ```python
+   leave_type = env['hr.leave.type'].create({
+       'name': '<type>', 'requires_allocation': True,
+       'leave_validation_type': 'manager', 'allocation_validation_type': 'hr',
+       'request_unit': 'day',
+   })
+   ```
+
+   18.0 (`requires_allocation` is `'yes'` or `'no'`):
+
+   ```python
+   leave_type = env['hr.leave.type'].create({
+       'name': '<type>', 'requires_allocation': 'yes',
+       'leave_validation_type': 'manager', 'allocation_validation_type': 'hr',
+       'request_unit': 'day',
+   })
+   ```
+
+   16.0, 17.0 (`allocation_validation_type` is `'officer'` or `'no'`):
+
+   ```python
+   leave_type = env['hr.leave.type'].create({
+       'name': '<type>', 'requires_allocation': 'yes',
+       'leave_validation_type': 'manager', 'allocation_validation_type': 'officer',
+       'request_unit': 'day',
+   })
+   ```
+
+   Allocations and requests point to the type with `holiday_status_id` up to 19.0 and
+   `work_entry_type_id` in 20.0.
 
 4. **Allocation.** Time Off ‣ Management ‣ Allocations ‣ New (16.0: Approvals ‣
    Allocations), then Validate/Approve.
 
    ```python
    allocation = env['hr.leave.allocation'].create({
-       type_field: leave_type.id, 'employee_id': employee.id, 'number_of_days': 5, 'date_from': '<YYYY-MM-DD>',
+       'holiday_status_id': leave_type.id, 'employee_id': employee.id, 'number_of_days': 5, 'date_from': '<YYYY-MM-DD>',
    })
-   allocation.action_approve()          # 16.0: action_confirm() if draft, then action_validate(); 17.0: action_validate()
+   allocation.action_approve()
    env.cr.commit()
    ```
+
+   That is 18.0 and 19.0. 20.0: `'work_entry_type_id': leave_type.id` instead of
+   `holiday_status_id`, then `action_approve()`. 17.0: `action_validate()`. 16.0:
+   `action_confirm()` while it is `draft`, then `action_validate()`.
 
    Created `confirm` (16.0: `draft`), leaves it `validate`.
 
@@ -86,11 +129,13 @@ print(env['product.product'].search_read([('can_be_expensed', '=', True)], ['nam
 
    ```python
    leave = env['hr.leave'].with_user(user).create({
-       type_field: leave_type.id, 'employee_id': employee.id,
+       'holiday_status_id': leave_type.id, 'employee_id': employee.id,
        'request_date_from': '<YYYY-MM-DD>', 'request_date_to': '<YYYY-MM-DD>',
-       # 16.0 also: 'date_from': '<YYYY-MM-DD> 08:00:00', 'date_to': '<YYYY-MM-DD> 17:00:00'
    })
    ```
+
+   20.0: `'work_entry_type_id'` instead of `holiday_status_id`. 16.0: also
+   `'date_from': '<YYYY-MM-DD> 08:00:00'` and `'date_to': '<YYYY-MM-DD> 17:00:00'`.
 
    Leaves it `confirm` (To Approve); `no_validation` types are approved at once. In
    16.0 the request dates alone give a one-day leave: set `date_from` and `date_to` too
@@ -122,20 +167,36 @@ print(env['product.product'].search_read([('can_be_expensed', '=', True)], ['nam
 8. **Log and submit.** Expenses ‣ My Expenses ‣ New, Paid By (`payment_mode`):
    `own_account` (employee, to reimburse) or `company_account`.
 
+   19.0 and 20.0: the expense itself is submitted; there is no expense report
+   (`hr.expense.sheet`).
+
    ```python
    expense = env['hr.expense'].create({
        'name': '<description>', 'employee_id': employee.id, 'product_id': category.id,
-       'total_amount_currency': <amount>, 'payment_mode': 'own_account',   # 16.0: 'total_amount'
+       'total_amount_currency': <amount>, 'payment_mode': 'own_account',
    })
-   expense.action_submit()                                                   # 19.0+
-   sheet = env['hr.expense.sheet'].create({                                  # 16.0-18.0: a report
+   expense.action_submit()
+   ```
+
+   Leaves the expense `submitted`.
+
+   16.0 to 18.0: an expense is submitted inside an expense report (`hr.expense.sheet`):
+   create the report with the expense, then submit the report (Create Report, Submit to
+   Manager). In 18.0 `expense.action_submit_expenses()` only creates a draft report:
+   `sheet.action_submit_sheet()` must still follow.
+
+   ```python
+   expense = env['hr.expense'].create({
+       'name': '<description>', 'employee_id': employee.id, 'product_id': category.id,
+       'total_amount_currency': <amount>, 'payment_mode': 'own_account',
+   })
+   sheet = env['hr.expense.sheet'].create({
        'name': '<report>', 'employee_id': employee.id, 'expense_line_ids': [(6, 0, expense.ids)],
    })
    sheet.action_submit_sheet()
    ```
 
-   Up to 18.0 an expense is submitted inside a report (Create Report, Submit to
-   Manager), which leaves `submit`; from 19.0 the expense itself is `submitted`.
+   16.0: `'total_amount'` instead of `total_amount_currency`. Leaves the report `submit`.
 
 9. **Approval.** Expenses ‣ Expense Reports (19.0+: My Expenses ‣ Expenses to Process) ‣
    Approve, by the expense approver: `sheet.approve_expense_sheets()` (16.0),
@@ -146,16 +207,18 @@ print(env['product.product'].search_read([('can_be_expensed', '=', True)], ['nam
    is set (Settings `expense_outstanding_account_id`, chosen with the accountant).
 
 10. **Post.** Post Journal Entries, by a user with Accounting: Accountant or Adviser and
-    Expenses: Manager. 20.0 has no such button: confirm the draft receipt or payment in
-    Accounting.
+    Expenses: Manager.
 
-    ```python
-    sheet.action_sheet_move_create()        # 16.0, 17.0; 18.0: sheet.action_sheet_move_post()
-    action = expense.action_post()          # 19.0: company-paid posts here; employee-paid returns a wizard
-    env['hr.expense.post.wizard'].with_context(action['context']).create({}).action_post_entry()
-    expense.account_move_id.action_post()   # 20.0 employee-paid; company-paid: account_move_id.origin_payment_id.action_post()
-    env.cr.commit()
-    ```
+    - 16.0, 17.0: `sheet.action_sheet_move_create()`.
+    - 18.0: `sheet.action_sheet_move_post()`.
+    - 19.0: `action = expense.action_post()`; company-paid posts there, employee-paid
+      returns a wizard:
+      `env['hr.expense.post.wizard'].with_context(action['context']).create({}).action_post_entry()`.
+    - 20.0 has no such button: confirm the draft entry in Accounting,
+      `expense.account_move_id.action_post()` for employee-paid,
+      `expense.account_move_id.origin_payment_id.action_post()` for company-paid.
+
+    Then `env.cr.commit()`.
 
     Employee-paid: a vendor bill to the employee (`in_invoice` up to 18.0, `in_receipt`
     from 19.0), expense debited and payable credited, waiting for reimbursement.
@@ -195,10 +258,13 @@ print(env['product.product'].search_read([('can_be_expensed', '=', True)], ['nam
 ```python
 print(employee.user_id.login, employee.leave_manager_id.name, employee.expense_manager_id.name)
 print(leave.state, leave_type.with_context(employee_id=employee.id).virtual_remaining_leaves)
-moves = expense.sheet_id.account_move_ids if 'sheet_id' in expense._fields else expense.account_move_id   # 16.0: sheet_id.account_move_id
-for move in moves:
+for move in expense.account_move_id:
     print(move.name, move.move_type, move.state, [(l.account_id.code, l.debit, l.credit) for l in move.line_ids])
 ```
+
+That is 19.0 and 20.0. The entries hang from the report up to 18.0:
+`expense.sheet_id.account_move_ids` (17.0, 18.0), `expense.sheet_id.account_move_id`
+(16.0).
 
 ## Pitfalls
 

@@ -56,6 +56,20 @@ it to customers; quotations then take it.
 2. **Add its rules.** The pricelist form, Price Rules tab (Sales Prices in 19.0, Rules in
    20.0) ‣ Add a line.
 
+   Write the rules for the database's version only; the two shapes do not mix.
+
+   20.0 (`compute_price='discount'` with `price_discount`; `applied_on` is computed):
+
+   ```python
+   env['product.pricelist.item'].create([
+       {'pricelist_id': pricelist.id, 'compute_price': 'discount', 'price_discount': 10, 'min_quantity': 12},
+       {'pricelist_id': pricelist.id, 'product_tmpl_id': template.id, 'compute_price': 'fixed', 'fixed_price': 8.5},
+   ])
+   env.cr.commit()
+   ```
+
+   16.0 to 19.0 (`compute_price='percentage'` with `percent_price`):
+
    ```python
    env['product.pricelist.item'].create([
        {'pricelist_id': pricelist.id, 'applied_on': '3_global', 'compute_price': 'percentage', 'percent_price': 10, 'min_quantity': 12},
@@ -64,8 +78,6 @@ it to customers; quotations then take it.
    env.cr.commit()
    ```
 
-   That is 16.0 to 19.0. The same 10% off in 20.0:
-   `{'pricelist_id': pricelist.id, 'compute_price': 'discount', 'price_discount': 10, 'min_quantity': 12}`.
    Leaves rules that `_get_product_price` and new quotation lines apply.
 
    - `applied_on`: `3_global`, `2_product_category`, `1_product`, `0_product_variant`;
@@ -94,14 +106,22 @@ it to customers; quotations then take it.
 
 ## Variations
 
-- **Showing the discount.** Whether the customer sees "100, 10% off" or just "90":
-  - 16.0, 17.0: `discount_policy` on the pricelist, `with_discount` (price already
-    reduced) or `without_discount` (public price and the discount), with the setting
+- **Showing the discount on the line.** Whether the customer sees "100, 10% off" or
+  just "90":
+  - 18.0 on: there is no `discount_policy` field; never write it. Turn on the setting
+    Discounts (`group_discount_per_so_line`, now in `sale`) and make the rule a plain
+    percentage: `compute_price='percentage'` with `percent_price` in 18.0, 19.0;
+    `compute_price='discount'` with `price_discount` and no rounding, surcharge or
+    margins (`is_plain_discount`) in 20.0. Sales lines then show the sales price and
+    the discount.
+
+    ```python
+    env['res.config.settings'].create({'group_product_pricelist': True, 'group_discount_per_so_line': True}).execute()
+    ```
+
+  - 16.0, 17.0: `discount_policy` on the pricelist, `without_discount` (public price
+    and the discount) or `with_discount` (price already reduced), with the setting
     `group_discount_per_so_line` (in `product`).
-  - 18.0 on: `discount_policy` is gone. The discount shows on sales lines when
-    `group_discount_per_so_line` (now in `sale`) is on and the rule is a plain
-    percentage (`compute_price='percentage'` in 18.0, 19.0; `is_plain_discount` in
-    20.0).
 - **Markup on cost.** Up to 17.0 a formula on `standard_price` with a negative
   `price_discount`; 18.0 and 19.0 also `price_markup`; 20.0 `compute_price='markup'`
   with `price_markup`.

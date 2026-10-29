@@ -124,10 +124,27 @@ env['account.reconcile.model'].search_read([('company_id', '=', company.id)], ['
   accounting administrator who also has "Show Full Accounting Features"
   (`account.group_account_user`); no menu in Community from 19.0.
 
+  19.0 and 20.0: `trigger` says how it applies (`manual`: the accountant applies it
+  by hand; `auto_reconcile`: validated on its own). 19.0 has no `rule_type`; in 20.0
+  `rule_type` defaults to `reco_model` and computes `trigger`, so leave it out too.
+
   ```python
   env['account.reconcile.model'].create({
-      'name': 'Bank charges', 'rule_type': 'writeoff_suggestion',        # 16.0 to 18.0
-      # 'trigger': 'manual',                                             # 19.0 and 20.0, instead of rule_type
+      'name': 'Bank charges', 'trigger': 'manual',
+      'match_journal_ids': [Command.set(journal.ids)],
+      'match_label': 'contains', 'match_label_param': '<text in the bank label>',
+      'line_ids': [Command.create({'account_id': writeoff_account.id, 'amount_type': 'percentage', 'amount_string': '100', 'label': 'Bank charges'})],
+  })
+  env.cr.commit()
+  ```
+
+  16.0 to 18.0: `rule_type` says how it applies (`writeoff_button`: a button the
+  accountant clicks; `writeoff_suggestion`: proposed on matching lines;
+  `invoice_matching`: matches open invoices). There is no `trigger`.
+
+  ```python
+  env['account.reconcile.model'].create({
+      'name': 'Bank charges', 'rule_type': 'writeoff_button',
       'match_journal_ids': [Command.set(journal.ids)],
       'match_label': 'contains', 'match_label_param': '<text in the bank label>',
       'line_ids': [Command.create({'account_id': writeoff_account.id, 'amount_type': 'percentage', 'amount_string': '100', 'label': 'Bank charges'})],

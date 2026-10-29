@@ -86,28 +86,29 @@ the partners that need them.
 
 3. **Map its taxes.** Mapping only works with active taxes (`taxes-and-journals.md`).
 
-   16.0 to 18.0, on the position's tax mapping lines (`account.fiscal.position.tax`):
-
-   ```python
-   position.write({'tax_ids': [(0, 0, {'tax_src_id': domestic_tax.id, 'tax_dest_id': export_tax.id})]})
-   env.cr.commit()
-   ```
-
-   An empty `tax_dest_id` removes the tax.
-
-   19.0 on, on the replacement tax: Invoicing ‣ Configuration ‣ Accounting ‣ Taxes ‣ the replacement
-   tax ‣ Fiscal Positions and Replaces. `tax_ids` on the position is the list of taxes
-   it uses, and each of them names the domestic taxes it replaces in
-   `original_tax_ids` (the tax side of the same relation is `fiscal_position_ids`).
+   19.0 and 20.0, on the replacement tax: Invoicing ‣ Configuration ‣ Accounting ‣
+   Taxes ‣ the replacement tax ‣ Fiscal Positions and Replaces. The tax lists the
+   positions that use it in `fiscal_position_ids` and the domestic taxes it replaces
+   in `original_tax_ids`; `tax_ids` on the position is the other side of the same
+   relation. The model `account.fiscal.position.tax` and the fields `tax_src_id` and
+   `tax_dest_id` do not exist from 19.0: never write them.
 
    ```python
    export_tax.write({'fiscal_position_ids': [(4, position.id)], 'original_tax_ids': [(4, domestic_tax.id)]})
    env.cr.commit()
    ```
 
+   16.0 to 18.0, on the position's tax mapping lines (`account.fiscal.position.tax`);
+   an empty `tax_dest_id` removes the tax:
+
+   ```python
+   position.write({'tax_ids': [(0, 0, {'tax_src_id': domestic_tax.id, 'tax_dest_id': export_tax.id})]})
+   env.cr.commit()
+   ```
+
    Leaves documents with the position using the replacement tax instead of the
-   domestic one. To replace one tax with several, add one line per replacement (16.0
-   to 18.0) or set the domestic tax in Replaces of each replacement (19.0 on).
+   domestic one. To replace one tax with several, set the domestic tax in Replaces of
+   each replacement (19.0 on) or add one line per replacement (16.0 to 18.0).
 
    - 19.0: a tax not replaced stays on the document, except that a position with no
      `tax_ids` drops every tax limited to other positions.
@@ -217,7 +218,7 @@ the domestic taxes, and the Replaces field is not shown for it. Account mapping
 
 ```python
 import datetime
-print(term._compute_terms(datetime.date.today(), company.currency_id, company, 0.0, 0.0, 1.0, 1000.0, 1000.0) if hasattr(term, '_compute_terms') else term.compute(1000.0))
+print(term._compute_terms(datetime.date.today(), company.currency_id, company, 0.0, 0.0, 1.0, 1000.0, 1000.0))
 print(env['account.fiscal.position'].with_company(company)._get_fiscal_position(partner).name)
 print(position.map_tax(domestic_tax).mapped('name'))
 ```
