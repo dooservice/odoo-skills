@@ -9,4 +9,6 @@ You are working on an Odoo 16.0 project. Answer by writing the file, no explanat
 
 Write a JavaScript unit test file for a field widget `book_status` of this addon, checking that it renders the state label.
 
+The widget is registered in the `fields` registry as `book_status` by `static/src/book_status_field.js` (not shown). It is used on the `state` selection field of `library.book` (`draft`: Draft, `available`: Available, `lent`: Lent) and shows the label of the current value. The project files are not needed: write the test from this description.
+
 Write it to `static/tests/book_widget_tests.js`.
