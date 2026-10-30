@@ -35,6 +35,6 @@ class TasksChart:
         panel.tick_params(length=0)
         for side in panel.spines.values():
             side.set_visible(False)
-        canvas.note("Percent of graders passed over three runs. Without skills: the 1.1.0 run. "
-                    "Code tasks were fixed by step 1 (descriptions of the guidelines).")
+        canvas.note("Percent of graders passed over three runs, five on 2.0.0. Without skills: the 1.1.0 run. "
+                    "The 1.1.1 rerun measured the same skills again.")
         canvas.save(self.file_name)

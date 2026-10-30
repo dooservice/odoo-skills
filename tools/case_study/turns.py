@@ -19,23 +19,24 @@ class TurnsChart:
 
     def draw(self) -> None:
         canvas = Canvas("Average turns per task: reading the skills costs a few turns", columns=2)
-        width = 0.27
+        width = 0.2
         for panel, model in zip(canvas.panels, MODELS, strict=True):
             colors = MODEL_COLORS[model]
             bars = (
                 ("without skills", self.series("1.1.0", model, "turns_without"), WITHOUT_COLOR),
                 ("with 1.1.0", self.series("1.1.0", model, "turns_with"), colors[1]),
                 ("with 1.1.1", self.series("1.1.1", model, "turns_with"), colors[3]),
+                ("with 2.0.0", self.series("2.0.0", model, "turns_with"), colors[4]),
             )
             for offset, (title, values, color) in enumerate(bars):
-                positions = [index + (offset - 1) * width for index in range(len(VERSIONS))]
+                positions = [index + (offset - 1.5) * width for index in range(len(VERSIONS))]
                 drawn = panel.bar(positions, values, width * 0.92, color=color, label=title)
                 canvas.label(panel, drawn, "{:.1f}")
             panel.set_xticks(range(len(VERSIONS)), VERSIONS)
             panel.set_xlabel("Odoo version")
-            panel.set_ylabel("Turns per task (mean of three runs)")
+            panel.set_ylabel("Turns per task (mean over runs)")
             panel.set_title(MODELS[model], fontsize=13)
             panel.legend(loc="upper left", fontsize=9)
-        canvas.note("Without skills: the 1.1.0 run. Sonnet was measured on 1.1.1 on 16.0 and 20.0 only. "
-                    "Each task allows 15 turns.")
+        canvas.note("Without skills: the 1.1.0 run. Sonnet was measured on 1.1.1 on 16.0 and 20.0 only, on 2.0.0 "
+                    "on 20.0 only. Each task allows 15 turns.")
         canvas.save(self.file_name)

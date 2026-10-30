@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from .context import ContextChart
 from .cost import CostChart
 from .gain import GainChart
 from .history import History
 from .layers import LayersChart
+from .reads import ReadsChart
 from .scores import ScoresChart
 from .split import SplitChart
 from .tasks import TasksChart
@@ -23,6 +25,8 @@ class CaseStudyBuild:
             CostChart(history),
             TurnsChart(history),
             LayersChart(),
+            ContextChart(history),
+            ReadsChart(),
         ]
         for chart in charts:
             chart.draw()

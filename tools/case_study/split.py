@@ -29,7 +29,7 @@ class SplitChart:
                         share=False, grid="x")
         for panel, model in zip(canvas.panels, MODELS, strict=True):
             rows = self.rows(model)
-            color = MODEL_COLORS[model][2]
+            color = MODEL_COLORS[model][3]
             for position, (name, without, with_skills) in enumerate(rows):
                 panel.plot([without, with_skills], [position, position], color="#cfcec9", linewidth=3, zorder=1)
                 panel.scatter([without], [position], color=WITHOUT_COLOR, s=70, zorder=2)
