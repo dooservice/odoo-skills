@@ -2,7 +2,7 @@
 name: odoo-guidelines
 description: >-
   Read before writing or reviewing any Python, XML or CSV for Odoo 18.0,
-  even if you know Odoo: names change between versions. In 18.0: `<list>` (no `<tree>`) and `invisible="expr"`; `_compute_display_name`; `_sql_constraints` (no `models.Constraint`); `expression.AND/OR` (no `Domain`); `aggregator`; `<chatter/>`; `self.env._()`; `ir.model.access.csv` and `ir.rule`; users `groups_id`, groups `users` and `category_id`; `get_param`; routes `type='json'`; test tag `at_install`.
+  even if you know Odoo: names change between versions. In 18.0: `<list>` (no `<tree>`) and `invisible="expr"`; `_compute_display_name`; `_sql_constraints` (no `models.Constraint`); `expression.AND/OR` (no `Domain`); counts `_read_group(domain, groupby, ['__count'])`; `aggregator`; `<chatter/>`; `self.env._()`; `ir.model.access.csv` and `ir.rule`; users `groups_id`, groups `users` and `category_id`; `get_param`; routes `type='json'`; test tag `at_install`.
   Covers modules, models, fields, the ORM, api decorators, views, actions,
   menus, scheduled actions, security, controllers, the external API, mail,
   multi-company, reports, data, migrations, translations, tests and odoo-bin;

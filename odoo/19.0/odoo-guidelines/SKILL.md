@@ -2,7 +2,7 @@
 name: odoo-guidelines
 description: >-
   Read before writing or reviewing any Python, XML or CSV for Odoo 19.0,
-  even if you know Odoo: names change between versions. In 19.0: `<list>` and `invisible="expr"`; `models.Constraint` (`_sql_constraints` is ignored); `Domain` (`expression.AND/OR` deprecated); `aggregator`; `<chatter/>`; `self.env._()`; `ir.model.access.csv` and `ir.rule`; users `group_ids`, groups `user_ids` and `privilege_id`; `get_param`; routes `type='jsonrpc'` or `'json2'`; test tag `at_install`.
+  even if you know Odoo: names change between versions. In 19.0: `<list>` and `invisible="expr"`; `models.Constraint` (`_sql_constraints` is ignored); `Domain` (`expression.AND/OR` deprecated); counts `_read_group(domain, groupby, ['__count'])`; `aggregator`; `<chatter/>`; `self.env._()`; `ir.model.access.csv` and `ir.rule`; users `group_ids`, groups `user_ids` and `privilege_id`; `get_param`; routes `type='jsonrpc'` or `'json2'`; test tag `at_install`.
   Covers modules, models, fields, the ORM, api decorators, views, actions,
   menus, scheduled actions, security, controllers, the external API, mail,
   multi-company, reports, data, migrations, translations, tests and odoo-bin;

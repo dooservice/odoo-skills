@@ -2,7 +2,7 @@
 name: odoo-guidelines
 description: >-
   Read before writing or reviewing any Python, XML or CSV for Odoo 20.0,
-  even if you know Odoo: names change between versions. In 20.0: `<list>` and `invisible="expr"`; `models.Constraint`; `Domain`; `aggregator`; `<chatter/>`; `self.env._()`; access rights and record rules are rows of one model, `ir.access`, in `ir.access.csv` (no `ir.model.access`, no `ir.rule`); users `group_ids`, groups `privilege_id`; `get_int`/`get_str` (no `get_param`); routes `type='jsonrpc'` or `'json2'`; test tag `post_install`.
+  even if you know Odoo: names change between versions. In 20.0: `<list>` and `invisible="expr"`; `models.Constraint`; `Domain`; counts `_read_group(domain, groupby, ['__count'])`; `aggregator`; `<chatter/>`; `self.env._()`; access rights and record rules are rows of one model, `ir.access`, in `ir.access.csv` (no `ir.model.access`, no `ir.rule`); users `group_ids`, groups `privilege_id`; `get_int`/`get_str` (no `get_param`); routes `type='jsonrpc'` or `'json2'`; test tag `post_install`.
   Covers modules, models, fields, the ORM, api decorators, views, actions,
   menus, scheduled actions, security, controllers, the external API, mail,
   multi-company, reports, data, migrations, translations, tests and odoo-bin;

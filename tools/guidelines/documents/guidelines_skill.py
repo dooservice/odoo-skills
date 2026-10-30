@@ -33,26 +33,30 @@ class GuidelinesSkill(Document):
             v17=(
                 "views use `<tree>` and `invisible=\"expr\"` (no `attrs`/`states`); "
                 "`_compute_display_name` (no `name_get`); `_sql_constraints`; "
-                "`expression.AND/OR`; `group_operator`; chatter `<div class=\"oe_chatter\">`; "
+                "`expression.AND/OR`; counts `_read_group(domain, groupby, ['__count'])` "
+                "returns tuples; `group_operator`; chatter `<div class=\"oe_chatter\">`; "
                 "`_()`; `ir.model.access.csv` and `ir.rule`; users `groups_id`; `get_param`; "
                 "routes `type='json'`; test tag `at_install`."
             ),
             v18=(
                 "`<list>` (no `<tree>`) and `invisible=\"expr\"`; `_compute_display_name`; "
                 "`_sql_constraints` (no `models.Constraint`); `expression.AND/OR` (no "
-                "`Domain`); `aggregator`; `<chatter/>`; `self.env._()`; `ir.model.access.csv` "
+                "`Domain`); counts `_read_group(domain, groupby, ['__count'])`; `aggregator`; "
+                "`<chatter/>`; `self.env._()`; `ir.model.access.csv` "
                 "and `ir.rule`; users `groups_id`, groups `users` and `category_id`; "
                 "`get_param`; routes `type='json'`; test tag `at_install`."
             ),
             v19=(
                 "`<list>` and `invisible=\"expr\"`; `models.Constraint` (`_sql_constraints` "
-                "is ignored); `Domain` (`expression.AND/OR` deprecated); `aggregator`; "
+                "is ignored); `Domain` (`expression.AND/OR` deprecated); counts "
+                "`_read_group(domain, groupby, ['__count'])`; `aggregator`; "
                 "`<chatter/>`; `self.env._()`; `ir.model.access.csv` and `ir.rule`; users "
                 "`group_ids`, groups `user_ids` and `privilege_id`; `get_param`; routes "
                 "`type='jsonrpc'` or `'json2'`; test tag `at_install`."
             ),
             v20=(
-                "`<list>` and `invisible=\"expr\"`; `models.Constraint`; `Domain`; "
+                "`<list>` and `invisible=\"expr\"`; `models.Constraint`; `Domain`; counts "
+                "`_read_group(domain, groupby, ['__count'])`; "
                 "`aggregator`; `<chatter/>`; `self.env._()`; access rights and record rules "
                 "are rows of one model, `ir.access`, in `ir.access.csv` (no "
                 "`ir.model.access`, no `ir.rule`); users `group_ids`, groups `privilege_id`; "

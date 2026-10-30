@@ -2,7 +2,7 @@
 name: odoo-guidelines
 description: >-
   Read before writing or reviewing any Python, XML or CSV for Odoo 17.0,
-  even if you know Odoo: names change between versions. In 17.0: views use `<tree>` and `invisible="expr"` (no `attrs`/`states`); `_compute_display_name` (no `name_get`); `_sql_constraints`; `expression.AND/OR`; `group_operator`; chatter `<div class="oe_chatter">`; `_()`; `ir.model.access.csv` and `ir.rule`; users `groups_id`; `get_param`; routes `type='json'`; test tag `at_install`.
+  even if you know Odoo: names change between versions. In 17.0: views use `<tree>` and `invisible="expr"` (no `attrs`/`states`); `_compute_display_name` (no `name_get`); `_sql_constraints`; `expression.AND/OR`; counts `_read_group(domain, groupby, ['__count'])` returns tuples; `group_operator`; chatter `<div class="oe_chatter">`; `_()`; `ir.model.access.csv` and `ir.rule`; users `groups_id`; `get_param`; routes `type='json'`; test tag `at_install`.
   Covers modules, models, fields, the ORM, api decorators, views, actions,
   menus, scheduled actions, security, controllers, the external API, mail,
   multi-company, reports, data, migrations, translations, tests and odoo-bin;
