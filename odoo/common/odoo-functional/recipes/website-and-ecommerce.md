@@ -7,10 +7,20 @@ delivered with delivery methods (`delivery.carrier`) and paid through payment pr
 (`payment.provider`). Pages, menus, snippets and themes are edited by the user in the
 website builder; that is outside this recipe.
 
-## Before you start
+**At a glance**
 
 - Apps: `website_sale`. 16.0 also needs `website_sale_delivery` for delivery methods at
   checkout (ask before installing); from 17.0 `website_sale` depends on `delivery`.
+- Names that change by version: delivery at checkout `website_sale_delivery` 16.0, in
+  `website_sale` 17.0+; tax display company-wide 16.0, per website 17.0+;
+  `ecommerce_access` 18.0+; provider `state` up to 19.0, `is_live` 20.0;
+  `description_ecommerce` 17.0+.
+- Sections: Before you start; The standard flow (1 shop settings, 2 shop categories, 3
+  publish products, 4 delivery methods, 5 payment providers); Variations; Versions;
+  Verify; Pitfalls.
+
+## Before you start
+
 - Settings (Website ‣ Configuration ‣ Settings, per website): `account_on_checkout`,
   `auth_signup_uninvited`, `show_line_subtotals_tax_selection`, `group_product_pricelist`;
   18.0+ `ecommerce_access`. Pass `website_id` to `res.config.settings`, or the current

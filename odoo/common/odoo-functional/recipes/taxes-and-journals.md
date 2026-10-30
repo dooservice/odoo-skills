@@ -11,9 +11,21 @@ users before a change, and never change one with posted entries in place: create
 one, point new documents to it, archive the old one. Every accounting change needs the
 user's yes.
 
-## Before you start
+**At a glance**
 
 - Apps: `account`; `account_tax_python` only for taxes computed by code.
+- Names that change by version: tax included `price_include` up to 17.0,
+  `price_include_override` 18.0+; distribution lines `invoice_tax_id`/`refund_tax_id`
+  16.0, `tax_id` + `document_type` 17.0+; tax group accounts `property_tax_*` 16.0,
+  `tax_*_account_id` 17.0 to 19.0, none 20.0; journal type `credit` 18.0+; journal bank
+  `bank_acc_number` up to 19.0, `bank_account_number` 20.0.
+- Sections: Before you start; The standard flow (1 set the company-wide tax options, 2
+  activate the taxes the localization brought, 3 create a tax when none fits, 4 set the
+  distribution accounts, 5 put the taxes on products, 6 add a journal, 7 set the invoice
+  numbering); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: `sale_tax_id`, `purchase_tax_id` (default taxes); `account_price_include`
   (18.0+); `tax_exigibility` (cash basis); `group_cash_rounding`.
 - Read first:

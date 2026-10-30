@@ -7,10 +7,24 @@ invoiced according to each product's invoicing policy. Most of it is per company
 recipe covers `crm`, `sale`, `sale_management`, `sale_crm` and `sale_stock`, all in
 Community; online payment providers and subscriptions are left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `crm` and `sale` (`sale_crm` links them, installed with both); `sale_management`
   for quotation templates; `sale_stock` for deliveries; `account` for invoices.
+- Names that change by version: stage `team_id` up to 18.0, `team_ids` 19.0+; locked order
+  state `done` 16.0, `locked` 17.0+; delivery `quantity_done` 16.0, `quantity` 17.0+;
+  `group_discount_per_so_line` in `product` up to 17.0, `sale` 18.0+; invoicing policy
+  setting `default_invoice_policy` up to 19.0, company `sale_invoice_policy` 20.0;
+  `automatic_invoice` up to 19.0, `sale_automatic_invoice` 20.0; down payment product
+  `sale.default_deposit_product_id` 16.0, `sale_down_payment_product_id` 17.0,
+  `downpayment_account_id` 19.0+.
+- Sections: Before you start; The standard flow (1 create the sales team and add its
+  members, 2 adapt the pipeline stages, 3 create the opportunity, 4 create the quotation
+  from the opportunity, 5 send it, 6 confirm it, 7 mark the opportunity won, 8 deliver, 9
+  invoice); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: quotation settings, per company (`with_company`), names from
   `odoo-reference/settings.md`:
 

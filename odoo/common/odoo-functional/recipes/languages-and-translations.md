@@ -7,9 +7,20 @@ translatable fields (product names, payment terms, email templates) keep one val
 active language. The language also sets date and number formats. Website page
 translation is left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `base` (always installed). Nothing else to install.
+- Names that change by version: Manage Languages in Settings ‣ Languages 19.0+; a `lang`
+  with an inactive code is rejected up to 17.0 and stored silently 18.0+; `source_lang` in
+  `update_field_translations` and `_activate_and_install_lang` 18.0+; `short_time_format`
+  18.0 only; export `data` is base64 up to 19.0, raw bytes in 20.0; exporting one model
+  17.0+.
+- Sections: Before you start; The standard flow (1 add the language, 2 set the users'
+  language, 3 set the customers' language, 4 translate the business data, 5 adjust date
+  and number formats, only if the team asks); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: none to turn on. The Settings ‣ Translations menu (Languages, Application
   Terms, Import / Export) needs developer mode in every version; from 19.0 Settings ‣
   Languages ‣ Manage Languages opens the list without it.

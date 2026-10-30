@@ -8,10 +8,22 @@ content, designed in the Website editor, to the customer's online quotation. Bot
 quotation templates (`sale_management`), whose basics are in `sales-and-crm.md`. All in
 Community.
 
-## Before you start
+**At a glance**
 
 - Apps: `sale_management`. 17.0+: `sale_pdf_quote_builder`, installed with it. 16.0:
   `sale_quotation_builder`, which installs Website.
+- Names that change by version: `sale_quotation_builder` in 16.0, `sale_pdf_quote_builder`
+  17.0+; headers and footers binaries on company and template in 17.0,
+  `quotation.document` 18.0+ (`add_by_default` 19.0+); product sheet flag
+  `attached_on='inside'` 17.0, `attached_on_sale='inside'` 18.0+; form fields
+  `sale.pdf.form.field` 18.0+; template tab Website Description 16.0, PDF Quote Builder
+  17.0, Quote Builder 18.0+; templates menu Templates 20.0.
+- Sections: Before you start; The standard flow (1 prepare the PDFs, 2 upload headers and
+  footers, 3 attach the product sheets, 4 map the form fields (18.0+), 5 build the quote,
+  6 print or send it); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings, Sales ‣ Configuration ‣ Settings:
 
 | Setting | Field | Versions |

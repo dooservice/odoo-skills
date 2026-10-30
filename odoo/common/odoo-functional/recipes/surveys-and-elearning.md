@@ -9,6 +9,18 @@ website, earning points (karma). Courses can be sold (`website_sale_slides`), en
 certification survey (`website_slides_survey`) and have a forum (`website_slides_forum`).
 Survey questions in recruitment and appraisals belong to those apps' recipes.
 
+**At a glance**
+
+- Apps: `survey`; `website_slides`; bridges `module_website_sale_slides`,
+  `module_website_slides_survey`, `module_website_slides_forum`,
+  `module_mass_mailing_slides`; `survey_crm` 19.0+.
+- Names that change by version: `survey_type` 17.0+; `scale` question 18.0+;
+  Participations menu up to 18.0, Participants 19.0+; course `visibility` adds `connected`
+  17.0, `link` 19.0; course product `detailed_type='course'` up to 17.0,
+  `service_tracking='course'` 18.0+.
+- Sections: Before you start; The standard flow (A survey; A course); Variations;
+  Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `survey`; `website_slides` (it installs `website`). Bridges, each a setting:

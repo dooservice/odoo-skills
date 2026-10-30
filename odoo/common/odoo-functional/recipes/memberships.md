@@ -10,6 +10,18 @@ carries the level; levels have no dates. Publishing members on the website is
 `website_membership` (16.0 to 18.0) or `website_partnership` (20.0). Recurring
 subscriptions are Enterprise and left out.
 
+**At a glance**
+
+- Apps: `membership` and `website_membership` (16.0 to 18.0); `partnership` (19.0+),
+  `website_partnership` (20.0).
+- Names that change by version: module `membership` up to 18.0, `partnership` 19.0+;
+  membership `membership.membership_line` with dates up to 18.0, `grade_id` on the contact
+  19.0+; product `detailed_type='service'` up to 17.0, `type='service'` 18.0,
+  `service_tracking='partnership'` 19.0+; public page `/members` up to 18.0, `/partners`
+  19.0+; `association` 16.0 only.
+- Sections: Before you start; The standard flow (19.0 and 20.0: levels with `partnership`;
+  16.0 to 18.0: Members app); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps:

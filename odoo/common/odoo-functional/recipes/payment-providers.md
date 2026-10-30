@@ -12,11 +12,22 @@ side (provider per website, the donation form up to 19.0), and
 providers listed here are in Community. Which providers work in which country and
 currency is decided by each service: check it with the user.
 
-## Before you start
+**At a glance**
 
 - Apps: `account_payment` (installed by the setting below); the provider's module
   (`payment_<code>`), installed from the provider's form. Installing needs the user's
   yes.
+- Names that change by version: provider mode `state` up to 19.0, `is_live` and `active`
+  20.0; payment methods `payment.icon` in 16.0, shared `payment.method` 17.0 to 19.0, one
+  per provider (`provider_id`) 20.0; menu Configuration ‣ Payments in 16.0, Configuration
+  ‣ Online Payments 17.0+; `minimum_amount` 20.0; `account_payment_interco` 19.0+.
+- Sections: Before you start; The standard flow (1 open the provider, 2 enter the
+  credentials, 3 choose payment methods, 4 set the journal and options, 5 test, then go
+  live, 6 let customers pay invoices, 7 follow the transaction); Variations; Providers;
+  Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings (Invoicing ‣ Configuration ‣ Settings ‣ Customer Payments ‣ Invoice Online
   Payment):
 

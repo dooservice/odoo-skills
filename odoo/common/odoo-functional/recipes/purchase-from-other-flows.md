@@ -11,11 +11,22 @@ alternatives are in `purchase.md`, routes and reordering rules in `inventory.md`
 of materials and manufacturing orders in `manufacturing.md`; this recipe only adds what
 changes when they meet. All of it is Community.
 
-## Before you start
+**At a glance**
 
 - Apps: `purchase`, `purchase_stock`, `mrp` (gives `purchase_mrp`);
   `purchase_requisition` (gives `purchase_requisition_stock`); 20.0:
   `purchase_alternative` (gives `purchase_alternative_stock`).
+- Names that change by version: Make to order route unarchived by hand up to 18.0, setting
+  `replenish_on_order` 19.0+; Buy route on the product up to 18.0, on the warehouse
+  (`buy_to_resupply`) 19.0+; `created_purchase_line_id` in 16.0,
+  `created_purchase_line_ids` 17.0+; alternatives from `purchase_requisition_stock` up to
+  19.0, `purchase_alternative_stock` 20.0.
+- Sections: Before you start; The standard flow (1 make the component bought on order, 2
+  confirm the manufacturing order, 3 confirm the purchase, 4 receive the components);
+  Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings (Inventory ‣ Configuration ‣ Settings):
   - `group_stock_adv_location` (Multi-Step Routes): shows the Routes menu, the product's
     routes and the agreement's Operation Type.

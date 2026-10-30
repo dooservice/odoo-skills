@@ -11,11 +11,21 @@ out. Buying, receiving, manufacturing and invoicing themselves are in `purchase.
 `manufacturing.md`, `inventory.md` and `sales-and-crm.md`; this recipe covers what links
 them to the sale.
 
-## Before you start
+**At a glance**
 
 - Apps: `sale_stock` and `purchase_stock` for goods bought on order; `mrp` for goods made
   on order and kits; `sale_purchase` (with `sale` and `purchase`) for subcontracted
   services. `sale_purchase_stock` and `sale_mrp` are installed with them.
+- Names that change by version: MTO by unarchiving the route up to 18.0, setting
+  `replenish_on_order` 19.0+ (Buy, Manufacture on the warehouse); manufacturing order
+  `sale_line_id` 18.0+; subcontracted service `service_to_purchase` up to 19.0,
+  `service_tracking='subcontract'` 20.0; Gelato 18.0+.
+- Sections: Before you start; The standard flow (1 turn on make to order, 2 give the
+  product a vendor and the routes, 3 sell it, 4 buy it, 5 deliver and invoice);
+  Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: make to order (MTO) is the route `stock.route_warehouse0_mto`, archived in a
   new database.
 

@@ -9,10 +9,21 @@ alias domain. This recipe needs only the `mail` module; Gmail and Outlook OAuth
 (`google_gmail`, `microsoft_outlook`) are named where they change a field, and the DNS of
 the domain is outside Odoo.
 
-## Before you start
+**At a glance**
 
 - Apps: `mail` (installed with any app that sends email). `google_gmail` and
   `microsoft_outlook` add OAuth sign-in to both kinds of server.
+- Names that change by version: settings section Discuss up to 17.0, Emails 18.0+; alias
+  domain `mail.alias.domain` 17.0+ (16.0 a setting and system parameters);
+  `smtp_encryption` adds `starttls_strict`, `ssl_strict` 19.0+; `smtp_authentication`
+  `cli` 17.0+; `from_filter` a comma-separated list 17.0+; `database.is_neutralized` read
+  with `get_bool` in 20.0.
+- Sections: Before you start; The standard flow (1 turn on custom email servers, 2 add the
+  outgoing server and test it, 3 set the alias domain, 4 allow the server in the domain's
+  DNS, 5 receive replies, 6 name the aliases); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: `external_email_server_default` (Custom Email Servers) shows the server
   buttons in Settings; records work through the ORM either way. Developer mode for
   Settings ‣ Technical ‣ Email.

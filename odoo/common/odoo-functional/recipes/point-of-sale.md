@@ -7,11 +7,25 @@ posts the session's accounting. Needs `point_of_sale` (with `account`). Card ter
 online payment and restaurant features are separate modules. POS changed a lot between
 versions, 20.0 most of all: check the version before running a snippet.
 
-## Before you start
+**At a glance**
 
 - Apps: `point_of_sale`. Terminals: a `pos_<provider>` module; online payment:
   `pos_online_payment` (17.0+). Ask before installing either: they need the provider's
   credentials.
+- Names that change by version: POS category `pos_categ_id` in 16.0, `pos_categ_ids`
+  17.0+; no shop at install 18.0+; a cash method in two shops refused 17.0+ (20.0 also two
+  in one shop); 20.0 session entries are customer invoices `sale_move_ids` /
+  `refund_move_ids` in `closing_journal_id`, cash in `bank_statement_id`
+  (`statement_line_ids` up to 19.0), invoice journal `journal_id` (`invoice_journal_id` up
+  to 19.0), daily posting at `session_closing_daily_hour`; invoiced order state `invoiced`
+  up to 18.0, `done` 19.0, `paid` 20.0.
+- Sections: Before you start; The standard flow (1 create the shop, 2 payment methods, 3
+  products, 4 pricelists, fiscal positions, tax display, 5 open the session, 6 sell, 7
+  close the session, 8 invoice a paid order later); Variations; Versions; Verify;
+  Pitfalls.
+
+## Before you start
+
 - Settings: Point of Sale ‣ Configuration ‣ Settings shows one shop at a time (the
   `pos_config_id` field); its `pos_*` fields are the shop's own fields, written below on
   `pos.config` directly.
@@ -128,6 +142,14 @@ print(env['pos.session'].search_read([('state', '!=', 'closed')], ['name', 'conf
   print(session.get_closing_control_data().get('default_cash_details'))
   ```
 
+  20.0, the counted cash keyed by the cash method:
+
+  ```python
+  cash = session.config_id.payment_method_ids.filtered(lambda m: m.type == 'cash')
+  print(session.close_session_from_ui({cash.id: <counted cash>} if cash else {}), session.state)
+  env.cr.commit()
+  ```
+
   16.0 to 19.0:
 
   ```python
@@ -136,14 +158,6 @@ print(env['pos.session'].search_read([('state', '!=', 'closed')], ['name', 'conf
   env.invalidate_all()
   session.update_closing_control_state_session('<closing note>')
   print(session.close_session_from_ui(), session.state, session.move_id.name)
-  env.cr.commit()
-  ```
-
-  20.0, the counted cash keyed by the cash method:
-
-  ```python
-  cash = session.config_id.payment_method_ids.filtered(lambda m: m.type == 'cash')
-  print(session.close_session_from_ui({cash.id: <counted cash>} if cash else {}), session.state)
   env.cr.commit()
   ```
 

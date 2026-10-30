@@ -10,9 +10,20 @@ delivery leaves from the chosen store's warehouse. This recipe covers
 providers are in `website-and-ecommerce.md`; shipping by carrier is in
 `shipping-and-carriers.md`. Pickup in a Point of Sale shop is not part of these modules.
 
-## Before you start
+**At a glance**
 
 - Apps: `website_sale` and `stock`; 16.0 also `website_sale_delivery`.
+- Names that change by version: module `website_sale_picking` up to 17.0,
+  `website_sale_collect` 18.0+; method type `onsite` up to 17.0, `in_store` 18.0+;
+  `warehouse_id` up to 17.0, `warehouse_ids` 18.0+; `opening_hours` 18.0+; provider
+  `custom_mode='onsite'` up to 17.0, `custom_mode='on_site'` 18.0+; provider switch
+  `state` up to 19.0, `is_live` 20.0.
+- Sections: Before you start; The standard flow (1 give each store an address, 2 set up
+  the pickup method, 3 offer payment on site, 4 the customer orders, 5 hand over and get
+  paid); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings (Website ‣ Configuration ‣ Settings, per website): On Site Payments & Picking
   (`module_website_sale_picking`, 16.0, 17.0) or Click & Collect
   (`module_website_sale_collect`, 18.0+). Each installs a module: only with the user's

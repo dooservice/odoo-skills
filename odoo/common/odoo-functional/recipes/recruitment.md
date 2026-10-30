@@ -13,10 +13,24 @@ job board posting and SMS are Enterprise or paid services and left out. 18.0 add
 candidate (`hr.candidate`) that holds the person and has one application per job; 19.0
 removes it again: check `## Versions` before every step.
 
-## Before you start
+**At a glance**
 
 - Apps: `hr_recruitment`; `hr_recruitment_skills`, `hr_recruitment_survey`,
   `website_hr_recruitment` when needed.
+- Names that change by version: the person is `hr.candidate` in 18.0 only
+  (`candidate_id`), on the application otherwise; application `name` required up to 17.0,
+  removed 18.0+; recruiter `user_id` up to 19.0, `recruiter_id` (employees) 20.0; meeting
+  button `action_makeMeeting` up to 17.0, `action_create_meeting` 18.0+; employee link
+  `emp_id` up to 17.0, `employee_id` 18.0+; interview answer `response_id` 16.0,
+  `response_ids` 17.0+; job URL `/jobs/detail/<job>` 16.0, `/jobs/<job>` 17.0+; job skills
+  `skill_ids` 18.0, `job_skill_ids` 19.0+; talent pools 19.0+.
+- Sections: Before you start; The standard flow (1 job position, 2 stages, 3 application,
+  4 interview, 5 interview form (optional, `hr_recruitment_survey`), 6 move through the
+  stages, 7 refuse, 8 hire, 9 create the employee); Variations; Versions; Verify;
+  Pitfalls.
+
+## Before you start
+
 - Settings (Recruitment ‣ Configuration ‣ Settings): `module_website_hr_recruitment`
   (Online Posting), `module_hr_recruitment_survey` (Interview Forms). Access: Recruitment
   Officer (`hr_recruitment.group_hr_recruitment_user`) or Administrator; a user listed as

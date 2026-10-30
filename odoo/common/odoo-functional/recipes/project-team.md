@@ -8,10 +8,21 @@ Needs `project`; `project_todo` installs with it from 17.0; `project_hr_skills` 
 projects, tasks and timesheets is in `projects-and-timesheets.md`; employees and time off
 requests are in `employees-and-expenses.md`. Planning is Enterprise and left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `project` (To-do from 17.0); `hr_skills` for skills; `hr_timesheet` and
   `hr_holidays` for time off in timesheets.
+- Names that change by version: `project_todo` 17.0+; `project_hr_skills` 18.0+; time off
+  project and task per type `timesheet_project_id`, `timesheet_task_id` up to 18.0
+  (`timesheet_generate` 17.0 and 18.0), company settings 19.0+; skipped time off
+  `time_type = 'other'` 19.0, `count_as = 'working_time'` 20.0; Public Holidays up to
+  19.0, Company Holidays 20.0.
+- Sections: Before you start; The standard flow (1 write a to-do (17.0+), 2 turn a to-do
+  into a project task, 3 find tasks by skill (18.0+), 4 choose where time off is logged, 5
+  approve time off, 6 public holidays); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: `internal_project_id` and `leave_timesheet_task_id` (Timesheets ‣
   Configuration ‣ Settings ‣ Time Off): the project and task that receive time off hours.
   Installing `hr_timesheet` creates an "Internal" project with a "Time Off" task for each

@@ -7,11 +7,26 @@ recipe covers categories, units of measure, product types, attributes and varian
 barcodes and archiving, all in Community. The type field and the unit of measure model
 both changed between versions: read them first.
 
-## Before you start
+**At a glance**
 
 - Apps: `product` (always there with `sale`, `purchase` or `stock`); `stock` for storable
   products; `stock_account` for the category's valuation fields (partly `account` in
   20.0).
+- Names that change by version: `detailed_type` (`consu`, `service`, `product`) up to
+  17.0, `type` (`consu`, `service`, `combo`) with `is_storable` 18.0+; units
+  `uom.category`, `uom_type`, `factor`, `uom_po_id` up to 18.0, `relative_uom_id`,
+  `relative_factor`, `uom_ids` 19.0+; `product.packaging` up to 18.0; barcode unique per
+  company 17.0+; default category `product_category_all` up to 18.0, `_goods`,
+  `_services`, `_expenses` 19.0+; `property_valuation` `manual_periodic` up to 18.0,
+  `periodic` 19.0+; valuation fields in `account` 20.0; most menus renamed in 19.0.
+- Sections: Before you start; The standard flow (1 create the category and its accounts, 2
+  create the unit of measure, when the product needs one that does not exist, 3 create the
+  product and choose its type, 4 create the attributes and their values, 5 add the
+  attributes to the product, 6 set barcodes and references); Variations; Versions; Verify;
+  Pitfalls.
+
+## Before you start
+
 - Settings, in Sales ‣ Configuration ‣ Settings or Inventory ‣ Configuration ‣ Settings:
   `group_product_variant` (Variants), `group_uom` (Units of Measure; "Units of Measure &
   Packagings" in 19.0+), `group_stock_packaging` (Packagings, 16.0 to 18.0).

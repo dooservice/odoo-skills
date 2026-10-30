@@ -13,11 +13,23 @@ lot, quantity and dates. All of this is Community; the Barcode app (scanning in 
 warehouse, `stock_barcode`) is Enterprise and left out. Turning on lots and the general
 stock flow are in `inventory.md`.
 
-## Before you start
+**At a glance**
 
 - Apps: `stock` (it installs `barcodes` and `barcodes_gs1_nomenclature` with it);
   `product_expiry` for expiration dates; `mrp_product_expiry` installs itself when `mrp`
   and `product_expiry` are both there.
+- Names that change by version: tracked product `detailed_type='product'` up to 17.0,
+  `is_storable` 18.0+, `tracking` empty for none in 20.0; done quantity `qty_done` in
+  16.0, `quantity` 17.0+; serials from the wizard `stock.assign.serial` in 16.0,
+  `_generate_serial_numbers` 17.0+; `serial_prefix_format` 19.0+; `lot_properties` 17.0+;
+  expired lots skipped past `expiration_date` in 17.0 and 18.0, past `removal_date` 19.0+;
+  MO lot `lot_producing_id` up to 18.0, `lot_producing_ids` 19.0+.
+- Sections: Before you start; The standard flow (1 track the product by lot or serial
+  number, 2 give its expiration times, 3 remove by FEFO, 4 receive with lots, 5 deliver, 6
+  follow a lot, 7 act on expiry alerts); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings (Inventory ‣ Configuration ‣ Settings, Traceability section):
 
 ```python

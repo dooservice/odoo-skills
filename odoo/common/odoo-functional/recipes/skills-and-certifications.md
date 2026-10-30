@@ -10,11 +10,23 @@ Employees, departments and users are set up in
 applicants belong to [recruitment.md](recruitment.md). Appraisals are Enterprise and left
 out.
 
-## Before you start
+**At a glance**
 
 - Apps: `hr_skills`. With eLearning (`website_slides`) installed, `hr_skills_slides`
   comes along; with Surveys (`survey`), `hr_skills_survey`; with Events (`event`, 19.0+),
   `hr_skills_event`.
+- Names that change by version: level change closes the line (`valid_to`) 19.0+;
+  `is_certification` 19.0+; resume line `display_type` up to 18.0, `course_type` 19.0+;
+  training type `hr_skills_slides.resume_type_training` up to 18.0,
+  `hr_skills.resume_type_training` 19.0+; `certification_validity_months` 18.0+;
+  `hr_skills_event` 19.0+.
+- Sections: Before you start; The standard flow (1 skill type, its skills and levels, 2
+  skills of an employee, 3 certification of an employee (19.0+), 4 resume lines, 5 a
+  course finished in eLearning, 6 a certification passed in Surveys); Variations;
+  Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: none. Employees ‣ Configuration ‣ Resume ‣ Line Types (19.0+: Sections) needs
   developer mode.
 - Every automatic resume line goes to the employee whose user (20.0: user or work

@@ -7,11 +7,23 @@ pricelist, fiscal position); the people and addresses under it point to it with
 second run updates instead of creating duplicates. This recipe needs only `contacts`
 (the app) on top of `base`; what a country adds to a partner comes from its `l10n_*` module and is not covered here.
 
-## Before you start
+**At a glance**
 
 - Apps: `contacts` for the menus (the model is in `base`); `account` for payment terms
   and fiscal positions; `product` for pricelists; `base_vat` (16.0 to 19.0) for VAT
   checks.
+- Names that change by version: no `company_type` and VAT check in `base` in 20.0; `type`
+  `private` 16.0 only; partner `team_id` up to 17.0; company-dependent values
+  `ir.property` up to 17.0, JSON column 18.0+; pricelist `property_product_pricelist` up
+  to 17.0, `specific_property_product_pricelist` 18.0+; form tab Contacts & Addresses up
+  to 18.0, Contacts 19.0+; Import records under Favorites in 16.0, Actions (gear) 17.0+.
+- Sections: Before you start; The standard flow (1 create the tags you will use, 2 create
+  the company, 3 add its people and addresses, 4 set payment terms, pricelist and fiscal
+  position, 5 test the bulk load, 6 import, 7 merge duplicates); Variations; Versions;
+  Verify; Pitfalls.
+
+## Before you start
+
 - Settings: none for contacts. Pricelists on partners need `group_product_pricelist`
   (`pricelists.md`); `vat_check_vies` (VIES check) is a company setting.
 - Read first:

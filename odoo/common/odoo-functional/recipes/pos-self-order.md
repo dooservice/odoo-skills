@@ -11,6 +11,19 @@ sessions are in [point-of-sale.md](point-of-sale.md); restaurant floors and tabl
 on the web) in [website-and-ecommerce.md](website-and-ecommerce.md). The preparation
 display and the IoT box are Enterprise and left out.
 
+**At a glance**
+
+- Apps: `pos_self_order`, `pos_online_payment` (both 17.0+); bridges install by
+  themselves.
+- Names that change by version: none in 16.0; service modes `counter`, `table`, plus
+  `dynamic_qr` 20.0; take-out `self_ordering_takeaway` 17.0 and 18.0 (17.0 also
+  `self_ordering_alternative_fp_id`), presets 19.0+; online method `is_online_payment` up
+  to 19.0, `type='online'` 20.0; order `source` 19.0+; kiosk cash 20.0;
+  `pos_self_order_sms` 20.0.
+- Sections: Before you start; The standard flow (1 choose the mode, 2 service and payment
+  moment, 3 payment, 4 online payment method, 5 home buttons, languages, look, 6 publish
+  it, 7 serve); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `pos_self_order` (17.0+), `pos_online_payment` (17.0+, needs `account_payment`).

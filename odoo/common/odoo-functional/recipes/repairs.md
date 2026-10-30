@@ -9,6 +9,21 @@ recipe covers `repair`, `mrp_repair` (kits exploded into parts, manufacturing or
 parts) and `purchase_repair` (18.0+: purchase orders for parts), all in Community. Field
 service, the Helpdesk link and quality checks are Enterprise and left out.
 
+**At a glance**
+
+- Apps: `repair`; `mrp_repair` with `mrp`; `purchase_repair` (18.0+) with
+  `purchase_stock`.
+- Names that change by version: parts `repair.line` (`operations`) in 16.0, stock moves
+  (`move_ids`, `repair_line_type`) 17.0+; labour `repair.fee` 16.0, on the quotation 17.0
+  to 19.0, `repair.service.line` 20.0; charging `invoice_method` 16.0, Create Quotation
+  17.0 to 19.0, Quote or Invoice (`action_create_invoice`) 20.0; `under_repair` up to
+  19.0; warranty `guarantee_limit` 16.0, `under_warranty` 17.0+; `repair_type_id` 17.0+;
+  sales order `create_repair` 17.0, 18.0, `service_tracking='repair'` 19.0+; product unit
+  `product_uom` up to 19.0, `uom_id` 20.0.
+- Sections: Before you start; The standard flow (1 create the repair order, 2 add the
+  parts, 3 quote the customer, 4 confirm the repair, 5 repair, 6 charge the customer);
+  Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `repair` (Repairs). It depends on `sale_management` and `stock` (16.0 also on

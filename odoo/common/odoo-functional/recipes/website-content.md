@@ -13,10 +13,19 @@ behind it. The shop is in `website-and-ecommerce.md` and `ecommerce-extras.md`; 
 languages in `languages-and-translations.md`; the newsletter blocks in
 `email-and-sms-marketing.md`.
 
-## Before you start
+**At a glance**
 
 - Apps: `website`; Blog, Forum and others install from Apps or from the website's
   `+New` menu. Ask before installing.
+- Names that change by version: Turnstile 17.0+; `enable_recaptcha` 19.0+; address
+  autocomplete `website_sale_autocomplete` up to 19.0, `website_address_autocomplete`
+  20.0; `website_twitter` up to 17.0; Technical Pages 19.0, System Pages 20.0.
+- Sections: Before you start; The standard flow (1 create a page, 2 arrange the menu, 3
+  redirect old addresses, 4 publish a blog post, 5 open a forum); Variations; Versions;
+  Verify; Pitfalls.
+
+## Before you start
+
 - Settings: Settings ‣ General Settings, Integrations: `module_google_recaptcha`,
   `module_website_cf_turnstile` (17.0+), `module_web_unsplash`,
   `module_google_address_autocomplete` (19.0+). Website ‣ Configuration ‣ Settings,

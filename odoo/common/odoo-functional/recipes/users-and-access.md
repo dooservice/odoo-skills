@@ -7,9 +7,21 @@ portal users only see their own documents on the portal. Everything here is in `
 and `portal`; login with external providers, two-factor policies and LDAP are left out.
 Access changes need the user's yes: they decide what people can see and do.
 
-## Before you start
+**At a glance**
 
 - Apps: `base`; `portal` for portal users; `auth_signup` sends the invitation.
+- Names that change by version: user's groups `groups_id` up to 18.0, `group_ids`,
+  `all_group_ids` 19.0+; group's users `users` up to 18.0, `user_ids` 19.0+; `category_id`
+  up to 18.0, `privilege_id` 19.0+; default groups `base.default_user` up to 18.0,
+  `base.default_user_group` 19.0+; access `ir.model.access`, `model_access`, `rule_groups`
+  up to 19.0, `ir.access`, `access_ids` 20.0; `role` 20.0.
+- Sections: Before you start; The standard flow (1 create the internal user, 2 adjust
+  specific permissions, 3 give a customer or vendor portal access, 4 create a group for a
+  need no standard group covers, 5 filter rows with a record rule, 6 remove access when
+  someone leaves); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: none to switch on. Creating groups, access rights and record rules in the
   interface needs developer mode.
 - Read first:
@@ -109,21 +121,7 @@ group only for a need no standard group covers. People who leave are archived.
    the Access Rights tab gives the models, the Users tab the people. Never widen a
    standard group: every user in it changes.
 
-   16.0 to 19.0, the Access Rights tab is `model_access`:
-
-   ```python
-   group = env['res.groups'].create({
-       'name': 'Sales: read only',
-       'model_access': [(0, 0, {
-           'name': f'{model} read only',
-           'model_id': env['ir.model']._get_id(model),
-           'perm_read': True,
-       }) for model in ('sale.order', 'sale.order.line')],
-   })
-   env.cr.commit()
-   ```
-
-   20.0, it is `access_ids` (model `ir.access`):
+   20.0, the Access Rights tab is `access_ids` (model `ir.access`):
 
    ```python
    group = env['res.groups'].create({
@@ -132,6 +130,20 @@ group only for a need no standard group covers. People who leave are archived.
            'name': f'{model} read only',
            'model_id': env['ir.model']._get_id(model),
            'operation': 'r',            # any subset of 'crud': 'r', 'ru', 'cru', 'crud'...
+       }) for model in ('sale.order', 'sale.order.line')],
+   })
+   env.cr.commit()
+   ```
+
+   16.0 to 19.0, it is `model_access`:
+
+   ```python
+   group = env['res.groups'].create({
+       'name': 'Sales: read only',
+       'model_access': [(0, 0, {
+           'name': f'{model} read only',
+           'model_id': env['ir.model']._get_id(model),
+           'perm_read': True,
        }) for model in ('sale.order', 'sale.order.line')],
    })
    env.cr.commit()

@@ -8,9 +8,19 @@ onto documents when they are created: changing one changes future documents, not
 ones. Changes to either need the user's yes; one already used on posted invoices is best
 replaced by a new record and the old one archived.
 
-## Before you start
+**At a glance**
 
 - Apps: `account`.
+- Names that change by version: term lines `balance`, `days`, `months`, `end_month`,
+  `days_after` in 16.0, `nb_days`, `delay_type`, `days_next_month` 17.0+; early discount
+  on the line in 16.0, on the term 17.0+; tax mapping on the position up to 18.0, on the
+  replacement tax 19.0+; `domestic_fiscal_position_id` 19.0+.
+- Sections: Before you start; The standard flow (1 create the payment term, 2 create the
+  fiscal position, 3 map its taxes, 4 map its accounts, 5 apply it automatically, 6 set
+  them on partners); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: none to switch on. The company's early payment discount accounts
   (`account_journal_early_pay_discount_gain_account_id`, `..._loss_account_id`) for
   discounts.

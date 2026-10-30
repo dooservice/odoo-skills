@@ -7,9 +7,20 @@ edited through the wizard `base.document.layout` ("Configure Document Layout"). 
 can override the paper format and its file name. Anything beyond these fields is a QWeb
 change: code. Studio's report editor (Enterprise) is left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `web` and `base_setup` (always installed); the reports come with their app.
+- Names that change by version: layouts and fonts grow in 18.0 (`Fira_Mono`) and 20.0
+  (`Noto_Sans_Mono`); `layout_background` up to 19.0; `report_tables_id` 20.0; wizard
+  saves with Save up to 17.0, Continue 18.0+; Download PDF Preview up to 17.0; `logo` as
+  base64 bytes refused in 20.0.
+- Sections: Before you start; The standard flow (1 configure the document layout, 2 set
+  the default paper format, 3 give one report its own paper format, when needed, 4 name
+  the PDF file, when asked, 5 print one document and look at it); Variations; Versions;
+  Verify; Pitfalls.
+
+## Before you start
+
 - Settings: none to turn on. Per-report paper format, custom paper formats and file
   names are in Settings ‣ Technical ‣ Reporting, which needs developer mode.
 - The layout is per company: switch to the company first, or use `with_company()`.

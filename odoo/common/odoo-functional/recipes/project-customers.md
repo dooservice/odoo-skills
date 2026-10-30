@@ -10,9 +10,21 @@ Creating the project and sharing it on the portal is in `projects-and-timesheets
 Text messages are sent through Odoo's IAP service and use prepaid credits; the helpdesk
 app is Enterprise and left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `project`; `website` for the request form; `sms` for text messages.
+- Names that change by version: form module `website_form_project` up to 17.0,
+  `website_project` 18.0+; ratings and their mode on the project up to 18.0, on the stage
+  (`rating_active`) 19.0+; status field `auto_validation_kanban_state` in 16.0,
+  `auto_validation_state` 17.0+; Customer Ratings menu always 19.0+; `portal_discuss`
+  20.0.
+- Sections: Before you start; The standard flow (1 put a request form on the website, 2
+  text the customer when a task reaches a stage, 3 ask for a rating when the work is done,
+  4 finish the task, 5 the customer rates, 6 read and answer ratings); Variations;
+  Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: `group_project_rating` (Project ‣ Configuration ‣ Settings ‣ Customer
   Ratings) in 16.0-18.0; from 19.0 there is no setting, ratings are switched on per
   stage. `group_project_stages` only to send text messages on project stages.

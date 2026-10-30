@@ -9,9 +9,18 @@ a journal entry takes its number from the `account.payment` sequence. Sequences 
 already given is part of the history users and customers have seen: change only the
 numbers still to come.
 
-## Before you start
+**At a glance**
 
 - Apps: `base`; `sale`, `purchase`, `stock` for their documents.
+- Names that change by version: Sequences menu under Settings ‣ Technical ‣ User Interface
+  in 20.0; `sequence_code` builds the prefix up to 19.0, related to the sequence prefix
+  20.0; payments without entry use an `account.payment` sequence 18.0+.
+- Sections: Before you start; The standard flow (1 change the format, 2 restart each year,
+  3 set the next number, 4 number transfers by operation type); Variations; Versions;
+  Verify; Pitfalls.
+
+## Before you start
+
 - Settings: none. The Sequences menu is under Settings ‣ Technical, which needs
   developer mode; transfers are numbered from the operation type, without it.
 - Read first:

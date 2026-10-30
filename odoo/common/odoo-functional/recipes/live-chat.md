@@ -8,10 +8,20 @@ visitors rate the conversation at the end. With CRM, an operator or the chatbot 
 conversation into a lead (`crm_livechat`, `website_crm_livechat`). Helpdesk tickets from
 chat are Enterprise and left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `im_livechat` (Live Chat); `website_livechat` installs with `website`;
   `crm_livechat` and `website_crm_livechat` with `crm`.
+- Names that change by version: sessions are `mail.channel` in 16.0, `discuss.channel`
+  17.0+; canned responses `mail.shortcode` up to 17.0, `mail.canned.response` 18.0+, typed
+  with `:` up to 18.0 and `::` 19.0+; rule field `chatbot_only_if_no_operator` up to 18.0,
+  `chatbot_enabled_condition` 19.0+; reporting menu Report up to 18.0, Sessions and
+  Reporting 19.0+; `max_sessions` and Expertise 19.0+.
+- Sections: Before you start; The standard flow (1 create the channel, 2 rules, 3 put it
+  on the website, 4 answer, 5 review); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: per website, Website ‣ Configuration ‣ Settings, Live Chat: `channel_id`
   (pass `website_id`). Without website, the channel's Widget tab gives a script to paste
   on another site.

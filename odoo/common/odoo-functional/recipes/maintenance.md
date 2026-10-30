@@ -11,10 +11,23 @@ manufacturing orders and the OEE reports come from `mrp_maintenance`, and custom
 worksheets from `maintenance_worksheet` (setting `module_maintenance_worksheet`); both
 are Enterprise and left out. Community has no link between Maintenance and Manufacturing.
 
-## Before you start
+**At a glance**
 
 - Apps: `maintenance`. `hr_maintenance` installs itself with `hr`, `fleet_maintenance`
   (20.0) with `fleet`, `stock_maintenance` (19.0+) with `stock`.
+- Names that change by version: preventive by equipment `period` in 16.0, recurring
+  request 17.0+; in 20.0 `state` replaces the done stage and `kanban_state`,
+  `cancel_equipment_request` replaces `archive_equipment_request`, `user_ids` replaces
+  `user_id`, no `request_date`; `schedule_end` and email alias on the team 19.0+;
+  `location_id` 19.0+; menu Maintenance ‣ Equipments in 16.0, Maintenance ‣ Equipment
+  17.0+.
+- Sections: Before you start; The standard flow (1 create the maintenance team, 2 create
+  the equipment categories, 3 register the equipment, 4 create a corrective request, 5
+  work the request through the stages, 6 close it); Variations; Versions; Verify;
+  Pitfalls.
+
+## Before you start
+
 - Settings: none in Community. Who configures (teams, categories, stages) is the group
   `maintenance.group_equipment_manager` (Equipment Manager); any internal user creates
   requests. Giving the group is an access change: see `users-and-access.md`, ask first.

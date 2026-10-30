@@ -7,10 +7,22 @@ employees log time on tasks as analytic lines (`account.analytic.line`); with
 confirmed, and the hours logged are invoiced from that order. Timesheet validation, the
 grid view, planning and field service are Enterprise and left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `project`; `hr_timesheet` for timesheets; `sale_timesheet` (with `sale_project`)
   to sell time.
+- Names that change by version: `planned_hours` in 16.0, `allocated_hours` 17.0+; task
+  closed by a folded stage in 16.0, `state` 17.0+; `invited_users` 19.0+;
+  `allowed_internal_user_ids` 20.0; `timesheet_encode_uom_id` in 16.0,
+  `timesheet_encode_method` 17.0+; `group_project_milestone` settings up to 18.0, project
+  fields `allow_milestones` 19.0+; `timesheet_invoice_id` and `timesheet_invoice_type` up
+  to 19.0, `reinvoice_move_id` and `billable_type` 20.0; default stages 20.0.
+- Sections: Before you start; The standard flow (1 create the project and its stages, 2
+  set who sees it, 3 create tasks, 4 log time, 5 a service product that creates the work,
+  6 sell it, 7 invoice the hours); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: `module_hr_timesheet` (Project ‣ Configuration ‣ Settings ‣ Timesheets: it
   installs a module, so ask first); `group_analytic_accounting` (Accounting settings,
   Analytic Accounting) shows the analytic distribution on invoices, as Odoo's

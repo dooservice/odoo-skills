@@ -13,11 +13,24 @@ Carrier connectors that print labels through a carrier's service are Enterprise 
 specific to a few countries (Mondial Relay) and are left out: the methods here are
 `fixed` and `base_on_rule`.
 
-## Before you start
+**At a glance**
 
 - Apps: `sale_stock` and `delivery`. 16.0: `delivery` holds the sales and the stock part.
   17.0+: `delivery` is the sales part and `stock_delivery` the stock part, installed with
   it when `sale_stock` is there.
+- Names that change by version: stock part in `delivery` 16.0, `stock_delivery` 17.0+;
+  `shipping_weight`, `fixed_margin` 17.0+; `tracking_url`, `max_weight` 18.0+; Put in Pack
+  `choose.delivery.package` up to 18.0, `stock.put.in.pack` 19.0+; package
+  `stock.quant.package` up to 18.0, `stock.package` 19.0+; SMS `stock_move_sms_validation`
+  up to 18.0, `stock_confirmation_type` 19.0+; docks `is_a_dock` 18.0, `dock_ids` 19.0+;
+  `allow_cash_on_delivery` 19.0+; Shipping Methods menu up to 17.0, Delivery Methods
+  18.0+.
+- Sections: Before you start; The standard flow (1 create the delivery method, 2 add it to
+  the quotation, 3 confirm the order, 4 record the tracking reference, 5 validate the
+  delivery, 6 invoice); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings (Inventory ‣ Configuration ‣ Settings): Delivery Methods (`module_delivery`)
   installs `delivery`; Packages (`group_stock_tracking_lot`) for packages; Batch
   Transfers (`module_stock_picking_batch` up to 19.0, `group_stock_picking_batch` in

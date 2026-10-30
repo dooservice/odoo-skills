@@ -8,9 +8,21 @@ sales price. A pricelist has one currency, so prices in two currencies need two
 pricelists. This recipe covers sales pricelists in Community; vendor prices are in
 `purchase.md`.
 
-## Before you start
+**At a glance**
 
 - Apps: `product` (the models), `sale` for the menus and for using them on quotations.
+- Names that change by version: advanced rules need `product_pricelist_setting='advanced'`
+  up to 17.0, always on 18.0+; `compute_price` `fixed`, `percentage`, `formula` up to
+  19.0, `fixed`, `discount`, `markup` 20.0; percentage off `percent_price` up to 19.0,
+  `price_discount` 20.0; `price_markup` 18.0+; `applied_on` computed 20.0; `pricelist_id`
+  optional 19.0+; discount shown `discount_policy` up to 17.0, `is_plain_discount` 20.0;
+  `group_discount_per_so_line` in `sale` 18.0+; rules tab Price Rules up to 18.0, Sales
+  Prices 19.0, Rules 20.0.
+- Sections: Before you start; The standard flow (1 create the pricelist, 2 add its rules,
+  3 give it to customers); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: `group_product_pricelist` (Sales ‣ Configuration ‣ Settings, Pricelists).
 
 ```python

@@ -11,6 +11,21 @@ services: they run on Odoo S.A.'s servers and spend prepaid credits of the datab
 IAP accounts (`iap`). All of this is in Community; the credits are bought from Odoo S.A.
 Qualifying and converting leads is in `sales-and-crm.md`.
 
+**At a glance**
+
+- Apps: `crm`; `website_crm`, `crm_livechat`, `crm_sms`, `crm_iap_enrich`, `crm_iap_mine`,
+  `website_crm_iap_reveal`; `website_crm_partner_assign` for resellers.
+- Names that change by version: enrichment cron hourly up to 18.0, daily 19.0+; lead
+  mining of companies only in 20.0; chatbot step `create_lead_and_forward` 19.0 only; live
+  chat channel `mail.channel` in 16.0, `discuss.channel` 17.0+; reseller levels
+  (`res.partner.grade`) in `website_crm_partner_assign` up to 18.0, `partnership` 19.0+,
+  with menus under CRM ‣ Configuration ‣ Resellers up to 18.0 and CRM ‣ Configuration ‣
+  Members 19.0+; SMS states add `process`, `pending` 17.0+.
+- Sections: Before you start; The standard flow (1 check the IAP credits, 2 send contact
+  form submissions to a team, 3 create leads from live chat, 4 enrich the leads, 5 mine
+  new leads, 6 turn website visits into leads, 7 follow up by SMS, 8 grade the resellers,
+  9 assign and forward the lead); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `crm`. `website_crm` installs itself with `crm` and `website`; `crm_livechat` with

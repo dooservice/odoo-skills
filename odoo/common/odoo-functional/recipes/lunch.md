@@ -8,9 +8,18 @@ arrives and notifies the employees. Alerts (`lunch.alert`) remind employees to o
 This recipe covers `lunch` (Community). Nothing here posts to accounting: the cash an
 employee hands in is recorded only as a cash move.
 
-## Before you start
+**At a glance**
 
 - Apps: `lunch`.
+- Names that change by version: vendor order and alert times 0-12 with AM/PM (`moment`,
+  `notification_moment`) up to 19.0, 0-24 in 20.0; ordering for a later day (`date`)
+  18.0+; user groups `groups_id` up to 18.0, `group_ids` 19.0+.
+- Sections: Before you start; The standard flow (1 location, 2 vendor, 3 product, 4 alert,
+  5 money in, 6 order, 7 send to the vendor, 8 receive, 9 control); Variations; Versions;
+  Verify; Pitfalls.
+
+## Before you start
+
 - Access: Lunch: User : Order your meal (`lunch.group_lunch_user`) orders; Lunch:
   Administrator (`lunch.group_lunch_manager`) manages vendors, products, cash moves and
   today's orders. Up to 18.0 the default user template gets Administrator; check new

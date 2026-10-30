@@ -9,6 +9,22 @@ module installed by that switch. Shops, payment methods and sessions are in
 loyalty programs themselves in [loyalty-and-promotions.md](loyalty-and-promotions.md).
 All of it is Community.
 
+**At a glance**
+
+- Apps: `pos_discount`, `pos_hr`, `pos_sale`, `pos_event` (18.0+), `pos_sms` (18.0+),
+  `pos_loyalty`; 20.0 `pos_stock` and `pos_sale_stock`.
+- Names that change by version: employee rights `employee_ids` in 16.0,
+  `basic_employee_ids` and `advanced_employee_ids` 17.0 and 18.0, plus
+  `minimal_employee_ids` 19.0, `manager_`, `cashier_`, `restrictive_`,
+  `supervised_employee_ids` 20.0; stock in `point_of_sale` up to 19.0, `pos_stock` 20.0;
+  `update_stock_quantities` defaults to `closing` up to 17.0, `real` 18.0+;
+  `default_product_id` 20.0; session report `pos_daily_sales_reports` in 16.0,
+  `point_of_sale` 17.0+; `gift_card_settings` up to 17.0.
+- Sections: Before you start; The standard flow (1 global discount, 2 employees log in, 3
+  sale orders in the POS, 4 stock from the POS, 5 ship later, 6 event tickets (18.0+), 7
+  sMS receipts (18.0+), 8 session report (X and Z), 9 loyalty in the POS); Variations;
+  Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `pos_discount`, `pos_hr` (with `hr`), `pos_sale` (with `sale`, installed by

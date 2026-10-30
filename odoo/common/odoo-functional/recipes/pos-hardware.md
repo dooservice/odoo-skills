@@ -10,6 +10,21 @@ shop or a `pos.printer`. Shops, payment methods and sessions are in
 [pos-self-order.md](pos-self-order.md). The IoT box and every device that needs it
 (scales, IoT printers, `pos_iot_*` terminals) are Enterprise and left out.
 
+**At a glance**
+
+- Apps: the provider's `pos_<provider>` module (`module_pos_adyen`, `module_pos_stripe`,
+  ... in the POS settings).
+- Names that change by version: terminal link `use_payment_terminal` up to 17.0,
+  `payment_method_type='terminal'` 18.0 and 19.0, `payment_method_type` +
+  `payment_provider` 20.0; `type` required 20.0; cash machines 19.0+ (`cash_machine` in
+  20.0); Epson receipt printer `pos_epson_printer` up to 18.0, in `point_of_sale` 19.0,
+  `pos.printer` with `use_type='receipt'` 20.0; preparation printer `restaurant.printer`
+  in 16.0, `pos.printer` 17.0+; HTTP forced for ePOS printers up to 18.0; local network
+  access `point_of_sale.use_lna` 19.0, `use_lna` per device 20.0.
+- Sections: Before you start; The standard flow (1 install the provider's module, 2 create
+  the payment method, 3 add it to the shop, 4 pay, 5 close the session); Card terminals
+  and QR providers; Cash machines; Printers; Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: the provider's module from the tables below. Point of Sale ‣ Configuration ‣

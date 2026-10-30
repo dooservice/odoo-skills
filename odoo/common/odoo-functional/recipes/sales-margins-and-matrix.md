@@ -8,10 +8,22 @@ variants at once; `sale_margin` shows cost and margin on each quotation line; an
 Attributes and variants themselves are in `products-and-categories.md`; quotations, in
 `sales-and-crm.md`.
 
-## Before you start
+**At a glance**
 
 - Apps: `sale_management` (quotations), `purchase` for the purchase grid, `account` for
   product margins.
+- Names that change by version: configurator and `optional_product_ids` in
+  `sale_product_configurator` up to 17.0, `sale` 18.0+; line unit `product_uom` up to
+  18.0, `product_uom_id` 19.0+; Variant Selection on the Sales tab and no margins setting
+  (`module_sale_margin`) in 20.0; `report_grids` on purchase orders up to 19.0.
+- Sections: Before you start; The standard flow (1 set the cost of each variant, 2 choose
+  how the product is added to quotations, 3 add optional products, 4 sell one variant with
+  the configurator, 5 sell many variants with the grid, 6 read the margin of the
+  quotation, 7 analyse margins of sales, 8 compare invoiced sales with vendor bills per
+  product); Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 
 | Module | What it adds | Versions |
 |---|---|---|

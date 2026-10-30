@@ -9,11 +9,24 @@ Community purchase agreements (`purchase_requisition`: calls for tenders and bla
 orders; `purchase_alternative` for tenders in 20.0). Three-way matching is Enterprise and
 left out.
 
-## Before you start
+**At a glance**
 
 - Apps: `purchase`; `purchase_stock` for receipts; `account` for bills;
   `purchase_requisition` for agreements (setting `module_purchase_requisition`, it
   installs a module: only with the user's yes).
+- Names that change by version: locked order state `done` up to 18.0, boolean `locked`
+  19.0+; bill control `default_purchase_method` up to 18.0; vendor price unit
+  `product_uom` up to 18.0, `product_uom_id` 19.0, `uom_id` 20.0; receipt `quantity_done`
+  in 16.0, `quantity` 17.0+; alternatives in `purchase_requisition` up to 19.0,
+  `purchase_alternative` 20.0 (wizard `purchase.alternative.create`); agreement `type_id`
+  and `action_in_progress()` up to 17.0, `requisition_type` and `action_confirm()` 18.0+;
+  unit, category and variant menus change in 19.0 and 20.0.
+- Sections: Before you start; The standard flow (1 record the vendor's price, 2 create the
+  RFQ, 3 send it, 4 confirm it, 5 receive, 6 bill); Variations; Versions; Verify;
+  Pitfalls.
+
+## Before you start
+
 - Settings (Purchase ‣ Configuration ‣ Settings), per company:
   - Two-step approval: orders at or above an amount, in the company currency, wait for
     a purchase manager (`purchase.group_purchase_manager`).

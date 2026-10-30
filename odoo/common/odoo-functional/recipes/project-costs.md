@@ -12,6 +12,21 @@ tasks and timesheets, and invoicing a customer is in `projects-and-timesheets.md
 revenue in the panel comes from `sale_project` and `sale_timesheet` and is left to that
 recipe. Budgets are Enterprise and left out.
 
+**At a glance**
+
+- Apps: `project`, `account`; `hr_timesheet`, `purchase`, `stock`, `mrp` for their costs;
+  `project_account` 17.0+, `project_stock_account` and `project_mrp_account` 18.0+.
+- Names that change by version: project analytic field `analytic_account_id` up to 17.0,
+  `account_id` 18.0+; profitability in Project Updates up to 17.0, Dashboard 18.0 and
+  19.0, Analytic Items 20.0; purchase linked by `analytic_distribution` up to 17.0,
+  `purchase.order.project_id` 18.0+; transfers `project_id` + `analytic_costs` 18.0+;
+  manufacturing order `analytic_account_id` 16.0, `analytic_distribution` 17.0,
+  `project_id` 18.0+; hourly cost `hr_hourly_cost` up to 19.0, `hr` 20.0.
+- Sections: Before you start; The standard flow (1 turn on analytic accounting, 2 give the
+  project an analytic account, 3 set the hourly cost of each employee, 4 charge a purchase
+  to the project, 5 charge goods from stock to the project (18.0+), 6 build for the
+  project, 7 read the result); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `project`, `account`; `hr_timesheet` for hours; `purchase`, `stock`, `mrp` for

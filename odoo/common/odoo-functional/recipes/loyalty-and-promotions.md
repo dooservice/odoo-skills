@@ -9,6 +9,19 @@ card or eWallet. In Sales, `sale_loyalty` applies the rewards on quotations as r
 (`pos_loyalty`) and eCommerce (`website_sale_loyalty`), both summarised under Variations.
 All of it is Community.
 
+**At a glance**
+
+- Apps: `loyalty`, `sale_loyalty`; `sale_loyalty_delivery` (16.0 also `loyalty_delivery`);
+  `pos_loyalty`, `website_sale_loyalty`.
+- Names that change by version: menu Sales ‣ Products up to 19.0, Sales ‣ Promotions 20.0;
+  `date_from` and `pricelist_ids` 17.0+; quotation button Promotions up to 17.0, Reward
+  18.0+; `loyalty.history` 18.0+; `applies_on` default `future` in 20.0; `expire_after`
+  and `once_per_user` 20.0; POS `gift_card_settings` up to 17.0; reward line taxes
+  `tax_id` up to 18.0, `tax_ids` 19.0+.
+- Sections: Before you start; The standard flow (1 create the program, 2 set the
+  conditional rules, 3 set the rewards, 4 apply the rewards on the quotation, 5 apply a
+  code, 6 confirm the order); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `loyalty`, with `sale_loyalty` (installed automatically with `sale`).

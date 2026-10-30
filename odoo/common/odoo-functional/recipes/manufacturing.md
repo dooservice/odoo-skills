@@ -6,9 +6,21 @@ consumes components and produces the product through stock moves (`inventory.md`
 Master production schedule, PLM, quality and the shop floor are Enterprise and left out.
 A done order is history: undo it with an unbuild order, never by editing its moves.
 
-## Before you start
+**At a glance**
 
 - Apps: `mrp`; `purchase_stock` for the Buy route of components.
+- Names that change by version: Manufacture route on the product up to 18.0, on the
+  warehouse 19.0+; unit `product_uom_id` up to 19.0, `uom_id` 20.0; no `consumption` in
+  20.0; `produce_delay`, `days_to_prepare_mo` on the product in 16.0, on the bill 17.0+;
+  company `manufacturing_lead` up to 18.0; produce button Mark as Done in 16.0, Produce
+  All 17.0 to 19.0, Produce 20.0.
+- Sections: Before you start; The standard flow (1 turn on work orders and by-products, if
+  used, 2 make the product manufacturable, 3 create the bill of materials, 4 operations,
+  with work orders on, 5 create and confirm the order, 6 do the work orders, 7 produce);
+  Variations; Versions; Verify; Pitfalls.
+
+## Before you start
+
 - Settings: `group_mrp_routings` (work orders and work centers), `group_mrp_byproducts`,
   `group_unlocked_by_default`. `module_mrp_subcontracting` installs a module: only with
   the user's yes. `module_mrp_mps` and `module_mrp_plm` are Enterprise.

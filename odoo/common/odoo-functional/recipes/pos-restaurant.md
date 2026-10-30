@@ -10,6 +10,20 @@ themselves in [pos-self-order.md](pos-self-order.md). The preparation display (k
 screen), table booking (`pos_restaurant_appointment`) and the IoT box are Enterprise and
 left out.
 
+**At a glance**
+
+- Apps: `point_of_sale` and `pos_restaurant`.
+- Names that change by version: floor to shop `pos_config_id` in 16.0, `pos_config_ids`
+  17.0+; table `name` up to 17.0, `table_number` 18.0+; `is_table_management` 16.0 only;
+  preparation printer `restaurant.printer` in 16.0, `pos.printer` 17.0+
+  (`use_type='preparation'` 20.0); shop printers `is_order_printer`, `printer_ids` up to
+  19.0, `preparation_devices`, `preparation_printer_ids` 20.0; `iface_splitbill` up to
+  19.0; take-out by fiscal position up to 17.0, `takeaway`, `takeaway_fp_id` 18.0, presets
+  19.0+; courses 19.0+ (`pos.course` 20.0).
+- Sections: Before you start; The standard flow (1 make the shop a restaurant, 2 draw the
+  floors and tables, 3 preparation printers, 4 bill printing and splitting, 5 tips, 6
+  serve); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `pos_restaurant`. Ticking Is a Bar/Restaurant on a shop installs it at once
@@ -136,14 +150,14 @@ the preparation printers, then service: order, send to the kitchen, bill, split,
    prints the bill before payment; Allow Bill Splitting (`iface_splitbill`, 16.0 to 19.0;
    always on in 20.0) pays some lines or guests apart.
 
+   20.0: write `iface_printbill` alone.
+
    16.0 to 19.0:
 
    ```python
    config.write({'iface_printbill': True, 'iface_splitbill': True})
    env.cr.commit()
    ```
-
-   20.0: write `iface_printbill` alone.
 
 5. **Tips.** Settings, section Payment ‣ Tips (`iface_tipproduct`) with the tip product
    (`tip_product_id`, the `TIPS` service product by default). The cashier adds the tip on
