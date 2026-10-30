@@ -27,7 +27,7 @@ read that, then only the sections that match the code you are touching.
 | A field widget, a `<widget>` or a `js_class` view | [views.md](guidelines/views.md) |
 | The registry API and keys; fields, views, control panel, formatters, frontend registries | [registries.md](guidelines/registries.md) |
 | Systray, user menu, client actions, command palette, debug menu, errors, effects | [registries_webclient.md](guidelines/registries_webclient.md) |
-| Services and plugins, RPC and ORM calls, actions, notifications, user, router, `env` | [services.md](guidelines/services.md) |
+| Shared state or logic that any component uses (a service), plugins, RPC and ORM calls, actions, notifications, user, router, `env` | [services.md](guidelines/services.md) |
 | Website, portal and public page code, snippets | [website.md](guidelines/website.md) |
 | The Point of Sale | [point_of_sale.md](guidelines/point_of_sale.md) |
 | Manifest `assets`, bundles, a "missing template" error, lazy loading | [assets.md](guidelines/assets.md) |
