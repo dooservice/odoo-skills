@@ -9,4 +9,4 @@ You are working on an Odoo 20.0 project. Answer by writing the file, no explanat
 
 Write the CSV of access rights of this addon for model `library.book`: internal users read, librarians (`library.group_librarian`) everything.
 
-Write it to `security/access_rights.csv`.
+Write it to `security/ir.access.csv`.
