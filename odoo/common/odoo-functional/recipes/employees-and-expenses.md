@@ -9,6 +9,19 @@ made. Needs `hr`, `hr_holidays` and `hr_expense`; payroll and the expense card a
 Enterprise and left out. `hr_expense` and `hr_holidays` changed shape between versions:
 check `## Versions` before every step.
 
+**At a glance**
+
+- Apps: `hr`, `hr_holidays`, `hr_expense` (with `account`).
+- Names that change by version: time off type `hr.leave.type` with `holiday_status_id`
+  (16.0-19.0), `hr.work.entry.type` with `work_entry_type_id` (20.0); allocation
+  `action_confirm`, `action_validate` (16.0), `action_validate` (17.0), `action_approve`
+  (18.0+); expense amount `total_amount` (16.0), `total_amount_currency` (17.0+); report
+  `hr.expense.sheet` (16.0-18.0), on the expense (19.0+); employee-paid entry `in_invoice`
+  (16.0-18.0), `in_receipt` (19.0+).
+- Sections: Before you start; The standard flow (1 department, 2 employee and user, 3 time
+  off type, 4 allocation, 5 request, 6 approval, 7 expense category, 8 log and submit,
+  9 approval, 10 post, 11 reimburse); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `hr`, `hr_holidays`, `hr_expense` (with `account`).

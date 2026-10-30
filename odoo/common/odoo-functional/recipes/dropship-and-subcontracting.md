@@ -11,6 +11,20 @@ directly to or from the subcontractor), all in Community and in 16.0 to 20.0. Pu
 orders and receipts work as in `purchase.md`; transfers as in `inventory.md`; bills of
 materials as in `manufacturing.md`.
 
+**At a glance**
+
+- Apps: `sale_stock`, `purchase_stock` (dropshipping); `mrp`, `purchase_stock`
+  (subcontracting); `mrp_subcontracting_purchase`, `mrp_subcontracting_dropshipping`.
+- Names that change by version: Dropship operation type `code` `incoming` (16.0),
+  `dropship` (17.0+); sales line route `route_id` (16.0-18.0), `route_ids` (19.0+);
+  Resupply Subcontractor on Order product route (16.0-18.0), warehouse
+  `subcontracting_to_resupply` (19.0+); Dropship Subcontractor on Order route (16.0-18.0),
+  Dropship route (19.0+); `quantity_done` (16.0), `quantity` (17.0+).
+- Sections: Before you start; The standard flow (1 vendor and dropship route, 2 sell it,
+  3 confirm the purchase, 4 validate the dropship, 5 subcontractor and bill, 6 its price,
+  7 who supplies components, 8 order from the subcontractor, 9 send the components,
+  10 receive the products); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `sale_stock` and `purchase_stock` for dropshipping; `mrp` and `purchase_stock`

@@ -7,6 +7,20 @@ symptom, what to read, usual causes, fix. Everything here reads; changes go thro
 matching recipe, with the user's yes. It covers the standard apps; Studio and
 Enterprise-only apps are left out.
 
+**At a glance**
+
+- Apps: none to install; `account` and `sale` for the tax and price sections.
+- Names that change by version: user's groups `groups_id` (16.0-18.0), `all_group_ids`
+  (19.0+); access model `ir.model.access` and `ir.rule` (16.0-19.0), `ir.access` (20.0);
+  check access `check_access_rights` (16.0, 17.0), `has_access` (18.0+); fiscal position
+  mapping `tax_ids` (16.0-18.0), taxes' `original_tax_ids` (19.0+); sales order line
+  `tax_id` and `product_uom` (16.0-18.0), `tax_ids` and `product_uom_id` (19.0+);
+  `invisible` in `attrs` (16.0), direct (17.0+).
+- Sections, one per symptom: Before you start; Access error; Record not visible; Tax
+  missing or wrong on an invoice line; Wrong price; Automation or scheduled action not
+  running; Email not sent; Field not shown; Numbering skipped or out of order; Versions;
+  Pitfalls.
+
 ## Before you start
 
 - Apps: none to install. The sections on taxes and prices need `account` and `sale`.

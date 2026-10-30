@@ -10,6 +10,18 @@ trail is mandatory and how long logs are kept is decided by the country's law an
 localization (some force it on): it is not covered here, so check it with the user. The
 lock dates and closing are in `closing-the-period.md`.
 
+**At a glance**
+
+- Apps: `account`; `account_audit_trail` (17.0); `account_test`, `account_update_tax_tags`.
+- Names that change by version: audit trail absent (16.0), `account_audit_trail` with
+  `check_account_audit_trail` (17.0), in `account` with `check_account_audit_trail`
+  (18.0), `restrictive_audit_trail` and `force_restrictive_audit_trail` (19.0+); audit
+  trail menu under Invoicing ‣ Reporting ‣ Management (17.0, 18.0), Invoicing ‣ Review ‣
+  Logs (19.0), Invoicing ‣ Review ‣ Control (20.0).
+- Sections: Before you start; The standard flow (1 turn on the audit trail, 2 read the
+  trail, 3 run the accounting tests, 4 update tax grids); Variations; Versions; Verify;
+  Pitfalls.
+
 ## Before you start
 
 - Apps: `account`; `account_audit_trail` (17.0), `account_test` and

@@ -11,6 +11,20 @@ links. Marketing Automation and Social Marketing are Enterprise and left out. Th
 server and bounces are in `mail-servers.md`; transactional templates in
 `email-templates.md`.
 
+**At a glance**
+
+- Apps: `mass_mailing`, `mass_mailing_sms`; bridges such as `mass_mailing_themes`,
+  `mass_mailing_crm`, `mass_mailing_sale`, `website_mass_mailing`,
+  `website_sale_mass_mailing` (18.0+); `sms_twilio` (17.0+); `marketing_card` (18.0+).
+- Names that change by version: `mailing.contact.subscription` (16.0),
+  `mailing.subscription` (17.0+); `is_public` default True (16.0), False (17.0+);
+  `trace_status` adds `process`, `pending` and `sent` means delivered (17.0+); lists menu
+  Mailing Lists (16.0-19.0), Recipients (20.0); saved templates as favorites
+  (16.0-19.0), Templates menu (20.0).
+- Sections: Before you start; The standard flow (1 mailing list and contacts, 2 create the
+  mailing, 3 test, 4 send or schedule, 5 read the results); Variations; Versions; Verify;
+  Pitfalls.
+
 ## Before you start
 
 - Apps: `mass_mailing` (Email Marketing); `mass_mailing_sms` (SMS Marketing). Bridges

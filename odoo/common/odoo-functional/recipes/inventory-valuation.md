@@ -15,6 +15,20 @@ country's localization: it is not covered here, so check it with the user.
 Stock moves themselves are in `inventory.md`, purchases in `purchase.md`, manufacturing
 in `manufacturing.md`.
 
+**At a glance**
+
+- Apps: `stock`, `account` (`stock_account`); `stock_landed_costs`; `mrp_account`.
+- Names that change by version: `property_valuation` `manual_periodic`, `real_time`
+  (16.0-18.0), `periodic`, `real_time` (19.0+); `stock.valuation.layer` (16.0-18.0),
+  `value` on moves and `product.value` (19.0+); `action_close_stock_valuation` (19.0+);
+  price difference in `purchase_price_diff` (16.0), `purchase_stock` (17.0, 18.0),
+  `stock_account` (19.0), `account` (20.0); `mrp.account.wip.accounting` (18.0+).
+- Sections: Before you start; The standard flow (1 costing method and valuation, 2 stock
+  accounts, 3 receive and deliver, 4 read the valuation, 5 close the period; landed
+  costs: 1 cost products, 2 vendor bill of the cost, 3 compute and validate;
+  manufacturing costs: 1 cost from the BoM, 2 close orders, 3 book work in progress);
+  Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `stock` and `account` (they install `stock_account`); `stock_landed_costs` by

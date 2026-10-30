@@ -11,6 +11,19 @@ importing a module as a zip (`base_import_module`), certificates and keys
 here can lock people out: ask the user before each step, and keep one administrator
 able to log in with a password. Secrets come from the user; never invent or print them.
 
+**At a glance**
+
+- Apps: `auth_password_policy`, `auth_totp`, `auth_totp_mail`; `auth_oauth`, `auth_ldap`;
+  `auth_passkey` (18.0+), `auth_timeout` (19.0+), `certificate` (18.0+),
+  `cloud_storage_google`, `cloud_storage_azure`, `cloud_storage_migration` (18.0+).
+- Names that change by version: two-factor by email `auth_totp_mail_enforce` (16.0-18.0),
+  `auth_totp_mail` (19.0+); `auth_passkey` (18.0+); `auth_timeout` (19.0+);
+  `cloud_storage_min_file_size` (18.0), `cloud_storage_min_file_size_mb` (19.0+),
+  `cloud_storage_upload_record_attachments` (20.0).
+- Sections: Before you start; The standard flow (1 password length, 2 two-factor for each
+  user, 3 enforce two-factor, 4 login with google); Variations; Versions; Verify;
+  Pitfalls.
+
 ## Before you start
 
 - Apps: `auth_password_policy`, `auth_totp`, `auth_totp_mail` are installed with the

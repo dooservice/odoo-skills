@@ -9,6 +9,16 @@ the Badges tab on the employee. Users and employees are set up in
 [employees-and-expenses.md](employees-and-expenses.md). The same models drive karma and
 ranks of eLearning and Forum, left out here.
 
+**At a glance**
+
+- Apps: `gamification`, `hr_gamification` (both in every version 16.0-20.0).
+- Names that change by version: grant wizard `gamification.badge.user.wizard` with the
+  employee required, refusing an employee without user (16.0), employee optional, user
+  from employee (17.0+); wizard title Reward Employee (16.0-18.0), Grant a badge (19.0+).
+- Sections: Before you start; The standard flow (1 badge, 2 grant it to an employee,
+  3 goal definition, 4 challenge, 5 start, 6 manual goals, 7 close); Variations;
+  Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `gamification`, `hr_gamification` (both in every version 16.0-20.0).

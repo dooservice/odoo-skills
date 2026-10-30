@@ -16,6 +16,18 @@ only when the other types cannot do it. Every automation needs the user's yes: i
 on many records without anyone watching. Odoo documents automation rules through Studio
 (Enterprise); without Studio the same form is in Settings ‣ Technical, in developer mode.
 
+**At a glance**
+
+- Apps: `base_automation` for automation rules; server and scheduled actions in `base`.
+- Names that change by version: rules menu Automated Actions (16.0), Automation Rules
+  (17.0+); rule actions on the rule `state`, `code` (16.0), `action_server_ids` (17.0+);
+  value triggers such as `on_state_set` (17.0+); `numbercall`, `doall` (16.0, 17.0);
+  before the date as a negative delay (16.0-18.0), `trg_date_range_mode` (19.0+); update
+  record `fields_lines` (16.0), `update_path`, `value` (17.0+).
+- Sections: Before you start; The standard flow (1 create the rule, 2 choose the trigger,
+  3 add the conditions, 4 add the action and save, 5 timed rules: start the clock, 6 try
+  it on one record); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `base_automation` for automation rules (install it with the user's yes); server

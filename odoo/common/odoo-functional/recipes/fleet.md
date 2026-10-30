@@ -9,6 +9,19 @@ contracts (`fleet.vehicle.log.contract`: leasing, insurance) and services
 and, once posted, creates the service on it. This recipe covers `fleet`, `hr_fleet` and
 `account_fleet`, all in Community.
 
+**At a glance**
+
+- Apps: `fleet`; `hr_fleet` (with `hr`); `account_fleet` (with `account`).
+- Names that change by version: default vehicle status Registered (16.0), New Request
+  (17.0+); service date `date` (16.0-19.0), `date_from`, `date_to` (20.0); first contract
+  date `first_contract_date` (16.0-18.0), `contract_date_start` (19.0+); contract states
+  futur, open, expired, closed (16.0-19.0), adds `done` (20.0); employee's driver contact
+  `address_home_id` (16.0), `work_contact_id` (17.0+); `model_id` required (16.0-19.0),
+  optional (20.0).
+- Sections: Before you start; The standard flow (1 manufacturer, 2 model, 3 vehicle,
+  4 driver, 5 contract, 6 service, 7 odometer reading, 8 costs); Variations; Versions;
+  Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `fleet`; `hr_fleet` (installed automatically with `hr`) to pick employees as

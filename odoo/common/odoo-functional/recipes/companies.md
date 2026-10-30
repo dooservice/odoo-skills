@@ -8,6 +8,18 @@ per company from the country's fiscal localization, once, before the first entry
 company needs only `base`; the chart, taxes and journals need `account` (Invoicing).
 Inter-company transactions are Enterprise and left out.
 
+**At a glance**
+
+- Apps: `base`; `account` for the chart of accounts (branches from 17.0).
+- Names that change by version: chart template a record, `chart_template_id` (16.0), a
+  code, `chart_template` (17.0+); `try_loading` with a chart loaded does nothing (16.0),
+  adds on top (17.0+); localization installed when a company gets a country (18.0+);
+  branches with `parent_id` (17.0+); accounts `company_id` (16.0, 17.0), `company_ids`
+  (18.0+).
+- Sections: Before you start; The standard flow (1 create the company, 2 give users
+  access to it, 3 set the document layout, 4 verify the fiscal localization package,
+  5 add branches); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `base`; `account` for the chart of accounts. Branches from 17.0.

@@ -11,6 +11,20 @@ account. This recipe covers `analytic` with the Invoicing app (`account`), all i
 Community; budgets (`account_budget`) and the Accounting app's analytic reports are
 Enterprise and left out.
 
+**At a glance**
+
+- Apps: `account` (it installs `analytic`).
+- Names that change by version: analytic item columns `account_id`, `plan_id` (16.0),
+  `account_id` and `x_plan<id>_id` per root plan (17.0+); several plans in one key
+  `"id1,id2"` (17.0+); `default_applicability` per plan (16.0), company dependent
+  (17.0+); applicability `company_id` and distribution model `sequence` (18.0+);
+  Analytic Items menu under Invoicing ‣ Accounting ‣ Management (16.0, 17.0), Invoicing ‣
+  Accounting (18.0), Invoicing ‣ Accounting ‣ Transactions (19.0, 20.0).
+- Sections: Before you start; The standard flow (1 create the analytic plans, 2 set
+  where a plan is mandatory, 3 create the analytic accounts, 4 add distribution models,
+  5 distribute a document's lines, 6 read the results); Variations; Versions; Verify;
+  Pitfalls.
+
 ## Before you start
 
 - Apps: `account` (it installs `analytic`).

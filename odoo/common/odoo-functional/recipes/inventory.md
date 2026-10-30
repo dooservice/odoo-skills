@@ -8,6 +8,20 @@ or a return, never by editing quants or moves. This recipe covers `stock` and, f
 transfers, `stock_picking_batch` (16.0 to 19.0; part of `stock` in 20.0), all in
 Community; the Barcode app is Enterprise and left out.
 
+**At a glance**
+
+- Apps: `stock`; `purchase_stock`, `mrp` for Buy and Manufacture routes;
+  `stock_picking_batch` (up to 19.0; in `stock` from 20.0).
+- Names that change by version: counted in stock `detailed_type='product'` (16.0, 17.0),
+  `is_storable` (18.0, 19.0), `is_storable` and `store_by` (20.0); validating
+  `quantity_done` (16.0), `quantity` (17.0+); reordering multiple `qty_multiple`
+  (16.0-18.0), `replenishment_uom_id` (19.0+); scrap `stock.scrap` (16.0-19.0),
+  `stock.move` with `is_scrap` (20.0); initial quantities Inventory Adjustments (16.0),
+  Adjustments ‣ Physical Inventory (17.0+).
+- Sections: Before you start; The standard flow (1 warehouse and its steps, 2 storage
+  locations, 3 products tracked in stock, 4 initial quantities, 5 reordering rules,
+  6 receipts and deliveries); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `stock`; `purchase_stock` and `mrp` give the Buy and Manufacture routes that

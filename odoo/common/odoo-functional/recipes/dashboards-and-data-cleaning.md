@@ -9,6 +9,17 @@ leads lost two years ago) and archives or deletes them after review. 16.0 also h
 Notes app (`note`). Editing spreadsheets, creating new dashboards and the
 deduplication rules of Data Cleaning are Enterprise and left out.
 
+**At a glance**
+
+- Apps: `spreadsheet_dashboard` with its `spreadsheet_dashboard_<app>` bridges; `board`,
+  `data_recycle`; `note` (16.0).
+- Names that change by version: dashboard `is_published` (18.0+); dashboard companies
+  `company_id` (18.0), `company_ids` (19.0+); Undiscard a recycle line (20.0); Notes app
+  `note` (16.0), To-do `project_todo` (17.0+).
+- Sections: Before you start; The standard flow (Dashboards: 1 open a dashboard, 2 decide
+  who sees which dashboard, 3 my dashboard; Data cleaning: 1 create a rule, 2 review);
+  Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `spreadsheet_dashboard` (Dashboards) is installed with the apps; each app's

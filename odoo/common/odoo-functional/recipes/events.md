@@ -11,6 +11,19 @@ from attendees (`event_crm`). Badge scanning with the Enterprise barcode app and
 Enterprise social and marketing automation apps are left out. Emailing attendees as a
 campaign is in `email-and-sms-marketing.md`.
 
+**At a glance**
+
+- Apps: `event`; `event_sale` (with `event_product` from 18.0); `website_event`,
+  `website_event_sale`; optional `event_booth`, `website_event_track`, `event_crm`.
+- Names that change by version: new registration `open` if `auto_confirm`, else `draft`
+  (16.0), `open` (17.0+); ticket product `detailed_type='event'` (16.0, 17.0),
+  `service_tracking='event'` in `event_product` (18.0+); questions
+  `website_event_questions` (16.0), `website_event` (17.0), `event` (18.0+); meeting
+  rooms `website_event_meet` (16.0-18.0); `is_multi_slots` (19.0+); `publish_on` (20.0).
+- Sections: Before you start; The standard flow (1 event template, 2 create the event,
+  3 tickets, 4 communication, 5 register attendees, 6 sell tickets on a sales order,
+  7 publish on the website, 8 on the day); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `event`. Selling tickets: `event_sale` (16.0, 17.0 it also holds the ticket

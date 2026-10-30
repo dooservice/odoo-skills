@@ -11,6 +11,20 @@ CSV) and bank synchronization are Enterprise (Accounting app). In Community the 
 below are done through the ORM, making the same journal-item changes that screen makes.
 Every change here is accounting: get the user's yes first.
 
+**At a glance**
+
+- Apps: `account` (Invoicing).
+- Names that change by version: reconciliation model `rule_type` `writeoff_button`,
+  `writeoff_suggestion`, `invoice_matching` (16.0-18.0), `trigger` `manual`,
+  `auto_reconcile` and no `rule_type` (19.0), `trigger` with `rule_type` `reco_model`
+  (20.0); auto-validate `auto_reconcile` (16.0-18.0), `trigger='auto_reconcile'`
+  (19.0+); Reconciliation Models menu under Configuration ‣ Banks (16.0-18.0), none in
+  Community (19.0+); posted statement entry lines editable (16.0, 17.0), with
+  `skip_readonly_check` (18.0+).
+- Sections: Before you start; The standard flow (1 the bank journal, 2 register the
+  transactions, 3 group them in a statement, 4 match a line with an invoice or bill,
+  5 or match it with a payment); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `account` (Invoicing).

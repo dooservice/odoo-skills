@@ -6,6 +6,19 @@ bank). Agree on the go-live date (ideally the start of a fiscal year): before it
 opening entries, from it is Odoo. Opening entries need the accountant's figures and the
 user's yes before posting. Bank synchronization is Enterprise.
 
+**At a glance**
+
+- Apps: `account`, plus `stock`, `sale`, `purchase` as used.
+- Names that change by version: accounts by company `company_id` (16.0, 17.0),
+  `company_ids` (18.0+); retire an account `deprecated` (16.0-18.0), `active` (19.0+);
+  `account_opening_date` default 1 January (16.0-18.0), empty (19.0), today (20.0); stock
+  product `detailed_type='product'` (16.0, 17.0), `is_storable=True` (18.0+); stock count
+  Inventory Adjustments (16.0), Adjustments ‣ Physical Inventory (17.0+).
+- Sections: Before you start; The standard flow (1 company, settings, users, 2 accounting
+  master data, 3 categories, products, contacts, 4 open invoices and bills, 5 opening
+  inventory, 6 opening trial balance, 7 opening bank statements, 8 final validation,
+  9 numbering and lock); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `account`, plus `stock`, `sale`, `purchase` as used, installed first (they add

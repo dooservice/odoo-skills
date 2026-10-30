@@ -8,6 +8,19 @@ comparison by attributes (`website_sale_comparison`), files delivered with a pro
 comparison are part of `website_sale`. Product data itself is in
 `products-and-categories.md`; stock in `inventory.md`.
 
+**At a glance**
+
+- Apps: `website_sale`, `website_sale_stock`; `website_sale_wishlist`,
+  `website_sale_comparison` (in `website_sale` from 20.0); `website_sale_digital` (16.0);
+  `website_sale_autocomplete` (up to 19.0).
+- Names that change by version: stock defaults `allow_out_of_stock_order` (16.0-18.0),
+  `default_allow_out_of_stock_order` (19.0+); wishlist and comparison setting (16.0-18.0),
+  module from Apps (19.0), in `website_sale` (20.0); digital files `website_sale_digital`
+  (16.0), `attached_on` (17.0), `attached_on_sale` (18.0+); storable
+  `detailed_type='product'` (16.0, 17.0), `is_storable` (18.0+).
+- Sections: Before you start; The standard flow (1 warehouse of the website, 2 stock rules
+  per product, 3 wishlist, 4 comparison); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `website_sale`; `website_sale_stock` installs itself with `stock`. Up to 18.0

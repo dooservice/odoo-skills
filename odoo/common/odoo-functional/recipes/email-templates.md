@@ -7,6 +7,19 @@ its documents; this recipe changes their words, sender, recipients, attachments 
 translations. Templates are edited from Settings ‣ Technical, which needs developer mode.
 Email Marketing, Marketing Automation and Studio are left out.
 
+**At a glance**
+
+- Apps: `mail`, installed by every app that sends documents; templates come with their app
+  (`sale`, `account`, `purchase`, `stock`).
+- Names that change by version: body tab Content (16.0-18.0), Body (19.0+); sender and
+  recipients tab Email Configuration (16.0-18.0), Settings (19.0+); `report_template`
+  (16.0), `report_template_ids` (17.0+); `email_layout_xmlid` (17.0+); `partner_cc`,
+  `email_layout_force_header`, `email_layout_force_footer` (20.0); Update Mail Layout
+  (19.0+).
+- Sections: Before you start; The standard flow (1 open the template, 2 change the subject
+  and the body, 3 set the sender and the recipients, 4 attachments, language and server,
+  5 translate, 6 preview, then send to yourself); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `mail`, installed by every app that sends documents. The templates come with

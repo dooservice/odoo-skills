@@ -9,6 +9,19 @@ letters go through Odoo's IAP snailmail service, paid with IAP credits. All in C
 The wording and attachments of the invoice email are a mail template
 (`email-templates.md`); the PDF layout is in `reports-and-layout.md`.
 
+**At a glance**
+
+- Apps: `account`; `snailmail_account` (installs `snailmail`); `product_email_template`.
+- Names that change by version: wizard `account.invoice.send` (16.0), `account.move.send`
+  (17.0), `account.move.send.wizard` and `account.move.send.batch.wizard` (18.0+);
+  methods `is_email`, `is_print`, `snailmail_is_letter` (16.0), `checkbox_send_mail`,
+  `checkbox_download`, `checkbox_send_by_post` (17.0), `sending_methods` (18.0+);
+  `invoice_sending_method` (18.0+); `manual` label Download (18.0), Manual (19.0+);
+  invoice button Send & Print (16.0, 17.0), Send (18.0+).
+- Sections: Before you start; The standard flow (1 set the customer's sending method,
+  2 check the address or email, 3 send the invoice, 4 follow the letters); Variations;
+  Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `account`; `snailmail_account` (installed by the Snailmail setting; it

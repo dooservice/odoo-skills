@@ -8,6 +8,18 @@ company: the most recent one before it, or the oldest one when none is older. It
 pointed to. Wrong rates give wrong journal entries, so read the direction twice before
 writing one.
 
+**At a glance**
+
+- Apps: `account`; `currency_rate_live` (Enterprise, only pointed to).
+- Names that change by version: default `company_id` of a rate current company (16.0),
+  root company (17.0+); cash roundings menu Invoicing ‣ Configuration ‣ Management ‣
+  Cash Roundings (16.0-18.0), Invoicing ‣ Configuration ‣ Accounting ‣ Cash Roundings
+  (19.0), Invoicing ‣ Configuration ‣ Accounting ‣ Rounding Methods (20.0). The fields
+  of `res.currency.rate` and `base.group_multi_currency` are the same 16.0-20.0.
+- Sections: Before you start; The standard flow (1 check the main currency, 2 activate
+  the foreign currency, 3 enter a rate, 4 check the exchange difference accounts, 5 set
+  the currency on a journal); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `account`.

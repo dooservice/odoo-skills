@@ -9,6 +9,18 @@ name and number with a city list (`base_address_extended`), coordinates of an ad
 holidays, which every app that counts working time uses (`resource`). Time off of
 employees is in `employees-and-expenses.md`.
 
+**At a glance**
+
+- Apps: `contacts`, `resource`, `phone_validation`, `privacy_lookup`;
+  `base_geolocalize`, `base_address_extended`; `product_images` (16.0 to 18.0).
+- Names that change by version: Working Schedules menu under Settings ‣ Technical (16.0),
+  Employees ‣ Configuration ‣ Employee (17.0-19.0), ‣ Time Management (20.0); `tz` on the
+  schedule (16.0-19.0), on the resource with `calendar_type` (20.0); Public Holidays
+  (16.0-19.0), Company Holidays (20.0); `day_period` `lunch` (17.0+), `full_day` (19.0+);
+  `product_images` (16.0-18.0).
+- Sections: Before you start; The standard flow (1 working schedule, 2 public holidays,
+  3 extended addresses, 4 geolocate contacts); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `contacts`. `resource`, `phone_validation` and `privacy_lookup` install with

@@ -7,6 +7,18 @@ an administrator registers the database with Google or Microsoft once. Reminders
 by notification, email, or SMS (`calendar_sms`). Appointment booking pages are
 Enterprise and left out.
 
+**At a glance**
+
+- Apps: `calendar`; `google_calendar`, `microsoft_calendar` for sync; `calendar_sms`.
+- Names that change by version: sync credentials `cal_client_id`,
+  `cal_microsoft_client_id` in Settings ‣ General Settings (16.0), Calendar ‣
+  Configuration ‣ Settings (17.0+); `cal_sync_paused`, `cal_microsoft_sync_paused`
+  (17.0+); shared calendars `calendar.calendar` with `members_only` (20.0);
+  `cal_google_disable_auto_videocall_link` (20.0).
+- Sections: Before you start; The standard flow (1 reminders, 2 create a meeting, 3 repeat
+  it, 4 answer, 5 register the database with google, 6 each user connects); Variations;
+  Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `calendar`. Sync: `module_google_calendar`, `module_microsoft_calendar` in

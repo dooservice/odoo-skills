@@ -15,6 +15,22 @@ serves country formats. Whether e-invoices are mandatory, which format and which
 national platform apply is decided by the country's localization (national formats are
 in the `l10n_*` modules): it is not covered here, so check it with the user.
 
+**At a glance**
+
+- Apps: `account_edi_ubl_cii`; `account_peppol` (auto-installed in Peppol countries from
+  18.0).
+- Names that change by version: format on the sales journal `edi_format_ids` (16.0),
+  partner `ubl_cii_format` (17.0), `invoice_edi_format` (18.0+); Peppol address
+  `peppol_eas`, `peppol_endpoint` (16.0-19.0), `routing_scheme`, `routing_endpoint`
+  (20.0); send wizard `account.move.send` with `checkbox_ubl_cii_xml` (17.0),
+  `account.move.send.wizard` (18.0+); `account_peppol_response` (17.0-19.0), in
+  `account_peppol` (20.0); fetch Peppol now `peppol_get_new_documents` (16.0-19.0),
+  `button_fetch_in_einvoices` (20.0).
+- Sections: Before you start; The standard flow (1 complete the company and the
+  customer, 2 choose the customer's format, 3 send the invoice with its XML, 4 register
+  on Peppol, 5 send by Peppol, 6 receive vendor bills); Variations; Versions; Verify;
+  Pitfalls.
+
 ## Before you start
 
 - Apps: `account_edi_ubl_cii` (from Apps; some localizations install it);
