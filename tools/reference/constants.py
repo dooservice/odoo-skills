@@ -87,7 +87,8 @@ BUSINESS_NAMES = {
         "`compute_price='discount'` with `price_discount` (no `'percentage'`); time off "
         "types are `hr.work.entry.type` with `count_as='absence'` (no `hr.leave.type`); "
         "expenses `action_submit()`; reconciliation models `trigger`; bank journal "
-        "`bank_account_number`; companies: `is_company` is computed, no `company_type`; "
+        "`bank_account_number`; a partner is a company when it has a `vat` and no "
+        "parent (`is_company` is computed); "
         "users `group_ids`; scrap: a `stock.move` with `is_scrap` (no `stock.scrap`); "
         "parameters `get_int`/`get_str`."
     ),
