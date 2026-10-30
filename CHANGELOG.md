@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.1] - 2026-10-30
+
+Small models now get the version right: Claude Haiku 5.5 goes from 71% to 100% on Odoo
+20.0, and reaches 97% to 100% on every version.
+
+### Changed
+- The descriptions of `odoo-guidelines` and `odoo-web-guidelines` tell the agent to read
+  the skill before writing any file, and carry the names that change most in that
+  version (`ir.access`, `group_ids`, `models.Constraint`, `Domain`, `<list>`, Owl 3...).
+  A diagnosis showed that on code tasks agents did not load the skills and wrote from
+  memory; the description is the one part they always see.
+- The description of `odoo-reference` carries the business names that change most in its
+  version (tax fields on sale lines, fiscal position mapping, time off types, pricelist
+  rules, expense reports, bank journals, scrap...).
+
+### Fixed
+- `evals/`: the JavaScript test tasks of 16.0 to 18.0 describe the widget under test, so a
+  model writes the test instead of searching an empty project for it until its turns run
+  out. The graders are unchanged.
+
 ## [1.1.0] - 2026-10-29
 
 Complete for Odoo's standard flows: every Community module and every framework feature of
