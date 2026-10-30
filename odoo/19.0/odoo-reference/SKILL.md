@@ -1,14 +1,10 @@
 ---
 name: odoo-reference
 description: >-
-  What exists in this Odoo 19.0 Community: every addon's models with their
-  fields, public methods and extension points, every Settings switch and where it
-  keeps its value, and every XML id an addon declares. Model and field names
-  change between versions: use to look up a model, field, setting, view,
-  action, menu or group of Odoo 19.0 instead of guessing or searching the
-  source. For business flows and configuration (creating companies, users,
-  products, pricelists, journals, taxes, expenses, time off, automation rules
-  and the like), load odoo-functional first and this skill only for names.
+  Every model, field, Settings switch and XML id of Odoo 19.0 Community.
+  Look names up here instead of guessing: they change between versions. In
+  19.0: sale lines `tax_ids`; product `is_storable`; payment term lines `nb_days` and `delay_type`; UoM `relative_factor` and `relative_uom_id` (no `category_id`); fiscal positions: `fiscal_position_ids` and `original_tax_ids` on the replacement tax (no `account.fiscal.position.tax`); pricelist `'percentage'`; time off `hr.leave.type`, `requires_allocation=True`, validation `'hr'`; expenses `action_submit()`, no `hr.expense.sheet`; reconciliation models `trigger`, no `rule_type`; bank journal `bank_acc_number`; users `group_ids`; scrap `stock.scrap`. For business flows and configuration, load odoo-functional
+  first and use this skill for names.
 ---
 
 # What Odoo 19.0 has

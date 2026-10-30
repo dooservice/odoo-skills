@@ -1,14 +1,10 @@
 ---
 name: odoo-reference
 description: >-
-  What exists in this Odoo 20.0 Community: every addon's models with their
-  fields, public methods and extension points, every Settings switch and where it
-  keeps its value, and every XML id an addon declares. Model and field names
-  change between versions: use to look up a model, field, setting, view,
-  action, menu or group of Odoo 20.0 instead of guessing or searching the
-  source. For business flows and configuration (creating companies, users,
-  products, pricelists, journals, taxes, expenses, time off, automation rules
-  and the like), load odoo-functional first and this skill only for names.
+  Every model, field, Settings switch and XML id of Odoo 20.0 Community.
+  Look names up here instead of guessing: they change between versions. In
+  20.0: sale lines `tax_ids`; product `is_storable`; UoM `relative_factor`; fiscal positions: `original_tax_ids` on the replacement tax; pricelist `compute_price='discount'` with `price_discount` (no `'percentage'`); time off types are `hr.work.entry.type` with `count_as='absence'` (no `hr.leave.type`); expenses `action_submit()`; reconciliation models `trigger`; bank journal `bank_account_number`; companies: `is_company` is computed, no `company_type`; users `group_ids`; scrap: a `stock.move` with `is_scrap` (no `stock.scrap`); parameters `get_int`/`get_str`. For business flows and configuration, load odoo-functional
+  first and use this skill for names.
 ---
 
 # What Odoo 20.0 has

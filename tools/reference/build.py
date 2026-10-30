@@ -5,7 +5,7 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
-from .constants import HERE, SKIPPED_PREFIXES
+from .constants import BUSINESS_NAMES, HERE, SKIPPED_PREFIXES
 from .manifests import Addons
 from .models import ModelScanner
 from .settings import SettingsScanner
@@ -39,5 +39,5 @@ class ReferenceBuild:
             index.append((addon, models))
         writer.index(index)
         writer.settings(settings)
-        writer.write("SKILL.md", (HERE / "SKILL.md.in").read_text(encoding="utf-8").format(version=version))
+        writer.write("SKILL.md", (HERE / "SKILL.md.in").read_text(encoding="utf-8").format(version=version, names=BUSINESS_NAMES[version]))
         return len(addons)
