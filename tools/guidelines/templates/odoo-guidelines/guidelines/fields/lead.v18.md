@@ -1,0 +1,1 @@
+Key names in $version: aggregation with `aggregator`; `company_dependent` values in a `jsonb` column; `auto_join=True`; custom indexes with `tools.create_index(self.env.cr, ...)` in `init()`; a quantity uses `precision_rounding=uom.rounding`; `fields.Properties`.

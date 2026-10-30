@@ -1,0 +1,1 @@
+Key names in $version: bump `version` and ship a migration for every data change; data files listed in dependency order; `noupdate="1"` on records users may change; demo data only with `--with-demo`, or `odoo-bin module force-demo -d <db>`.

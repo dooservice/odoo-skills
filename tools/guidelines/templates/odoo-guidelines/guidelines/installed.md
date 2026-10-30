@@ -32,10 +32,10 @@ may change without a new module version is in
 files. A file that references an XML id (`ref="..."`, `%(action_library_book)d`) loaded
 by a later file fails on a new database, even when it works on yours.
 
-- Order them: groups, then `security/ir.model.access.csv`, then record rules, then
+- Order them: groups, then $access_files, then
   `data/`, then `views/` (each action before the menus that open it), then wizards and
   reports.
-- A CSV file is named after its model (`ir.model.access.csv`, `library.genre.csv`) and
+- A CSV file is named after its model (`$access_csv`, `library.genre.csv`) and
   needs an `id` column, or an update cannot match its rows.
 - Every `-u` reloads every listed file: data records are rewritten from the XML, and
   records of the module whose XML id is no longer in any of its files are deleted,

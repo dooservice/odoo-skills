@@ -1,0 +1,1 @@
+Key names in $version: `TransactionCase`, `HttpCase`; default tag `at_install`, so business tests take `@tagged('post_install', '-at_install')`; `Form.from_action(self.env, action)`; `from odoo.tests import freeze_time`; `--test-tags`, `--test-file <path>`.

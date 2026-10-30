@@ -1,0 +1,1 @@
+Key names in $version: aggregation with `group_operator`; `company_dependent` through `ir.property`; `auto_join=True`; custom indexes with `tools.create_index(self.env.cr, ...)` in `init()`; a quantity uses `precision_rounding=uom.rounding`; dates with `fields.Date.context_today`.

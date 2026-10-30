@@ -1,0 +1,1 @@
+Key names in $version: `view_mode` `list,form`; `path` gives the URL `/odoo/<path>`; groups in `group_ids`; a server action's `state` has no default (`object_copy`, `webhook`) and its `code` history is in `ir.actions.server.history`; a cron reports progress with `_commit_progress` and has no `numbercall`.

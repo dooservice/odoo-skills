@@ -1,0 +1,1 @@
+Key names in $version: JSON-2, `POST /json/2/<model>/<method>` with `Authorization: bearer <api key>` and arguments by name; XML-RPC and `/jsonrpc` are deprecated; `/doc` lists what the database exposes; the API key of a dedicated user.

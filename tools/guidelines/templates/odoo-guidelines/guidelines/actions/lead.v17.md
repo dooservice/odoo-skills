@@ -1,0 +1,1 @@
+Key names in $version: the list view type is `tree` (`view_mode` `tree,form`); groups in `groups_id`; `object_write` sets one field through `update_path`, and `webhook` server actions exist; a cron runs `numbercall` times and batches by calling `_trigger()`.

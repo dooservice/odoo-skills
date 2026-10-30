@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
 from .flow_version_notes import FlowVersionNotes
 from .interface_version_notes import InterfaceVersionNotes
+from .lead import GuidedDocument
 from .record_version_notes import RecordVersionNotes
 
 
-class VersionNotes(Document):
+class VersionNotes(GuidedDocument):
     path = "odoo-guidelines/guidelines/version.md"
+    section_level = 2
 
     def values(self, version: OdooVersion) -> dict[str, str]:
         return {

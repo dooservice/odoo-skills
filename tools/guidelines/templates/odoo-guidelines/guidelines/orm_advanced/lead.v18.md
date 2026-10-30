@@ -1,0 +1,1 @@
+Key names in $version: `records.check_access('write')`, `has_access`, `_filtered_access` before `sudo()`; `flush_model`/`invalidate_model` around raw SQL; `tools.ormcache` and `self.env.registry.clear_cache()`; `cr.commit()` never.

@@ -1,0 +1,1 @@
+Key names in $version: chatter `<div class="oe_chatter">`; `tracking=True` (ignored on x2many); `_track_subtype(init_values)`; `message_post` with a sanitized `str` body; `record.message_post_with_template(template.id)`; aliases on `mail.catchall.domain`.

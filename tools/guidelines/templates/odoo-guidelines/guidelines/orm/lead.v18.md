@@ -1,0 +1,1 @@
+Key names in $version: domains combined with `odoo.osv.expression.AND([...])`; `_read_group(domain, groupby, aggregates)`; `_compute_display_name` (no `name_get`); `Command`; `records.grouped('author_id')`; `search_fetch(domain, field_names)`.

@@ -1,15 +1,15 @@
-"""`odoo-guidelines/guidelines/orm.md`: recordsets, reads, writes, access, cache, transactions."""
+"""`odoo-guidelines/guidelines/orm.md` and `orm_advanced.md`: recordsets, reads, writes, access, cache, transactions."""
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 from .orm_access import OrmAccess
 from .orm_reads import OrmReads
 from .orm_writes import OrmWrites
 
 
-class Orm(Document):
+class Orm(GuidedDocument):
     path = "odoo-guidelines/guidelines/orm.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:
@@ -50,3 +50,9 @@ class Orm(Document):
                 v16="field_name, field_onchange", v17_="field_names, fields_spec"
             ),
         }
+
+
+class OrmAdvanced(Orm):
+    """Access checks, raw SQL and caches, locks, public methods and transactions, with the values of `orm.md`."""
+
+    path = "odoo-guidelines/guidelines/orm_advanced.md"

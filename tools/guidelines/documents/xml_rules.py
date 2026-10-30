@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 
 
-class XmlRules(Document):
+class XmlRules(GuidedDocument):
     """Our own rules, followed by Odoo's section on anchoring view inheritance."""
 
     path = "odoo-guidelines/guidelines/xml.md"

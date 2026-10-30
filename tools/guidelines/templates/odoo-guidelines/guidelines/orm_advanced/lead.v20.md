@@ -1,0 +1,1 @@
+Key names in $version: `records.check_access('write')`, `self.check_field_access(field, 'read')`; `flush_model`/`invalidate_model` around raw SQL; `@api.ormcache(...)` with `_clear_cache_name`; `records.lock_for_update()`; `@api.private`; `cr.commit()` never.

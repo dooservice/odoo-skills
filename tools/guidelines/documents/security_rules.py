@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 from .security_access import AccessBlocks
 from .security_calls import AccessCalls
 from .security_groups import GroupBlocks
 
 
-class AccessRights(Document):
+class AccessRights(GuidedDocument):
     """One template for every version; 20.0 carries Odoo's own `ir.access` text inside it."""
 
     path = "odoo-guidelines/guidelines/security.md"

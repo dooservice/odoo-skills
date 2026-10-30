@@ -1,0 +1,1 @@
+Key names in $version: list views are `<tree>`; modifiers are expressions (`invisible="state != 'draft'"`, no `attrs`/`states`); chatter `<div class="oe_chatter">`; kanban card `<t t-name="kanban-box">`; `<hierarchy>`; groups in `groups_id`.

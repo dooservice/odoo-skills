@@ -1,0 +1,1 @@
+Key names in $version: `from odoo import Command, api, fields, models`; translate with `self.env._(...)`, and `_lt = LazyTranslate(__name__)` for module-level constants; `_sql_constraints` in the model layout.

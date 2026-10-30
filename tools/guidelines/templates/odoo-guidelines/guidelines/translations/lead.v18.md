@@ -1,0 +1,1 @@
+Key names in $version: `.po` files in `i18n/`; `self.env._(...)` and `_lt = LazyTranslate(__name__)`; `translate=True`, `html_translate`; export with `--i18n-export`, activate a language with `--load-language=fr_FR`.

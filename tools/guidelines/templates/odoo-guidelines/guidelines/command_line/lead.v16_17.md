@@ -1,0 +1,1 @@
+Key names in $version: `odoo-bin -c odoo.conf -d library_dev -u library --stop-after-init`; demo data unless `--without-demo=all`; `-s` saves the options; `odoo-bin shell` then roll back; `populate` with `--size`.

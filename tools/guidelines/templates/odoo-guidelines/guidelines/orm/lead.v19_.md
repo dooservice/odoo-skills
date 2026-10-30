@@ -1,0 +1,1 @@
+Key names in $version: domains are `odoo.fields.Domain` (`&`, `|`, `~`, `Domain.AND`); `_read_group(domain, groupby, aggregates)`; `_compute_display_name`; `Command`; `records.grouped('author_id')`; `search_fetch(domain, field_names)`; `action_unarchive`.

@@ -1,0 +1,1 @@
+Key names in $version: `models.Constraint`, `models.Index` and `models.UniqueIndex` attributes (`_sql_constraints` is ignored); `_inherit`, `_inherits`, `delegate=True`, `_check_inherits_access = False`; `_parent_store` and `self._has_cycle()`; an SQL view model with `_auto = False` and `_table_sql`.

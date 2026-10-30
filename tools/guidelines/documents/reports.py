@@ -5,12 +5,12 @@ from __future__ import annotations
 from pathlib import Path
 
 from ..constants import TEMPLATES
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 from .reports_values import ReportValues
 
 
-class Reports(Document):
+class Reports(GuidedDocument):
     """Odoo's `reports.md` as it is, then the sections of `qweb_pdf.md` filled in per version."""
 
     path = "odoo-guidelines/guidelines/reports.md"
@@ -21,5 +21,5 @@ class Reports(Document):
     def values(self, version: OdooVersion) -> dict[str, str]:
         return {**super().values(version), **ReportValues().values(version)}
 
-    def render(self, version: OdooVersion) -> str:
-        return self.read_upstream(self.path) + super().render(version)
+    def body(self, version: OdooVersion) -> str:
+        return self.read_upstream(self.path) + super().body(version)

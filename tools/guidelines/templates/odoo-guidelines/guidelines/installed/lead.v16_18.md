@@ -1,0 +1,1 @@
+Key names in $version: bump `version` and ship a migration for every data change; data files listed in dependency order; `noupdate="1"` on records users may change; demo data is absent from a database created with `--without-demo`.

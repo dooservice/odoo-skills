@@ -1,0 +1,1 @@
+Key names in $version: an `ir.actions.report` record (`qweb-pdf`, `qweb-pdf-wkhtmltopdf` or `qweb-pdf-paper-muncher`) on `web.html_container` and `web.external_layout`; `t-out` only; `_get_report_values` only for values the template needs; `report.paperformat`; groups in `group_ids`.

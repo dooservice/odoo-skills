@@ -1,0 +1,1 @@
+Key names in $version: `odoo-bin -c odoo.conf -d library_dev -u library --stop-after-init`; no demo data unless `--with-demo`; `ODOO_<OPTION>` environment variables; `--reinit`; `odoo-bin shell` then roll back; subcommands `db`, `module`, `i18n`, `upgrade_code`.

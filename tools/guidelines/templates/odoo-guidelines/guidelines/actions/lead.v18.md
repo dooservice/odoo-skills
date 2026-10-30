@@ -1,0 +1,1 @@
+Key names in $version: `view_mode` `list,form` (`tree` breaks the action); `path` gives the URL `/odoo/<path>`; groups in `groups_id`; embedded actions (`embedded_action_ids`); a cron has no `numbercall`, reports progress with `_notify_progress` and deactivates after repeated failures (`failure_count`).

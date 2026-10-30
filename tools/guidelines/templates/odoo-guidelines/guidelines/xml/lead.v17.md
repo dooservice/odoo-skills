@@ -1,0 +1,1 @@
+Key names in $version: `<tree>`; modifiers are expressions (`invisible="state != 'draft'"`); chatter `<div class="oe_chatter">`; `<asset>`; no `<report>`/`<act_window>`; inherit with `inherit_id` and `position`, anchored on names.

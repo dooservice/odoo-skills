@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 
 
-class PythonRules(Document):
+class PythonRules(GuidedDocument):
     path = "odoo-guidelines/guidelines/python.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:

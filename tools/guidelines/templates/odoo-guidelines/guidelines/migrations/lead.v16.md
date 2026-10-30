@@ -1,0 +1,1 @@
+Key names in $version: `'version': '16.0.1.0.0'`; a script folder is the full version (`16.0.1.1.0`) or two numbers (`1.1`), its scripts define `migrate(cr, version)`; `util.rename_field` and the rest of upgrade-util for renames; hooks take `(cr)` or `(cr, registry)`.

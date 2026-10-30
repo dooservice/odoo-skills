@@ -1,0 +1,1 @@
+Key names in $version: access rows in `ir.model.access.csv` (`perm_read`...), record rules `ir.rule` with `domain_force`; groups with `category_id`, users `groups_id`; `has_group`; `records.check_access('write')`, `has_access`; fields `groups=`; `sudo()` after a check.

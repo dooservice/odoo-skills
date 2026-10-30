@@ -1,0 +1,1 @@
+Key names in $version: `TransactionCase` (no `SingleTransactionCase`); default tag `post_install`, opt out with `@tagged('at_install', '-post_install')`; `allow_inherited_tests_method = True`; `Form.from_action(self.env, action)`; `--test-file <path>`.

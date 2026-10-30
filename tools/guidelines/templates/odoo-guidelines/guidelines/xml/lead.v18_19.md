@@ -1,0 +1,1 @@
+Key names in $version: `<list>`; modifiers are expressions (`invisible="state != 'draft'"`); `<chatter/>`; `<asset>`; no `<report>`/`<act_window>`; `type="base64" file="module/static/img/cover.png"`; inherit with `inherit_id` and `position`, anchored on names.

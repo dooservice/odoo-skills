@@ -1,0 +1,1 @@
+Key names in $version: `'version': '$version.1.0.0'`; a script folder is the full version (`$version.1.1.0`) or the module part (`1.1.0`), its scripts define `migrate(cr, version)`; `util.rename_field` and the rest of upgrade-util for renames; hooks take `env`.

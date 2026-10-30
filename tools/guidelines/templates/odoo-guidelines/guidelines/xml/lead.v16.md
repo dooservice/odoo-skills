@@ -1,0 +1,1 @@
+Key names in $version: `<tree>`; `attrs="{'invisible': [('state', '!=', 'draft')]}"` and `states="draft"`; chatter `<div class="oe_chatter">`; `<report>`/`<act_window>` still load; `type="base64"`; inherit with `inherit_id` and `position`, anchored on names.

@@ -1,0 +1,1 @@
+Key names in $version: `company_id` with `check_company=True` and `_check_company_auto = True`; a company record rule, and `company_ids` for records shared by some companies; `env.company`, `with_company`; `company_dependent` fields through `ir.property`.

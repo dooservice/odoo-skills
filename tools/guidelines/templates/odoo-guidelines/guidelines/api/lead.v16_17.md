@@ -1,0 +1,1 @@
+Key names in $version: `@api.model_create_multi` on every `create`; `@api.ondelete` instead of an `unlink` override; `@api.returns` and `@api.model_create_single` still exist; `@api.readonly` does not.

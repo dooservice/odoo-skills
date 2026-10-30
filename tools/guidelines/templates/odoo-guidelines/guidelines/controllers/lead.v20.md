@@ -1,0 +1,1 @@
+Key names in $version: route types `type='http'`, `type='jsonrpc'` (`'json'` is a deprecated alias) and `type='json2'`; `auth='bearer'` with `bearer_scope='rpc'`; `readonly=True` routes; `self.env` in a controller; portal entries are `portal.entry` records.

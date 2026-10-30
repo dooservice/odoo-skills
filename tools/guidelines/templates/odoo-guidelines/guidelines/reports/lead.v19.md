@@ -1,0 +1,1 @@
+Key names in $version: an `ir.actions.report` record (`report_type` `qweb-pdf`) on `web.html_container` and `web.external_layout`; `t-out`, not `t-esc`/`t-raw`; `_get_report_values` only for values the template needs; `report.paperformat`; groups in `group_ids`.

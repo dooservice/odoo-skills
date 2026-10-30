@@ -1,0 +1,1 @@
+Key names in $version: XML-RPC (`/xmlrpc/2/common` `authenticate`, `/xmlrpc/2/object` `execute_kw`) or JSON-RPC (`POST /jsonrpc`), with the API key of a dedicated user; batch calls; `check_access_rights` and `check_access_rule` before `sudo()`.

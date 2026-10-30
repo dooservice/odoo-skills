@@ -4,26 +4,48 @@ These skills are for Odoo $version and only $version. Write for it: an API from 
 fails at install or, worse, silently does nothing. Each row was checked against the
 $version source.
 
+## Python, models and the ORM
+
 | Topic | In $version |
 | --- | --- |
 | Python | $python |
-| View modifiers | $view_modifiers |
-| List view | $list_view |
-| Chatter | $chatter |
 | Record display name | $display_name |
 | Grouped reads | $grouped_reads |
 | Field aggregation | $field_aggregation |
 | SQL constraints and indexes | $sql_constraints |
 | Domains | $domains |
 | Translations in Python | $translations |
+| System parameters | $system_parameters |
+
+## Views and QWeb
+
+| Topic | In $version |
+| --- | --- |
+| View modifiers | $view_modifiers |
+| List view | $list_view |
+| Chatter | $chatter |
+| QWeb output | $qweb_output |
+
+## Security
+
+| Topic | In $version |
+| --- | --- |
 | Group categories | $group_categories |
 | Access rights and record rules | $access_rights |
 | User groups | $user_groups |
-| System parameters | $system_parameters |
+
+## Routes and tests
+
+| Topic | In $version |
+| --- | --- |
 | Route types | $route_types |
 | Route auth | $route_auth |
 | Default test tags | $test_tags |
-| QWeb output | $qweb_output |
+
+## Web client
+
+| Topic | In $version |
+| --- | --- |
 | Owl | $owl |
 | JS module header | $js_module_header |
 | JS patch | $js_patch |
@@ -32,8 +54,10 @@ $version source.
 | Shared logic | $js_shared_logic |
 | JS tests | $js_tests |
 
-Business records, for `odoo-bin shell` scripts and data files (the `odoo-functional`
-recipes give the whole flow):
+## Business records
+
+For `odoo-bin shell` scripts and data files (the `odoo-functional` recipes give the
+whole flow):
 
 | Topic | In $version |
 | --- | --- |

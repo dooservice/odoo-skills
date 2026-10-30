@@ -1,0 +1,1 @@
+Key names in $version: one `ir.access` model in `ir.access.csv` (`operation` `crud`, a `domain`) replaces `ir.model.access` and `ir.rule`; groups with `privilege_id`, users `group_ids`; `base.group_everyone`; `records.check_access('write')`; fields `groups=`; `sudo()` after a check.

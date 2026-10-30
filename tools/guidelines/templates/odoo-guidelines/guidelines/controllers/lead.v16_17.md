@@ -1,0 +1,1 @@
+Key names in $version: route types `type='http'` and `type='json'`; `auth` is `user`, `public` or `none` (no bearer: check API keys by hand); `request.env`; `slug(record)`; portal counters through `_prepare_home_portal_values(counters)`.

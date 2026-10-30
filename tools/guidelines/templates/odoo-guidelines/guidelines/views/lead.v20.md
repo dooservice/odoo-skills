@@ -1,0 +1,1 @@
+Key names in $version: list views are `<list>`; modifiers are expressions (no `attrs`/`states`); `<chatter/>`; kanban card `<t t-name="card">` and `<card>` views (`card_id`); `<hierarchy>`; `multi_create_view`; groups in `group_ids`.

@@ -1,0 +1,1 @@
+Key names in $version: SQL constraints in `_sql_constraints` as `(name, definition, message)`, multi-column indexes with `tools.create_index`; `_inherit`, `_inherits`, `delegate=True`; `_parent_store`; an SQL view model with `_auto = False`.

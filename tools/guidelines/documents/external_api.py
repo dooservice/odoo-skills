@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
 from .external_api_endpoints import ExternalEndpoints
+from .lead import GuidedDocument
 
 
-class ExternalApi(Document):
+class ExternalApi(GuidedDocument):
     path = "odoo-guidelines/guidelines/external_api.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:

@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
 from .action_values import ServerActionValues
+from .lead import GuidedDocument
 
 
-class ActionRules(Document):
+class ActionRules(GuidedDocument):
     """Window actions and the dicts returned from Python; server actions come from a helper."""
 
     path = "odoo-guidelines/guidelines/actions.md"

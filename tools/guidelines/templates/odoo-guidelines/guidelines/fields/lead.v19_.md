@@ -1,0 +1,1 @@
+Key names in $version: aggregation with `aggregator`; `company_dependent` values in a `jsonb` column; `bypass_search_access=True` (no `auto_join`); custom indexes are `models.Index`/`models.UniqueIndex` attributes; `min_display_digits`; quantities with `uom.round(value)` and `uom.compare(a, b)`.

@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 from .tests_tools import TestTools
 from .tests_values import TestClasses
 
 
-class Tests(Document):
+class Tests(GuidedDocument):
     path = "odoo-guidelines/guidelines/tests.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:

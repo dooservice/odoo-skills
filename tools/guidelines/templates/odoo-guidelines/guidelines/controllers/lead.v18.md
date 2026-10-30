@@ -1,0 +1,1 @@
+Key names in $version: route types `type='http'` and `type='json'`; `auth='bearer'` with `Authorization: Bearer <api key>`; `readonly=True` routes; `request.env['ir.http']._slug(record)`; portal counters through `_prepare_home_portal_values(counters)`.

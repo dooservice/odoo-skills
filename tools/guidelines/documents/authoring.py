@@ -16,6 +16,7 @@ class Authoring(Document):
 
     skill = ""
     registration = "- Add a row to the table in `SKILL.md`."
+    heading = "## Registering the guideline"
 
     def template(self, version: OdooVersion) -> Path:
         return TEMPLATES / "AUTHORING.md"
@@ -27,11 +28,23 @@ class Authoring(Document):
         text = self.read_upstream(self.path)
         if self.registration not in text:
             raise ValueError(f"Odoo's {self.path} no longer has its registration rule")
-        ours = (
-            "- Add a row to the table in `SKILL.md`, through its template\n"
-            f"  (`tools/guidelines/templates/{self.skill}/SKILL.md`)."
+        start = text.index(self.heading)
+        after = text.find("\n## ", start + len(self.heading))
+        rest = text[after:] if after > 0 else ""
+        return text[:start] + self.ours() + rest + "\n" + super().render(version)
+
+    def ours(self) -> str:
+        """Our skills open with a short map by task and generate each file's section list."""
+        return (
+            f"{self.heading}\n\n"
+            "- Add the guideline as a `#` section of the file of its domain: the section list\n"
+            "  at the top of each file is generated from its headings.\n"
+            "- Add a row to the task map of `SKILL.md`, through its template\n"
+            f"  (`tools/guidelines/templates/{self.skill}/SKILL.md`), only for a new file or a\n"
+            "  new kind of task; the map names files, not sections.\n"
+            "- When a version-specific name matters more than the rest of the file, add it to\n"
+            "  the file's key names at its top.\n"
         )
-        return text.replace(self.registration, ours) + "\n" + super().render(version)
 
 
 class GuidelinesAuthoring(Authoring):

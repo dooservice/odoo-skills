@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from ..document import Document
+from .lead import GuidedDocument
 
 
-class Comments(Document):
+class Comments(GuidedDocument):
     path = "odoo-guidelines/guidelines/comments.md"

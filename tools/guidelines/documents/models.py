@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 from .models_versions import ModelVersions
 
 
-class Models(Document):
+class Models(GuidedDocument):
     path = "odoo-guidelines/guidelines/models.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:

@@ -1,0 +1,1 @@
+Key names in $version: chatter `<chatter/>` (`reload_on_post="True"`); `tracking=True`; `_track_log_get_default_subtype(track_init_values)` and `_track_template_parameters(tracked_fields)` (no `_track_subtype`); `message_post` with `markupsafe.Markup` bodies; `record.message_post_with_source(template)`.

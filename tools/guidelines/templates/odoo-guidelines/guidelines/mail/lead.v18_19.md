@@ -1,0 +1,1 @@
+Key names in $version: chatter `<chatter/>` (`reload_on_post="True"`); `tracking=True`; `_track_subtype(init_values)`; `message_post` with `markupsafe.Markup` bodies; `record.message_post_with_source(template)`; `template.send_mail_batch(records.ids)`; `mail.alias.domain`.

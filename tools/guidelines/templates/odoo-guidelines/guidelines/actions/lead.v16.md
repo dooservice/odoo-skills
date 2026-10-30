@@ -1,0 +1,1 @@
+Key names in $version: the list view type is `tree` (`view_mode` `tree,form`); groups in `groups_id`; a server action's `state` defaults to `object_write`, which fills `fields_lines`; a cron runs `numbercall` times and batches by calling `_trigger()`.

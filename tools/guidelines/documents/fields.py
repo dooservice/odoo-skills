@@ -1,13 +1,13 @@
-"""`odoo-guidelines/guidelines/fields.md`: field types, attributes, computes and indexes."""
+"""`odoo-guidelines/guidelines/fields.md` and `computed_fields.md`: field types, attributes, indexes, computes."""
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
 from .fields_versions import FieldVersions
+from .lead import GuidedDocument
 
 
-class Fields(Document):
+class Fields(GuidedDocument):
     path = "odoo-guidelines/guidelines/fields.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:
@@ -47,3 +47,9 @@ class Fields(Document):
                 "definition of one property.",
             ),
         }
+
+
+class ComputedFields(Fields):
+    """Computed, inverse, search and related fields, with the values of `fields.md`."""
+
+    path = "odoo-guidelines/guidelines/computed_fields.md"

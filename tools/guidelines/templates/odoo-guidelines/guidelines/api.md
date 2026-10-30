@@ -4,7 +4,7 @@ Every decorator of `odoo.api` in $version, and what it is for:
 
 | Decorator | Use it on |
 | --- | --- |
-| `@api.depends('field', 'partner_id.name')` | a compute method: every field it reads, dotted paths included; see [Computed fields](fields.md#declare-every-dependency-of-a-computed-field) |
+| `@api.depends('field', 'partner_id.name')` | a compute method: every field it reads, dotted paths included; see [Computed fields](computed_fields.md#declare-every-dependency-of-a-computed-field) |
 | `@api.depends_context('company')` | a non-stored compute that reads context keys (`company`, `uid`, `lang`, `active_test`, or your own) |
 | `@api.constrains('field', ...)` | a Python check that raises `ValidationError`; see [below](#validate-with-apiconstrains-and-know-what-it-does-not-see) |
 | `@api.onchange('field', ...)` | form-only assistance; see [below](#use-apionchange-only-for-form-side-help) |
@@ -12,7 +12,7 @@ Every decorator of `odoo.api` in $version, and what it is for:
 | `@api.model_create_multi` | every `create` override; see [below](#override-create-with-apimodel_create_multi) |
 | `@api.ondelete(at_uninstall=False)` | a check that forbids deleting some records; see [below](#block-deletion-with-apiondelete-not-an-unlink-override) |
 | `@api.autovacuum` | a private method the daily `ir.autovacuum` cron calls for garbage collection; its name must start with `_` (asserted) |
-| `@api.private` | a public method that must not be callable over RPC; see [Methods and extension points](orm.md#methods-and-extension-points) |
+| `@api.private` | a public method that must not be callable over RPC; see [Methods and extension points](orm_advanced.md#methods-and-extension-points) |
 $readonly_row$returns_row$create_single_row
 - An override repeats the decorator of the method it overrides (`@api.constrains`,
   `@api.onchange`, `@api.ondelete`, `@api.model`, `@api.model_create_multi`): the ORM

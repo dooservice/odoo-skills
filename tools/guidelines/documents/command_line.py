@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
 from .command_line_commands import CommandList
+from .lead import GuidedDocument
 
 
-class CommandLine(Document):
+class CommandLine(GuidedDocument):
     path = "odoo-guidelines/guidelines/command_line.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:

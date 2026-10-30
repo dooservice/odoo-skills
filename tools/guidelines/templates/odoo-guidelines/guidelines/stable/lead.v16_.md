@@ -1,0 +1,1 @@
+Key names in $version: a fix to a stable version is minimal: no change to a public method signature, no stored field added, removed, renamed or retyped, existing XML ids kept, `noupdate="1"` records fixed by a migration script, source terms left as they are.

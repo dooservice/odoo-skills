@@ -1,0 +1,1 @@
+Key names in $version: `TransactionCase`, `HttpCase` (not `SavepointCase`); default tag `at_install`, so business tests take `@tagged('post_install', '-at_install')`; `setUpClass` on `BaseCommon`; `Form`; `freezegun`; `--test-tags`.

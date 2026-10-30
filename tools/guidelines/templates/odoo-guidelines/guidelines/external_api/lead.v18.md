@@ -1,0 +1,1 @@
+Key names in $version: XML-RPC (`/xmlrpc/2/common` `authenticate`, `/xmlrpc/2/object` `execute_kw`) or JSON-RPC (`POST /jsonrpc`), with the API key of a dedicated user (`expiration_date`); `@api.readonly`; `check_access('write')`.

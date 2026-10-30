@@ -1,0 +1,1 @@
+Key names in $version: `@api.depends` on every compute, assigning every record; `store`, `readonly=False`, `compute_sudo`, `precompute`, `compute_sql`; an `inverse` method to edit, a `search` method returning a `Domain` or `NotImplemented`; `related` for a plain copy.

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from ..document import Document
+from .lead import GuidedDocument
 
 
-class StableVersion(Document):
+class StableVersion(GuidedDocument):
     path = "odoo-guidelines/guidelines/stable.md"

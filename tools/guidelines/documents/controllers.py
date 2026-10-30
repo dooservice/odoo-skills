@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
 from .controllers_auth import RouteAuth
 from .controllers_types import RouteTypes
+from .lead import GuidedDocument
 
 
-class Controllers(Document):
+class Controllers(GuidedDocument):
     path = "odoo-guidelines/guidelines/controllers.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:

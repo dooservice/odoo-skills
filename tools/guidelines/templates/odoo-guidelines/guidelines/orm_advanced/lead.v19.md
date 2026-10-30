@@ -1,0 +1,1 @@
+Key names in $version: `records.check_access('write')`, `has_access`, `_filtered_access` before `sudo()`; `flush_model`/`invalidate_model` around raw SQL; `records.lock_for_update()`; `@api.private`; `cr.commit()` never.

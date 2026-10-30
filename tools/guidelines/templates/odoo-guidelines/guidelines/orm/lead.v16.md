@@ -1,0 +1,1 @@
+Key names in $version: domains combined with `odoo.osv.expression.AND([...])`; `read_group(domain, fields, groupby, lazy=True)`; `name_get()`; `Command`; `filtered`, `mapped`, `sorted`; `search_count`; `toggle_active()`.

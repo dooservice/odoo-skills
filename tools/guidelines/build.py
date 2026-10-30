@@ -14,7 +14,7 @@ from .documents.command_line import CommandLine
 from .documents.comments import Comments
 from .documents.controllers import Controllers
 from .documents.external_api import ExternalApi
-from .documents.fields import Fields
+from .documents.fields import ComputedFields, Fields
 from .documents.git_skill import GitSkill
 from .documents.guidelines_skill import GuidelinesSkill
 from .documents.installed import InstalledModules
@@ -25,12 +25,12 @@ from .documents.migrations import Migrations
 from .documents.models import Models
 from .documents.module_structure import ModuleStructure
 from .documents.multi_company import MultiCompany
-from .documents.orm import Orm
+from .documents.orm import Orm, OrmAdvanced
 from .documents.owl import Owl
 from .documents.performance import Performance
 from .documents.point_of_sale import PointOfSale
 from .documents.python_rules import PythonRules
-from .documents.registries import Registries
+from .documents.registries import Registries, WebClientRegistries
 from .documents.reports import Reports
 from .documents.review_skill import ReviewSkill
 from .documents.scss import Scss
@@ -52,10 +52,10 @@ from .writer import SkillWriter
 
 DOCUMENTS = (
     GuidelinesSkill, GuidelinesAuthoring, VersionNotes, Comments, Controllers, ExternalApi, Mail,
-    MultiCompany, Fields, Manifest, ModuleStructure, Orm, Api, Models, Performance, PythonRules,
+    MultiCompany, Fields, ComputedFields, Manifest, ModuleStructure, Orm, OrmAdvanced, Api, Models, Performance, PythonRules,
     Reports, AccessRights, InstalledModules, StableVersion, Tests, Migrations, Translations,
     CommandLine, XmlRules, ViewRules, ActionRules, WebSkill, WebAuthoring, Javascript, Scss,
-    Assets, Owl, Registries, Services, Views, Website, PointOfSale, WebTests, ReviewSkill,
+    Assets, Owl, Registries, WebClientRegistries, Services, Views, Website, PointOfSale, WebTests, ReviewSkill,
     SecuritySkill, GitSkill,
 )
 

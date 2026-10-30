@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 from .view_kanban import KanbanValues
 from .view_modifiers import ModifierValues
 from .view_others import OtherViewValues
 
 
-class ViewRules(Document):
+class ViewRules(GuidedDocument):
     """Form and list views here; modifiers, kanban and the other types come from helpers."""
 
     path = "odoo-guidelines/guidelines/views.md"

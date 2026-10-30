@@ -1,0 +1,1 @@
+Key names in $version: `company_id` with `check_company=True`, `_check_company_auto = True` and `_check_company_domain`; branches through `res.company.parent_id`; `env.company`, `with_company`; `company_dependent` fields through `ir.property`.

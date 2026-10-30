@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from ..document import Document
 from ..version import OdooVersion
+from .lead import GuidedDocument
 
 
-class MultiCompany(Document):
+class MultiCompany(GuidedDocument):
     path = "odoo-guidelines/guidelines/multi_company.md"
 
     legacy_rule = """\
