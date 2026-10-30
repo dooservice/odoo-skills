@@ -1,18 +1,12 @@
 ---
 name: odoo-guidelines
 description: >-
-  House rules for Odoo 16.0 code and what exists in 16.0 (names and
-  APIs change between versions): module structure, manifest, models and
-  inheritance, fields, display names, SQL constraints and indexes, the ORM,
-  domains and api decorators, system parameters (ir.config_parameter),
-  controllers and JSON routes, the external API, mail and chatter,
-  multi-company, access rights, record rules, user groups and res.users
-  groups, XML views (form, list, kanban, search, inherited views, conditional
-  visibility with invisible, readonly and required), actions, menus,
-  scheduled actions, QWeb reports, data files, migrations, translations,
-  tests, odoo-bin and performance. Use before writing or reviewing any
-  Python, XML or CSV for Odoo 16.0, in an addon or a script (for the
-  JavaScript, Owl templates and SCSS under static/, see odoo-web-guidelines).
+  Read before writing or reviewing any Python, XML or CSV for Odoo 16.0,
+  even if you know Odoo: names change between versions. In 16.0: views use `<tree>` and `attrs`/`states`; `name_get`; `_sql_constraints`; domains with `expression.AND/OR`; `group_operator`; chatter `<div class="oe_chatter">`; `_()`; `ir.model.access.csv` and `ir.rule`; users `groups_id`; `get_param`; routes `type='json'`; test tag `at_install`.
+  Covers modules, models, fields, the ORM, api decorators, views, actions,
+  menus, scheduled actions, security, controllers, the external API, mail,
+  multi-company, reports, data, migrations, translations, tests and odoo-bin;
+  JavaScript, Owl and SCSS are in odoo-web-guidelines.
 ---
 
 # Odoo 16.0 addon guidelines
