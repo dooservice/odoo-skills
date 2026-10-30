@@ -1,3 +1,9 @@
+Key names in 20.0: one model class per file in `models/`; backend views in `*_views.xml`; access rows in `security/ir.access.csv`; `populate/` holds `populate.blueprint` records.
+
+Sections of this file:
+
+- [Module structure and file naming](#module-structure-and-file-naming)
+
 # Module structure and file naming
 
 - Standard directories: `models/`, `views/`, `controllers/`, `data/`,

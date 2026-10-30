@@ -1,3 +1,12 @@
+Key names in 20.0: bump `version` and ship a migration for every data change; data files listed in dependency order; `noupdate="1"` on records users may change; demo data only with `--with-demo`, or `odoo-bin module force-demo -d <db>`.
+
+Sections of this file:
+
+- [Changes to an installed module](#changes-to-an-installed-module)
+- [List data files in the order they reference each other](#list-data-files-in-the-order-they-reference-each-other)
+- [Mark records that users may change as noupdate](#mark-records-that-users-may-change-as-noupdate)
+- [Keep demo data out of what the module needs](#keep-demo-data-out-of-what-the-module-needs)
+
 # Changes to an installed module
 
 A module that is installed in a database that matters (production, or a clone of it)
@@ -32,10 +41,10 @@ may change without a new module version is in
 files. A file that references an XML id (`ref="..."`, `%(action_library_book)d`) loaded
 by a later file fails on a new database, even when it works on yours.
 
-- Order them: groups, then `security/ir.model.access.csv`, then record rules, then
+- Order them: groups, then `security/ir.access.csv` (access rights and record rules), then
   `data/`, then `views/` (each action before the menus that open it), then wizards and
   reports.
-- A CSV file is named after its model (`ir.model.access.csv`, `library.genre.csv`) and
+- A CSV file is named after its model (`ir.access.csv`, `library.genre.csv`) and
   needs an `id` column, or an update cannot match its rows.
 - Every `-u` reloads every listed file: data records are rewritten from the XML, and
   records of the module whose XML id is no longer in any of its files are deleted,

@@ -1,3 +1,14 @@
+Key names in 20.0: chatter `<chatter/>` (`reload_on_post="True"`); `tracking=True`; `_track_log_get_default_subtype(track_init_values)` and `_track_template_parameters(tracked_fields)` (no `_track_subtype`); `message_post` with `markupsafe.Markup` bodies; `record.message_post_with_source(template)`.
+
+Sections of this file:
+
+- [Add the chatter with `mail.thread`](#add-the-chatter-with-mailthread)
+- [Track field changes with `tracking=`](#track-field-changes-with-tracking)
+- [Post messages with `message_post`](#post-messages-with-message_post)
+- [Followers and subtypes](#followers-and-subtypes)
+- [Send emails with `mail.template`](#send-emails-with-mailtemplate)
+- [Receive emails through aliases](#receive-emails-through-aliases)
+
 # Add the chatter with `mail.thread`
 
 A model that needs a discussion thread, followers or tracking inherits

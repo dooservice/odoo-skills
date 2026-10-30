@@ -1,3 +1,23 @@
+Key names in 20.0:
+
+- Owl 3 from `@odoo/owl`; `@web/owl2/utils` only for code not ported yet.
+- Props: `useProps` in a field initializer with `t` types; `static props` and `static defaultProps` throw.
+- State: `proxy`, `signal`, `computed`, `markRaw`, `untrack`; no `useState` or `reactive`.
+- Templates: expressions go through `this` (`this.props.title`); `t-out`, `t-esc` is deprecated.
+- Effects and DOM: `useEffect` with no dependency list, `signal.ref()` with `t-ref`, `useListener`.
+- Context: a plugin through `providePlugins` and `usePlugin`; no sub-environment.
+
+Sections of this file:
+
+- Owl in 20.0
+- Declare every prop the component takes
+- Keep component state reactive
+- Name templates `<module>.<Component>` and keep them in XML files
+- Extend a template with `t-inherit`, never by copying it
+- Load data in `onWillStart`, not in `setup`
+- Reach the DOM through a ref, and listen outside it through a hook
+- Pass shared values through props or the environment
+
 # Owl in 20.0
 
 Components are Owl 3 classes, imported from `@odoo/owl`. Owl 3 builds reactivity on

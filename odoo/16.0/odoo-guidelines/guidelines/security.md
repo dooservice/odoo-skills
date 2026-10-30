@@ -1,3 +1,15 @@
+Key names in 16.0: access rows in `ir.model.access.csv` (`perm_read`...), record rules `ir.rule` with `domain_force`; groups with `category_id` and users `groups_id`; `has_group`; `records.check_access_rights('write')`; fields `groups=`; `sudo()` after a check.
+
+Sections of this file:
+
+- [Access rights](#access-rights)
+- [Grant every model access explicitly](#grant-every-model-access-explicitly)
+- [Restrict records with domains](#restrict-records-with-domains)
+- [Declare groups per application](#declare-groups-per-application)
+- [Check group membership in code](#check-group-membership-in-code)
+- [Restrict fields with `groups=`](#restrict-fields-with-groups)
+- [Use `sudo()` only after an explicit check](#use-sudo-only-after-an-explicit-check)
+
 # Access rights
 
 Odoo 16.0 has two layers: **access rows** (`ir.model.access`) say which groups may

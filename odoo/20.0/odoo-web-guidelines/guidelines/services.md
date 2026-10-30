@@ -1,3 +1,25 @@
+Key names in 20.0:
+
+- Plugins: a class extending `Plugin`, `services.add`, reached with `usePlugin`; `ORM`, `ActionPlugin`, `NotificationPlugin`, `DialogPlugin`.
+- `useService` only for a service not converted yet.
+- `orm` methods include `formattedReadGroup`, `webRead`, `webSearchRead` with a `specification`.
+- Routes: `rpc` is a function of `@web/core/network/rpc`, `type='jsonrpc'`; no `rpc` service.
+- `user` from `@web/core/user` (companies too), `router` from `@web/core/browser/router`.
+- `env.debug` and `env.isSmall` throw: `usePlugin(DebugModePlugin)`, `useService("ui").isSmall`.
+
+Sections of this file:
+
+- Services in 20.0
+- Get a service through its hook, never through a global
+- Keep shared logic and shared state out of components
+- Call model methods with the `orm` service
+- Call a route with `rpc`
+- Open actions with the `action` service
+- Notify with `notification`, ask with `dialog`
+- Read the user and the companies
+- Change the URL through the router
+- Read shared context from `env`, never write to it
+
 # Services in 20.0
 
 Shared logic lives in plugins: Owl 3 classes extending `Plugin`, registered in the

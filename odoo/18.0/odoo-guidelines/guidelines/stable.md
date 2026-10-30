@@ -1,3 +1,9 @@
+Key names in 18.0: a fix to a stable version is minimal: no change to a public method signature, no stored field added, removed, renamed or retyped, existing XML ids kept, `noupdate="1"` records fixed by a migration script, source terms left as they are.
+
+Sections of this file:
+
+- [Changes in a stable version](#changes-in-a-stable-version)
+
 # Changes in a stable version
 
 A stable version is a module version that is already installed in a database that

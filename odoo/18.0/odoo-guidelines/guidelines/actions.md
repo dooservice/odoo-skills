@@ -1,3 +1,16 @@
+Key names in 18.0: `view_mode` `list,form` (`tree` breaks the action); `path` gives the URL `/odoo/<path>`; groups in `groups_id`; embedded actions (`embedded_action_ids`); a cron has no `numbercall`, reports progress with `_notify_progress` and deactivates after repeated failures (`failure_count`).
+
+Sections of this file:
+
+- [Action records](#action-records)
+- [Window actions](#window-actions)
+- [Return actions from Python as dicts or by xml id](#return-actions-from-python-as-dicts-or-by-xml-id)
+- [Bind actions to the Action and Print menus](#bind-actions-to-the-action-and-print-menus)
+- [Server actions](#server-actions)
+- [Scheduled actions](#scheduled-actions)
+- [Menus](#menus)
+- [Configuration wizards](#configuration-wizards)
+
 # Action records
 
 Every action is a record of a model that extends `ir.actions.actions`, which holds

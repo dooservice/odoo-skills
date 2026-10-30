@@ -1,3 +1,20 @@
+Key names in 18.0:
+
+- ES modules in `point_of_sale._assets_pos`; the `pos` service, a `PosStore`, through `usePos()`.
+- Records: `PosOrder`, `PosOrderline`, `registry.category("pos_available_models")`, the `pos_data` service.
+- Loading: `pos.load.mixin`, `_load_pos_data_fields(config_id)`, `_load_pos_data_domain`.
+- Screens: `registry.category("pos_screens")`, `this.pos.showScreen`; buttons in `ControlButtons`.
+- Tours: `self.start_pos_tour`, `TestPointOfSaleHttpCommon`.
+
+Sections of this file:
+
+- The Point of Sale in 18.0
+- Load a field into the Point of Sale from Python
+- Extend Point of Sale models and screens without replacing them
+- Add a button to the product screen through its extension point
+- Keep the Point of Sale working offline
+- Test the Point of Sale with tours
+
 # The Point of Sale in 18.0
 
 The Point of Sale is a separate web application (`/pos/ui`), not a view of the backend

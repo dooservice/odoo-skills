@@ -1,3 +1,15 @@
+Key names in 18.0: route types `type='http'` and `type='json'`; `auth='bearer'` with `Authorization: Bearer <api key>`; `readonly=True` routes; `request.env['ir.http']._slug(record)`; portal counters through `_prepare_home_portal_values(counters)`.
+
+Sections of this file:
+
+- [Controllers](#controllers)
+- [Choose the route type for the caller](#choose-the-route-type-for-the-caller)
+- [Set `auth` on every route](#set-auth-on-every-route)
+- [Route arguments](#route-arguments)
+- [Read the request and answer through `request`](#read-the-request-and-answer-through-request)
+- [Check access on records reached through a route](#check-access-on-records-reached-through-a-route)
+- [Portal pages](#portal-pages)
+
 # Controllers
 
 - Routes are methods decorated with `@route` on a `Controller` subclass

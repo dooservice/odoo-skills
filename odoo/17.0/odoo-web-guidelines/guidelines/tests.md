@@ -1,3 +1,21 @@
+Key names in 17.0:
+
+- QUnit: `QUnit.module`, `QUnit.test`, files in `web.qunit_suite_tests`.
+- Mock server: `serverData`, `makeView`, `setupViewRegistries`, `mockRPC`.
+- Helpers: `click`, `editInput`, `triggerEvent`, `nextTick`, `patchWithCleanup`.
+- Tours: `registry.category("web_tour.tours")`, `steps` as a function, `test: true`, jQuery `trigger`, `extra_trigger`.
+- Python: `HttpCase`, `start_tour`.
+
+Sections of this file:
+
+- Unit tests in 17.0
+- Mock the server with test models, never with a database
+- Interact through the test helpers and wait for the DOM
+- Undo every patch a test makes
+- Register a tour in the `web_tour.tours` registry
+- Write each tour step as a trigger and an action
+- Run tours from an `HttpCase`
+
 # Unit tests in 17.0
 
 JavaScript unit tests use QUnit.

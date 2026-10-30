@@ -1,3 +1,21 @@
+Key names in 19.0:
+
+- hoot: `describe`, `test`, `expect`, `*.test.js` in `web.assets_unit_tests`; never a new QUnit test.
+- Mock server: `models.Model`, `defineModels`, `mountView`, `mountWithCleanup`, `onRpc`.
+- Helpers: `@odoo/hoot-dom` (`click`, `edit`, `press`), `animationFrame`, `patchWithCleanup`.
+- Tours: `registry.category("web_tour.tours")`, `steps` as a function, a hoot `trigger`, a step without `run` only waits, `isActive`.
+- Python: `HttpCase`, `start_tour`.
+
+Sections of this file:
+
+- Unit tests in 19.0
+- Mock the server with test models, never with a database
+- Interact through the test helpers and wait for the DOM
+- Undo every patch a test makes
+- Register a tour in the `web_tour.tours` registry
+- Write each tour step as a trigger and an action
+- Run tours from an `HttpCase`
+
 # Unit tests in 19.0
 
 JavaScript unit tests use hoot (`@odoo/hoot`). A few old suites of Odoo itself still run

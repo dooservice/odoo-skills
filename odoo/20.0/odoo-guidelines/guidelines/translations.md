@@ -1,3 +1,12 @@
+Key names in 20.0: `.po` files in `i18n/`; `self.env._(...)` and `_lt = LazyTranslate(__name__)`; `translate=True`, `html_translate`; `odoo-bin i18n export`, `i18n import` and `i18n loadlang`.
+
+Sections of this file:
+
+- [Ship translations as .po files in i18n/](#ship-translations-as-po-files-in-i18n)
+- [Know which terms are translatable](#know-which-terms-are-translatable)
+- [Declare translatable fields with translate](#declare-translatable-fields-with-translate)
+- [Export terms with odoo-bin, never by hand](#export-terms-with-odoo-bin-never-by-hand)
+
 # Ship translations as .po files in i18n/
 
 A module's translations live in its `i18n/` folder: `library.pot`, the template of every

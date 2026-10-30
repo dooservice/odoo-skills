@@ -1,3 +1,22 @@
+Key names in 16.0:
+
+- Header: `/** @odoo-module **/` on every file of `static/src` and `static/tests`.
+- Patch: `patch(target, name, extension)` with `this._super(...arguments)`; `unpatch(target, name)`.
+- Translation: `_t` at call time only, `_lt` at module level, values through `sprintf`.
+- Owl 2 with static `props`; server calls through `useService("rpc")` and `useService("orm")`.
+- Raw HTML: `escape` from `@web/core/utils/strings`, or `t-out`.
+- Tests: QUnit in `web.qunit_suite_tests`.
+
+Sections of this file:
+
+- The web framework in 16.0
+- Write each file as an ES module with absolute imports
+- Organize files by feature, not by type
+- Avoid getters
+- Patch sparingly
+- Patch the prototype with `patch` and call `super`
+- Translate every user-facing string with `_t`
+
 # The web framework in 16.0
 
 - Every JavaScript file under `static/src` starts with `/** @odoo-module **/`;
@@ -75,7 +94,7 @@ patch(BookCard.prototype, "my_module.BookCard", {
 
 - Patch `MyClass.prototype` to change instance methods, and `MyClass` itself only to
   change its statics (`template`, `components`).
-- A patched `setup` calls `super.setup(...arguments)` first, then adds its hooks.
+- A patched `setup` calls `this._super(...arguments)` first, then adds its hooks.
 - Never replace a method without calling `super` unless the replacement is the point;
   another module's patch of the same method is then skipped silently.
 - The patch is applied when its file loads: put it in the same bundle as the code it

@@ -1,3 +1,19 @@
+Key names in 17.0:
+
+- Bundles: `web.assets_backend` (loaded through `web.assets_web`), `web.assets_frontend`, `point_of_sale._assets_pos`, `web.qunit_suite_tests`, `web.assets_tests`.
+- Directives: `prepend`, `before`, `after`, `replace`, `remove`, `include`.
+- Lazy code: `loadBundle("my_module.assets_heavy")`, `LazyComponent`.
+
+Sections of this file:
+
+- Assets
+- Declare static files in the manifest `assets`
+- Put each file in the bundle of the page that runs it
+- Use a directive to place a file relative to another
+- Keep an Owl template in the same bundle as its component
+- Load heavy code lazily
+- Debug a bundle with `?debug=assets`
+
 # Assets
 
 - Every resource a page needs ships in the codebase: copy images, fonts and libraries

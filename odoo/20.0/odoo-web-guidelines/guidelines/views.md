@@ -1,3 +1,20 @@
+Key names in 20.0:
+
+- `registry.category("fields")` takes a descriptor (`component`, `supportedTypes`, `extractProps`), props through `useProps`.
+- `extractProps(fieldInfo, dynamicInfo)`; a field widget writes with `props.record.update`; `standardFieldProps`, `standardWidgetProps`.
+- Lookup keys: `<view type>.<widget>`, then `<widget>`; kanban cards use `card.`.
+- `js_class` on the arch root, a view descriptor of `registry.category("views")`; the list arch tag is `list`, and an unknown `js_class` throws after `web.assets_backend_lazy`.
+- `<widget name="my_module_banner"/>` through `registry.category("view_widgets")`.
+
+Sections of this file:
+
+- Views on the client side in 20.0
+- Write a field widget as a component plus a registry entry
+- Read arch attributes and options in `extractProps`
+- Prefix a widget key with a view type to change it in one view only
+- Extend a view with `js_class`, never by patching it for one model
+- Add a `<widget>` to a view through `view_widgets`
+
 # Views on the client side in 20.0
 
 A view is an arch from the server turned into components: an `ArchParser` reads the

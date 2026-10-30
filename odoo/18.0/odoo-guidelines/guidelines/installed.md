@@ -1,3 +1,12 @@
+Key names in 18.0: bump `version` and ship a migration for every data change; data files listed in dependency order; `noupdate="1"` on records users may change; demo data is absent from a database created with `--without-demo`.
+
+Sections of this file:
+
+- [Changes to an installed module](#changes-to-an-installed-module)
+- [List data files in the order they reference each other](#list-data-files-in-the-order-they-reference-each-other)
+- [Mark records that users may change as noupdate](#mark-records-that-users-may-change-as-noupdate)
+- [Keep demo data out of what the module needs](#keep-demo-data-out-of-what-the-module-needs)
+
 # Changes to an installed module
 
 A module that is installed in a database that matters (production, or a clone of it)

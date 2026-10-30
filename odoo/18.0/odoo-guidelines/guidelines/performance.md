@@ -1,3 +1,10 @@
+Key names in 18.0: no `create`, `search`, `search_count` or `_read_group` inside a loop: one batched call, then a dict lookup; prefetch by iterating the whole recordset.
+
+Sections of this file:
+
+- [Batch ORM calls](#batch-orm-calls)
+- [Performance conventions](#performance-conventions)
+
 # Batch ORM calls
 
 Make **one** ORM call for the whole collection; an ORM call inside a

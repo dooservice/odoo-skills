@@ -1,3 +1,19 @@
+Key names in 20.0: `TransactionCase` (no `SingleTransactionCase`); default tag `post_install`, opt out with `@tagged('at_install', '-post_install')`; `allow_inherited_tests_method = True`; `Form.from_action(self.env, action)`; `--test-file <path>`.
+
+Sections of this file:
+
+- [Tests](#tests)
+- [Pick the test class by what the test needs](#pick-the-test-class-by-what-the-test-needs)
+- [Tag every test class with the moment it runs](#tag-every-test-class-with-the-moment-it-runs)
+- [Make sure the runner collects every test](#make-sure-the-runner-collects-every-test)
+- [Build shared data in setUpClass](#build-shared-data-in-setupclass)
+- [Drive form behavior through Form](#drive-form-behavior-through-form)
+- [Count queries only in dedicated performance tests](#count-queries-only-in-dedicated-performance-tests)
+- [Freeze the date a test depends on](#freeze-the-date-a-test-depends-on)
+- [Test routes and tours with HttpCase](#test-routes-and-tours-with-httpcase)
+- [Other test decorators](#other-test-decorators)
+- [Select tests with test tags](#select-tests-with-test-tags)
+
 # Tests
 
 Conventions for everything under `tests/`.

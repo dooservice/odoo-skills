@@ -1,3 +1,15 @@
+Key names in 19.0: route types `type='http'`, `type='jsonrpc'` (`'json'` is a deprecated alias) and `type='json2'`; `auth='bearer'`; `readonly=True` routes; `self.env` in a controller; portal counters through `_prepare_home_portal_values(counters)`.
+
+Sections of this file:
+
+- [Controllers](#controllers)
+- [Choose the route type for the caller](#choose-the-route-type-for-the-caller)
+- [Set `auth` on every route](#set-auth-on-every-route)
+- [Route arguments](#route-arguments)
+- [Read the request and answer through `request`](#read-the-request-and-answer-through-request)
+- [Check access on records reached through a route](#check-access-on-records-reached-through-a-route)
+- [Portal pages](#portal-pages)
+
 # Controllers
 
 - Routes are methods decorated with `@route` on a `Controller` subclass

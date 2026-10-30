@@ -1,3 +1,14 @@
+Key names in 20.0: `models.Constraint`, `models.Index` and `models.UniqueIndex` attributes (`_sql_constraints` is ignored); `_inherit`, `_inherits`, `delegate=True`, `_check_inherits_access = False`; `_parent_store` and `self._has_cycle()`; an SQL view model with `_auto = False` and `_table_sql`.
+
+Sections of this file:
+
+- [Model classes and attributes](#model-classes-and-attributes)
+- [Pick the inheritance mechanism for what you need](#pick-the-inheritance-mechanism-for-what-you-need)
+- [Override with `super()` and the same signature](#override-with-super-and-the-same-signature)
+- [Declare SQL constraints and indexes on the model](#declare-sql-constraints-and-indexes-on-the-model)
+- [Store hierarchies with `_parent_store`](#store-hierarchies-with-_parent_store)
+- [Back reporting models by an SQL view](#back-reporting-models-by-an-sql-view)
+
 # Model classes and attributes
 
 - `models.Model`: a persistent model with its own table. The default.

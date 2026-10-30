@@ -1,3 +1,11 @@
+Key names in 20.0: `odoo-bin -c odoo.conf -d library_dev -u library --stop-after-init`; no demo data unless `--with-demo`; `ODOO_<OPTION>` environment variables; `--reinit`; `odoo-bin shell` then roll back; subcommands `db`, `module`, `i18n`, `upgrade_code`.
+
+Sections of this file:
+
+- [Run odoo-bin with explicit options](#run-odoo-bin-with-explicit-options)
+- [Inspect a database with odoo-bin shell, then roll back](#inspect-a-database-with-odoo-bin-shell-then-roll-back)
+- [Use the odoo-bin subcommand made for the task](#use-the-odoo-bin-subcommand-made-for-the-task)
+
 # Run odoo-bin with explicit options
 
 Pass the configuration file, the database and the modules on every command: an

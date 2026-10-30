@@ -1,3 +1,14 @@
+Key names in 17.0: SQL constraints in `_sql_constraints` as `(name, definition, message)`, multi-column indexes with `tools.create_index`; `_inherit`, `_inherits`, `delegate=True`; `_parent_store`; an SQL view model with `_auto = False`.
+
+Sections of this file:
+
+- [Model classes and attributes](#model-classes-and-attributes)
+- [Pick the inheritance mechanism for what you need](#pick-the-inheritance-mechanism-for-what-you-need)
+- [Override with `super()` and the same signature](#override-with-super-and-the-same-signature)
+- [Declare SQL constraints and indexes on the model](#declare-sql-constraints-and-indexes-on-the-model)
+- [Store hierarchies with `_parent_store`](#store-hierarchies-with-_parent_store)
+- [Back reporting models by an SQL view](#back-reporting-models-by-an-sql-view)
+
 # Model classes and attributes
 
 - `models.Model`: a persistent model with its own table. The default.

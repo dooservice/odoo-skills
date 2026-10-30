@@ -1,3 +1,22 @@
+Key names in 19.0:
+
+- Interactions: `Interaction` subclasses in `registry.category("public.interactions")`: `static selector`, `dynamicContent`, `willStart`, `destroy`; public widgets still load only for code not ported yet.
+- Cleanup helpers: `addListener`, `insert`, `mountComponent`, `waitFor`, `registerCleanup`.
+- Server calls: `rpc` from `@web/core/network/rpc`.
+- `<owl-component>` mounted from `registry.category("public_components")`.
+- Portal: `CustomerPortal`, `portal.portal_docs_entry`, `_prepare_home_portal_values(counters)`.
+- Snippets: `website.snippets`, options as a builder `Plugin`; `public.interactions.edit`.
+
+Sections of this file:
+
+- Frontend code in 19.0
+- Attach behaviour to a selector, never to the whole page
+- Release everything the code added when it stops
+- Mount an Owl component in a page with `<owl-component>`
+- Call the server from a public page through a controller
+- Extend the portal with your own documents
+- Add a building block (snippet)
+
 # Frontend code in 19.0
 
 Public pages (website, portal, login, shop) are server-rendered QWeb; JavaScript only

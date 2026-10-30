@@ -43,12 +43,13 @@
 
 ## Registering the guideline
 
-- Add a row to the table in `SKILL.md`, through its template
-  (`tools/guidelines/templates/odoo-web-guidelines/SKILL.md`).
-- The "Read it when" cell names the files or the activity that should trigger reading
-  the guideline. Not every edit of every file.
-- The link points at the section title. Renaming a title changes the anchor, so update
-  the row with it.
+- Add the guideline as a `#` section of the file of its domain: the section list
+  at the top of each file is generated from its headings.
+- Add a row to the task map of `SKILL.md`, through its template
+  (`tools/guidelines/templates/odoo-web-guidelines/SKILL.md`), only for a new file or a
+  new kind of task; the map names files, not sections.
+- When a version-specific name matters more than the rest of the file, add it to
+  the file's key names at its top.
 
 ## Generating the guideline for every version
 

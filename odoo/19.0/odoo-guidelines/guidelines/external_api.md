@@ -1,3 +1,12 @@
+Key names in 19.0: JSON-2, `POST /json/2/<model>/<method>` with `Authorization: bearer <api key>` and arguments by name; XML-RPC and `/jsonrpc` are deprecated; `/doc` lists what the database exposes; the API key of a dedicated user.
+
+Sections of this file:
+
+- [Call Odoo from outside through the external API](#call-odoo-from-outside-through-the-external-api)
+- [Authenticate integrations with an API key of a dedicated user](#authenticate-integrations-with-an-api-key-of-a-dedicated-user)
+- [Expose only public, checked methods to RPC](#expose-only-public-checked-methods-to-rpc)
+- [Batch external calls](#batch-external-calls)
+
 # Call Odoo from outside through the external API
 
 Scripts, integrations and other servers call model methods through

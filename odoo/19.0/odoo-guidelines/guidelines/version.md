@@ -1,29 +1,63 @@
+One row per API that differs between versions, grouped by area: find the group of what you are writing, then its row.
+
+Sections of this file:
+
+- [Python, models and the ORM](#python-models-and-the-orm)
+- [Views and QWeb](#views-and-qweb)
+- [Security](#security)
+- [Routes and tests](#routes-and-tests)
+- [Web client](#web-client)
+- [Business records](#business-records)
+- [When unsure](#when-unsure)
+
 # What Odoo 19.0 has
 
 These skills are for Odoo 19.0 and only 19.0. Write for it: an API from another version
 fails at install or, worse, silently does nothing. Each row was checked against the
 19.0 source.
 
+## Python, models and the ORM
+
 | Topic | In 19.0 |
 | --- | --- |
 | Python | 3.10 or newer |
-| View modifiers | Python expressions on the attribute itself: `invisible="state != 'draft'"`, `readonly=`, `required=`, `column_invisible=`. `attrs` and `states` are refused with a ValidationError |
-| List view | `<list>`, view_mode `list`, xml id `<model>_view_list`. `<tree>` and `tree` are gone |
-| Chatter | `<chatter/>` at the end of the form |
 | Record display name | override `_compute_display_name`; `name_get` does not exist |
 | Grouped reads | `_read_group(domain, groupby, aggregates)`, returns tuples; `read_group` is deprecated |
 | Field aggregation | `aggregator='sum'` (`group_operator` is a deprecated alias) |
 | SQL constraints and indexes | model attributes `_x_check = models.Constraint("CHECK (...)", "msg")`, `models.Index(...)`, `models.UniqueIndex(...)`; `_sql_constraints` is ignored with a warning |
 | Domains | `from odoo.fields import Domain`; `Domain(...) & Domain(...)`, `Domain.AND/OR` |
 | Translations in Python | `self.env._("...")`; `_lt = LazyTranslate(__name__)` for module-level constants; bare `_` still works |
+| System parameters | `env['ir.config_parameter'].sudo().get_param('key', default)` returns a string: convert it (`int(...)`); `set_param('key', value)` writes |
+
+## Views and QWeb
+
+| Topic | In 19.0 |
+| --- | --- |
+| View modifiers | Python expressions on the attribute itself: `invisible="state != 'draft'"`, `readonly=`, `required=`, `column_invisible=`. `attrs` and `states` are refused with a ValidationError |
+| List view | `<list>`, view_mode `list`, xml id `<model>_view_list`. `<tree>` and `tree` are gone |
+| Chatter | `<chatter/>` at the end of the form |
+| QWeb output | `t-out`; `t-esc` still works, `t-raw` logs a deprecation warning |
+
+## Security
+
+| Topic | In 19.0 |
+| --- | --- |
 | Group categories | `privilege_id` on `res.groups` (a `res.groups.privilege`) |
 | Access rights and record rules | `security/ir.model.access.csv` plus record rules as `<record model="ir.rule">` with `domain_force` and `groups` |
 | User groups | `group_ids` on `res.users` (groups given explicitly), `all_group_ids` with the implied ones: `user.write({'group_ids': [Command.link(group.id)]})`. `groups_id` is gone |
-| System parameters | `env['ir.config_parameter'].sudo().get_param('key', default)` returns a string: convert it (`int(...)`); `set_param('key', value)` writes |
+
+## Routes and tests
+
+| Topic | In 19.0 |
+| --- | --- |
 | Route types | `'http'`, `'jsonrpc'` (`'json'` is a deprecated alias), `'json2'` |
 | Route auth | `user`, `public`, `none`, `bearer` |
 | Default test tags | `at_install`: write `@tagged('post_install', '-at_install')` on business tests |
-| QWeb output | `t-out`; `t-esc` still works, `t-raw` logs a deprecation warning |
+
+## Web client
+
+| Topic | In 19.0 |
+| --- | --- |
 | Owl | Owl 2 |
 | JS module header | none needed |
 | JS patch | `patch(Target.prototype, { ... })` |
@@ -32,8 +66,10 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | Shared logic | services: `registry.category("services").add("x", { dependencies, start })`, used with `useService("x")` |
 | JS tests | hoot (`@odoo/hoot`), `*.test.js` in `web.assets_unit_tests` |
 
-Business records, for `odoo-bin shell` scripts and data files (the `odoo-functional`
-recipes give the whole flow):
+## Business records
+
+For `odoo-bin shell` scripts and data files (the `odoo-functional` recipes give the
+whole flow):
 
 | Topic | In 19.0 |
 | --- | --- |

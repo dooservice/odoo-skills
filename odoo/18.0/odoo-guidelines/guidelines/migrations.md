@@ -1,3 +1,12 @@
+Key names in 18.0: `'version': '18.0.1.0.0'`; a script folder is the full version (`18.0.1.1.0`) or the module part (`1.1.0`), its scripts define `migrate(cr, version)`; `util.rename_field` and the rest of upgrade-util for renames; hooks take `env`.
+
+Sections of this file:
+
+- [Version the module as series.x.y.z](#version-the-module-as-seriesxyz)
+- [Write a migration script for every data change between two versions](#write-a-migration-script-for-every-data-change-between-two-versions)
+- [Use upgrade-util for renames and removals](#use-upgrade-util-for-renames-and-removals)
+- [Use init hooks only for install-time work](#use-init-hooks-only-for-install-time-work)
+
 # Version the module as series.x.y.z
 
 The manifest `version` is the Odoo series followed by the module's own three numbers:

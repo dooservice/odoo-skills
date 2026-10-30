@@ -1,3 +1,20 @@
+Key names in 17.0:
+
+- ES modules in `point_of_sale._assets_pos`; the `pos` service, a `PosStore`, through `usePos()`.
+- `Order` and `Orderline` of `@point_of_sale/app/store/models`, extended with `patch`; `export_as_JSON` and `init_from_JSON`.
+- Screens: `registry.category("pos_screens")`, `this.pos.showScreen`.
+- Buttons: `ProductScreen.addControlButton`.
+- Tours: `registry.category("web_tour.tours")`, `TestPointOfSaleHttpCommon`.
+
+Sections of this file:
+
+- The Point of Sale in 17.0
+- Load a field into the Point of Sale from Python
+- Extend Point of Sale models and screens without replacing them
+- Add a button to the product screen through its extension point
+- Keep the Point of Sale working offline
+- Test the Point of Sale with tours
+
 # The Point of Sale in 17.0
 
 The Point of Sale is a separate web application (`/pos/ui`), not a view of the backend

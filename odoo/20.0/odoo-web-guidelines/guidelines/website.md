@@ -1,3 +1,22 @@
+Key names in 20.0:
+
+- Interactions: `Interaction` subclasses in `registry.category("public.interactions")`: `static selector`, `dynamicContent`, `willStart`, `destroy`; `publicWidget` no longer exists.
+- Cleanup helpers: `addListener`, `insert`, `mountComponent`, `waitFor`, `registerCleanup`.
+- Server calls: `rpc` from `@web/core/network/rpc`.
+- `<owl-component>` mounted from `registry.category("public_components")`.
+- Portal: `CustomerPortal`, `portal.entry` records, `_prepare_portal_counter_values(counter)`.
+- Snippets: `website.snippets`, options in `website.BuilderOptions`; `website-plugins`, `public.interactions.edit`.
+
+Sections of this file:
+
+- Frontend code in 20.0
+- Attach behaviour to a selector, never to the whole page
+- Release everything the code added when it stops
+- Mount an Owl component in a page with `<owl-component>`
+- Call the server from a public page through a controller
+- Extend the portal with your own documents
+- Add a building block (snippet)
+
 # Frontend code in 20.0
 
 Public pages (website, portal, login, shop) are server-rendered QWeb; JavaScript only

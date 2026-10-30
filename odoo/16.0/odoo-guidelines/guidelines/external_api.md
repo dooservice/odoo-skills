@@ -1,3 +1,12 @@
+Key names in 16.0: XML-RPC (`/xmlrpc/2/common` `authenticate`, `/xmlrpc/2/object` `execute_kw`) or JSON-RPC (`POST /jsonrpc`), with the API key of a dedicated user; batch calls; `check_access_rights` and `check_access_rule` before `sudo()`.
+
+Sections of this file:
+
+- [Call Odoo from outside through the external API](#call-odoo-from-outside-through-the-external-api)
+- [Authenticate integrations with an API key of a dedicated user](#authenticate-integrations-with-an-api-key-of-a-dedicated-user)
+- [Expose only public, checked methods to RPC](#expose-only-public-checked-methods-to-rpc)
+- [Batch external calls](#batch-external-calls)
+
 # Call Odoo from outside through the external API
 
 Scripts, integrations and other servers call model methods through

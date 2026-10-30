@@ -14,23 +14,44 @@ This skill lists names, not flows. For a business flow or a configuration task
 read the matching recipe of `odoo-functional` first: it gives the order of the steps,
 the methods to call and the state each leaves, which a list of fields cannot.
 
-Generated from the Odoo 20.0 source. Each file is plain markdown, small enough to
-read whole; grep across them when you do not know which addon holds something.
+Generated from the Odoo 20.0 source. Do not read these files whole: grep for the
+name you need and read only the lines around the match.
 
-- `addons.md`: every addon, with the models it defines and extends. Start here.
-- `models/<addon>.md`: each model of the addon, its fields (type, target, label, flags,
-  `related` and `compute`), its public methods, and its extension points
+## Which file holds what
+
+- `addons.md`: one table row per addon: its technical name, its title, the models it
+  defines and the models it extends.
+- `models/<addon>.md`: one ``## `model` (defines)`` or ``## `model` (extends)``
+  section per model of the addon, with its fields one per line (type, target, label,
+  flags, `related` and `compute`), its public methods, and its extension points
   (`_prepare_*`, `_get_*`, `_action_*`, `_create_*`, `_post_*`, `_check_*`).
-- `settings.md`: each field of Settings and what it is kept as — a system parameter, a
-  group given to every internal user, a company field, or a module to install.
-- `xmlids/<addon>.md`: views (with their model and what they inherit), actions, menus,
-  groups, rules and data, by XML id.
+- `xmlids/<addon>.md`: XML ids grouped by record model under `## ir.ui.view`,
+  `## ir.actions.act_window`, `## ir.ui.menu`, `## res.groups`, `## ir.rule` and
+  others; a view line says `on <model>` and `inherits <parent view>`.
+- `settings.md`: one table row per field of `res.config.settings` and what it is kept
+  as: a company field, `parameter` (a system parameter), `group` (given to every
+  internal user), `installs` (a module to install) or `computed by`.
+
+## Find a name
+
+Run these from this skill's folder; keep the backticks around a name to match it exactly.
 
 ```bash
-grep -l "sale.order.line" models/*.md        # who touches a model
-grep "group_" settings.md                    # settings that give a group
-grep "inherits sale.view_order_form" xmlids/*.md   # views extending a form
+grep -n '`sale.order`' addons.md                   # addons defining or extending a model
+grep -l '^## `sale.order` (defines)' models/*.md   # the addon that defines a model
+grep -n '^## `sale.order` ' models/*.md            # every addon that adds to a model
+grep -n '`commitment_date`' models/*.md            # a field: file and line
+grep -n '^## ' models/sale.md                      # the model sections of that file
+grep -n '^- `[a-z_]*date' models/sale.md           # fields whose name has a word
+grep -rn '`sale.view_order_form`' xmlids/          # an XML id
+grep -rn 'inherits sale.view_order_form' xmlids/   # views extending a view
+grep -rn 'on sale.order' xmlids/                   # views of a model
+grep -n '`group_discount_per_so_line`' settings.md # a Settings field and how it is kept
+grep -in 'discount' settings.md                    # Settings fields by label
 ```
+
+A field line belongs to the nearest `## ` heading above it: compare its line number
+with the headings that `grep -n "^## "` prints for the same file.
 
 Enterprise addons are not here: when a model or XML id is missing, the user may have
 Enterprise, and the source is in the addons path.

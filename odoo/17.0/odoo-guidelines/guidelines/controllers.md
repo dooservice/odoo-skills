@@ -1,3 +1,15 @@
+Key names in 17.0: route types `type='http'` and `type='json'`; `auth` is `user`, `public` or `none` (no bearer: check API keys by hand); `request.env`; `slug(record)`; portal counters through `_prepare_home_portal_values(counters)`.
+
+Sections of this file:
+
+- [Controllers](#controllers)
+- [Choose the route type for the caller](#choose-the-route-type-for-the-caller)
+- [Set `auth` on every route](#set-auth-on-every-route)
+- [Route arguments](#route-arguments)
+- [Read the request and answer through `request`](#read-the-request-and-answer-through-request)
+- [Check access on records reached through a route](#check-access-on-records-reached-through-a-route)
+- [Portal pages](#portal-pages)
+
 # Controllers
 
 - Routes are methods decorated with `@route` on a `Controller` subclass

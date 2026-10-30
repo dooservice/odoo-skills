@@ -1,3 +1,9 @@
+Key names in 18.0: `version` is `18.0.x.y.z`; `depends` lists direct dependencies only; `data` in load order; `license` set explicitly.
+
+Sections of this file:
+
+- [Manifest](#manifest)
+
 # Manifest
 
 - `name` is required. `version` is `18.0.x.y.z` (the Odoo series, then the

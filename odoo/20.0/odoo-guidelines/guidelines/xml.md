@@ -1,3 +1,13 @@
+Key names in 20.0: `<list>`; modifiers are expressions (`invisible="state != 'draft'"`); `<chatter/>`; `<asset>`; no `<report>`/`<act_window>`; `type="bytes" file="module/static/img/cover.png"`; inherit with `inherit_id` and `position`, anchored on names.
+
+Sections of this file:
+
+- [Views, actions and data records](#views-actions-and-data-records)
+- [Field values in data records](#field-values-in-data-records)
+- [Load only what an update can redo](#load-only-what-an-update-can-redo)
+- [Inherit views by extension, with the position that matches the change](#inherit-views-by-extension-with-the-position-that-matches-the-change)
+- [Anchor view inheritance on names, never on position](#anchor-view-inheritance-on-names-never-on-position)
+
 # Views, actions and data records
 
 - Record format: put `id` before `model`; inside a `field`, `name` first, then

@@ -1,3 +1,11 @@
+Key names in 20.0: `company_id` with `check_company=True`, `_check_company_auto = True` and `_check_company_domain`; branches through `res.company.parent_id`; a company restriction row; `env.company`, `with_company`; `company_dependent` fallbacks in `ir.default`.
+
+Sections of this file:
+
+- [Make a model multi-company](#make-a-model-multi-company)
+- [Restrict records to the allowed companies](#restrict-records-to-the-allowed-companies)
+- [Work in the right company in code](#work-in-the-right-company-in-code)
+
 # Make a model multi-company
 
 A model whose records belong to a company declares `company_id`, checks that

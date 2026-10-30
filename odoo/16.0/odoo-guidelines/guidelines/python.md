@@ -1,3 +1,11 @@
+Key names in 16.0: `from odoo import _, api, fields, models, Command`; translate with `_(...)` and `_lt` for module-level constants; `_sql_constraints` in the model layout.
+
+Sections of this file:
+
+- [Imports](#imports)
+- [Naming and model layout](#naming-and-model-layout)
+- [Translate only static literals](#translate-only-static-literals)
+
 # Imports
 
 PEP 8 applies; Odoo's pylint rules are the reference.

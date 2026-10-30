@@ -1,3 +1,15 @@
+Key names in 20.0: one `ir.access` model in `ir.access.csv` (`operation` `crud`, a `domain`) replaces `ir.model.access` and `ir.rule`; groups with `privilege_id`, users `group_ids`; `base.group_everyone`; `records.check_access('write')`; fields `groups=`; `sudo()` after a check.
+
+Sections of this file:
+
+- [Access rights](#access-rights)
+- [Grant every model access explicitly](#grant-every-model-access-explicitly)
+- [Restrict records with domains](#restrict-records-with-domains)
+- [Declare groups per application](#declare-groups-per-application)
+- [Check group membership in code](#check-group-membership-in-code)
+- [Restrict fields with `groups=`](#restrict-fields-with-groups)
+- [Use `sudo()` only after an explicit check](#use-sudo-only-after-an-explicit-check)
+
 # Access rights
 
 Odoo 20.0 unifies the old `ir.model.access` ACLs and `ir.rule` record rules into

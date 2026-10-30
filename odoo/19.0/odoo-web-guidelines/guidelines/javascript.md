@@ -1,3 +1,22 @@
+Key names in 19.0:
+
+- Header: none needed; `/** @odoo-module ignore **/` keeps a file out of the transpiler.
+- Patch: `patch(target, extension)` with `super`; it returns the function that removes it.
+- Translation: `_t` anywhere, `_t("Lent to %(name)s", { name })`; `_lt` no longer exists.
+- Owl 2 with static `props`; `rpc` is a function of `@web/core/network/rpc`, model methods through `useService("orm")`.
+- Raw HTML: `htmlEscape`, `htmlJoin`/`htmlSprintf` and `setElementContent`, or `t-out`.
+- Tests: hoot, `*.test.js` in `web.assets_unit_tests`.
+
+Sections of this file:
+
+- The web framework in 19.0
+- Write each file as an ES module with absolute imports
+- Organize files by feature, not by type
+- Avoid getters
+- Patch sparingly
+- Patch the prototype with `patch` and call `super`
+- Translate every user-facing string with `_t`
+
 # The web framework in 19.0
 
 - Files under `static/src` are ES modules; no `@odoo-module` header is needed.

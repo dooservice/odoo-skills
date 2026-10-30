@@ -1,29 +1,63 @@
+One row per API that differs between versions, grouped by area: find the group of what you are writing, then its row.
+
+Sections of this file:
+
+- [Python, models and the ORM](#python-models-and-the-orm)
+- [Views and QWeb](#views-and-qweb)
+- [Security](#security)
+- [Routes and tests](#routes-and-tests)
+- [Web client](#web-client)
+- [Business records](#business-records)
+- [When unsure](#when-unsure)
+
 # What Odoo 16.0 has
 
 These skills are for Odoo 16.0 and only 16.0. Write for it: an API from another version
 fails at install or, worse, silently does nothing. Each row was checked against the
 16.0 source.
 
+## Python, models and the ORM
+
 | Topic | In 16.0 |
 | --- | --- |
 | Python | 3.7 or newer |
-| View modifiers | `attrs="{'invisible': [('state', '!=', 'draft')]}"` and `states="draft,sent"` |
-| List view | `<tree>`, view_mode `tree`, xml id `<model>_view_tree` |
-| Chatter | `<div class="oe_chatter">` with `message_follower_ids`, `activity_ids`, `message_ids` |
 | Record display name | override `name_get()` (returns `[(id, name)]`) |
 | Grouped reads | `read_group(domain, fields, groupby, lazy=...)`, returns dicts |
 | Field aggregation | `group_operator='sum'` |
 | SQL constraints and indexes | `_sql_constraints = [(name, definition, message)]`; indexes with `index=True` or `index='btree_not_null'`/`'trigram'` |
 | Domains | lists; combine with `odoo.osv.expression.AND([...])` / `OR([...])` |
 | Translations in Python | `from odoo import _, _lt`; `_("...")`, `_lt` for module-level constants |
+| System parameters | `env['ir.config_parameter'].sudo().get_param('key', default)` returns a string: convert it (`int(...)`); `set_param('key', value)` writes |
+
+## Views and QWeb
+
+| Topic | In 16.0 |
+| --- | --- |
+| View modifiers | `attrs="{'invisible': [('state', '!=', 'draft')]}"` and `states="draft,sent"` |
+| List view | `<tree>`, view_mode `tree`, xml id `<model>_view_tree` |
+| Chatter | `<div class="oe_chatter">` with `message_follower_ids`, `activity_ids`, `message_ids` |
+| QWeb output | `t-out`; `t-esc` still works, `t-raw` logs a deprecation warning |
+
+## Security
+
+| Topic | In 16.0 |
+| --- | --- |
 | Group categories | `category_id` on `res.groups` (an `ir.module.category`) |
 | Access rights and record rules | `security/ir.model.access.csv` plus record rules as `<record model="ir.rule">` with `domain_force` and `groups` |
 | User groups | `groups_id` on `res.users` (implied groups included): `user.write({'groups_id': [Command.link(group.id)]})` |
-| System parameters | `env['ir.config_parameter'].sudo().get_param('key', default)` returns a string: convert it (`int(...)`); `set_param('key', value)` writes |
+
+## Routes and tests
+
+| Topic | In 16.0 |
+| --- | --- |
 | Route types | `type='http'` or `type='json'` |
 | Route auth | `user`, `public`, `none` |
 | Default test tags | `at_install`: write `@tagged('post_install', '-at_install')` on business tests |
-| QWeb output | `t-out`; `t-esc` still works, `t-raw` logs a deprecation warning |
+
+## Web client
+
+| Topic | In 16.0 |
+| --- | --- |
 | Owl | Owl 2 |
 | JS module header | every file under `static/src` starts with `/** @odoo-module **/` |
 | JS patch | `patch(Target.prototype, "module.name", { ... })` |
@@ -32,8 +66,10 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | Shared logic | services: `registry.category("services").add("x", { dependencies, start })`, used with `useService("x")` |
 | JS tests | QUnit, under `static/tests/`, in the `web.qunit_suite_tests` bundle |
 
-Business records, for `odoo-bin shell` scripts and data files (the `odoo-functional`
-recipes give the whole flow):
+## Business records
+
+For `odoo-bin shell` scripts and data files (the `odoo-functional` recipes give the
+whole flow):
 
 | Topic | In 16.0 |
 | --- | --- |

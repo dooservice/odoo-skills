@@ -1,3 +1,11 @@
+Key names in 20.0: `from odoo import Command, api, fields, models`; translate with `self.env._(...)`, and `_lt = LazyTranslate(__name__)` for module-level constants; `models.Constraint`/`models.Index` attributes in the model layout.
+
+Sections of this file:
+
+- [Imports](#imports)
+- [Naming and model layout](#naming-and-model-layout)
+- [Translate only static literals](#translate-only-static-literals)
+
 # Imports
 
 PEP 8 applies; the `ruff.toml` of the Odoo source is the reference for what core enforces.

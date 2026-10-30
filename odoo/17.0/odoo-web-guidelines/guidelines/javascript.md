@@ -1,3 +1,22 @@
+Key names in 17.0:
+
+- Header: `/** @odoo-module **/` on every file of `static/src` and `static/tests`.
+- Patch: `patch(target, extension)` with `super`; it returns the function that removes it.
+- Translation: `_t` anywhere, values after the string; `_lt` is an alias kept for old code.
+- Owl 2 with static `props`; server calls through `useService("rpc")` and `useService("orm")`.
+- Raw HTML: `escape` from `@web/core/utils/strings`, or `t-out`.
+- Tests: QUnit in `web.qunit_suite_tests`.
+
+Sections of this file:
+
+- The web framework in 17.0
+- Write each file as an ES module with absolute imports
+- Organize files by feature, not by type
+- Avoid getters
+- Patch sparingly
+- Patch the prototype with `patch` and call `super`
+- Translate every user-facing string with `_t`
+
 # The web framework in 17.0
 
 - Every JavaScript file under `static/src` starts with `/** @odoo-module **/`;

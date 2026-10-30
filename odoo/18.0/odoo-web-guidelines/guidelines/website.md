@@ -1,3 +1,21 @@
+Key names in 18.0:
+
+- Public widgets: `publicWidget.Widget.extend({...})` in `publicWidget.registry`, with `selector`, `selectorHas`, `events`, `start`, `destroy` and `this._super`.
+- Server calls: `rpc` from `@web/core/network/rpc`, `this.bindService("orm")`.
+- `<owl-component>` mounted from `registry.category("public_components")`.
+- Portal: `CustomerPortal`, `portal.portal_docs_entry`, `_prepare_home_portal_values(counters)`.
+- Snippets: `website.snippets`, options in `website.snippet_options` with `we-*` controls.
+
+Sections of this file:
+
+- Frontend code in 18.0
+- Attach behaviour to a selector, never to the whole page
+- Release everything the code added when it stops
+- Mount an Owl component in a page with `<owl-component>`
+- Call the server from a public page through a controller
+- Extend the portal with your own documents
+- Add a building block (snippet)
+
 # Frontend code in 18.0
 
 Public pages (website, portal, login, shop) are server-rendered QWeb; JavaScript only

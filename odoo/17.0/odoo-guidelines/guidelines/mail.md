@@ -1,3 +1,14 @@
+Key names in 17.0: chatter `<div class="oe_chatter">`; `tracking=True`; `_track_subtype(init_values)`; `message_post` with `markupsafe.Markup` bodies; `record.message_post_with_source(template)`; `template.send_mail_batch(records.ids)`; `mail.alias.domain`.
+
+Sections of this file:
+
+- [Add the chatter with `mail.thread`](#add-the-chatter-with-mailthread)
+- [Track field changes with `tracking=`](#track-field-changes-with-tracking)
+- [Post messages with `message_post`](#post-messages-with-message_post)
+- [Followers and subtypes](#followers-and-subtypes)
+- [Send emails with `mail.template`](#send-emails-with-mailtemplate)
+- [Receive emails through aliases](#receive-emails-through-aliases)
+
 # Add the chatter with `mail.thread`
 
 A model that needs a discussion thread, followers or tracking inherits

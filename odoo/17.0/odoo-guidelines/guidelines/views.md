@@ -1,3 +1,17 @@
+Key names in 17.0: list views are `<tree>`; modifiers are expressions (`invisible="state != 'draft'"`, no `attrs`/`states`); chatter `<div class="oe_chatter">`; kanban card `<t t-name="kanban-box">`; `<hierarchy>`; groups in `groups_id`.
+
+Sections of this file:
+
+- [View records](#view-records)
+- [Write dynamic modifiers in the syntax this version evaluates](#write-dynamic-modifiers-in-the-syntax-this-version-evaluates)
+- [Form views](#form-views)
+- [List views](#list-views)
+- [Kanban views](#kanban-views)
+- [Search views](#search-views)
+- [Calendar, graph and pivot views](#calendar-graph-and-pivot-views)
+- [Activity, hierarchy and QWeb views](#activity-hierarchy-and-qweb-views)
+- [Show and hide view parts by group](#show-and-hide-view-parts-by-group)
+
 # View records
 
 - A view is an `ir.ui.view` record: `name` (`library.book.view.form`), `model`,

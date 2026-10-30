@@ -1,3 +1,14 @@
+Key names in 19.0: an `ir.actions.report` record (`report_type` `qweb-pdf`) on `web.html_container` and `web.external_layout`; `t-out`, not `t-esc`/`t-raw`; `_get_report_values` only for values the template needs; `report.paperformat`; groups in `group_ids`.
+
+Sections of this file:
+
+- [QWeb PDF reports](#qweb-pdf-reports)
+- [Declare a report as an ir.actions.report record](#declare-a-report-as-an-iractionsreport-record)
+- [Build report templates on web.html_container and web.external_layout](#build-report-templates-on-webhtml_container-and-webexternal_layout)
+- [Add values in _get_report_values only when the template needs them](#add-values-in-_get_report_values-only-when-the-template-needs-them)
+- [Set the paper format on the report](#set-the-paper-format-on-the-report)
+- [Check reports in the PDF, not in the HTML preview](#check-reports-in-the-pdf-not-in-the-html-preview)
+
 # QWeb PDF reports
 
 - A custom report's `_get_report_values` must add the default `docs` / `doc_ids`

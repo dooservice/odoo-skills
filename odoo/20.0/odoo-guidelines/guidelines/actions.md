@@ -1,3 +1,16 @@
+Key names in 20.0: `view_mode` `list,form`; `path` gives the URL `/odoo/<path>`; groups in `group_ids`; a server action's `state` has no default (`object_copy`, `webhook`) and its `code` history is in `ir.actions.server.history`; a cron reports progress with `_commit_progress` and has no `numbercall`.
+
+Sections of this file:
+
+- [Action records](#action-records)
+- [Window actions](#window-actions)
+- [Return actions from Python as dicts or by xml id](#return-actions-from-python-as-dicts-or-by-xml-id)
+- [Bind actions to the Action and Print menus](#bind-actions-to-the-action-and-print-menus)
+- [Server actions](#server-actions)
+- [Scheduled actions](#scheduled-actions)
+- [Menus](#menus)
+- [Configuration wizards](#configuration-wizards)
+
 # Action records
 
 Every action is a record of a model that extends `ir.actions.actions`, which holds

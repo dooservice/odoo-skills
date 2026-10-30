@@ -1,29 +1,63 @@
+One row per API that differs between versions, grouped by area: find the group of what you are writing, then its row.
+
+Sections of this file:
+
+- [Python, models and the ORM](#python-models-and-the-orm)
+- [Views and QWeb](#views-and-qweb)
+- [Security](#security)
+- [Routes and tests](#routes-and-tests)
+- [Web client](#web-client)
+- [Business records](#business-records)
+- [When unsure](#when-unsure)
+
 # What Odoo 20.0 has
 
 These skills are for Odoo 20.0 and only 20.0. Write for it: an API from another version
 fails at install or, worse, silently does nothing. Each row was checked against the
 20.0 source.
 
+## Python, models and the ORM
+
 | Topic | In 20.0 |
 | --- | --- |
 | Python | 3.12 or newer |
-| View modifiers | Python expressions on the attribute itself: `invisible="state != 'draft'"`, `readonly=`, `required=`, `column_invisible=`. `attrs` and `states` are refused with a ValidationError |
-| List view | `<list>`, view_mode `list`, xml id `<model>_view_list`. `<tree>` and `tree` are gone |
-| Chatter | `<chatter/>` at the end of the form |
 | Record display name | override `_compute_display_name`; `name_get` does not exist |
 | Grouped reads | `read_group(domain, groupby, aggregates)` and `_read_group`, both return tuples |
 | Field aggregation | `aggregator='sum'` |
 | SQL constraints and indexes | model attributes `_x_check = models.Constraint("CHECK (...)", "msg")`, `models.Index(...)`, `models.UniqueIndex(...)`; `_sql_constraints` is ignored with a warning |
 | Domains | `from odoo.fields import Domain`; `Domain(...) & Domain(...)`, `Domain.AND/OR` |
 | Translations in Python | `self.env._("...")`; `_lt = LazyTranslate(__name__)` for module-level constants; bare `_` still works |
+| System parameters | typed getters: `env['ir.config_parameter'].sudo().get_int('key', 14)`, `get_bool`, `get_float`, `get_str`; `set_int`, `set_bool`, `set_float`, `set_str` write. `get_param` and `set_param` do not exist |
+
+## Views and QWeb
+
+| Topic | In 20.0 |
+| --- | --- |
+| View modifiers | Python expressions on the attribute itself: `invisible="state != 'draft'"`, `readonly=`, `required=`, `column_invisible=`. `attrs` and `states` are refused with a ValidationError |
+| List view | `<list>`, view_mode `list`, xml id `<model>_view_list`. `<tree>` and `tree` are gone |
+| Chatter | `<chatter/>` at the end of the form |
+| QWeb output | `t-out` only; `t-esc` and `t-raw` are gone from server QWeb |
+
+## Security
+
+| Topic | In 20.0 |
+| --- | --- |
 | Group categories | `privilege_id` on `res.groups` (a `res.groups.privilege`) |
 | Access rights and record rules | `security/ir.access.csv` (`ir.access`, one model for ACLs and record rules): a record rule is an `ir.access` row with a `domain`, in the CSV or as `<record model="ir.access">`. `ir.model.access` and `ir.rule` do not exist |
 | User groups | `group_ids` on `res.users` (groups given explicitly), `all_group_ids` with the implied ones: `user.write({'group_ids': [Command.link(group.id)]})`. `groups_id` is gone |
-| System parameters | typed getters: `env['ir.config_parameter'].sudo().get_int('key', 14)`, `get_bool`, `get_float`, `get_str`; `set_int`, `set_bool`, `set_float`, `set_str` write. `get_param` and `set_param` do not exist |
+
+## Routes and tests
+
+| Topic | In 20.0 |
+| --- | --- |
 | Route types | `'http'`, `'jsonrpc'` (`'json'` is a deprecated alias), `'json2'` |
 | Route auth | `user`, `public`, `none`, `bearer` |
 | Default test tags | `post_install` |
-| QWeb output | `t-out` only; `t-esc` and `t-raw` are gone from server QWeb |
+
+## Web client
+
+| Topic | In 20.0 |
+| --- | --- |
 | Owl | Owl 3 (`signal`, `computed`) |
 | JS module header | none needed |
 | JS patch | `patch(Target.prototype, { ... })` |
@@ -32,8 +66,10 @@ fails at install or, worse, silently does nothing. Each row was checked against 
 | Shared logic | plugins: `class X extends Plugin` (`@odoo/owl`), `services.add(X)` (`@web/core/services`), used with `usePlugin(X)`; the `services` registry still starts, after the plugins, for code not moved yet |
 | JS tests | hoot (`@odoo/hoot`), `*.test.js` in `web.assets_unit_tests` |
 
-Business records, for `odoo-bin shell` scripts and data files (the `odoo-functional`
-recipes give the whole flow):
+## Business records
+
+For `odoo-bin shell` scripts and data files (the `odoo-functional` recipes give the
+whole flow):
 
 | Topic | In 20.0 |
 | --- | --- |

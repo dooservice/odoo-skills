@@ -1,3 +1,11 @@
+Key names in 18.0: `odoo-bin -c odoo.conf -d library_dev -u library --stop-after-init`; demo data unless `--without-demo=all`; `odoo-bin shell` then roll back; `populate` with `--factors`; `upgrade_code` rewrites code to this version.
+
+Sections of this file:
+
+- [Run odoo-bin with explicit options](#run-odoo-bin-with-explicit-options)
+- [Inspect a database with odoo-bin shell, then roll back](#inspect-a-database-with-odoo-bin-shell-then-roll-back)
+- [Use the odoo-bin subcommand made for the task](#use-the-odoo-bin-subcommand-made-for-the-task)
+
 # Run odoo-bin with explicit options
 
 Pass the configuration file, the database and the modules on every command: an

@@ -1,3 +1,12 @@
+Key names in 19.0: bump `version` and ship a migration for every data change; data files listed in dependency order; `noupdate="1"` on records users may change; demo data only with `--with-demo`, or `odoo-bin module force-demo -d <db>`.
+
+Sections of this file:
+
+- [Changes to an installed module](#changes-to-an-installed-module)
+- [List data files in the order they reference each other](#list-data-files-in-the-order-they-reference-each-other)
+- [Mark records that users may change as noupdate](#mark-records-that-users-may-change-as-noupdate)
+- [Keep demo data out of what the module needs](#keep-demo-data-out-of-what-the-module-needs)
+
 # Changes to an installed module
 
 A module that is installed in a database that matters (production, or a clone of it)

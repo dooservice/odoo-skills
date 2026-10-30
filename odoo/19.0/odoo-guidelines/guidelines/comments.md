@@ -1,3 +1,9 @@
+Key names in 19.0: comments, docstrings, user-facing strings and commit messages use plain ASCII punctuation; the build refuses typographic characters elsewhere.
+
+Sections of this file:
+
+- [Plain ASCII punctuation in comments and messages](#plain-ascii-punctuation-in-comments-and-messages)
+
 # Plain ASCII punctuation in comments and messages
 
 Write code comments, docstrings, user-facing strings and commit messages with

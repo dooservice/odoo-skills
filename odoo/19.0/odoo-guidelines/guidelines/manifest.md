@@ -1,3 +1,9 @@
+Key names in 19.0: `version` is `19.0.x.y.z`; `depends` lists direct dependencies only, never `base` alone (`['base']` is injected); `data` in load order; `license` set explicitly.
+
+Sections of this file:
+
+- [Manifest](#manifest)
+
 # Manifest
 
 - `name` is required. `version` is `19.0.x.y.z` (the Odoo series, then the

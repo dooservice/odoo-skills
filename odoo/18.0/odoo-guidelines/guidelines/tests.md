@@ -1,3 +1,19 @@
+Key names in 18.0: `TransactionCase`, `HttpCase`; default tag `at_install`, so business tests take `@tagged('post_install', '-at_install')`; `Form.from_action(self.env, action)`; `from odoo.tests import freeze_time`; `--test-tags`.
+
+Sections of this file:
+
+- [Tests](#tests)
+- [Pick the test class by what the test needs](#pick-the-test-class-by-what-the-test-needs)
+- [Tag every test class with the moment it runs](#tag-every-test-class-with-the-moment-it-runs)
+- [Make sure the runner collects every test](#make-sure-the-runner-collects-every-test)
+- [Build shared data in setUpClass](#build-shared-data-in-setupclass)
+- [Drive form behavior through Form](#drive-form-behavior-through-form)
+- [Count queries only in dedicated performance tests](#count-queries-only-in-dedicated-performance-tests)
+- [Freeze the date a test depends on](#freeze-the-date-a-test-depends-on)
+- [Test routes and tours with HttpCase](#test-routes-and-tours-with-httpcase)
+- [Other test decorators](#other-test-decorators)
+- [Select tests with test tags](#select-tests-with-test-tags)
+
 # Tests
 
 Conventions for everything under `tests/`.

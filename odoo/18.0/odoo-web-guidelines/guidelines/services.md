@@ -1,3 +1,24 @@
+Key names in 18.0:
+
+- Services are entries of `registry.category("services")`: `dependencies`, `start(env, deps)`, `async`; reached with `useService`.
+- `orm` methods include `webRead`, `webSearchRead` with a `specification`, `webSave`.
+- Routes: `rpc` is a function of `@web/core/network/rpc`, with `RPCError` and `ConnectionLostError`; no `rpc` service.
+- `user` from `@web/core/user` and `router` from `@web/core/browser/router`, not services; `useService("company")` remains.
+- `doAction` option `stackPosition`; notification `autocloseDelay`.
+
+Sections of this file:
+
+- Services in 18.0
+- Get a service through its hook, never through a global
+- Keep shared logic and shared state out of components
+- Call model methods with the `orm` service
+- Call a route with `rpc`
+- Open actions with the `action` service
+- Notify with `notification`, ask with `dialog`
+- Read the user and the companies
+- Change the URL through the router
+- Read shared context from `env`, never write to it
+
 # Services in 18.0
 
 A service is a long-lived object that the web client starts once and every component

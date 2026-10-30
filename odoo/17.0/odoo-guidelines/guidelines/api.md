@@ -1,10 +1,20 @@
+Key names in 17.0: `@api.model_create_multi` on every `create`; `@api.ondelete` instead of an `unlink` override; `@api.returns` and `@api.model_create_single` still exist; `@api.readonly` does not.
+
+Sections of this file:
+
+- [Method decorators](#method-decorators)
+- [Override `create` with `@api.model_create_multi`](#override-create-with-apimodel_create_multi)
+- [Block deletion with `@api.ondelete`, not an `unlink` override](#block-deletion-with-apiondelete-not-an-unlink-override)
+- [Validate with `@api.constrains`, and know what it does not see](#validate-with-apiconstrains-and-know-what-it-does-not-see)
+- [Use `@api.onchange` only for form-side help](#use-apionchange-only-for-form-side-help)
+
 # Method decorators
 
 Every decorator of `odoo.api` in 17.0, and what it is for:
 
 | Decorator | Use it on |
 | --- | --- |
-| `@api.depends('field', 'partner_id.name')` | a compute method: every field it reads, dotted paths included; see [Computed fields](fields.md#declare-every-dependency-of-a-computed-field) |
+| `@api.depends('field', 'partner_id.name')` | a compute method: every field it reads, dotted paths included; see [Computed fields](computed_fields.md#declare-every-dependency-of-a-computed-field) |
 | `@api.depends_context('company')` | a non-stored compute that reads context keys (`company`, `uid`, `lang`, `active_test`, or your own) |
 | `@api.constrains('field', ...)` | a Python check that raises `ValidationError`; see [below](#validate-with-apiconstrains-and-know-what-it-does-not-see) |
 | `@api.onchange('field', ...)` | form-only assistance; see [below](#use-apionchange-only-for-form-side-help) |
@@ -12,7 +22,7 @@ Every decorator of `odoo.api` in 17.0, and what it is for:
 | `@api.model_create_multi` | every `create` override; see [below](#override-create-with-apimodel_create_multi) |
 | `@api.ondelete(at_uninstall=False)` | a check that forbids deleting some records; see [below](#block-deletion-with-apiondelete-not-an-unlink-override) |
 | `@api.autovacuum` | a private method the daily `ir.autovacuum` cron calls for garbage collection; its name must start with `_` (asserted) |
-| `@api.private` | a public method that must not be callable over RPC; see [Methods and extension points](orm.md#methods-and-extension-points) |
+| `@api.private` | a public method that must not be callable over RPC; see [Methods and extension points](orm_advanced.md#methods-and-extension-points) |
 | `@api.returns('self', lambda value: value.id)` | core methods returning records, so that RPC callers get ids; overrides inherit it, and new methods do not need it |
 | `@api.model_create_single` | nothing new: it wraps a `create` that takes one dict, creates records one by one and logs a warning; use `@api.model_create_multi` |
 

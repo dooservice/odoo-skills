@@ -1,3 +1,16 @@
+Key names in 17.0: the list view type is `tree` (`view_mode` `tree,form`); groups in `groups_id`; `object_write` sets one field through `update_path`, and `webhook` server actions exist; a cron runs `numbercall` times and batches by calling `_trigger()`.
+
+Sections of this file:
+
+- [Action records](#action-records)
+- [Window actions](#window-actions)
+- [Return actions from Python as dicts or by xml id](#return-actions-from-python-as-dicts-or-by-xml-id)
+- [Bind actions to the Action and Print menus](#bind-actions-to-the-action-and-print-menus)
+- [Server actions](#server-actions)
+- [Scheduled actions](#scheduled-actions)
+- [Menus](#menus)
+- [Configuration wizards](#configuration-wizards)
+
 # Action records
 
 Every action is a record of a model that extends `ir.actions.actions`, which holds
