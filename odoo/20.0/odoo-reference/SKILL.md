@@ -3,7 +3,7 @@ name: odoo-reference
 description: >-
   Every model, field, Settings switch and XML id of Odoo 20.0 Community.
   Look names up here instead of guessing: they change between versions. In
-  20.0: sale lines `tax_ids`; product `is_storable`; taxes `price_include_override='tax_included'`; UoM `relative_factor`; fiscal positions: `original_tax_ids` on the replacement tax; pricelist `compute_price='discount'` with `price_discount` (no `'percentage'`); time off types are `hr.work.entry.type` with `count_as='absence'` (no `hr.leave.type`); expenses `action_submit()`; reconciliation models `trigger`; bank journal `bank_account_number`; companies: `is_company` is computed, no `company_type`; users `group_ids`; scrap: a `stock.move` with `is_scrap` (no `stock.scrap`); parameters `get_int`/`get_str`. For business flows and configuration, load odoo-functional
+  20.0: sale lines `tax_ids`; product `is_storable`; taxes `price_include_override='tax_included'`; payment term lines `nb_days` (no `'balance'`); UoM `relative_factor`; fiscal positions: `original_tax_ids` on the replacement tax; pricelist `compute_price='discount'` with `price_discount` (no `'percentage'`); time off types are `hr.work.entry.type` with `count_as='absence'` (no `hr.leave.type`); expenses `action_submit()`; reconciliation models `trigger`; bank journal `bank_account_number`; companies: `is_company` is computed, no `company_type`; users `group_ids`; scrap: a `stock.move` with `is_scrap` (no `stock.scrap`); parameters `get_int`/`get_str`. For business flows and configuration, load odoo-functional
   first and use this skill for names.
 ---
 

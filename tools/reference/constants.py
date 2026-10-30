@@ -60,7 +60,7 @@ BUSINESS_NAMES = {
     "18.0": (
         "sale lines `tax_id`; product `type='consu'` with `is_storable=True` (no "
         "`detailed_type`); taxes `price_include_override='tax_included'`; payment term "
-        "lines `nb_days` and `delay_type`; UoM "
+        "lines `nb_days` and `delay_type` (no `'balance'`); UoM "
         "`category_id`; fiscal position lines `account.fiscal.position.tax` (`tax_src_id`, "
         "`tax_dest_id`); pricelist `'percentage'`, no `discount_policy`; time off "
         "`hr.leave.type`, `requires_allocation` `'yes'`/`'no'`, validation `'hr'`; expenses "
@@ -71,7 +71,8 @@ BUSINESS_NAMES = {
     "19.0": (
         "sale lines `tax_ids`; product `is_storable`; taxes "
         "`price_include_override='tax_included'`; payment term lines `nb_days` and "
-        "`delay_type`; UoM `relative_factor` and `relative_uom_id` (no `category_id`); "
+        "`delay_type` (no `'balance'`); UoM `relative_factor` and `relative_uom_id` "
+        "(no `category_id`); "
         "fiscal positions: `fiscal_position_ids` and `original_tax_ids` on the replacement "
         "tax (no `account.fiscal.position.tax`); pricelist `'percentage'`; time off "
         "`hr.leave.type`, `requires_allocation=True`, validation `'hr'`; expenses "
@@ -80,7 +81,8 @@ BUSINESS_NAMES = {
     ),
     "20.0": (
         "sale lines `tax_ids`; product `is_storable`; taxes "
-        "`price_include_override='tax_included'`; UoM `relative_factor`; fiscal "
+        "`price_include_override='tax_included'`; payment term lines `nb_days` (no "
+        "`'balance'`); UoM `relative_factor`; fiscal "
         "positions: `original_tax_ids` on the replacement tax; pricelist "
         "`compute_price='discount'` with `price_discount` (no `'percentage'`); time off "
         "types are `hr.work.entry.type` with `count_as='absence'` (no `hr.leave.type`); "
