@@ -1,8 +1,9 @@
 ---
 name: odoo-reference
 description: >-
-  Every model, field, Settings switch and XML id of Odoo {version} Community.
-  Look names up here instead of guessing: they change between versions. In
+  Read before any `odoo-bin shell` script or ORM call for Odoo {version}, even
+  if you know Odoo: names and values change between versions. Every
+  model, field, Settings switch and XML id of {version} Community. In
   {version}: {names} For business flows and configuration, load odoo-functional
   first and use this skill for names.
 ---

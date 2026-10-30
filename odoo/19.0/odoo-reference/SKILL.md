@@ -1,9 +1,10 @@
 ---
 name: odoo-reference
 description: >-
-  Every model, field, Settings switch and XML id of Odoo 19.0 Community.
-  Look names up here instead of guessing: they change between versions. In
-  19.0: sale lines `tax_ids`; product `is_storable`; payment term lines `nb_days` and `delay_type`; UoM `relative_factor` and `relative_uom_id` (no `category_id`); fiscal positions: `fiscal_position_ids` and `original_tax_ids` on the replacement tax (no `account.fiscal.position.tax`); pricelist `'percentage'`; time off `hr.leave.type`, `requires_allocation=True`, validation `'hr'`; expenses `action_submit()`, no `hr.expense.sheet`; reconciliation models `trigger`, no `rule_type`; bank journal `bank_acc_number`; users `group_ids`; scrap `stock.scrap`. For business flows and configuration, load odoo-functional
+  Read before any `odoo-bin shell` script or ORM call for Odoo 19.0, even
+  if you know Odoo: names and values change between versions. Every
+  model, field, Settings switch and XML id of 19.0 Community. In
+  19.0: sale lines `tax_ids`; product `is_storable`; taxes `price_include_override='tax_included'`; payment term lines `nb_days` and `delay_type`; UoM `relative_factor` and `relative_uom_id` (no `category_id`); fiscal positions: `fiscal_position_ids` and `original_tax_ids` on the replacement tax (no `account.fiscal.position.tax`); pricelist `'percentage'`; time off `hr.leave.type`, `requires_allocation=True`, validation `'hr'`; expenses `action_submit()`, no `hr.expense.sheet`; reconciliation models `trigger`, no `rule_type`; bank journal `bank_acc_number`; users `group_ids`; scrap `stock.scrap`. For business flows and configuration, load odoo-functional
   first and use this skill for names.
 ---
 

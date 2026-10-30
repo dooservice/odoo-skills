@@ -34,20 +34,24 @@ SHORTHANDS = {"menuitem": "ir.ui.menu", "template": "ir.ui.view"}
 #: is the one part an agent always sees, whether it loads the skill or not.
 BUSINESS_NAMES = {
     "16.0": (
-        "sale lines `tax_id`; product `detailed_type` (`'product'` is storable); payment "
-        "term lines `value` (`'balance'`, `'percent'`, `'fixed'`) with `days`; UoM "
+        "sale lines `tax_id`; storable product `detailed_type='product'` (`type` follows "
+        "it); taxes `price_include=True`; payment term lines `value` (`'balance'`, "
+        "`'percent'`, `'fixed'`) with `days`; UoM "
         "`category_id`; fiscal position lines `account.fiscal.position.tax` (`tax_src_id`, "
-        "`tax_dest_id`); pricelist `compute_price='percentage'` and `discount_policy`; time "
+        "`tax_dest_id`); pricelist `compute_price='percentage'`, "
+        "`discount_policy='without_discount'` shows the discount on the line; time "
         "off `hr.leave.type`, `requires_allocation` `'yes'`/`'no'`; expenses in "
         "`hr.expense.sheet`; reconciliation models `rule_type`; bank journal "
         "`bank_acc_number`; users `groups_id`; scrap `stock.scrap`; chart of accounts "
         "`env.ref(...).try_loading(company=company)`."
     ),
     "17.0": (
-        "sale lines `tax_id`; product `detailed_type` (`'product'` is storable); payment "
-        "term lines `value` (`'percent'`, `'fixed'`) with `nb_days` and `delay_type`; UoM "
+        "sale lines `tax_id`; storable product `detailed_type='product'` (`type` follows "
+        "it); taxes `price_include=True`; payment term lines `value` `'percent'` or "
+        "`'fixed'` (no `'balance'`) with `nb_days` and `delay_type`; UoM "
         "`category_id`; fiscal position lines `account.fiscal.position.tax` (`tax_src_id`, "
-        "`tax_dest_id`); pricelist `'percentage'` and `discount_policy`; time off "
+        "`tax_dest_id`); pricelist `'percentage'`, `discount_policy='without_discount'` "
+        "shows the discount on the line; time off "
         "`hr.leave.type`, `requires_allocation` `'yes'`/`'no'`; expenses in "
         "`hr.expense.sheet`; reconciliation models `rule_type`; bank journal "
         "`bank_acc_number`; users `groups_id`; automation actions in `action_server_ids`; "
@@ -55,7 +59,8 @@ BUSINESS_NAMES = {
     ),
     "18.0": (
         "sale lines `tax_id`; product `type='consu'` with `is_storable=True` (no "
-        "`detailed_type`); payment term lines `nb_days` and `delay_type`; UoM "
+        "`detailed_type`); taxes `price_include_override='tax_included'`; payment term "
+        "lines `nb_days` and `delay_type`; UoM "
         "`category_id`; fiscal position lines `account.fiscal.position.tax` (`tax_src_id`, "
         "`tax_dest_id`); pricelist `'percentage'`, no `discount_policy`; time off "
         "`hr.leave.type`, `requires_allocation` `'yes'`/`'no'`, validation `'hr'`; expenses "
@@ -64,7 +69,8 @@ BUSINESS_NAMES = {
         "`stock.scrap`; chart of accounts `try_loading('generic_coa', company)`."
     ),
     "19.0": (
-        "sale lines `tax_ids`; product `is_storable`; payment term lines `nb_days` and "
+        "sale lines `tax_ids`; product `is_storable`; taxes "
+        "`price_include_override='tax_included'`; payment term lines `nb_days` and "
         "`delay_type`; UoM `relative_factor` and `relative_uom_id` (no `category_id`); "
         "fiscal positions: `fiscal_position_ids` and `original_tax_ids` on the replacement "
         "tax (no `account.fiscal.position.tax`); pricelist `'percentage'`; time off "
@@ -73,7 +79,8 @@ BUSINESS_NAMES = {
         "`rule_type`; bank journal `bank_acc_number`; users `group_ids`; scrap `stock.scrap`."
     ),
     "20.0": (
-        "sale lines `tax_ids`; product `is_storable`; UoM `relative_factor`; fiscal "
+        "sale lines `tax_ids`; product `is_storable`; taxes "
+        "`price_include_override='tax_included'`; UoM `relative_factor`; fiscal "
         "positions: `original_tax_ids` on the replacement tax; pricelist "
         "`compute_price='discount'` with `price_discount` (no `'percentage'`); time off "
         "types are `hr.work.entry.type` with `count_as='absence'` (no `hr.leave.type`); "

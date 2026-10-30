@@ -1,9 +1,10 @@
 ---
 name: odoo-reference
 description: >-
-  Every model, field, Settings switch and XML id of Odoo 18.0 Community.
-  Look names up here instead of guessing: they change between versions. In
-  18.0: sale lines `tax_id`; product `type='consu'` with `is_storable=True` (no `detailed_type`); payment term lines `nb_days` and `delay_type`; UoM `category_id`; fiscal position lines `account.fiscal.position.tax` (`tax_src_id`, `tax_dest_id`); pricelist `'percentage'`, no `discount_policy`; time off `hr.leave.type`, `requires_allocation` `'yes'`/`'no'`, validation `'hr'`; expenses in `hr.expense.sheet`, then `action_submit_sheet()`; reconciliation models `rule_type`; bank journal `bank_acc_number`; users `groups_id`; scrap `stock.scrap`; chart of accounts `try_loading('generic_coa', company)`. For business flows and configuration, load odoo-functional
+  Read before any `odoo-bin shell` script or ORM call for Odoo 18.0, even
+  if you know Odoo: names and values change between versions. Every
+  model, field, Settings switch and XML id of 18.0 Community. In
+  18.0: sale lines `tax_id`; product `type='consu'` with `is_storable=True` (no `detailed_type`); taxes `price_include_override='tax_included'`; payment term lines `nb_days` and `delay_type`; UoM `category_id`; fiscal position lines `account.fiscal.position.tax` (`tax_src_id`, `tax_dest_id`); pricelist `'percentage'`, no `discount_policy`; time off `hr.leave.type`, `requires_allocation` `'yes'`/`'no'`, validation `'hr'`; expenses in `hr.expense.sheet`, then `action_submit_sheet()`; reconciliation models `rule_type`; bank journal `bank_acc_number`; users `groups_id`; scrap `stock.scrap`; chart of accounts `try_loading('generic_coa', company)`. For business flows and configuration, load odoo-functional
   first and use this skill for names.
 ---
 
