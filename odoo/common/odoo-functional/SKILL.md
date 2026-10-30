@@ -19,26 +19,26 @@ description: >-
 
 # Configuring Odoo without code
 
-Most requests are configuration: data changed through the ORM, no module.
-`method.md` holds every step, rule and template in full.
+Most requests are configuration: data changed through the ORM, no module. Open
+the recipe and load `odoo-reference` in the same turn; `method.md` only when a step
+is unclear.
 
 ## The method
 
-1. Understand the request in business terms; ask when it is ambiguous.
-2. Read the current state; never change what you have not read.
+1. Understand the request in business terms; ask if ambiguous.
+2. Read the current state; never change what you did not read.
 3. Find the lever in `odoo-reference` for this version, not from memory.
 4. Read the matching recipe; copy the code block of this version.
-5. Propose what changes, on which records, how to undo; wait for the yes.
-6. Change through the ORM in the smallest step; archive, do not delete.
-7. Verify: read again, try it as the affected user.
-8. End with the change note of `method.md`.
-9. Country rules (`l10n_*`) are not covered: say so, check with the user.
+5. Propose the change, its records and its undo; wait for the yes.
+6. Change through the ORM, smallest step; archive, never delete.
+7. Verify: read again, try it as the user.
+8. End with a change note: what changed, how to undo, what you checked.
+9. Country rules (`l10n_*`) are not covered: say so, ask the user.
 10. Needs code: offer the closest configuration, then `odoo-guidelines`.
 
-## Reaching the database
-
-`connect.md`: the environment's ORM tools, else `odoo-bin shell`, else the external
-API (JSON-2 from 19.0); SQL only to read.
+Reach the database with the environment's ORM tools, else `odoo-bin shell -d <db>
+< script.py` (`env` ready, end with `env.cr.commit()`), else the external API; SQL
+only to read. `connect.md`: the API, dry runs, acting as a user.
 
 ## Rules that save databases
 
@@ -52,7 +52,7 @@ API (JSON-2 from 19.0); SQL only to read.
 
 ## Recipes
 
-Files in `recipes/`, `.md` left out.
+In `recipes/`, `.md` left out:
 
 Accounting
 - `taxes-and-journals`, invoice numbering
