@@ -19,9 +19,8 @@ description: >-
 
 # Configuring Odoo without code
 
-Most requests are configuration: data changed through the ORM, no module. Open
-the recipe and load `odoo-reference` in the same turn; `method.md` only when a step
-is unclear.
+Most requests are configuration: data changed through the ORM, no module. This
+page is enough to work; open `method.md` only when a step is unclear.
 
 ## The method
 
