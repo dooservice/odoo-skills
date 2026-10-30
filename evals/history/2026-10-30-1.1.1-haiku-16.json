@@ -1,0 +1,171 @@
+{
+ "date": "2026-10-30",
+ "skills": "1.1.1",
+ "model": "claude-haiku-5-5",
+ "odoo": "16.0",
+ "runs_per_case": 3,
+ "cost_usd": 0.2989,
+ "duration_seconds": 288,
+ "cases": [
+  {
+   "name": "code-combine-domains",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 3.67,
+   "turns_without": 3.67,
+   "cost_usd": 0.01112
+  },
+  {
+   "name": "code-conditional-visibility",
+   "score": 0.6667,
+   "score_without": 0.6667,
+   "turns_with": 3.33,
+   "turns_without": 2.67,
+   "cost_usd": 0.01237
+  },
+  {
+   "name": "code-display-name",
+   "score": 1,
+   "score_without": 0.7778,
+   "turns_with": 3.0,
+   "turns_without": 4.0,
+   "cost_usd": 0.00965
+  },
+  {
+   "name": "code-js-test",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 4.33,
+   "turns_without": 2.33,
+   "cost_usd": 0.02172
+  },
+  {
+   "name": "code-json-route",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 5.0,
+   "turns_without": 3.33,
+   "cost_usd": 0.0146
+  },
+  {
+   "name": "code-list-view",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 3.67,
+   "turns_without": 2.33,
+   "cost_usd": 0.01236
+  },
+  {
+   "name": "code-patch-component",
+   "score": 1,
+   "score_without": 0.3333,
+   "turns_with": 4.0,
+   "turns_without": 2.33,
+   "cost_usd": 0.01186
+  },
+  {
+   "name": "code-translated-error",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 4.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01211
+  },
+  {
+   "name": "code-unique-constraint",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 4.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.01253
+  },
+  {
+   "name": "code-user-groups",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 5.0,
+   "turns_without": 4.0,
+   "cost_usd": 0.01319
+  },
+  {
+   "name": "functional-automation-rule",
+   "score": 0.8889,
+   "score_without": 0.6667,
+   "turns_with": 4.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01855
+  },
+  {
+   "name": "functional-chart-of-accounts",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 4.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01667
+  },
+  {
+   "name": "functional-fiscal-position-mapping",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 6.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.02097
+  },
+  {
+   "name": "functional-initial-stock",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 5.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01802
+  },
+  {
+   "name": "functional-order-line-tax",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 4.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01221
+  },
+  {
+   "name": "functional-payment-term",
+   "score": 1,
+   "score_without": 0.6667,
+   "turns_with": 5.0,
+   "turns_without": 2.33,
+   "cost_usd": 0.01562
+  },
+  {
+   "name": "functional-pricelist-discount",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 7.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.02168
+  },
+  {
+   "name": "functional-storable-product",
+   "score": 1,
+   "score_without": 0.6667,
+   "turns_with": 5.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01417
+  },
+  {
+   "name": "functional-tax-included",
+   "score": 1,
+   "score_without": 1,
+   "turns_with": 5.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01408
+  },
+  {
+   "name": "functional-user-groups",
+   "score": 0.8889,
+   "score_without": 1,
+   "turns_with": 4.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01546
+  }
+ ]
+}
