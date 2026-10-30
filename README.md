@@ -35,6 +35,11 @@ each needs accountants of that country to keep it right as its law changes.
 - **The reference matches a running Odoo.** Every model, field, XML id and Settings field
   it lists was compared with Odoo's own registry, in each version: no mismatch.
 - **Every version difference is checked in that branch's source**, with the file and line.
+- **It reaches the agent in layers.** The description, always visible, names the names
+  and values that change most in that version; the body of each skill is a short map from
+  task to file; each file opens with its key names and its sections; the detail and the
+  reference come last and are searched, not read whole. `tools/check_budgets.py` keeps
+  every layer within its size budget.
 - **What it changes is measured.** `evals/` runs the same tasks with and without the
   skills; see [the results](#results).
 
@@ -43,42 +48,43 @@ version-specific statement checked against that branch's source.
 
 ## Results
 
-The same tasks, run three times each with and without the skills. Each task asks for a
-file (a view, a model, a controller, an `odoo-bin shell` script) and checks that it uses
-what that Odoo version has and nothing it does not. Measured on the 1.1.1 skills, on
-2026-10-30.
+The same tasks, run with and without the skills. Each task asks for a file (a view, a
+model, a controller, an `odoo-bin shell` script) and checks that it uses what that Odoo
+version has and nothing it does not. Measured on the 2.0.0 skills on 2026-10-30, five
+runs per task with Haiku and three with Sonnet. "Added context" is what the skills add
+to the tokens an agent sends per task (input and prompt cache), exact from each trace.
 
 **Claude Haiku 5.5**, a small and cheap model
 
-| Odoo | Tasks | With the skills | Without | Difference | Code / functional with the skills | Cost |
-|---|---|---|---|---|---|---|
-| 20.0 | 19 | **100%** | 59.1% | **+40.9 points** | 100% / 100% | 0.36 USD |
-| 19.0 | 22 | **100%** | 77.8% | **+22.2 points** | 100% / 100% | 0.40 USD |
-| 18.0 | 20 | **100%** | 86.3% | **+13.7 points** | 100% / 100% | 0.31 USD |
-| 17.0 | 21 | **98.3%** | 85.8% | **+12.5 points** | 100% / 96.4% | 0.31 USD |
-| 16.0 | 20 | **97.2%** | 88.9% | **+8.3 points** | 96.7% / 97.8% | 0.30 USD |
+| Odoo | Tasks | With the skills | Without | Difference | Code / functional | Added context, 1.1.1 to 2.0.0 | Cost per task |
+|---|---|---|---|---|---|---|---|
+| 20.0 | 19 | **98.6%** | 58.9% | **+39.7 points** | 97.1% / 99.4% | 79.7k to 52.8k (**-34%**) | 0.0039 USD |
+| 19.0 | 22 | **96.1%** | 77.6% | **+18.5 points** | 97.2% / 94.7% | 59.6k to 40.5k (**-32%**) | 0.0036 USD |
+| 18.0 | 20 | **97.3%** | 87.2% | **+10.1 points** | 98.0% / 96.7% | 40.5k to 30.5k (**-25%**) | 0.0032 USD |
+| 17.0 | 21 | **99.7%** | 88.5% | **+11.2 points** | 100% / 99.3% | 28.4k to 26.4k (-7%) | 0.0030 USD |
+| 16.0 | 20 | **99.7%** | 93.3% | **+6.4 points** | 100% / 99.3% | 40.5k to 33.3k (-18%) | 0.0032 USD |
+
+Against the 1.1.1 skills measured the same way, the mean score goes from 95.6% to 98.3%
+and the context the skills add drops by 26%.
 
 **Claude Sonnet 5.5**
 
-| Odoo | Tasks | With the skills | Without | Difference | Cost |
-|---|---|---|---|---|---|
-| 20.0 | 19 | **99.4%** | 68.6% | **+30.8 points** | 4.52 USD |
-| 19.0 | 22 | **100%** | 94.4% | +5.6 points | 4.74 USD |
-| 18.0 | 20 | **100%** | 96.1% | +3.9 points | 4.11 USD |
-| 17.0 | 21 | **100%** | 94.0% | +6.0 points | 4.45 USD |
-| 16.0 | 20 | **98.3%** | 95.0% | +3.3 points | 4.23 USD |
-
-Sonnet on 17.0 to 19.0 was measured on 1.1.0, already at 100%; 1.1.1 changes only the
-skills' descriptions. The cost is what each suite cost through the API, both sides
-included.
+| Odoo | Tasks | With the skills | Without | Difference | Skills | Cost per suite |
+|---|---|---|---|---|---|---|
+| 20.0 | 19 | **99.4%** | 68.0% | **+31.4 points** | 2.0.0 | 3.98 USD |
+| 19.0 | 22 | **100%** | 94.4% | +5.6 points | 1.1.0 | 4.74 USD |
+| 18.0 | 20 | **100%** | 96.1% | +3.9 points | 1.1.0 | 4.11 USD |
+| 17.0 | 21 | **100%** | 94.0% | +6.0 points | 1.1.0 | 4.45 USD |
+| 16.0 | 20 | **98.3%** | 95.0% | +3.3 points | 1.1.1 | 4.23 USD |
 
 The skills matter most where a model knows least: the newest version, and the smaller
-model. With 1.1.0, Haiku gained only 13.6 points on 20.0, because on code tasks it did not
-load the skills and wrote from memory. 1.1.1 puts the names that change most in each
-version into the skills' descriptions, the one part an agent always sees: Haiku now
-reaches 97% to 100% on every version. The full history, with every run, its cost and its
-tokens, is in [`evals/RESULTS.md`](evals/RESULTS.md); the cases, the graders and how to
-run them are in [`evals/`](evals/README.md).
+model. Agents that load a skill almost never fail; most of the remaining failures are
+runs where the agent wrote from memory without loading one, which is why each
+description carries the names and values that change most in its version. Scores move
+by about 3 points between identical runs, so compare versions on several runs. The full
+history, with every run, its cost and its tokens, is in
+[`evals/RESULTS.md`](evals/RESULTS.md); the cases, the graders and how to run them are in
+[`evals/`](evals/README.md).
 
 How these results were reached: [case study](docs/case-study/README.md).
 
@@ -157,6 +163,8 @@ tools/               the generators, not part of any skill:
   build_catalog.py     writes the marketplace; catalog/ is its code
   build_coverage.py    measures what the skills cover against each version's source, into
                        COVERAGE.md; coverage/ is its code, recipes.toml and technical.toml its data
+  check_budgets.py     keeps every layer of every skill within its size budget (run by CI)
+  build_case_study.py  draws the case study charts from evals/history/; case_study/ is its code
   upstream.py          lists Odoo's commits to its own skills since the one ours follow
 ```
 
