@@ -1,0 +1,227 @@
+{
+ "date": "2026-10-30",
+ "skills": "2.0.0",
+ "model": "claude-sonnet-5-5",
+ "odoo": "20.0",
+ "runs_per_case": 3,
+ "cost_usd": 3.9786,
+ "duration_seconds": 17,
+ "tokens": {
+  "input": 732,
+  "cache_write": 1068181,
+  "cache_read": 3943229,
+  "output": 91237,
+  "exact": true
+ },
+ "cases": [
+  {
+   "name": "code-access-rights",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 5.67,
+   "turns_without": 2.67,
+   "cost_usd": 0.20545,
+   "context_with": 74411,
+   "context_without": 28241,
+   "output_with": 904
+  },
+  {
+   "name": "code-combine-domains",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 4.0,
+   "turns_without": 2.67,
+   "cost_usd": 0.18056,
+   "context_with": 49564,
+   "context_without": 32028,
+   "output_with": 818
+  },
+  {
+   "name": "code-json-route",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 4.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.19691,
+   "context_with": 54818,
+   "context_without": 24039,
+   "output_with": 892
+  },
+  {
+   "name": "code-record-rule",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 5.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.20849,
+   "context_with": 71594,
+   "context_without": 23958,
+   "output_with": 1081
+  },
+  {
+   "name": "code-system-parameter",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 2.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.13953,
+   "context_with": 27515,
+   "context_without": 23931,
+   "output_with": 472
+  },
+  {
+   "name": "code-unique-constraint",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 3.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.15513,
+   "context_with": 38695,
+   "context_without": 23932,
+   "output_with": 639
+  },
+  {
+   "name": "code-user-groups",
+   "score": 1.0,
+   "score_without": 0.6667,
+   "turns_with": 2.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.14017,
+   "context_with": 27630,
+   "context_without": 23880,
+   "output_with": 533
+  },
+  {
+   "name": "functional-bank-journal",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 6.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.24295,
+   "context_with": 87674,
+   "context_without": 23984,
+   "output_with": 961
+  },
+  {
+   "name": "functional-company-partner",
+   "score": 0.8889,
+   "score_without": 0.7778,
+   "turns_with": 6.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.27454,
+   "context_with": 109841,
+   "context_without": 24008,
+   "output_with": 1506
+  },
+  {
+   "name": "functional-expense-report",
+   "score": 1.0,
+   "score_without": 0.8889,
+   "turns_with": 5.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.28008,
+   "context_with": 74063,
+   "context_without": 24843,
+   "output_with": 1304
+  },
+  {
+   "name": "functional-fiscal-position-mapping",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 5.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.25785,
+   "context_with": 72520,
+   "context_without": 24448,
+   "output_with": 1374
+  },
+  {
+   "name": "functional-order-line-tax",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 2.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.15118,
+   "context_with": 27616,
+   "context_without": 24091,
+   "output_with": 568
+  },
+  {
+   "name": "functional-payment-term",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.23654,
+   "context_with": 73300,
+   "context_without": 24243,
+   "output_with": 807
+  },
+  {
+   "name": "functional-pricelist-discount",
+   "score": 1.0,
+   "score_without": 0.25,
+   "turns_with": 4.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.19664,
+   "context_with": 59281,
+   "context_without": 24081,
+   "output_with": 1009
+  },
+  {
+   "name": "functional-scrap",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 5.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.23715,
+   "context_with": 74708,
+   "context_without": 24038,
+   "output_with": 893
+  },
+  {
+   "name": "functional-storable-product",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 2.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.13547,
+   "context_with": 27557,
+   "context_without": 23927,
+   "output_with": 403
+  },
+  {
+   "name": "functional-tax-included",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.24211,
+   "context_with": 80047,
+   "context_without": 24043,
+   "output_with": 1200
+  },
+  {
+   "name": "functional-time-off-type",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 8.0,
+   "turns_without": 3.0,
+   "cost_usd": 0.2745,
+   "context_with": 86522,
+   "context_without": 37427,
+   "output_with": 1180
+  },
+  {
+   "name": "functional-user-groups",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.22336,
+   "context_with": 70009,
+   "context_without": 24205,
+   "output_with": 789
+  }
+ ]
+}

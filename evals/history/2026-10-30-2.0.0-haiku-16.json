@@ -1,0 +1,238 @@
+{
+ "date": "2026-10-30",
+ "skills": "2.0.0",
+ "model": "claude-haiku-5-5",
+ "odoo": "16.0",
+ "runs_per_case": 5,
+ "cost_usd": 0.5074,
+ "duration_seconds": 23,
+ "tokens": {
+  "input": 1148,
+  "cache_write": 2183701,
+  "cache_read": 7179374,
+  "output": 325036,
+  "exact": true
+ },
+ "cases": [
+  {
+   "name": "code-combine-domains",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.8,
+   "turns_without": 3.8,
+   "cost_usd": 0.02299,
+   "context_with": 61087,
+   "context_without": 44484,
+   "output_with": 1658
+  },
+  {
+   "name": "code-conditional-visibility",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 2.8,
+   "turns_without": 2.4,
+   "cost_usd": 0.01899,
+   "context_with": 35868,
+   "context_without": 31712,
+   "output_with": 1187
+  },
+  {
+   "name": "code-display-name",
+   "score": 1.0,
+   "score_without": 0.8667,
+   "turns_with": 3.0,
+   "turns_without": 3.8,
+   "cost_usd": 0.01745,
+   "context_with": 44166,
+   "context_without": 41485,
+   "output_with": 758
+  },
+  {
+   "name": "code-js-test",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 4.4,
+   "turns_without": 2.2,
+   "cost_usd": 0.03437,
+   "context_with": 58495,
+   "context_without": 31203,
+   "output_with": 3505
+  },
+  {
+   "name": "code-json-route",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.0,
+   "turns_without": 3.0,
+   "cost_usd": 0.0225,
+   "context_with": 64594,
+   "context_without": 33781,
+   "output_with": 1601
+  },
+  {
+   "name": "code-list-view",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 3.8,
+   "turns_without": 2.0,
+   "cost_usd": 0.02049,
+   "context_with": 50499,
+   "context_without": 25914,
+   "output_with": 1328
+  },
+  {
+   "name": "code-patch-component",
+   "score": 1.0,
+   "score_without": 0.6,
+   "turns_with": 3.0,
+   "turns_without": 2.4,
+   "cost_usd": 0.02021,
+   "context_with": 44607,
+   "context_without": 28510,
+   "output_with": 1973
+  },
+  {
+   "name": "code-translated-error",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.2,
+   "turns_without": 2.0,
+   "cost_usd": 0.02164,
+   "context_with": 54979,
+   "context_without": 26105,
+   "output_with": 1544
+  },
+  {
+   "name": "code-unique-constraint",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 3.6,
+   "turns_without": 2.4,
+   "cost_usd": 0.01793,
+   "context_with": 46581,
+   "context_without": 28356,
+   "output_with": 896
+  },
+  {
+   "name": "code-user-groups",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 3.8,
+   "turns_without": 3.8,
+   "cost_usd": 0.01751,
+   "context_with": 47689,
+   "context_without": 41514,
+   "output_with": 765
+  },
+  {
+   "name": "functional-automation-rule",
+   "score": 1.0,
+   "score_without": 0.7333,
+   "turns_with": 6.6,
+   "turns_without": 2.0,
+   "cost_usd": 0.03484,
+   "context_with": 86134,
+   "context_without": 27510,
+   "output_with": 2864
+  },
+  {
+   "name": "functional-chart-of-accounts",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 4.6,
+   "turns_without": 2.0,
+   "cost_usd": 0.02749,
+   "context_with": 58984,
+   "context_without": 27257,
+   "output_with": 1910
+  },
+  {
+   "name": "functional-fiscal-position-mapping",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.6,
+   "turns_without": 2.0,
+   "cost_usd": 0.03587,
+   "context_with": 97718,
+   "context_without": 26868,
+   "output_with": 3104
+  },
+  {
+   "name": "functional-initial-stock",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.6,
+   "turns_without": 2.0,
+   "cost_usd": 0.0292,
+   "context_with": 75577,
+   "context_without": 26773,
+   "output_with": 2376
+  },
+  {
+   "name": "functional-order-line-tax",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.2,
+   "turns_without": 2.0,
+   "cost_usd": 0.02404,
+   "context_with": 63250,
+   "context_without": 26144,
+   "output_with": 1693
+  },
+  {
+   "name": "functional-payment-term",
+   "score": 0.9333,
+   "score_without": 0.8667,
+   "turns_with": 5.0,
+   "turns_without": 2.2,
+   "cost_usd": 0.02899,
+   "context_with": 77397,
+   "context_without": 29508,
+   "output_with": 1776
+  },
+  {
+   "name": "functional-pricelist-discount",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 7.2,
+   "turns_without": 2.0,
+   "cost_usd": 0.03066,
+   "context_with": 86715,
+   "context_without": 26770,
+   "output_with": 2569
+  },
+  {
+   "name": "functional-storable-product",
+   "score": 1.0,
+   "score_without": 0.6667,
+   "turns_with": 5.4,
+   "turns_without": 2.0,
+   "cost_usd": 0.02451,
+   "context_with": 68863,
+   "context_without": 26235,
+   "output_with": 1491
+  },
+  {
+   "name": "functional-tax-included",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.6,
+   "turns_without": 2.0,
+   "cost_usd": 0.03289,
+   "context_with": 88355,
+   "context_without": 26271,
+   "output_with": 3487
+  },
+  {
+   "name": "functional-user-groups",
+   "score": 1.0,
+   "score_without": 0.9333,
+   "turns_with": 4.4,
+   "turns_without": 2.0,
+   "cost_usd": 0.02483,
+   "context_with": 58314,
+   "context_without": 26573,
+   "output_with": 1836
+  }
+ ]
+}

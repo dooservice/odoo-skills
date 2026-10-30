@@ -1,0 +1,238 @@
+{
+ "date": "2026-10-30",
+ "skills": "2.0.0-step-1",
+ "model": "claude-haiku-5-5",
+ "odoo": "16.0",
+ "runs_per_case": 3,
+ "cost_usd": 0.2958,
+ "duration_seconds": 21,
+ "tokens": {
+  "input": 668,
+  "cache_write": 1312929,
+  "cache_read": 4136760,
+  "output": 180442,
+  "exact": true
+ },
+ "cases": [
+  {
+   "name": "code-combine-domains",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 3.67,
+   "turns_without": 3.0,
+   "cost_usd": 0.01124,
+   "context_with": 44568,
+   "context_without": 38957,
+   "output_with": 1089
+  },
+  {
+   "name": "code-conditional-visibility",
+   "score": 0.6667,
+   "score_without": 0.6667,
+   "turns_with": 2.0,
+   "turns_without": 3.33,
+   "cost_usd": 0.01114,
+   "context_with": 29579,
+   "context_without": 39630,
+   "output_with": 1012
+  },
+  {
+   "name": "code-display-name",
+   "score": 1.0,
+   "score_without": 0.7778,
+   "turns_with": 3.33,
+   "turns_without": 3.67,
+   "cost_usd": 0.0103,
+   "context_with": 44182,
+   "context_without": 38629,
+   "output_with": 910
+  },
+  {
+   "name": "code-js-test",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01997,
+   "context_with": 75265,
+   "context_without": 27591,
+   "output_with": 3013
+  },
+  {
+   "name": "code-json-route",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.33,
+   "turns_without": 2.33,
+   "cost_usd": 0.01286,
+   "context_with": 62754,
+   "context_without": 30073,
+   "output_with": 1498
+  },
+  {
+   "name": "code-list-view",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01532,
+   "context_with": 78983,
+   "context_without": 25842,
+   "output_with": 1687
+  },
+  {
+   "name": "code-patch-component",
+   "score": 1.0,
+   "score_without": 0.3333,
+   "turns_with": 2.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.0096,
+   "context_with": 29818,
+   "context_without": 25558,
+   "output_with": 1279
+  },
+  {
+   "name": "code-translated-error",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01183,
+   "context_with": 54464,
+   "context_without": 25961,
+   "output_with": 1276
+  },
+  {
+   "name": "code-unique-constraint",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 3.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01065,
+   "context_with": 43884,
+   "context_without": 25784,
+   "output_with": 974
+  },
+  {
+   "name": "code-user-groups",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 3.67,
+   "turns_without": 3.33,
+   "cost_usd": 0.01051,
+   "context_with": 46650,
+   "context_without": 38673,
+   "output_with": 871
+  },
+  {
+   "name": "functional-automation-rule",
+   "score": 0.8889,
+   "score_without": 0.6667,
+   "turns_with": 4.67,
+   "turns_without": 3.0,
+   "cost_usd": 0.02016,
+   "context_with": 67309,
+   "context_without": 38249,
+   "output_with": 2556
+  },
+  {
+   "name": "functional-chart-of-accounts",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 4.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01692,
+   "context_with": 64502,
+   "context_without": 26849,
+   "output_with": 2132
+  },
+  {
+   "name": "functional-fiscal-position-mapping",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 6.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.0202,
+   "context_with": 88482,
+   "context_without": 27093,
+   "output_with": 2893
+  },
+  {
+   "name": "functional-initial-stock",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01803,
+   "context_with": 69228,
+   "context_without": 26585,
+   "output_with": 2585
+  },
+  {
+   "name": "functional-order-line-tax",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01475,
+   "context_with": 64359,
+   "context_without": 26100,
+   "output_with": 1658
+  },
+  {
+   "name": "functional-payment-term",
+   "score": 1.0,
+   "score_without": 0.7778,
+   "turns_with": 6.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01706,
+   "context_with": 87878,
+   "context_without": 26254,
+   "output_with": 1731
+  },
+  {
+   "name": "functional-pricelist-discount",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.0,
+   "turns_without": 2.0,
+   "cost_usd": 0.01609,
+   "context_with": 71171,
+   "context_without": 26803,
+   "output_with": 2371
+  },
+  {
+   "name": "functional-storable-product",
+   "score": 1.0,
+   "score_without": 0.6667,
+   "turns_with": 3.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01403,
+   "context_with": 49743,
+   "context_without": 26320,
+   "output_with": 1775
+  },
+  {
+   "name": "functional-tax-included",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.67,
+   "turns_without": 2.0,
+   "cost_usd": 0.01965,
+   "context_with": 85472,
+   "context_without": 26236,
+   "output_with": 3005
+  },
+  {
+   "name": "functional-user-groups",
+   "score": 1.0,
+   "score_without": 1.0,
+   "turns_with": 5.33,
+   "turns_without": 2.0,
+   "cost_usd": 0.01545,
+   "context_with": 65051,
+   "context_without": 26257,
+   "output_with": 1897
+  }
+ ]
+}
