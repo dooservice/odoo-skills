@@ -5,6 +5,14 @@ rules run. There are four ways in; use the first one the environment offers. Wha
 way, read before writing, and get the user's yes before any change that touches many
 records, access, accounting or users.
 
+**At a glance**
+
+- Names that change by version: JSON-2 (`/json/2/<model>/<method>`) and `/doc` from
+  19.0, where XML-RPC and JSON-RPC are deprecated; API key under "Account Security" up
+  to 18.0, "Security" from 19.0; API key scope RPC in 20.0.
+- Sections: 1 tools that go through the ORM; 2 `odoo-bin shell` (dry run, acting as
+  someone else); 3 external API (XML-RPC, JSON-2); 4 SQL, to look only.
+
 ## 1. Tools that go through the ORM
 
 When the environment gives you tools that read and write records (an MCP server, a
