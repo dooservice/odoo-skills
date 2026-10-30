@@ -80,6 +80,8 @@ reaches 97% to 100% on every version. The full history, with every run, its cost
 tokens, is in [`evals/RESULTS.md`](evals/RESULTS.md); the cases, the graders and how to
 run them are in [`evals/`](evals/README.md).
 
+How these results were reached: [case study](docs/case-study/README.md).
+
 ## What changes between versions
 
 A few of the rows in each `odoo/<version>/odoo-guidelines/guidelines/version.md`:
