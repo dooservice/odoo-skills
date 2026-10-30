@@ -9,6 +9,20 @@ decides this; it is not covered here, so check it with the user. The Accounting 
 sheet, profit and loss, tax report, aged balances) are Enterprise; this recipe uses what
 Community has. Every step is an accounting change and needs the user's yes.
 
+**At a glance**
+
+- Apps: `account` (the Invoicing menu).
+- Names that change by version: lock fields `period_lock_date`, `fiscalyear_lock_date`,
+  `tax_lock_date` (16.0, 17.0), `fiscalyear_lock_date`, `tax_lock_date`,
+  `sale_lock_date`, `purchase_lock_date`, `hard_lock_date` (18.0+); lock exceptions
+  `account.lock_exception` (18.0+); accounts searched by `company_id` (16.0, 17.0),
+  `company_ids` (18.0+); Journal Entries menu under Invoicing ‣ Accounting ‣ Journals
+  (16.0, 17.0), Invoicing ‣ Accounting (18.0), Invoicing ‣ Accounting ‣ Transactions
+  (19.0, 20.0); Current Year Earnings one per company (16.0-18.0), several (19.0+).
+- Sections: Before you start; The standard flow (1 check the period is complete,
+  2 check the balances, 3 lock the period for the review, 4 allocate the year's result,
+  5 lock the year); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `account` (the Invoicing menu). Journal Entries and Journal Items appear only
@@ -145,8 +159,18 @@ The order of Odoo's year-end documentation; a month or quarter stops after step 
 
 ## Verify
 
+18.0, 19.0, 20.0:
+
 ```python
-print(company.read(lock_fields))
+print(company.read(['fiscalyear_lock_date', 'tax_lock_date', 'sale_lock_date', 'purchase_lock_date', 'hard_lock_date']))
+print(move.state, move.date, sum(move.line_ids.mapped('debit')) == sum(move.line_ids.mapped('credit')))
+print(Move.search_count([('company_id', '=', company.id), ('state', '=', 'draft'), ('date', '<=', period_end)]))
+```
+
+16.0, 17.0:
+
+```python
+print(company.read(['period_lock_date', 'fiscalyear_lock_date', 'tax_lock_date']))
 print(move.state, move.date, sum(move.line_ids.mapped('debit')) == sum(move.line_ids.mapped('credit')))
 print(Move.search_count([('company_id', '=', company.id), ('state', '=', 'draft'), ('date', '<=', period_end)]))
 ```

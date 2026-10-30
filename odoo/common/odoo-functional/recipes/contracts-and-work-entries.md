@@ -11,6 +11,19 @@ entry types (Time Types). Employees and time off are in
 [employees-and-expenses.md](employees-and-expenses.md); overtime and attendance in
 [attendance.md](attendance.md).
 
+**At a glance**
+
+- Apps: `hr_contract` (16.0-18.0), `hr_work_entry`, `hr_work_entry_contract` (16.0-18.0),
+  `hr_work_entry_holidays` (16.0-19.0); from 19.0 contracts in `hr`.
+- Names that change by version: `hr.contract` (16.0-18.0), fields of `hr.version` on the
+  employee (19.0+); change from a date as a new contract (16.0-18.0), `create_version`
+  (19.0+); work entry dates `date_start`, `date_stop` (16.0-18.0), `date` (19.0), none in
+  Community (20.0); generation in `hr_work_entry_contract` (16.0-18.0), `hr_work_entry`
+  (19.0); `contract_expiration_notice_period` (17.0+).
+- Sections: Before you start; The standard flow (1 contract, 2 start it, 3 terms of the
+  employee, 4 a change from a date, 5 work entries, 6 time off in work entries, 7 check
+  and validate, 8 end the contract); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `hr_contract` (16.0-18.0), `hr_work_entry` with `hr_work_entry_contract`
@@ -107,14 +120,23 @@ print(env['hr.contract.type'].search_read([], ['name']))
    (`WORK100`, Attendance). Open them from the employee's Work Entries smart button
    (calendar, list).
 
+   19.0:
+
    ```python
    entries = employee.generate_work_entries('<YYYY-MM-01>', '<YYYY-MM-31>')
    env.cr.commit()
    print(entries.read(['date', 'work_entry_type_id', 'duration', 'state']))
    ```
 
-   The block is for 19.0; in 16.0-18.0 read `date_start` and `date_stop` instead of
-   `date`. Leaves the entries `draft`.
+   16.0-18.0:
+
+   ```python
+   entries = employee.generate_work_entries('<YYYY-MM-01>', '<YYYY-MM-31>')
+   env.cr.commit()
+   print(entries.read(['date_start', 'date_stop', 'work_entry_type_id', 'duration', 'state']))
+   ```
+
+   Leaves the entries `draft`.
 
 6. **Time off in work entries (16.0-19.0).** Set Work Entry Type
    (`work_entry_type_id`) on each time off type (Time Off ‣ Configuration ‣ Time Off

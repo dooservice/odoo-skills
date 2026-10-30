@@ -11,10 +11,25 @@ format of the check paper) come only with a country's localization, which also d
 whether checks and debit notes are used and with which numbering: it is not covered
 here, so check it with the user.
 
+**At a glance**
+
+- Apps: `account`; `account_check_printing`; `account_debit_note`
+  (`account_debit_note_sequence` for the dedicated numbering, 17.0).
+- Names that change by version: sent flag `is_move_sent` (16.0, 17.0), `is_sent`
+  (18.0+); state of checks to print `posted` (16.0, 17.0), `in_process` (18.0, 19.0),
+  `paid` (20.0); unmark sent `action_unmark_sent` (16.0, 17.0), `unmark_as_sent`
+  (18.0+); debit note entry Add Debit Note button (16.0), Actions ‣ Debit Note (17.0,
+  18.0), Debit Note button (19.0, 20.0); dedicated numbering
+  `account_debit_note_sequence` (17.0), in `account_debit_note` (18.0+).
+- Sections: Before you start; The standard flow (pay a vendor by check: 1 choose the
+  check layout, 2 set the bank journal's numbering, 3 register the payment with the
+  Checks method, 4 print the checks; add a debit note: 1 create the debit note, 2 adjust
+  and post it); Variations; Versions; Verify; Pitfalls.
+
 ## Before you start
 
 - Apps: `account`; `account_check_printing` (installed by the Checks setting);
-  `account_debit_note` from Apps (16.0, 17.0 add `account_debit_note_sequence` for the
+  `account_debit_note` from Apps (17.0 adds `account_debit_note_sequence` for the
   dedicated numbering). Installing a module needs the user's yes.
 - Settings (Invoicing ‣ Configuration ‣ Settings ‣ Vendor Payments ‣ Checks):
 
