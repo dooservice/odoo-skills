@@ -12,8 +12,10 @@ framework de cada versión, y aun así Claude Haiku 5.5 en Odoo 20.0 solo subía
 71,1%. Las trazas mostraron por qué: en las tareas de código el agente nunca abría las
 skills. Dos cambios pequeños en las descripciones, la única parte que el agente ve siempre,
 lo llevaron al **100% en Odoo 20.0** y a entre el 97,2% y el 100% en todas las versiones;
-Claude Sonnet 5.5 quedó entre el 98,3% y el 100%. Todas las mediciones juntas costaron unos
-70 USD.
+Claude Sonnet 5.5 quedó entre el 98,3% y el 100%. Después, la versión 2.0.0 reorganizó las
+skills por capas para que los agentes lean menos: el contexto que añaden por tarea bajó un
+26% (un 34% en Odoo 20.0), y Haiku sacó entre el 96,1% y el 99,7% con cinco ejecuciones por
+tarea. Todas las mediciones juntas costaron unos 92 USD.
 
 ## Contenido
 
@@ -23,10 +25,11 @@ Claude Sonnet 5.5 quedó entre el 98,3% y el 100%. Todas las mediciones juntas c
 4. [Cómo medimos](#4-cómo-medimos)
 5. [Qué pasó, versión a versión](#5-qué-pasó-versión-a-versión)
 6. [El diagnóstico y los dos arreglos](#6-el-diagnóstico-y-los-dos-arreglos)
-7. [Coste y tokens](#7-coste-y-tokens)
-8. [Lecciones para quien construya skills](#8-lecciones-para-quien-construya-skills)
-9. [Lo siguiente: 1.2.0](#9-lo-siguiente-120)
-10. [Cómo reproducirlo](#10-cómo-reproducirlo)
+7. [Ahorrar contexto: 2.0.0](#7-ahorrar-contexto-200)
+8. [Coste y tokens](#8-coste-y-tokens)
+9. [Lecciones para quien construya skills](#9-lecciones-para-quien-construya-skills)
+10. [Lo siguiente: 2.1.0](#10-lo-siguiente-210)
+11. [Cómo reproducirlo](#11-cómo-reproducirlo)
 
 ## 1. El problema
 
@@ -79,20 +82,22 @@ flowchart LR
 ```
 
 Tamaño de cada capa para Odoo 20.0 (ficheros de `odoo/20.0` y `odoo/common`; los tokens
-son caracteres entre 4, así que son aproximados):
+son caracteres entre 4, así que son aproximados), en 1.1.1 y en 2.0.0:
 
-| Capa | Ficheros | Palabras | Tokens aprox. | Fichero mayor, tokens aprox. |
+| Capa | Ficheros 1.1.1 / 2.0.0 | Tokens aprox. 1.1.1 | Tokens aprox. 2.0.0 | Fichero mayor 1.1.1 / 2.0.0 |
 |---|---|---|---|---|
-| Descripciones (siempre en contexto) | 8 | 619 | 1.115 | 246 |
-| Cuerpos de `SKILL.md` | 8 | 9.781 | 18.930 | 5.007 (`odoo-guidelines`) |
-| Ficheros de guías por tema | 35 | 32.756 | 59.553 | 4.495 |
-| Recetas funcionales y `connect.md` | 71 | 97.535 | 192.136 | 4.500 |
-| Referencia | 687 | 163.456 | 518.365 | 30.418 |
+| Descripciones (siempre en contexto) | 8 / 8 | 1.115 | 1.158 | 246 / 246 |
+| Cuerpos de `SKILL.md` | 8 / 8 | 18.930 | 10.062 | 5.007 (`odoo-guidelines`) / 2.968 (`odoo-security`) |
+| Ficheros de guías por tema | 35 / 38 | 59.553 | 66.114 | 4.495 / 3.536 |
+| Recetas funcionales y `connect.md` | 71 / 72 | 192.136 | 205.763 | 4.500 / 4.492 |
+| Referencia | 687 / 687 | 518.365 | 518.365 | 30.418 / 30.418 |
 
-![Texto por capa de las skills de 20.0, en tokens aproximados, escala logarítmica](img/7-skill-size-per-layer.png)
+![Texto por capa de las skills de 20.0 en 1.1.1 y 2.0.0, en tokens aproximados, escala logarítmica](img/7-skill-size-per-layer.png)
 
 Las descripciones son alrededor del 0,1% del texto y deciden si el 99,9% restante llega a
-leerse. Resultó ser el dato más importante de todo el proyecto (sección 6).
+leerse. Resultó ser el dato más importante de todo el proyecto (secciones 6 y 7). En 2.0.0
+los cuerpos se encogieron y los ficheros por tema crecieron: el texto bajó una capa y no se
+borró nada.
 
 Las guías partieron de las skills del propio Odoo para 20.0, unas 4.800 palabras, y
 crecieron hasta cubrir todas las piezas del framework de cada versión:
@@ -279,6 +284,32 @@ subidas están en el código de 20.0 (del 57% al 100%) y en las tareas funcional
 
 ![Tareas de código y funcionales, sin skills y con 1.1.1](img/3-code-and-functional.png)
 
+### 2.0.0 (30 de octubre)
+
+El plan que esta página llamaba 1.2.0: el mismo contenido por capas, para que el agente lea
+menos y dé la misma respuesta (sección 7). Se midió frente a una repetición de 1.1.1 con
+tokens exactos, y sus ejecuciones finales usan cinco ejecuciones por tarea con Haiku. Notas
+con las skills, Haiku 5.5:
+
+| Odoo | Sin skills | 1.1.1 | Repetición 1.1.1 | 2.0.0 paso 1 | 2.0.0 | 2.0.0 código / funcionales |
+|---|---|---|---|---|---|---|
+| 16.0 | 93,3% | 97,2% | 90,6% | 97,8% | **99,7%** | 100% / 99,3% |
+| 17.0 | 88,5% | 98,3% | 95,1% | 95,4% | **99,7%** | 100% / 99,3% |
+| 18.0 | 87,2% | 100% | 98,9% | 97,1% | **97,3%** | 98,0% / 96,7% |
+| 19.0 | 77,6% | 100% | 96,5% | 97,5% | **96,1%** | 97,2% / 94,7% |
+| 20.0 | 58,9% | 100% | 97,1% | 98,2% | **98,6%** | 97,1% / 99,4% |
+
+*Sin skills* es el lado sin skills de la ejecución de 2.0.0. *2.0.0 paso 1* es la primera
+reorganización, medida antes del diagnóstico y de las pruebas de la sección 7. Sonnet 5.5
+en 20.0: 99,4% con 1.1.1 y 99,4% con 2.0.0. Las gráficas de arriba incluyen 2.0.0, y
+también tarea a tarea:
+
+![Haiku en Odoo 20.0, tarea a tarea, sin skills y con cada versión](img/4-haiku-20-tasks.png)
+
+Las notas se mantuvieron y el contexto añadido bajó una cuarta parte. La columna 1.1.1 y la
+repetición de las mismas skills difieren hasta en 6,6 puntos: es ruido, y se explica en la
+sección 7.
+
 ## 6. El diagnóstico y los dos arreglos
 
 Los números de 1.1.0 tenían un patrón. En 20.0, las tareas funcionales de Haiku subían del
@@ -324,21 +355,149 @@ gastando todos sus turnos en buscar el widget en un proyecto vacío. Los enuncia
 describen el widget; los evaluadores no cambiaron. Haiku llegó a entre el 97,2% y el 100% en
 todas las versiones, y Sonnet a entre el 98,3% y el 100%.
 
-Tarea a tarea, Haiku en 20.0:
-
-![Haiku en Odoo 20.0, tarea a tarea, sin skills y con cada versión](img/4-haiku-20-tasks.png)
-
-El paso 1 arregló todas las tareas de código; el paso 2, las funcionales que quedaban
-(diario bancario, impuesto en la línea de pedido, desecho).
+Tarea a tarea, Haiku en 20.0 (gráfica en la sección 5): el paso 1 arregló todas las tareas
+de código; el paso 2, las funcionales que quedaban (diario bancario, impuesto en la línea
+de pedido, desecho).
 
 El arreglo tiene un precio en turnos. Con las skills, el agente lee antes de escribir:
 
 ![Turnos medios por tarea con y sin las skills](img/6-turns-per-task.png)
 
 Haiku en 20.0 pasó de 2,8 turnos por tarea sin skills a 6,6 con 1.1.1, todavía lejos del
-límite de 15, y su batería de 0,28 a 0,36 USD.
+límite de 15, y su batería de 0,28 a 0,36 USD. La sección 7 trata de ese precio.
 
-## 7. Coste y tokens
+## 7. Ahorrar contexto: 2.0.0
+
+1.1.1 consiguió que los agentes leyeran las skills. 2.0.0 hace que leerlas salga más
+barato, para que modelos más pequeños, con ventanas de contexto más cortas, mantengan la
+misma precisión. No se borró nada: el contenido bajó una capa, y el agente llega a él solo
+cuando la tarea lo necesita.
+
+### Las cuatro capas
+
+| Capa | Qué lleva en 2.0.0 |
+|---|---|
+| 1. Descripción (siempre en contexto) | Quién debe leer la skill y los nombres que más cambian en esa versión, ahora con valores exactos: `detailed_type='product'`, `discount_policy='without_discount'`, sin línea `'balance'` en los plazos de pago desde 17.0, `price_include` frente a `price_include_override`, `_read_group(domain, groupby, ['__count'])` desde 17.0 |
+| 2. Cuerpo de `SKILL.md` | Un mapa de tareas corto: una fila por tarea, que remite a un fichero |
+| 3. Fichero por tema o receta | Empieza con un bloque corto: los nombres clave de esa versión y la lista de secciones |
+| 4. Detalle | Más abajo en el mismo fichero, o para buscar: los datos de referencia se buscan con grep, no se leen |
+
+Los cuerpos de las tres skills que más cargan los agentes, para Odoo 20.0 (tokens
+aproximados, caracteres entre 4):
+
+| Skill | Cuerpo 1.1.1 | Cuerpo 2.0.0 | Qué es ahora el cuerpo |
+|---|---|---|---|
+| `odoo-guidelines` | ~5.000 | ~690 | un mapa de 18 filas |
+| `odoo-web-guidelines` | ~2.650 | ~480 | un mapa de 11 filas |
+| `odoo-functional` | ~3.600 | ~890 | un índice agrupado de las recetas, la nota de cambios y lo esencial de `odoo-bin shell` |
+
+El cuerpo de `odoo-functional` basta ahora para trabajar sin abrir `method.md`. Lo que
+salió de los cuerpos fue a ficheros por tema nuevos (`computed_fields.md`,
+`orm_advanced.md`, `registries_webclient.md`) o más abajo en los que ya había. Se añadió
+una receta, `recipes/attendance-variations.md`. El CI comprueba un límite de tamaño por
+fichero y por capa con `tools/check_budgets.py`.
+
+### Cómo se midió
+
+Los tokens son exactos: cada traza termina con un evento de resultado que da los tokens de
+entrada, de caché y de salida de la ejecución. Cada tarea en `evals/history/` guarda ahora
+`context_with` y `context_without`, la media de tokens de entrada y de caché por tarea en
+cada lado, y `output_with`. El *contexto añadido* de una tarea es `context_with` menos
+`context_without`: lo que cuestan las skills sobre la misma tarea sin ellas.
+
+Las ejecuciones de 1.1.1 no tenían tokens exactos, así que se volvieron a medir las skills
+1.1.1 (la *repetición de 1.1.1*, tres ejecuciones por tarea). Las ejecuciones finales de
+2.0.0 usan cinco ejecuciones por tarea con Haiku y tres con Sonnet.
+
+| Odoo | Sin skills | Repetición 1.1.1 | 2.0.0 | 2.0.0 código / funcionales | Contexto añadido 1.1.1 a 2.0.0 | Turnos | Coste por tarea, USD |
+|---|---|---|---|---|---|---|---|
+| 20.0 | 58,9% | 97,1% | **98,6%** | 97,1% / 99,4% | 79,7k a 52,8k (-34%) | 7,5 a 6,3 | 0,0049 a 0,0039 |
+| 19.0 | 77,6% | 96,5% | **96,1%** | 97,2% / 94,7% | 59,6k a 40,5k (-32%) | 6,4 a 5,9 | 0,0043 a 0,0036 |
+| 18.0 | 87,2% | 98,9% | **97,3%** | 98,0% / 96,7% | 40,5k a 30,5k (-25%) | 4,9 a 4,6 | 0,0035 a 0,0032 |
+| 17.0 | 88,5% | 95,1% | **99,7%** | 100% / 99,3% | 28,4k a 26,4k (-7%) | 4,0 a 4,2 | 0,0031 a 0,0030 |
+| 16.0 | 93,3% | 90,6% | **99,7%** | 100% / 99,3% | 40,5k a 33,3k (-18%) | 4,8 a 4,9 | 0,0034 a 0,0032 |
+| Todas | | 95,6% | **98,3%** | | 248,7k a 183,6k (-26%) | | -12% |
+
+Haiku 5.5. *Sin skills* es el lado sin skills de la ejecución de 2.0.0. El contexto
+añadido es la media por tarea, en tokens. Sonnet 5.5 en 20.0: 99,4% con 1.1.1 y con 2.0.0,
+37,1k tokens de contexto añadido, 4,7 turnos por tarea, 3,98 USD por batería.
+
+![Contexto que añaden las skills por tarea, repetición de 1.1.1 y 2.0.0, Haiku](img/8-context-per-version.png)
+
+### Qué leen los agentes
+
+Los resultados de herramientas de las 510 ejecuciones finales de Haiku (102 tareas, cinco
+ejecuciones cada una) muestran a dónde van los tokens:
+
+![Lo que leen los agentes con las skills 2.0.0, por capa](img/9-what-agents-read.png)
+
+- **Las recetas son la parte mayor**: el 44% de lo que leen los agentes, unos 3.350 tokens
+  cada una, y se leen enteras.
+- **Los cuerpos de las skills** cuestan unos 880 tokens por carga. Ahora son pequeños,
+  pero se cargan a menudo.
+- **`method.md`** se leía antes en 1 de cada 3 ejecuciones funcionales; cuando el cuerpo
+  de `odoo-functional` pasó a llevar la nota de cambios, en 4 de 306.
+- **La referencia** se busca, como estaba previsto: 40 lecturas parciales de unos 680
+  tokens cada una.
+
+### Qué funcionó: valores exactos en la descripción
+
+Antes de recortar, guardamos las trazas de 16.0 y 17.0 y las leímos (0,63 USD). Todos los
+fallos con las skills ocurrieron en ejecuciones en las que el agente no cargó ninguna skill
+y escribió de memoria. En las 62 ejecuciones en las que cargó una skill, no falló ninguna.
+Así que la capa que más importa sigue siendo la descripción: decide si se lee todo lo
+demás. Poner en ella el valor exacto, no solo el nombre del tema, arregló los productos
+almacenables, el descuento de la tarifa, el plazo de pago, los impuestos incluidos en el
+precio y los recuentos agrupados.
+
+### Qué falló y se deshizo
+
+Cada idea se midió; tres no compensaron y se quitaron:
+
+- Una línea en la descripción, "read before any `odoo-bin shell` script", hizo que los
+  agentes cargaran más skills, un turno más por tarea, sin subir ninguna nota.
+- Una indicación, "open the recipe and load `odoo-reference` in the same turn", no se
+  siguió nunca (0 de 36 llamadas en paralelo) y solo añadió un turno.
+- "Run these from this skill's folder" hizo que los agentes escribieran su respuesta
+  dentro de la carpeta de la skill: en 23 de 306 ejecuciones se denegó la escritura. Se
+  reescribió para buscar desde la carpeta de la skill y escribir en el proyecto.
+
+### Las pruebas que estaban mal
+
+Tres fallos eran culpa de la evaluación, no de las skills:
+
+- El evaluador de visibilidad condicional de 16.0 no aceptaba `<attribute name="attrs">`,
+  que es correcto en una vista heredada.
+- Las tareas de permisos de acceso pedían `security/access_rights.csv`, un nombre que Odoo
+  no puede importar: el nombre del CSV indica el modelo. Ahora piden `ir.model.access.csv`
+  (19.0) e `ir.access.csv` (20.0). Sonnet había escrito el nombre correcto y perdía la
+  tarea.
+- La descripción de 20.0 decía "no `company_type`", y Sonnet lo copió en un comentario,
+  algo que nuestra propia regla prohíbe (ningún nombre de otra versión, ni en
+  comentarios). Ahora dice qué hace de un contacto una empresa en 20.0, sin el nombre
+  antiguo.
+
+Con los dos últimos arreglos, Sonnet en 20.0 pasó del 96,5% al 99,4% con las mismas skills.
+
+### Por qué -26% y no -30%
+
+El objetivo era un 30% menos de contexto añadido. Llegamos a un 26% en total, un 34% en
+20.0 y un 32% en 19.0. Lo que queda son turnos, no lectura. Cada turno vuelve a enviar todo
+el contexto, y con skills el agente necesita al menos tres turnos (cargar la skill, leer un
+fichero, escribir la respuesta) donde sin ellas necesita uno o dos. 16.0 y 17.0 ya eran
+ligeras en 1.1.1, así que había poco que recortar.
+
+### Ruido
+
+La primera ejecución de 1.1.1 dio un 100% en 18.0 a 20.0. La repetición con las mismas
+skills dio entre el 94% y el 99%. Con tres ejecuciones por tarea, una batería se mueve unos
+3 puntos arriba o abajo por azar, así que la comparación final usa cinco ejecuciones por
+tarea, y 2.0.0 se compara con la repetición, no con el número antiguo. Parte del ruido que
+queda es del arnés: la carpeta temporal de una tarea tiene una ruta muy larga y Haiku a
+veces la escribe mal al guardar la respuesta, así que se deniega la escritura. Afecta por
+igual a las ejecuciones de 1.1.1 y de 2.0.0.
+
+## 8. Coste y tokens
 
 | Fecha | Qué se midió | Coste | Entrada | Escritura en caché | Lectura de caché | Salida | Tokens |
 |---|---|---|---|---|---|---|---|
@@ -351,8 +510,16 @@ límite de 15, y su batería de 0,28 a 0,36 USD.
 | 30-10-2026 | 1.1.1 paso 1, Sonnet, 20.0 y 16.0 | 8,72 USD | 1.622 | 2.181.455 | 8.516.865 | 241.227 | estimados |
 | 30-10-2026 | 1.1.1, Haiku, cinco versiones | 1,68 USD | 4.686 | 6.548.200 | 30.221.263 | 18.023 | estimados |
 | 30-10-2026 | 1.1.1, Sonnet, 20.0 y 16.0 | 8,75 USD | 1.628 | 2.188.633 | 8.544.889 | 242.020 | estimados |
+| 30-10-2026 | Repetición de 1.1.1 con tokens exactos, Haiku, cinco versiones | 1,75 USD | 3.850 | 7.568.549 | 27.260.839 | 1.054.152 | exactos |
+| 30-10-2026 | Repetición de 1.1.1, tokens sin leer (fallo del analizador) | 1,70 USD | sin leer | sin leer | sin leer | sin leer | ninguno |
+| 30-10-2026 | 2.0.0 paso 1, Haiku, cinco versiones | 1,67 USD | 3.764 | 7.203.414 | 24.837.911 | 1.036.925 | exactos |
+| 30-10-2026 | Diagnóstico con trazas, Haiku en 16.0 y 17.0 | 0,63 USD | 1.376 | 2.762.716 | 8.660.311 | 400.600 | exactos |
+| 30-10-2026 | Pruebas de 2.0.0, Haiku, tres rondas | 4,98 USD | 11.708 | 21.014.532 | 78.492.671 | 3.127.399 | exactos |
+| 30-10-2026 | 2.0.0, Haiku, cinco versiones, cinco ejecuciones por tarea | 2,67 USD | 6.112 | 11.396.263 | 39.319.512 | 1.697.611 | exactos |
+| 30-10-2026 | 2.0.0 arreglo de servicios, Haiku en 19.0, cinco ejecuciones | 0,63 USD | 1.482 | 2.600.811 | 9.913.080 | 408.767 | exactos |
+| 30-10-2026 | 2.0.0, Sonnet en 20.0, dos ejecuciones | 7,98 USD | 1.494 | 2.131.262 | 8.070.204 | 184.507 | exactos |
 
-Total: unos 70,29 USD. Los costes son lo que cobró la API. Los tokens exactos salen de la
+Total: unos 92,30 USD, de los que 22,01 USD son del trabajo de 2.0.0. Los costes son lo que cobró la API. Los tokens exactos salen de la
 exportación de uso de la consola de Anthropic o de las trazas de una ejecución. Los
 estimados son el coste de la ejecución por los tokens por dólar medidos con datos exactos
 del mismo modelo (la exportación del 28 de octubre para Sonnet, diez trazas guardadas para
@@ -364,10 +531,12 @@ Por qué medir sale barato: casi toda la entrada se lee de la caché de prompts.
 empieza con el mismo prompt de sistema, las mismas herramientas y las mismas descripciones
 de skills, así que tras la primera llamada todo eso son lecturas de caché, que se cobran a
 una fracción de la entrada nueva. El 28 de octubre, por ejemplo, 12,06 de los 15,15 millones
-de tokens de entrada (el 80%) fueron lecturas de caché y solo 2.292 fueron entrada nueva.
-Una batería con Haiku cuesta unos 0,3 USD; con Sonnet, entre 13 y 15 veces más.
+de tokens de entrada (el 80%) fueron lecturas de caché y solo 2.292 fueron entrada nueva;
+en las ejecuciones finales de 2.0.0 con Haiku, 39,3 de 50,7 millones (el 78%). Una batería
+con Haiku cuesta unos 0,3 USD con tres ejecuciones por tarea; con Sonnet, entre 13 y 15
+veces más.
 
-## 8. Lecciones para quien construya skills
+## 9. Lecciones para quien construya skills
 
 1. **La descripción es lo único que el agente ve siempre.** Escríbela como una orden («léela
    antes de escribir cualquier fichero para Odoo 20.0») y pon en ella los nombres que el
@@ -398,24 +567,35 @@ Una batería con Haiku cuesta unos 0,3 USD; con Sonnet, entre 13 y 15 veces más
     convierte «creo que lo cubrimos» en «faltan 0».
 13. **Deja fuera lo que no puedas mantener.** Las localizaciones se quitaron antes que
     dejarlas quedarse desfasadas.
-14. **Vigila turnos y coste, no solo la nota.** Las mejores notas vinieron con más turnos; la
-    próxima versión trabaja sobre eso.
+14. **Vigila turnos y coste, no solo la nota.** Las mejores notas vinieron con más turnos;
+    2.0.0 recortó un 26% el contexto que añaden las skills sin perder un punto.
+15. **Mide el ruido antes de fiarte de un cambio.** Las mismas skills sacaron un 100% y
+    luego entre el 94% y el 99%: con tres ejecuciones una batería se mueve unos 3 puntos
+    por azar. Compara con una repetición y usa más ejecuciones en la comparación que decide.
+16. **Pon valores exactos en la descripción, no temas.** Todos los fallos con las skills
+    salieron de ejecuciones que no cargaron ninguna skill. Un valor como
+    `detailed_type='product'` en la descripción arregla la tarea aunque no se lea nada más.
+17. **Mide tokens y lee lo que leen los agentes.** Los tokens exactos de cada traza
+    mostraron que las recetas eran la parte mayor y que el suelo son los turnos, no los
+    ficheros: cada turno vuelve a enviar todo el contexto.
+18. **Mide cada indicación y deshaz lo que no compense.** Indicaciones que parecían útiles
+    ("in the same turn", "from this skill's folder") añadieron turnos o rompieron la
+    tarea. Y cuando un modelo potente falla, revisa primero la prueba: dos de las tareas
+    que perdió Sonnet eran culpa de la evaluación.
 
-## 9. Lo siguiente: 1.2.0
+## 10. Lo siguiente: 2.1.0
 
-Las skills son correctas y ahora los agentes las leen. El siguiente paso es que leerlas
-salga barato, para que modelos más pequeños y locales, con ventanas de contexto más cortas,
-consigan la misma precisión:
+Las skills son correctas, los agentes las leen y, desde 2.0.0, leen menos. El CI comprueba
+los límites de tamaño y cada medición guarda tokens exactos, así que el siguiente recorte se
+puede medir igual. Sin decidir todavía:
 
-- **Divulgación progresiva por capas**: descripción, un `SKILL.md` corto, un fichero por
-  tema y luego detalle para buscar. Hoy solo el cuerpo de `odoo-guidelines` ronda los 5.000
-  tokens.
-- **Límites de tamaño por fichero y por capa**, comprobados por una herramienta como la de
-  cobertura.
-- **Tokens y turnos en cada medición**, junto a la nota, para demostrar que una skill más
-  pequeña mantiene la precisión.
+- **Dividir las recetas más leídas que mezclan dos temas**: plazos de pago y posiciones
+  fiscales, impuestos y diarios, empleados y gastos. Las recetas se leen enteras y son la
+  mayor parte de lo que leen los agentes; el ahorro esperado es de un 3% a un 5% más.
+- **Menos turnos, no menos palabras.** Los turnos son ahora el suelo del contexto añadido;
+  cualquier cambio que ahorre un turno vale más que un texto más corto.
 
-## 10. Cómo reproducirlo
+## 11. Cómo reproducirlo
 
 Ejecutar una batería (aquí 20.0 con Haiku), como explica [`evals/README.md`](../../evals/README.md):
 
@@ -429,6 +609,8 @@ echo '{"name": "odoo-20", "version": "1.0.0"}' > "$plugin/.claude-plugin/plugin.
 claude plugin eval "$plugin" --eval-dir evals/odoo-20 --allow-tools Write \
   --runs 3 --model claude-haiku-5-5 --max-cost-usd 10 --threshold 0
 ```
+
+La comparación final de 2.0.0 usó `--runs 5`.
 
 Comprobar la cobertura contra el código (necesita `.odoo/src/<versión>`, ver el README
 principal):
