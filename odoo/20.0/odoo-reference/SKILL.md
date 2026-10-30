@@ -35,7 +35,9 @@ name you need and read only the lines around the match.
 
 ## Find a name
 
-Run these from this skill's folder; keep the backticks around a name to match it exactly.
+Search with this skill's folder as the path; keep the backticks around a name to match
+it exactly. This folder is read-only: write your answer in the project's working
+directory, never here.
 
 ```bash
 grep -n '`sale.order`' addons.md                   # addons defining or extending a model
