@@ -8,4 +8,4 @@ The frontend (website, portal, login) has its own registries, loaded by
 - Public widgets are registered in `publicWidget.registry`, not in a category (see
   [website.md](website.md)).
 - `category("error_notifications")` turns server errors into notifications for visitors
-  (see Error handling).
+  (see Error handling in [registries_webclient.md](registries_webclient.md)).

@@ -1,0 +1,3 @@
+- Bundles: `web.assets_backend`, `web.assets_frontend`, `point_of_sale.assets`, `web.qunit_suite_tests`, `web.assets_tests`.
+- Directives: `prepend`, `before`, `after`, `replace`, `remove`, `include`.
+- Lazy code: `loadBundle` with `getBundle`, `LazyComponent`.

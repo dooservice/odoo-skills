@@ -1,0 +1,6 @@
+- Interactions: `Interaction` subclasses in `registry.category("public.interactions")`: `static selector`, `dynamicContent`, `willStart`, `destroy`; public widgets still load only for code not ported yet.
+- Cleanup helpers: `addListener`, `insert`, `mountComponent`, `waitFor`, `registerCleanup`.
+- Server calls: `rpc` from `@web/core/network/rpc`.
+- `<owl-component>` mounted from `registry.category("public_components")`.
+- Portal: `CustomerPortal`, `portal.portal_docs_entry`, `_prepare_home_portal_values(counters)`.
+- Snippets: `website.snippets`, options as a builder `Plugin`; `public.interactions.edit`.

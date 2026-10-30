@@ -1,3 +1,11 @@
+Key names in $version:
+
+$essentials
+
+Sections of this file:
+
+$sections
+
 # The web framework in $version
 
 $header
@@ -58,7 +66,7 @@ $patch_rule
 
 - Patch `MyClass.prototype` to change instance methods, and `MyClass` itself only to
   change its statics (`template`, `components`).
-- A patched `setup` calls `super.setup(...arguments)` first, then adds its hooks.
+- A patched `setup` calls $patch_setup first, then adds its hooks.
 - Never replace a method without calling `super` unless the replacement is the point;
   another module's patch of the same method is then skipped silently.
 - The patch is applied when its file loads: put it in the same bundle as the code it

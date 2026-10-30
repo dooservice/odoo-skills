@@ -1,0 +1,6 @@
+- Header: none needed; `/** @odoo-module ignore **/` keeps a file out of the transpiler.
+- Patch: `patch(target, extension)` with `super`; it returns the function that removes it.
+- Translation: `_t` anywhere, `_t("Lent to %(name)s", { name })`; `_lt` no longer exists.
+- Owl 2 with static `props`; `rpc` is a function of `@web/core/network/rpc`, model methods through `useService("orm")`.
+- Raw HTML: `htmlEscape`, `htmlJoin`/`htmlSprintf` and `setElementContent`, or `t-out`.
+- Tests: hoot, `*.test.js` in `web.assets_unit_tests`.

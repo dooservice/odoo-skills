@@ -1,4 +1,4 @@
-"""`odoo-web-guidelines/SKILL.md`: the web guidelines skill and its table of sections.
+"""`odoo-web-guidelines/SKILL.md`: the web guidelines skill and its map of files by task.
 
 The description carries the web framework names that change most between versions, for
 an agent that writes from memory without loading the skill.
@@ -14,8 +14,7 @@ class WebSkill(Document):
     path = "odoo-web-guidelines/SKILL.md"
 
     def values(self, version: OdooVersion) -> dict[str, str]:
-        """`major` is the version as in a heading's anchor: `#the-web-framework-in-180`."""
-        return {**super().values(version), "major": str(version.number), "names": self.names(version)}
+        return {**super().values(version), "names": self.names(version)}
 
     @staticmethod
     def names(version: OdooVersion) -> str:

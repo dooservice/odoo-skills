@@ -21,6 +21,7 @@ class Javascript(SpannedDocument):
 
     def framework(self, version: OdooVersion) -> dict[str, str]:
         return {
+            "patch_setup": version.pick(v16="`this._super(...arguments)`", v17_="`super.setup(...arguments)`"),
             "header": version.pick(
                 v16_17="- Every JavaScript file under `static/src` starts with `/** @odoo-module **/`;\n"
                 "  without it the file is not transpiled and its `import`s fail.",

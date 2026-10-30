@@ -1,0 +1,5 @@
+- ES modules in `point_of_sale._assets_pos`; the `pos` service, a `PosStore`, through `usePos()`.
+- `Order` and `Orderline` of `@point_of_sale/app/store/models`, extended with `patch`; `export_as_JSON` and `init_from_JSON`.
+- Screens: `registry.category("pos_screens")`, `this.pos.showScreen`.
+- Buttons: `ProductScreen.addControlButton`.
+- Tours: `registry.category("web_tour.tours")`, `TestPointOfSaleHttpCommon`.

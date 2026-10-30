@@ -1,0 +1,5 @@
+- Legacy `odoo.define` modules in `point_of_sale.assets`; `PosGlobalState` as `this.env.pos`.
+- Models and components extended through `Registries.Model.extend` and `Registries.Component.extend`; `export_as_JSON` and `init_from_JSON`.
+- Loading: `_loader_params_<model>()`, `_pos_ui_models_to_load()` on `pos.session`.
+- Buttons: `ProductScreen.addControlButton`.
+- Tours: `Tour.register`, `TestPointOfSaleHttpCommon`.

@@ -1,0 +1,4 @@
+- API: `registry` from `@web/core/registry`, `add(key, value, { sequence, force })`, `DuplicatedKeyError`, `KeyNotFoundError`, `getAll`, `getEntries`.
+- Keys are prefixed with the module.
+- Categories here: `fields` (a descriptor), `views`, `view_widgets`, control panel menus, `formatters`, `parsers`, `sample_server`, the frontend registries and those of this version only.
+- Navbar, actions, command palette, debug menu, errors and effects: [registries_webclient.md](registries_webclient.md).

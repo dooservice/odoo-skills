@@ -1,3 +1,11 @@
+Key names in $version:
+
+$essentials
+
+Sections of this file:
+
+$sections
+
 # Owl in $version
 
 $owl_intro

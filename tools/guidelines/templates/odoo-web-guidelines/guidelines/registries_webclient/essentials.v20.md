@@ -1,0 +1,7 @@
+- The registry API and the module prefix of every key: [registries.md](registries.md).
+- User menu items, command providers and effects take no `env`: they run in a scope and call `useService`.
+- `systray`, `user_menuitems` (`() => entry`), `main_components`.
+- `actions` (a component, or a function `(env, action, options) => ...`), `action_handlers`, `ir.actions.report handlers`.
+- `command_provider` (`provide(options)`), `command_categories`, `command_setup`.
+- `debug` with its subcategories, `debug_section`, `error_handlers`, `error_dialogs`, `error_notifications`.
+- `effects` (`(params)`), `dialogs`, `lazy_components`.

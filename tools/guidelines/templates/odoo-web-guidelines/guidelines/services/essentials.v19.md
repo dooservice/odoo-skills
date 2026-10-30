@@ -1,0 +1,5 @@
+- Services are entries of `registry.category("services")`: `dependencies`, `start(env, deps)`, `async`; reached with `useService`.
+- `orm` methods include `formattedReadGroup`, `webRead`, `webSearchRead` with a `specification`; `readGroup` no longer exists.
+- Routes: `rpc` is a function of `@web/core/network/rpc`, `type='jsonrpc'`; no `rpc` service.
+- `user` from `@web/core/user` also holds the companies (`user.activeCompany`); no `company` service. `router` from `@web/core/browser/router`.
+- `doAction` options `stackPosition` and `newWindow`.

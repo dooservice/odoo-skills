@@ -1,3 +1,11 @@
+Key names in $version:
+
+$essentials
+
+Sections of this file:
+
+$sections
+
 $upstream
 
 # Declare static files in the manifest `assets`

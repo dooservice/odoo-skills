@@ -1,0 +1,5 @@
+- ES modules in `point_of_sale._assets_pos`; the `pos` service, a `PosStore`, through `usePos()`; data through `PosDataPlugin`.
+- Records: `PosOrder`, `PosOrderline`, `registry.category("pos_available_models")`.
+- Loading: `pos.load.mixin`, `_load_pos_data_fields(config)`, `_load_pos_data_domain(data)`, `_load_pos_data_dependencies()`.
+- Screens: `registry.category("pos_pages")`, `this.pos.navigate`; buttons in `ControlButtons`.
+- Tours: `self.start_pos_tour`, `TestPointOfSaleHttpCommon`.

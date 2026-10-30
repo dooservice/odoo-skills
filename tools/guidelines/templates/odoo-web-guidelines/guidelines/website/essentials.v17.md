@@ -1,0 +1,5 @@
+- Public widgets: `publicWidget.Widget.extend({...})` in `publicWidget.registry`, with `selector`, `events`, `start`, `destroy` and `this._super`.
+- Server calls: `this.bindService("rpc")` in a public widget.
+- `<owl-component>` mounted from `registry.category("public_components")`.
+- Portal: `CustomerPortal`, `portal.portal_docs_entry`, `_prepare_home_portal_values(counters)`.
+- Snippets: `website.snippets`, options in `website.snippet_options` with `we-*` controls.

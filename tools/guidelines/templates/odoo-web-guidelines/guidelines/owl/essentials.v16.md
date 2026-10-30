@@ -1,0 +1,6 @@
+- Owl 2 from `@odoo/owl`; hooks in `setup()`; services in `this.env.services`.
+- Props: `static props` with types, `static defaultProps`.
+- State: `useState`, shared `reactive`, `markRaw`.
+- Templates: `owl="1"` on the `t-name` node; expressions read the component directly (`props.title`); `t-esc` or `t-out`, no `t-raw`.
+- Effects and DOM: `useEffect` with a dependency list, `useRef` with `t-ref`, `useExternalListener`.
+- Context: `useSubEnv`, `useChildSubEnv`.

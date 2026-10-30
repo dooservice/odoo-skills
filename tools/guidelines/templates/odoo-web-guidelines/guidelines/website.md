@@ -1,3 +1,11 @@
+Key names in $version:
+
+$essentials
+
+Sections of this file:
+
+$sections
+
 # Frontend code in $version
 
 Public pages (website, portal, login, shop) are server-rendered QWeb; JavaScript only

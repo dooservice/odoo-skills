@@ -12,4 +12,4 @@ The frontend (website, portal, login) has its own registries, loaded by
   `name` attribute and the props are the JSON of `props`; an interaction mounts them.
   Use it to put an Owl component in a QWeb page.
 - `category("error_notifications")` turns server errors into notifications for visitors
-  (see Error handling).
+  (see Error handling in [registries_webclient.md](registries_webclient.md)).

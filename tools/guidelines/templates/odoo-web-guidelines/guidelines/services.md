@@ -1,3 +1,11 @@
+Key names in $version:
+
+$essentials
+
+Sections of this file:
+
+$sections
+
 # Services in $version
 
 $services_intro

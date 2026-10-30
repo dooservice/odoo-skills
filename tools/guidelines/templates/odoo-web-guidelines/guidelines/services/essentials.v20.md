@@ -1,0 +1,6 @@
+- Plugins: a class extending `Plugin`, `services.add`, reached with `usePlugin`; `ORM`, `ActionPlugin`, `NotificationPlugin`, `DialogPlugin`.
+- `useService` only for a service not converted yet.
+- `orm` methods include `formattedReadGroup`, `webRead`, `webSearchRead` with a `specification`.
+- Routes: `rpc` is a function of `@web/core/network/rpc`, `type='jsonrpc'`; no `rpc` service.
+- `user` from `@web/core/user` (companies too), `router` from `@web/core/browser/router`.
+- `env.debug` and `env.isSmall` throw: `usePlugin(DebugModePlugin)`, `useService("ui").isSmall`.

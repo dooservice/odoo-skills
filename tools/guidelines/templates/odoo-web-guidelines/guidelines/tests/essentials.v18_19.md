@@ -1,0 +1,5 @@
+- hoot: `describe`, `test`, `expect`, `*.test.js` in `web.assets_unit_tests`; never a new QUnit test.
+- Mock server: `models.Model`, `defineModels`, `mountView`, `mountWithCleanup`, `onRpc`.
+- Helpers: `@odoo/hoot-dom` (`click`, `edit`, `press`), `animationFrame`, `patchWithCleanup`.
+- Tours: `registry.category("web_tour.tours")`, `steps` as a function, a hoot `trigger`, a step without `run` only waits, `isActive`.
+- Python: `HttpCase`, `start_tour`.

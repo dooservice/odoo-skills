@@ -1,3 +1,11 @@
+Key names in $version:
+
+$essentials
+
+Sections of this file:
+
+$sections
+
 # Views on the client side in $version
 
 A view is an arch from the server turned into components: an `ArchParser` reads the

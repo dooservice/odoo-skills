@@ -1,0 +1,5 @@
+- QUnit: `QUnit.module`, `QUnit.test`, files in `web.qunit_suite_tests`.
+- Mock server: `serverData`, `makeView`, `setupViewRegistries`, `mockRPC`.
+- Helpers: `click`, `editInput`, `triggerEvent`, `nextTick`, `patchWithCleanup`.
+- Tours: `tour.register` of `web_tour.tour`, steps as a plain array, `test: true`, jQuery `trigger`, `extra_trigger`.
+- Python: `HttpCase`, `start_tour`.

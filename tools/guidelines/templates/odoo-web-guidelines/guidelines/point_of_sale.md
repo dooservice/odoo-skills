@@ -1,3 +1,11 @@
+Key names in $version:
+
+$essentials
+
+Sections of this file:
+
+$sections
+
 # The Point of Sale in $version
 
 The Point of Sale is a separate web application (`/pos/ui`), not a view of the backend

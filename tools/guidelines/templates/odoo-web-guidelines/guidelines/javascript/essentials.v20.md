@@ -1,0 +1,7 @@
+- Owl 3: `useProps`, `proxy`, `signal`, `computed`; shared logic in a `Plugin` reached with `usePlugin`, registered with `services.add`.
+- Header: none needed; `/** @odoo-module ignore **/` keeps a file out of the transpiler.
+- Patch: `patch(target, extension)` with `super`; it returns the function that removes it.
+- Translation: `_t` anywhere, `_t("Lent to %(name)s", { name })`; `_lt` no longer exists.
+- Server calls: `rpc` from `@web/core/network/rpc`, `usePlugin(ORM)` for model methods.
+- Raw HTML: `htmlEscape`, `htmlJoin`/`htmlSprintf` and `setElementContent`, or `t-out`.
+- Tests: hoot, `*.test.js` in `web.assets_unit_tests`.

@@ -1,0 +1,5 @@
+- Public widgets: `publicWidget.Widget.extend({...})` in `publicWidget.registry`, with `selector`, `events`, `start`, `destroy` and `this._super`.
+- Server calls: `this._rpc` to a route `type='json'`, `auth='public'`.
+- No `<owl-component>` registry in this version.
+- Portal: `CustomerPortal`, `portal.portal_docs_entry`, `_prepare_home_portal_values(counters)`.
+- Snippets: `website.snippets`, options in `website.snippet_options` with `we-*` controls.

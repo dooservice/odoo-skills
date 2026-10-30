@@ -1,0 +1,5 @@
+- `registry.category("fields")` takes the component class, with statics `supportedTypes`, `displayName` and `static extractProps({ attrs, field })`.
+- A field widget writes with `props.update(value)`; `standardFieldProps`, `standardWidgetProps`.
+- Lookup keys: `<js_class>.<widget>`, `<view type>.<widget>`, `<widget>`.
+- `js_class` on the arch root, a view descriptor of `registry.category("views")`; the list arch tag is `tree`, and an unknown `js_class` is ignored.
+- `<widget name="my_module_banner"/>` through `registry.category("view_widgets")`.

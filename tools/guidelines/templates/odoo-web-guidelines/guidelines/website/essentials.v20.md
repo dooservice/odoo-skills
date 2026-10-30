@@ -1,0 +1,6 @@
+- Interactions: `Interaction` subclasses in `registry.category("public.interactions")`: `static selector`, `dynamicContent`, `willStart`, `destroy`; `publicWidget` no longer exists.
+- Cleanup helpers: `addListener`, `insert`, `mountComponent`, `waitFor`, `registerCleanup`.
+- Server calls: `rpc` from `@web/core/network/rpc`.
+- `<owl-component>` mounted from `registry.category("public_components")`.
+- Portal: `CustomerPortal`, `portal.entry` records, `_prepare_portal_counter_values(counter)`.
+- Snippets: `website.snippets`, options in `website.BuilderOptions`; `website-plugins`, `public.interactions.edit`.

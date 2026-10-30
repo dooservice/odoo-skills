@@ -1,0 +1,6 @@
+- Header: `/** @odoo-module **/` on every file of `static/src` and `static/tests`.
+- Patch: `patch(target, name, extension)` with `this._super(...arguments)`; `unpatch(target, name)`.
+- Translation: `_t` at call time only, `_lt` at module level, values through `sprintf`.
+- Owl 2 with static `props`; server calls through `useService("rpc")` and `useService("orm")`.
+- Raw HTML: `escape` from `@web/core/utils/strings`, or `t-out`.
+- Tests: QUnit in `web.qunit_suite_tests`.

@@ -1,0 +1,5 @@
+- Services are entries of `registry.category("services")`: `dependencies`, `start(env, deps)`, `async`; reached with `useService`.
+- `orm` methods include `webRead`, `webSearchRead` with a `specification`, `webSave`.
+- Routes: `rpc` is a function of `@web/core/network/rpc`, with `RPCError` and `ConnectionLostError`; no `rpc` service.
+- `user` from `@web/core/user` and `router` from `@web/core/browser/router`, not services; `useService("company")` remains.
+- `doAction` option `stackPosition`; notification `autocloseDelay`.

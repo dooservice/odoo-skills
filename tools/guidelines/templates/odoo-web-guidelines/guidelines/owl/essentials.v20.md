@@ -1,0 +1,6 @@
+- Owl 3 from `@odoo/owl`; `@web/owl2/utils` only for code not ported yet.
+- Props: `useProps` in a field initializer with `t` types; `static props` and `static defaultProps` throw.
+- State: `proxy`, `signal`, `computed`, `markRaw`, `untrack`; no `useState` or `reactive`.
+- Templates: expressions go through `this` (`this.props.title`); `t-out`, `t-esc` is deprecated.
+- Effects and DOM: `useEffect` with no dependency list, `signal.ref()` with `t-ref`, `useListener`.
+- Context: a plugin through `providePlugins` and `usePlugin`; no sub-environment.

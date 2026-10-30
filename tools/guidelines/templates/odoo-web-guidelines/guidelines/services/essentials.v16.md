@@ -1,0 +1,5 @@
+- Services are entries of `registry.category("services")`: `dependencies`, `start(env, deps)`, `async`; reached with `useService`.
+- `orm` methods include `readGroup`, `nameGet`, `webSearchRead`.
+- Routes: `useService("rpc")`, errors `RPCError` and `ConnectionLostError` of `@web/core/network/rpc_service`.
+- `useService("user")`, `useService("company")`, `useService("router")` (URL hash).
+- `env.services`, `env.bus`, `env.debug`, `env.isSmall`, `env._t`.

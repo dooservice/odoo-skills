@@ -1,0 +1,3 @@
+- Bundles: `web.assets_backend` (loaded through `web.assets_web`), `web.assets_backend_lazy`, `web.assets_frontend`, `point_of_sale._assets_pos`, `web.assets_unit_tests`, `web.assets_tests`.
+- Directives: `prepend`, `before`, `after`, `replace`, `remove`, `include`.
+- Lazy code: `loadBundle("my_module.assets_heavy")`, `LazyComponent`.

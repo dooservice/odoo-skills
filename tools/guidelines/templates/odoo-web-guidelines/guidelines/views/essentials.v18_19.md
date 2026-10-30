@@ -1,0 +1,5 @@
+- `registry.category("fields")` takes a descriptor (`component`, `supportedTypes`, `extractProps`).
+- `extractProps(fieldInfo, dynamicInfo)`; a field widget writes with `props.record.update`; `standardFieldProps`, `standardWidgetProps`.
+- Lookup keys: `<js_class>.<widget>`, `<view type>.<widget>`, `<widget>`.
+- `js_class` on the arch root, a view descriptor of `registry.category("views")`; the list arch tag is `list`, and an unknown `js_class` throws after `web.assets_backend_lazy`.
+- `<widget name="my_module_banner"/>` through `registry.category("view_widgets")`.
