@@ -1,5 +1,56 @@
 # Changelog
 
+## [2.0.0] - 2026-10-30
+
+The skills now reach the agent in layers, so it reads only what its task needs. With
+Claude Haiku 5.5 the mean score goes from 95.6% to 98.3% across 16.0 to 20.0, and the
+context the skills add to a task drops by 26% (34% on 20.0, 32% on 19.0). Nothing was
+removed: every rule, step and version note is still there, one layer lower. File paths
+inside the skills changed, hence the major version.
+
+### Changed
+- Four layers, each read only when needed: the description (always visible) names who
+  should read the skill and the names that change most in its version; the `SKILL.md`
+  body is a short map from task to file; each guideline file and recipe opens with the
+  key names of that version and the list of its sections; detail and the reference data
+  come last and are searched, not read whole.
+- `odoo-guidelines`: the body is an 18-row task map (about 5,000 tokens down to 690).
+  Computed fields and the advanced ORM (access checks in code, raw SQL, caches, locks)
+  move to `computed_fields.md` and `orm_advanced.md`; `version.md` is grouped by topic.
+- `odoo-web-guidelines`: the body is an 11-row task map (about 2,650 tokens down to 470);
+  the web client registries (systray, user menu, client actions, command palette) move
+  to `registries_webclient.md`. The services row names "shared state or logic any
+  component uses", which agents did not recognise as a service.
+- `odoo-functional`: the body is an index of the 70 recipes by business area and is
+  enough to work: it carries the method, the shell essentials and the change note, so
+  agents stop opening `method.md` (now the full text, for when a step is unclear). Every
+  recipe opens with an "At a glance" block: its apps, the names that change by version
+  and its sections. Attendance variations (presence control, remote work) move to
+  `recipes/attendance-variations.md`.
+- `odoo-reference`: the body says which file holds what and how to grep a name. The
+  description gives exact values, not only names: `detailed_type='product'` for a
+  storable product in 16.0 and 17.0, `discount_policy='without_discount'` to show a
+  discount on the line, no `'balance'` payment term line from 17.0, `price_include` or
+  `price_include_override` by version, and what makes a partner a company in 20.0.
+- `odoo-guidelines` descriptions name grouped counts with
+  `_read_group(domain, groupby, ['__count'])` from 17.0.
+
+### Fixed
+- 20.0 data files name `ir.access.csv`; the 16.0 web patch example uses
+  `this._super(...arguments)`.
+- `odoo-functional`: the lock dates check used an undefined variable; work entries give
+  one code block per version; the debit note sequence module exists only in 17.0.
+- `evals/`: the 16.0 conditional visibility graders accept `<attribute name="attrs">`, the
+  correct form in an inherited view; the access rights tasks of 19.0 and 20.0 ask for
+  `ir.model.access.csv` and `ir.access.csv`, the names Odoo imports (the CSV name gives
+  the model).
+
+### Added
+- `tools/check_budgets.py`: every layer of every skill stays within its size budget (CI
+  runs it); `--duplicates` reports repeated sentences.
+- `evals/history/`: the 1.1.1 rerun and the 2.0.0 runs with exact tokens per task.
+- Case study: the 2.0.0 chapter, with what the agents read and what saved context.
+
 ## [1.1.1] - 2026-10-30
 
 Small models now get the version right: Claude Haiku 5.5 goes from 71% to 100% on Odoo
