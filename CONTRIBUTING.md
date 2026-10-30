@@ -81,9 +81,15 @@ Two rules decide what a recipe says:
   (`odoo.com/documentation/<version>/applications/...`) and the menus of that version,
   read from a running Odoo (`env.ref('<menu xml id>').complete_name`). A recipe never
   invents a shortcut Odoo does not offer.
-- **Every snippet runs.** It is run on a database of each version it claims, and its
-  effect is read back. A step that differs between versions says so where it happens and
-  in `## Versions`.
+- **Every name is checked in the code.** Each model, field, selection value, method,
+  setting and menu a snippet uses is checked in the source of each version it claims
+  (`.odoo/src/<version>`), and running it on a database of that version is better still.
+  Write one code block per range of versions, newest first; never put another version's
+  name in a comment inside code. A step that differs between versions says so where it
+  happens and in `## Versions`.
+- **Map it.** List the modules whose flow the recipe describes in
+  `tools/coverage/recipes.toml`, and run `python3 tools/build_coverage.py`: nothing may
+  be missing.
 
 ## Pull requests
 

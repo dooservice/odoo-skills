@@ -13,8 +13,8 @@ does each task.
 
 | For | Skills | What they cover |
 |---|---|---|
-| **Developers** | `odoo-guidelines`, `odoo-web-guidelines`, `odoo-security`, `odoo-review`, `odoo-git`, `odoo-upgrade` | modules, ORM, views, controllers, JavaScript and Owl, security audits, code review, commits, porting between versions |
-| **Functional consultants** | `odoo-functional` | configuring Odoo without code, in 26 recipes that follow Odoo's own flow step by step: from go-live, sales, purchase, inventory, manufacturing, point of sale and eCommerce to taxes, bank reconciliation, closing the period, users, automations and "why does Odoo do X" |
+| **Developers** | `odoo-guidelines`, `odoo-web-guidelines`, `odoo-security`, `odoo-review`, `odoo-git`, `odoo-upgrade` | every framework feature of each version: models and inheritance, every field type, `api` decorator and public ORM method, every view and action type, menus and scheduled actions, routes and the external API, mail, multi-company, access rights, reports, data files, migrations, translations, tests and `odoo-bin`; in the web client Owl, every registry, services, field widgets and views, website and portal, the Point of Sale and JavaScript tests; plus security audits, code review, commits and porting between versions |
+| **Functional consultants** | `odoo-functional` | configuring Odoo without code, in 70 recipes that follow Odoo's own flow step by step and together cover every Community app and module of each version: accounting, sales and CRM, purchase, inventory, manufacturing, repairs and maintenance, Point of Sale, website and eCommerce, marketing and events, projects, HR, fleet, settings and security, and "why does Odoo do X" |
 | **Everyone** | `odoo-reference` | every model, field, Settings switch and XML id of each version, generated from its source |
 
 Only Odoo's standard flows, the same in every country. Localizations (`l10n_*`: a
@@ -23,9 +23,15 @@ each needs accountants of that country to keep it right as its law changes.
 
 ## How it is checked
 
-- **Every recipe ran on a real database of each version.** Each step of `odoo-functional`
-  was executed on Odoo 16.0, 17.0, 18.0, 19.0 and 20.0, and its effect read back; the
-  steps follow Odoo's documentation of that version and the menus of that version.
+- **Every recipe follows Odoo's own flow and its code.** The steps follow Odoo's
+  documentation and menus of each version, and every model, field, value, method, setting
+  and menu they name is checked in that version's source. The first 26 recipes were also
+  run on a real database of each version.
+- **Nothing is left out by accident.** `tools/build_coverage.py` reads every Community
+  module and every framework feature (field types, `api` decorators, view and action
+  types, route types and `auth` values, public ORM methods, web client registries, test
+  tools) from the source of each version, and checks that a recipe or a guideline covers
+  it; [`COVERAGE.md`](COVERAGE.md) is its report. Today nothing is missing in any version.
 - **The reference matches a running Odoo.** Every model, field, XML id and Settings field
   it lists was compared with Odoo's own registry, in each version: no mismatch.
 - **Every version difference is checked in that branch's source**, with the file and line.
@@ -44,13 +50,18 @@ checks that it uses what that Odoo version has and nothing it does not:
 | Odoo | Tasks | With the skills | Without | Difference |
 |---|---|---|---|---|
 | 20.0 | 19 | **88.6%** | 69.2% | **+19.4 points** |
+| 19.0 | 22 | **97.0%** | 92.4% | +4.6 points |
+| 18.0 | 20 | **98.9%** | 95.6% | +3.3 points |
+| 17.0 | 21 | **99.6%** | 94.7% | +4.9 points |
 | 16.0 | 20 | **97.8%** | 96.3% | +1.5 points |
 
-Models already know an older version like 16.0 well; the skills matter most on the newer
-ones, where field names, security files, stock and accounting changed. On 20.0, scrapping
-stock, time off types and fiscal positions went from 33% to 100%, and pricelists from 25%
-to 83%. The cases, the graders and how to run them are in [`evals/`](evals/README.md);
-tasks still below 98% are the next work.
+Measured with the 1.0.0 skills (16.0 and 20.0) and the same skills on the new 17.0 to 19.0
+suites; 1.1.0 fixes every failure these runs found, and its own measurement, with Sonnet
+and with a smaller model (Haiku), comes next. Models already know an older version well;
+the skills matter most on the newer ones, where field names, security files, stock and
+accounting changed. On 20.0, scrapping stock, time off types and fiscal positions went
+from 33% to 100%, and pricelists from 25% to 83%. The cases, the graders and how to run
+them are in [`evals/`](evals/README.md).
 
 ## What changes between versions
 
@@ -125,6 +136,9 @@ tools/               the generators, not part of any skill:
                        code, one class per file it writes, and guidelines/templates/ the text
   build_reference.py   builds odoo-reference from .odoo/src/<version>; reference/ is its code
   build_catalog.py     writes the marketplace; catalog/ is its code
+  build_coverage.py    measures what the skills cover against each version's source, into
+                       COVERAGE.md; coverage/ is its code, recipes.toml and technical.toml its data
+  upstream.py          lists Odoo's commits to its own skills since the one ours follow
 ```
 
 The `odoo/<version>/` skills are generated; change `tools/`, not the files. The text of
