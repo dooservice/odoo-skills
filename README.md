@@ -43,25 +43,38 @@ version-specific statement checked against that branch's source.
 
 ## Results
 
-The same tasks, given to Claude Sonnet 5.5 with and without the skills, three runs each.
-Each task asks for a file (a view, a model, a controller, an `odoo-bin shell` script) and
-checks that it uses what that Odoo version has and nothing it does not:
+The same tasks, run three times each with and without the skills. Each task asks for a
+file (a view, a model, a controller, an `odoo-bin shell` script) and checks that it uses
+what that Odoo version has and nothing it does not. Measured on the 1.1.0 skills, on
+2026-10-30.
 
-| Odoo | Tasks | With the skills | Without | Difference |
-|---|---|---|---|---|
-| 20.0 | 19 | **88.6%** | 69.2% | **+19.4 points** |
-| 19.0 | 22 | **97.0%** | 92.4% | +4.6 points |
-| 18.0 | 20 | **98.9%** | 95.6% | +3.3 points |
-| 17.0 | 21 | **99.6%** | 94.7% | +4.9 points |
-| 16.0 | 20 | **97.8%** | 96.3% | +1.5 points |
+**Claude Sonnet 5.5**
 
-Measured with the 1.0.0 skills (16.0 and 20.0) and the same skills on the new 17.0 to 19.0
-suites; 1.1.0 fixes every failure these runs found, and its own measurement, with Sonnet
-and with a smaller model (Haiku), comes next. Models already know an older version well;
-the skills matter most on the newer ones, where field names, security files, stock and
-accounting changed. On 20.0, scrapping stock, time off types and fiscal positions went
-from 33% to 100%, and pricelists from 25% to 83%. The cases, the graders and how to run
-them are in [`evals/`](evals/README.md).
+| Odoo | Tasks | With the skills | Without | Difference | Cost |
+|---|---|---|---|---|---|
+| 20.0 | 19 | **96.5%** | 69.2% | **+27.3 points** | 4.20 USD |
+| 19.0 | 22 | **100%** | 94.4% | +5.6 points | 4.74 USD |
+| 18.0 | 20 | **100%** | 96.1% | +3.9 points | 4.11 USD |
+| 17.0 | 21 | **100%** | 94.0% | +6.0 points | 4.45 USD |
+| 16.0 | 20 | **97.2%** | 96.1% | +1.1 points | 4.25 USD |
+
+**Claude Haiku 5.5**, a smaller and cheaper model
+
+| Odoo | Tasks | With the skills | Without | Difference | Cost |
+|---|---|---|---|---|---|
+| 20.0 | 19 | **71.1%** | 57.5% | **+13.6 points** | 0.28 USD |
+| 19.0 | 22 | **84.3%** | 78.3% | +6.1 points | 0.32 USD |
+| 18.0 | 20 | 85.0% | 85.6% | -0.6 points | 0.27 USD |
+| 17.0 | 21 | **86.5%** | 80.0% | +6.5 points | 0.27 USD |
+| 16.0 | 20 | **89.4%** | 85.0% | +4.4 points | 0.26 USD |
+
+The cost is what each suite cost through the API, both sides included: 23.15 USD for the
+ten. Sonnet already knows the older versions well, and the skills take it to 100% on 17.0
+to 19.0. They matter most on 20.0, the version models know least: +27.3 points with
+Sonnet, from 88.6% with the 1.0.0 skills to 96.5% now. Haiku knows less, and gains on four
+versions out of five, but stays far from Sonnet: making the skills easier to use for small
+models is the next work. The cases, the graders and how to run them are in
+[`evals/`](evals/README.md).
 
 ## What changes between versions
 
