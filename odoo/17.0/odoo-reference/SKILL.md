@@ -1,9 +1,8 @@
 ---
 name: odoo-reference
 description: >-
-  Read before any `odoo-bin shell` script or ORM call for Odoo 17.0, even
-  if you know Odoo: names and values change between versions. Every
-  model, field, Settings switch and XML id of 17.0 Community. In
+  Every model, field, Settings switch and XML id of Odoo 17.0 Community.
+  Look names up here instead of guessing: they change between versions. In
   17.0: sale lines `tax_id`; storable product `detailed_type='product'` (`type` follows it); taxes `price_include=True`; payment term lines `value` `'percent'` or `'fixed'` (no `'balance'`) with `nb_days` and `delay_type`; UoM `category_id`; fiscal position lines `account.fiscal.position.tax` (`tax_src_id`, `tax_dest_id`); pricelist `'percentage'`, `discount_policy='without_discount'` shows the discount on the line; time off `hr.leave.type`, `requires_allocation` `'yes'`/`'no'`; expenses in `hr.expense.sheet`; reconciliation models `rule_type`; bank journal `bank_acc_number`; users `groups_id`; automation actions in `action_server_ids`; scrap `stock.scrap`; chart of accounts `try_loading('generic_coa', company)`. For business flows and configuration, load odoo-functional
   first and use this skill for names.
 ---
