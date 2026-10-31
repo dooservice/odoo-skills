@@ -9,7 +9,7 @@ If a skill tells an agent to do something unsafe (skip access checks, build SQL 
 input, disable CSRF, trust `sudo()`), report it privately through GitHub:
 [**Report a vulnerability**](https://github.com/dooservice/odoo-skills/security/advisories/new),
 in the *Security* tab of this repository, or by email to
-[soporte@apiservicesac.com](mailto:soporte@apiservicesac.com) with «Security» in the subject. Say
+[security@dooservice.sh](mailto:security@dooservice.sh) with «Security» in the subject. Say
 which skill and version, the instruction, and why it is unsafe.
 
 We answer within **3 working days**, fix it in every version it affects, and publish an

@@ -108,7 +108,7 @@ the right to submit it under this project's license, as the
 ## Code of conduct
 
 Everyone taking part follows the [Code of Conduct](CODE_OF_CONDUCT.md). Report unacceptable
-behaviour to [soporte@apiservicesac.com](mailto:soporte@apiservicesac.com).
+behaviour to [support@dooservice.sh](mailto:support@dooservice.sh).
 
 ## License
 
